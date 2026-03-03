@@ -5,6 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>财务分析 - 千站液冷超充项目</title>
+    <style>
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--paper-beige);
+            margin: 20px 0;
+        }
+        .financial-table thead {
+            border-bottom: 2px solid var(--primary-gold);
+        }
+        .financial-table th {
+            padding: 15px;
+            text-align: left;
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+        .financial-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .financial-table tbody tr:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+        .financial-table .number {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+        }
+        .financial-table .highlight {
+            color: var(--primary-gold);
+            font-size: 1.1em;
+        }
+        .chart-placeholder {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 2px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .chart-placeholder-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
     <nav class="top-nav">
@@ -21,57 +66,439 @@
             <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">Financial Analysis</p>
         </div>
 
+        <!-- 投资概览 -->
         <section class="fade-in">
-            <h2>投资概览</h2>
-            <div class="grid grid-4">
-                <div class="metric-card">
-                    <div class="metric-value">200-500万</div>
-                    <div class="metric-label">单站投资（万元）</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">5-8年</div>
-                    <div class="metric-label">投资回收期</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">15-25%</div>
-                    <div class="metric-label">内部收益率（IRR）</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">15年+</div>
-                    <div class="metric-label">运营周期</div>
+            <h2>投资规模与结构</h2>
+            <div class="card" style="margin-bottom: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">💰 总投资概览</h3>
+                <div class="grid grid-4">
+                    <div class="metric-card">
+                        <div class="metric-value">28亿元</div>
+                        <div class="metric-label">总投资额</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">280万元</div>
+                        <div class="metric-label">单站投资</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">1000座</div>
+                        <div class="metric-label">建设规模</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">5年</div>
+                        <div class="metric-label">建设周期</div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section class="fade-in">
-            <h2>收入构成</h2>
             <div class="card">
-                <h3>主要收入来源</h3>
-                <ul style="list-style: none; padding: 0; margin-top: 20px;">
-                    <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        ⚡ <strong>充电服务费：</strong>核心收入来源，按度数收取
-                    </li>
-                    <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        🅿️ <strong>停车费：</strong>部分站点收取停车费用
-                    </li>
-                    <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        📱 <strong>增值服务：</strong>广告、数据服务等
-                    </li>
-                    <li style="padding: 15px 0;">
-                        🔋 <strong>储能套利：</strong>峰谷电价差收益
-                    </li>
-                </ul>
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">📊 投资构成明细</h3>
+                <table class="financial-table">
+                    <thead>
+                        <tr>
+                            <th>投资类别</th>
+                            <th class="number">金额（亿元）</th>
+                            <th class="number">占比</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>设备投资</strong></td>
+                            <td class="number highlight">168</td>
+                            <td class="number">60%</td>
+                        </tr>
+                        <tr style="color: var(--paper-beige); opacity: 0.8;">
+                            <td style="padding-left: 30px;">• 充电桩设备</td>
+                            <td class="number">126</td>
+                            <td class="number">45%</td>
+                        </tr>
+                        <tr style="color: var(--paper-beige); opacity: 0.8;">
+                            <td style="padding-left: 30px;">• 电力设备</td>
+                            <td class="number">28</td>
+                            <td class="number">10%</td>
+                        </tr>
+                        <tr style="color: var(--paper-beige); opacity: 0.8;">
+                            <td style="padding-left: 30px;">• 辅助设备</td>
+                            <td class="number">14</td>
+                            <td class="number">5%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>土建工程</strong></td>
+                            <td class="number highlight">56</td>
+                            <td class="number">20%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>运营资金</strong></td>
+                            <td class="number highlight">42</td>
+                            <td class="number">15%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>其他费用</strong></td>
+                            <td class="number highlight">14</td>
+                            <td class="number">5%</td>
+                        </tr>
+                        <tr style="border-top: 2px solid var(--primary-gold);">
+                            <td><strong>合计</strong></td>
+                            <td class="number highlight" style="font-size: 1.3em;">28</td>
+                            <td class="number">100%</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
+        <!-- 收入预测 -->
+        <section class="fade-in">
+            <h2>收入预测模型</h2>
+            
+            <div class="card" style="margin-bottom: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">📈 单站年收入预测（万元）</h3>
+                <table class="financial-table">
+                    <thead>
+                        <tr>
+                            <th>年份</th>
+                            <th class="number">充电收入</th>
+                            <th class="number">增值服务</th>
+                            <th class="number">政府补贴</th>
+                            <th class="number">总收入</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>第1年</td>
+                            <td class="number">336</td>
+                            <td class="number">42</td>
+                            <td class="number">84</td>
+                            <td class="number highlight">462</td>
+                        </tr>
+                        <tr>
+                            <td>第2年</td>
+                            <td class="number">504</td>
+                            <td class="number">63</td>
+                            <td class="number">42</td>
+                            <td class="number highlight">609</td>
+                        </tr>
+                        <tr>
+                            <td>第3年</td>
+                            <td class="number">672</td>
+                            <td class="number">84</td>
+                            <td class="number">21</td>
+                            <td class="number highlight">777</td>
+                        </tr>
+                        <tr>
+                            <td>第4年</td>
+                            <td class="number">840</td>
+                            <td class="number">105</td>
+                            <td class="number">0</td>
+                            <td class="number highlight">945</td>
+                        </tr>
+                        <tr>
+                            <td>第5年</td>
+                            <td class="number">1008</td>
+                            <td class="number">126</td>
+                            <td class="number">0</td>
+                            <td class="number highlight">1134</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">📊 1000站年总收入预测</h3>
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>年份</th>
+                                <th class="number">年总收入（亿元）</th>
+                                <th class="number">累计收入（亿元）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>第1年</td>
+                                <td class="number">46.2</td>
+                                <td class="number highlight">46.2</td>
+                            </tr>
+                            <tr>
+                                <td>第2年</td>
+                                <td class="number">60.9</td>
+                                <td class="number highlight">107.1</td>
+                            </tr>
+                            <tr>
+                                <td>第3年</td>
+                                <td class="number">77.7</td>
+                                <td class="number highlight">184.8</td>
+                            </tr>
+                            <tr>
+                                <td>第4年</td>
+                                <td class="number">94.5</td>
+                                <td class="number highlight">279.3</td>
+                            </tr>
+                            <tr>
+                                <td>第5年</td>
+                                <td class="number">113.4</td>
+                                <td class="number highlight">392.7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">📉 运营成本构成</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            ⚡ <strong>电费成本：</strong><span style="color: var(--primary-gold); font-size: 1.2em;">40%</span> 占收入比
+                        </li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            👥 <strong>人工成本：</strong><span style="color: var(--primary-gold); font-size: 1.2em;">15%</span> 占收入比
+                        </li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            🏢 <strong>场地租金：</strong><span style="color: var(--primary-gold); font-size: 1.2em;">10%</span> 占收入比
+                        </li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            🔧 <strong>设备维护：</strong><span style="color: var(--primary-gold); font-size: 1.2em;">8%</span> 占收入比
+                        </li>
+                        <li style="padding: 15px 0;">
+                            📦 <strong>其他费用：</strong><span style="color: var(--primary-gold); font-size: 1.2em;">7%</span> 占收入比
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 盈利能力 -->
+        <section class="fade-in">
+            <h2>盈利能力分析</h2>
+            <div class="card">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">💹 利润预测（单站/年）</h3>
+                <table class="financial-table">
+                    <thead>
+                        <tr>
+                            <th>年份</th>
+                            <th class="number">收入</th>
+                            <th class="number">成本</th>
+                            <th class="number">利润</th>
+                            <th class="number">利润率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>第1年</td>
+                            <td class="number">462万</td>
+                            <td class="number">271万</td>
+                            <td class="number highlight">191万</td>
+                            <td class="number">41.3%</td>
+                        </tr>
+                        <tr>
+                            <td>第2年</td>
+                            <td class="number">609万</td>
+                            <td class="number">405万</td>
+                            <td class="number highlight">204万</td>
+                            <td class="number">33.5%</td>
+                        </tr>
+                        <tr>
+                            <td>第3年</td>
+                            <td class="number">777万</td>
+                            <td class="number">542万</td>
+                            <td class="number highlight">235万</td>
+                            <td class="number">30.2%</td>
+                        </tr>
+                        <tr>
+                            <td>第4年</td>
+                            <td class="number">945万</td>
+                            <td class="number">676万</td>
+                            <td class="number highlight">269万</td>
+                            <td class="number">28.5%</td>
+                        </tr>
+                        <tr>
+                            <td>第5年</td>
+                            <td class="number">1134万</td>
+                            <td class="number">813万</td>
+                            <td class="number highlight">321万</td>
+                            <td class="number">28.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">📊 1000站总利润预测</h3>
+                <div class="grid grid-4">
+                    <div class="metric-card">
+                        <div class="metric-value">19.1亿元</div>
+                        <div class="metric-label">第1年利润</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">63.0亿元</div>
+                        <div class="metric-label">前3年累计</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">89.9亿元</div>
+                        <div class="metric-label">前4年累计</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">122.0亿元</div>
+                        <div class="metric-label">5年累计利润</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 现金流分析 -->
+        <section class="fade-in">
+            <h2>现金流分析</h2>
+            <div class="card">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">💰 现金流预测（1000站）</h3>
+                <table class="financial-table">
+                    <thead>
+                        <tr>
+                            <th>年份</th>
+                            <th class="number">经营现金流（亿元）</th>
+                            <th class="number">投资现金流（亿元）</th>
+                            <th class="number">净现金流（亿元）</th>
+                            <th class="number">累计现金流（亿元）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>第0年</td>
+                            <td class="number">0</td>
+                            <td class="number">-28.0</td>
+                            <td class="number highlight" style="color: #ff6b6b;">-28.0</td>
+                            <td class="number" style="color: #ff6b6b;">-28.0</td>
+                        </tr>
+                        <tr>
+                            <td>第1年</td>
+                            <td class="number">19.1</td>
+                            <td class="number">-5.6</td>
+                            <td class="number highlight">13.5</td>
+                            <td class="number" style="color: #ff6b6b;">-14.5</td>
+                        </tr>
+                        <tr>
+                            <td>第2年</td>
+                            <td class="number">20.4</td>
+                            <td class="number">-5.6</td>
+                            <td class="number highlight">14.8</td>
+                            <td class="number" style="color: var(--primary-gold);">0.3</td>
+                        </tr>
+                        <tr>
+                            <td>第3年</td>
+                            <td class="number">23.5</td>
+                            <td class="number">-5.6</td>
+                            <td class="number highlight">17.9</td>
+                            <td class="number" style="color: var(--primary-gold);">18.2</td>
+                        </tr>
+                        <tr>
+                            <td>第4年</td>
+                            <td class="number">26.9</td>
+                            <td class="number">-5.6</td>
+                            <td class="number highlight">21.3</td>
+                            <td class="number" style="color: var(--primary-gold);">39.5</td>
+                        </tr>
+                        <tr>
+                            <td>第5年</td>
+                            <td class="number">32.1</td>
+                            <td class="number">-5.6</td>
+                            <td class="number highlight">26.5</td>
+                            <td class="number" style="color: var(--primary-gold);">66.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 关键财务指标 -->
+        <section class="fade-in">
+            <h2>关键财务指标</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">📊 投资回报指标</h3>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: var(--paper-beige);">投资回收期</div>
+                        <div style="font-size: 36px; color: var(--primary-gold); font-weight: bold; margin-top: 5px;">4.5年</div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: var(--paper-beige);">净现值 (NPV@12%)</div>
+                        <div style="font-size: 36px; color: var(--primary-gold); font-weight: bold; margin-top: 5px;">12.4亿元</div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: var(--paper-beige);">内部收益率 (IRR)</div>
+                        <div style="font-size: 36px; color: var(--primary-gold); font-weight: bold; margin-top: 5px;">42.8%</div>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 10px;">
+                        <div style="font-size: 14px; color: var(--paper-beige);">投资回报率 (ROI/10年)</div>
+                        <div style="font-size: 36px; color: var(--primary-gold); font-weight: bold; margin-top: 5px;">435%</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">🎯 盈利能力指标</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 20px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <div style="font-size: 16px; color: var(--paper-beige);">毛利率（第5年）</div>
+                            <div style="font-size: 28px; color: var(--primary-gold); font-weight: bold;">28.3%</div>
+                        </li>
+                        <li style="padding: 20px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <div style="font-size: 16px; color: var(--paper-beige);">净利率（第5年）</div>
+                            <div style="font-size: 28px; color: var(--primary-gold); font-weight: bold;">22.1%</div>
+                        </li>
+                        <li style="padding: 20px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <div style="font-size: 16px; color: var(--paper-beige);">资产收益率 (ROA)</div>
+                            <div style="font-size: 28px; color: var(--primary-gold); font-weight: bold;">15.2%</div>
+                        </li>
+                        <li style="padding: 20px 0;">
+                            <div style="font-size: 16px; color: var(--paper-beige);">净资产收益率 (ROE)</div>
+                            <div style="font-size: 28px; color: var(--primary-gold); font-weight: bold;">25.3%</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 敏感性分析 -->
+        <section class="fade-in">
+            <h2>敏感性分析</h2>
+            <div class="card">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">⚠️ 关键变量影响分析</h3>
+                <div class="grid grid-3">
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 15px;">充电量变动 ±20%</h4>
+                        <p style="color: var(--paper-beige); margin-bottom: 10px;"><strong>IRR范围：</strong></p>
+                        <div style="font-size: 24px; color: var(--primary-gold); font-weight: bold; margin-bottom: 15px;">35.6% - 50.2%</div>
+                        <p style="color: var(--paper-beige);"><strong>回收期：</strong>3.8年 - 5.2年</p>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 15px;">电价变动 ±20%</h4>
+                        <p style="color: var(--paper-beige); margin-bottom: 10px;"><strong>IRR范围：</strong></p>
+                        <div style="font-size: 24px; color: var(--primary-gold); font-weight: bold; margin-bottom: 15px;">38.1% - 47.5%</div>
+                        <p style="color: var(--paper-beige);"><strong>回收期：</strong>4.1年 - 5.0年</p>
+                    </div>
+                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 15px;">服务费变动 ±20%</h4>
+                        <p style="color: var(--paper-beige); margin-bottom: 10px;"><strong>IRR范围：</strong></p>
+                        <div style="font-size: 24px; color: var(--primary-gold); font-weight: bold; margin-bottom: 15px;">32.4% - 53.7%</div>
+                        <p style="color: var(--paper-beige);"><strong>回收期：</strong>3.5年 - 5.8年</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
         <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
             <h2>需要详细财务模型？</h2>
             <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">联系我们获取完整的财务分析报告和投资测算模型</p>
-            <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
+                <a href="商业计划书投资者版.html" class="btn btn-secondary">查看商业计划书</a>
+            </div>
         </section>
 
         <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
+            <p style="font-size: 14px; margin-top: 10px;">
+                千站液冷超充项目 - 财务分析
+            </p>
         </footer>
     </div>
 
