@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="../玄金水墨主题.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交互式计算器 - 千站液冷超充项目</title>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html">← 返回导航中心</a>
+            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="hero-banner fade-in">
+            <div class="segment-icon" style="margin: 0 auto 30px;">🧮</div>
+            <h1 style="font-size: 48px; margin-bottom: 20px;">交互式计算器</h1>
+            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">Interactive Calculator</p>
+        </div>
+
+        <section class="card fade-in">
+            <h2>投资回报计算器</h2>
+            <p style="color: var(--paper-beige); margin: 20px 0;">输入项目参数，快速计算投资回报指标</p>
+            
+            <div style="background: rgba(212, 175, 55, 0.1); padding: 30px; border-radius: 15px; border: 2px solid rgba(212, 175, 55, 0.3);">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">功能介绍</h3>
+                <ul style="list-style: none; padding: 0; color: var(--paper-beige);">
+                    <li style="padding: 10px 0;">💰 投资成本自动计算</li>
+                    <li style="padding: 10px 0;">📈 收入预测分析</li>
+                    <li style="padding: 10px 0;">📊 IRR实时计算</li>
+                    <li style="padding: 10px 0;">⚡ 敏感性分析工具</li>
+                </ul>
+                <div style="margin-top: 30px; text-align: center;">
+                    <p style="color: var(--primary-gold); font-size: 18px;">完整计算器功能开发中...</p>
+                    <a href="../联系合作.html" class="btn btn-primary" style="margin-top: 20px;">联系我们获取Excel版本</a>
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <a href="../index.html" class="back-to-home">← 返回首页</a>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

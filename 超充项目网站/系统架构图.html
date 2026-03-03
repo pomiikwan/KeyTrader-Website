@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="../玄金水墨主题.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心竞争定位 - 千站液冷超充项目</title>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html">← 返回导航中心</a>
+            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="hero-banner fade-in">
+            <div class="segment-icon" style="margin: 0 auto 30px;">🏗️</div>
+            <h1 style="font-size: 48px; margin-bottom: 20px;">核心竞争定位</h1>
+            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">Core Competitive Positioning</p>
+        </div>
+
+        <section class="fade-in">
+            <h2>三层系统架构</h2>
+            <div class="service-detail">
+                <h3>🔧 基础设施层</h3>
+                <p>华为600kW全液冷超充设备、储能系统、电力配套设备</p>
+            </div>
+            <div class="service-detail">
+                <h3>☁️ 平台服务层</h3>
+                <p>智能调度平台、运营管理系统、数据分析平台</p>
+            </div>
+            <div class="service-detail">
+                <h3>📱 应用服务层</h3>
+                <p>用户端APP、运维端管理、数据可视化、支付结算</p>
+            </div>
+        </section>
+
+        <section class="advantages-section fade-in">
+            <h2>核心优势</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>超快充电</h3>
+                    <p>600kW最大功率，充电速度全球领先</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🌡️</div>
+                    <h3>液冷散热</h3>
+                    <p>全液冷架构，设备寿命更长</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🤖</div>
+                    <h3>智能运维</h3>
+                    <p>AIoT技术，无人值守运营</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🌍</div>
+                    <h3>绿色环保</h3>
+                    <p>光储充一体，清洁能源</p>
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <a href="../index.html" class="back-to-home">← 返回首页</a>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

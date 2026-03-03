@@ -148,6 +148,14 @@ h4 {
     line-height: 1.8;
 }
 
+/* 导航网格 */
+.navigation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
 /* 卡片样式 */
 .card, .nav-card, .panel {
     background: rgba(26, 26, 26, 0.9);
@@ -187,6 +195,62 @@ h4 {
 
 .card:hover::before, .nav-card:hover::before, .panel:hover::before {
     transform: scaleX(1);
+}
+
+/* 卡片内部元素 */
+.card-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--primary-gold);
+}
+
+.card-description {
+    color: var(--paper-beige);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.card-features {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.card-features li {
+    padding: 8px 0;
+    color: var(--paper-beige);
+    font-size: 14px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.card-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-gold);
+    font-weight: bold;
+}
+
+.card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+    color: var(--ink-black);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow-gold);
+}
+
+.card-action:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px var(--shadow-gold);
 }
 
 /* Hero Banner */

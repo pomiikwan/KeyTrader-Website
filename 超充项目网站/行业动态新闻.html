@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="../玄金水墨主题.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行业动态新闻 - 千站液冷超充项目</title>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html">← 返回导航中心</a>
+            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="hero-banner fade-in">
+            <div class="segment-icon" style="margin: 0 auto 30px;">📰</div>
+            <h1 style="font-size: 48px; margin-bottom: 20px;">行业动态新闻</h1>
+            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">Industry News & Updates</p>
+        </div>
+
+        <section class="fade-in">
+            <h2>最新动态</h2>
+            <div class="card">
+                <h3 style="color: var(--primary-gold);">🚗 新能源汽车行业持续增长</h3>
+                <p style="color: var(--paper-beige); margin-top: 15px;">2025年新能源汽车销量持续攀升，充电基础设施需求旺盛</p>
+                <p style="font-size: 14px; color: var(--paper-beige); opacity: 0.7; margin-top: 10px;">更新时间：2025年1月</p>
+            </div>
+            
+            <div class="card" style="margin-top: 20px;">
+                <h3 style="color: var(--primary-gold);">⚡ 超充技术快速普及</h3>
+                <p style="color: var(--paper-beige); margin-top: 15px;">液冷超充技术日益成熟，各大运营商加速布局超充网络</p>
+                <p style="font-size: 14px; color: var(--paper-beige); opacity: 0.7; margin-top: 10px;">更新时间：2025年1月</p>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3 style="color: var(--primary-gold);">📋 政策支持持续加码</h3>
+                <p style="color: var(--paper-beige); margin-top: 15px;">国家政策继续支持充电基础设施建设，提供更多补贴和优惠</p>
+                <p style="font-size: 14px; color: var(--paper-beige); opacity: 0.7; margin-top: 10px;">更新时间：2025年1月</p>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 60px 40px; border-radius: 20px; text-align: center; margin: 60px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+            <h2>获取更多信息</h2>
+            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">联系我们获取详细的行业分析报告和市场数据</p>
+            <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <a href="../index.html" class="back-to-home">← 返回首页</a>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

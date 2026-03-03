@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="../玄金水墨主题.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>财务分析 - 千站液冷超充项目</title>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html">← 返回导航中心</a>
+            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="hero-banner fade-in">
+            <div class="segment-icon" style="margin: 0 auto 30px;">💰</div>
+            <h1 style="font-size: 48px; margin-bottom: 20px;">财务分析</h1>
+            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">Financial Analysis</p>
+        </div>
+
+        <section class="fade-in">
+            <h2>投资概览</h2>
+            <div class="grid grid-4">
+                <div class="metric-card">
+                    <div class="metric-value">200-500万</div>
+                    <div class="metric-label">单站投资（万元）</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">5-8年</div>
+                    <div class="metric-label">投资回收期</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">15-25%</div>
+                    <div class="metric-label">内部收益率（IRR）</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">15年+</div>
+                    <div class="metric-label">运营周期</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>收入构成</h2>
+            <div class="card">
+                <h3>主要收入来源</h3>
+                <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                    <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                        ⚡ <strong>充电服务费：</strong>核心收入来源，按度数收取
+                    </li>
+                    <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                        🅿️ <strong>停车费：</strong>部分站点收取停车费用
+                    </li>
+                    <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                        📱 <strong>增值服务：</strong>广告、数据服务等
+                    </li>
+                    <li style="padding: 15px 0;">
+                        🔋 <strong>储能套利：</strong>峰谷电价差收益
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+            <h2>需要详细财务模型？</h2>
+            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">联系我们获取完整的财务分析报告和投资测算模型</p>
+            <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <a href="../index.html" class="back-to-home">← 返回首页</a>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

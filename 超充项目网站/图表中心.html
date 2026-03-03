@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="../玄金水墨主题.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图表中心 - 千站液冷超充项目</title>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html">← 返回导航中心</a>
+            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="hero-banner fade-in">
+            <div class="segment-icon" style="margin: 0 auto 30px;">📈</div>
+            <h1 style="font-size: 48px; margin-bottom: 20px;">图表中心</h1>
+            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">Data Visualization Center</p>
+        </div>
+
+        <section class="fade-in">
+            <h2>数据可视化</h2>
+            <div class="navigation-grid">
+                <a href="财务图表.html" class="nav-card">
+                    <div class="card-icon">💰</div>
+                    <h3 class="card-title">财务数据图表</h3>
+                    <p class="card-description">现金流、IRR、投资回报率等财务指标可视化</p>
+                    <div class="card-action">查看图表 <span>→</span></div>
+                </a>
+
+                <a href="市场图表.html" class="nav-card">
+                    <div class="card-icon">🌍</div>
+                    <h3 class="card-title">市场趋势图表</h3>
+                    <p class="card-description">新能源汽车市场增长、充电基础设施发展趋势</p>
+                    <div class="card-action">查看图表 <span>→</span></div>
+                </a>
+
+                <div class="nav-card" style="opacity: 0.7;">
+                    <div class="card-icon">🔧</div>
+                    <h3 class="card-title">技术参数图表</h3>
+                    <p class="card-description">充电功率、设备规格、技术对比等参数图表</p>
+                    <div class="card-action">即将上线 <span>→</span></div>
+                </div>
+
+                <div class="nav-card" style="opacity: 0.7;">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">综合数据分析</h3>
+                    <p class="card-description">多维度数据对比和综合分析报告</p>
+                    <div class="card-action">即将上线 <span>→</span></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 60px 40px; border-radius: 20px; text-align: center; margin: 60px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+            <h2>需要定制化数据分析？</h2>
+            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">联系我们获取专业的数据分析和定制化报告服务</p>
+            <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <a href="../index.html" class="back-to-home">← 返回首页</a>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
