@@ -5,6 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>行业动态新闻 - 千站液冷超充项目</title>
+    <style>
+        .news-item {
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+        .news-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(26, 26, 26, 0.95);
+        }
+        .news-date {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--primary-gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .news-title {
+            font-size: 24px;
+            color: var(--paper-beige);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .news-content {
+            color: var(--paper-beige);
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        .news-tag {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--primary-gold);
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .news-source {
+            font-size: 14px;
+            color: var(--paper-beige);
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
     <nav class="top-nav">
@@ -21,35 +80,162 @@
             <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">Industry News & Updates</p>
         </div>
 
+        <!-- 标签筛选 -->
         <section class="fade-in">
-            <h2>最新动态</h2>
-            <div class="card">
-                <h3 style="color: var(--primary-gold);">🚗 新能源汽车行业持续增长</h3>
-                <p style="color: var(--paper-beige); margin-top: 15px;">2025年新能源汽车销量持续攀升，充电基础设施需求旺盛</p>
-                <p style="font-size: 14px; color: var(--paper-beige); opacity: 0.7; margin-top: 10px;">更新时间：2025年1月</p>
-            </div>
-            
-            <div class="card" style="margin-top: 20px;">
-                <h3 style="color: var(--primary-gold);">⚡ 超充技术快速普及</h3>
-                <p style="color: var(--paper-beige); margin-top: 15px;">液冷超充技术日益成熟，各大运营商加速布局超充网络</p>
-                <p style="font-size: 14px; color: var(--paper-beige); opacity: 0.7; margin-top: 10px;">更新时间：2025年1月</p>
-            </div>
-
-            <div class="card" style="margin-top: 20px;">
-                <h3 style="color: var(--primary-gold);">📋 政策支持持续加码</h3>
-                <p style="color: var(--paper-beige); margin-top: 15px;">国家政策继续支持充电基础设施建设，提供更多补贴和优惠</p>
-                <p style="font-size: 14px; color: var(--paper-beige); opacity: 0.7; margin-top: 10px;">更新时间：2025年1月</p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
+                <button style="padding: 10px 25px; background: var(--primary-gold); color: var(--ink-black); border: none; border-radius: 25px; font-weight: 600; cursor: pointer;">全部</button>
+                <button style="padding: 10px 25px; background: rgba(212, 175, 55, 0.2); color: var(--paper-beige); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">政策动态</button>
+                <button style="padding: 10px 25px; background: rgba(212, 175, 55, 0.2); color: var(--paper-beige); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">技术突破</button>
+                <button style="padding: 10px 25px; background: rgba(212, 175, 55, 0.2); color: var(--paper-beige); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">市场数据</button>
+                <button style="padding: 10px 25px; background: rgba(212, 175, 55, 0.2); color: var(--paper-beige); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">行业活动</button>
             </div>
         </section>
 
-        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 60px 40px; border-radius: 20px; text-align: center; margin: 60px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
-            <h2>获取更多信息</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">联系我们获取详细的行业分析报告和市场数据</p>
-            <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
+        <!-- 新闻列表 -->
+        <section class="fade-in">
+            <h2>📰 最新动态</h2>
+
+            <!-- 新闻1 -->
+            <div class="news-item">
+                <span class="news-date">2025年3月</span>
+                <div>
+                    <span class="news-tag">政策动态</span>
+                    <span class="news-tag">市场支持</span>
+                </div>
+                <h3 class="news-title">🚀 国家发改委：加快推进充电基础设施建设，2025年新增充电桩200万个</h3>
+                <p class="news-content">
+                    国家发改委发布《关于加快推进充电基础设施建设实施意见》，明确提出2025年全国新增充电桩200万个，其中公共充电桩80万个。重点支持高速公路服务区、城市公共区域、居住区等场景的充电设施建设，对符合条件的项目给予最高30%的建设补贴。
+                </p>
+                <div class="news-meta">
+                    <span class="news-source">📌 来源：国家发改委官网</span>
+                    <a href="../联系合作.html" style="color: var(--primary-gold); text-decoration: none;">了解详情 →</a>
+                </div>
+            </div>
+
+            <!-- 新闻2 -->
+            <div class="news-item">
+                <span class="news-date">2025年2月</span>
+                <div>
+                    <span class="news-tag">技术突破</span>
+                    <span class="news-tag">超充技术</span>
+                </div>
+                <h3 class="news-title">⚡ 华为发布新一代600kW全液冷超充技术，充电速度提升60%</h3>
+                <p class="news-content">
+                    华为数字能源正式发布新一代600kW全液冷超充解决方案，实现"一秒一公里"的极致充电体验。相比传统风冷充电桩，充电速度提升60%，设备寿命延长至15年+，噪音控制在60dB以下。该技术已在全国多个城市试点应用，获得市场高度认可。
+                </p>
+                <div class="news-meta">
+                    <span class="news-source">📌 来源：华为数字能源发布会</span>
+                    <a href="系统架构图.html" style="color: var(--primary-gold); text-decoration: none;">查看技术详情 →</a>
+                </div>
+            </div>
+
+            <!-- 新闻3 -->
+            <div class="news-item">
+                <span class="news-date">2025年2月</span>
+                <div>
+                    <span class="news-tag">市场数据</span>
+                    <span class="news-tag">行业报告</span>
+                </div>
+                <h3 class="news-title">📊 中汽协：2025年新能源汽车销量预计突破1500万辆，渗透率超45%</h3>
+                <p class="news-content">
+                    中国汽车工业协会发布最新预测，2025年中国新能源汽车销量将突破1500万辆，市场渗透率超过45%。随着电池技术进步和充电基础设施完善，消费者对新能源汽车的接受度持续提升，充电需求呈现爆发式增长。
+                </p>
+                <div class="news-meta">
+                    <span class="news-source">📌 来源：中国汽车工业协会</span>
+                    <a href="市场图表.html" style="color: var(--primary-gold); text-decoration: none;">查看市场分析 →</a>
+                </div>
+            </div>
+
+            <!-- 新闻4 -->
+            <div class="news-item">
+                <span class="news-date">2025年1月</span>
+                <div>
+                    <span class="news-tag">行业活动</span>
+                    <span class="news-tag">战略合作</span>
+                </div>
+                <h3 class="news-title">🤝 KeyTrade与华为数字能源签署战略合作协议，共建超充网络</h3>
+                <p class="news-content">
+                    KeyTrade与华为数字能源在深圳签署战略合作协议，双方将在液冷超充领域开展深度合作。计划在全国范围内建设1000座600kW全液冷超充站，打造中国领先的液冷超充网络。该项目总投资28亿元，预计2029年全部建成投运。
+                </p>
+                <div class="news-meta">
+                    <span class="news-source">📌 来源：KeyTrade官方新闻</span>
+                    <a href="项目摘要.html" style="color: var(--primary-gold); text-decoration: none;">了解项目详情 →</a>
+                </div>
+            </div>
+
+            <!-- 新闻5 -->
+            <div class="news-item">
+                <span class="news-date">2024年12月</span>
+                <div>
+                    <span class="news-tag">市场数据</span>
+                    <span class="news-tag">行业增长</span>
+                </div>
+                <h3 class="news-title">📈 充电桩保有量突破800万台，超充站建设加速</h3>
+                <p class="news-content">
+                    根据最新统计数据，截至2024年底，全国充电桩保有量已突破800万台，其中公共充电桩超过250万台。随着用户对充电速度要求的提升，超充站建设明显加速，480kW及以上功率的超充桩占比快速提升。
+                </p>
+                <div class="news-meta">
+                    <span class="news-source">📌 来源：中国充电联盟</span>
+                    <a href="市场图表.html" style="color: var(--primary-gold); text-decoration: none;">查看更多数据 →</a>
+                </div>
+            </div>
+
+            <!-- 新闻6 -->
+            <div class="news-item">
+                <span class="news-date">2024年11月</span>
+                <div>
+                    <span class="news-tag">技术突破</span>
+                    <span class="news-tag">行业标准</span>
+                </div>
+                <h3 class="news-title">🔋 工信部发布《超级充电桩技术规范》，推动行业标准化</h3>
+                <p class="news-content">
+                    工业和信息化部发布《超级充电桩技术规范》行业标准，明确超充桩的技术要求、测试方法和验收标准。标准的出台将有助于推动超充技术的规范化发展，提升充电设施的安全性和兼容性，为消费者提供更好的充电体验。
+                </p>
+                <div class="news-meta">
+                    <span class="news-source">📌 来源：工业和信息化部官网</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行业趋势 -->
+        <section class="fade-in">
+            <h2>📈 行业发展趋势</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div style="font-size: 48px; text-align: center; margin-bottom: 15px;">⚡</div>
+                    <h3 style="color: var(--primary-gold); text-align: center; margin-bottom: 15px;">超充化</h3>
+                    <p style="color: var(--paper-beige); text-align: center;">充电功率不断提升，600kW超充成为高端车型标配</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 48px; text-align: center; margin-bottom: 15px;">🤖</div>
+                    <h3 style="color: var(--primary-gold); text-align: center; margin-bottom: 15px;">智能化</h3>
+                    <p style="color: var(--paper-beige); text-align: center;">AI智能运维，无人值守运营成为主流</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 48px; text-align: center; margin-bottom: 15px;">🌱</div>
+                    <h3 style="color: var(--primary-gold); text-align: center; margin-bottom: 15px;">绿色化</h3>
+                    <p style="color: var(--paper-beige); text-align: center;">光储充一体化，清洁能源应用加速</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+            <h2>📬 订阅行业资讯</h2>
+            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
+                获取最新的行业动态、政策解读和市场分析报告
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="../联系合作.html" class="btn btn-primary">订阅资讯</a>
+                <a href="商业计划书投资者版.html" class="btn btn-secondary">查看商业计划书</a>
+            </div>
         </section>
 
         <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
+            <p style="font-size: 14px; margin-top: 10px;">
+                千站液冷超充项目 - 行业动态新闻
+            </p>
         </footer>
     </div>
 
