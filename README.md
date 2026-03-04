@@ -18,7 +18,7 @@ KeyTrader 是一个专业的资金、项目、贸易业务对接网站，采用*
 
 - **HTML5** - 页面结构
 - **CSS3** - 玄金水墨主题样式
-- **JavaScript (ES6+)** - 居间人系统和表单处理
+- **JavaScript (ES6+)** - 推荐人系统和表单处理
 - **响应式设计** - 支持桌面端和移动端
 - **无依赖** - 纯原生实现，无需第三方库
 
@@ -34,7 +34,7 @@ KeyTrader_多项目网站/
 │   ├── 服务器算力.html               # 服务器与算力中心设备页面
 │   └── 业务拓展中.html               # 新增业务预告页面
 ├── js/
-│   ├── 居间人推荐系统.js             # 居间人推荐管理系统
+│   ├── 推荐人系统.js                 # 推荐人管理系统
 │   └── 联系表单处理.js               # 联系表单验证和提交处理
 ├── 联系合作.html                      # 联系与合作页面
 ├── LOGO-K.png                        # 公司Logo
@@ -66,7 +66,7 @@ KeyTrader_多项目网站/
 
 ## 功能特性
 
-### 1. 居间人推荐系统
+### 1. 推荐人推荐系统
 
 **功能说明：**
 - 支持URL参数传递推荐人代码
@@ -86,7 +86,7 @@ https://yourdomain.com/?ref=REFERRER_CODE
 https://yourdomain.com/?referrer=REFERRER_CODE
 ```
 
-多个居间人：
+多个推荐人：
 ```
 https://yourdomain.com/?ref=CODE1,CODE2,CODE3
 ```
@@ -205,7 +205,7 @@ docker run -d -p 80:80 keytrader-website
 
 1. **后端API对接**
    - [ ] 表单提交后端API
-   - [ ] 居间人撮合费用管理API
+   - [ ] 推荐人撮合费用管理API
    - [ ] 项目信息管理API
 
 2. **功能增强**
@@ -303,7 +303,7 @@ git push -u origin master
 
 A: 编辑 `联系合作.html` 文件，搜索邮箱地址并替换。
 
-### Q: 居间人系统如何测试？
+### Q: 推荐人系统如何测试？
 
 A: 在浏览器中访问：`index.html?ref=TEST001`，查看页面顶部是否显示推荐人信息。
 

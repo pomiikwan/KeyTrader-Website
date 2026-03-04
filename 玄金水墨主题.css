@@ -1007,7 +1007,7 @@ ul li::before {
     transform: translateY(-50%);
 }
 
-/* 居间人信息栏 */
+/* 推荐人信息栏 */
 .referrer-info-bar {
     background: linear-gradient(135deg,
         rgba(212, 175, 55, 0.2) 0%,

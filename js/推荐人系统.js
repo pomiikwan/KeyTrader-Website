@@ -1,6 +1,6 @@
 /**
  * =========================================
- * KeyTrader 居间人推荐系统
+ * KeyTrader 推荐人系统
  * =========================================
  *
  * 功能说明：
@@ -12,8 +12,8 @@
  *
  * 使用方法：
  * - 链接格式：https://yourdomain.com/?ref=REFERRER_CODE
- * - 多个居间人：https://yourdomain.com/?ref=CODE1,CODE2,CODE3
- * - 在HTML中引入：<script src="js/居间人推荐系统.js"></script>
+ * - 多个推荐人：https://yourdomain.com/?ref=CODE1,CODE2,CODE3
+ * - 在HTML中引入：<script src="js/推荐人系统.js"></script>
  *
  * =========================================
  */
@@ -110,14 +110,14 @@
             for (const paramName of CONFIG.URL_PARAM_NAMES) {
                 const referrer = params.get(paramName);
                 if (referrer && referrer.trim() !== '') {
-                    console.log(`[居间人系统] 从URL参数 ${paramName} 获取到推荐人:`, referrer);
+                    console.log(`[推荐人系统] 从URL参数 ${paramName} 获取到推荐人:`, referrer);
                     return referrer.trim();
                 }
             }
 
             return '';
         } catch (error) {
-            console.error('[居间人系统] URL解析错误:', error);
+            console.error('[推荐人系统] URL解析错误:', error);
             return '';
         }
     }
@@ -163,7 +163,7 @@
 
             // 如果是新的推荐人，显示通知
             if (existingReferrer !== referrerCode) {
-                console.log('[居间人系统] 推荐人信息已保存:', referrerCode);
+                console.log('[推荐人系统] 推荐人信息已保存:', referrerCode);
 
                 // 仅在首次访问时显示通知
                 const visitCount = parseInt(localStorage.getItem(CONFIG.STORAGE_KEY_VISITS) || '0');
@@ -174,7 +174,7 @@
                 }
             }
         } catch (error) {
-            console.error('[居间人系统] 保存推荐人信息失败:', error);
+            console.error('[推荐人系统] 保存推荐人信息失败:', error);
         }
     }
 
@@ -186,7 +186,7 @@
         try {
             return localStorage.getItem(CONFIG.STORAGE_KEY_REFERRER) || '';
         } catch (error) {
-            console.error('[居间人系统] 获取推荐人信息失败:', error);
+            console.error('[推荐人系统] 获取推荐人信息失败:', error);
             return '';
         }
     }
@@ -204,7 +204,7 @@
             const referrer = getCurrentReferrer();
             return referrer ? [referrer] : [];
         } catch (error) {
-            console.error('[居间人系统] 获取多个推荐人信息失败:', error);
+            console.error('[推荐人系统] 获取多个推荐人信息失败:', error);
             return [];
         }
     }
@@ -227,7 +227,7 @@
                 hasReferrer: !!referrer
             };
         } catch (error) {
-            console.error('[居间人系统] 获取推荐人详情失败:', error);
+            console.error('[推荐人系统] 获取推荐人详情失败:', error);
             return {
                 referrer: '',
                 timestamp: null,
@@ -260,9 +260,9 @@
             let visits = parseInt(localStorage.getItem(CONFIG.STORAGE_KEY_VISITS) || '0');
             visits++;
             localStorage.setItem(CONFIG.STORAGE_KEY_VISITS, visits.toString());
-            console.log(`[居间人系统] 访问统计更新，总访问次数: ${visits}`);
+            console.log(`[推荐人系统] 访问统计更新，总访问次数: ${visits}`);
         } catch (error) {
-            console.error('[居间人系统] 更新访问统计失败:', error);
+            console.error('[推荐人系统] 更新访问统计失败:', error);
         }
     }
 
@@ -288,7 +288,7 @@
             }
         };
 
-        console.log('[居间人系统] 撮合费用记录:', commission);
+        console.log('[推荐人系统] 撮合费用记录:', commission);
 
         // TODO: 发送到后端API
         // fetch(CONFIG.COMMISSION_API_ENDPOINT, {
@@ -307,7 +307,7 @@
             commissions.push(commission);
             localStorage.setItem('keytrader_commissions', JSON.stringify(commissions));
         } catch (error) {
-            console.error('[居间人系统] 保存撮合费用记录失败:', error);
+            console.error('[推荐人系统] 保存撮合费用记录失败:', error);
         }
 
         return commission;
@@ -334,10 +334,10 @@
             localStorage.removeItem(CONFIG.STORAGE_KEY_REFERRER);
             localStorage.removeItem(CONFIG.STORAGE_KEY_TIMESTAMP);
             localStorage.removeItem(CONFIG.STORAGE_KEY_MULTI);
-            console.log('[居间人系统] 推荐人信息已清除');
+            console.log('[推荐人系统] 推荐人信息已清除');
             showNotification('推荐人信息已清除', 'info');
         } catch (error) {
-            console.error('[居间人系统] 清除推荐人信息失败:', error);
+            console.error('[推荐人系统] 清除推荐人信息失败:', error);
         }
     }
 
@@ -345,7 +345,7 @@
      * 初始化推荐人系统
      */
     function initReferrerSystem() {
-        console.log('[居间人系统] 初始化推荐人系统...');
+        console.log('[推荐人系统] 初始化推荐人系统...');
 
         // 从URL获取推荐人
         const urlReferrer = getReferrerFromURL();
@@ -370,7 +370,7 @@
             CONFIG
         };
 
-        console.log('[居间人系统] 初始化完成，推荐人:', getCurrentReferrer());
+        console.log('[推荐人系统] 初始化完成，推荐人:', getCurrentReferrer());
     }
 
     // =========================================
