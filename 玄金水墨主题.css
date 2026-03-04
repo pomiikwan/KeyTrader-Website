@@ -83,6 +83,18 @@ body {
     z-index: 1000;
 }
 
+/* 全局链接样式 - 移除下划线 */
+a {
+    color: var(--primary-gold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-gold-light);
+    text-shadow: 0 0 10px var(--shadow-gold);
+}
+
 .top-nav a {
     color: var(--primary-gold);
     text-decoration: none;
@@ -227,11 +239,16 @@ h4 {
 }
 
 .card-features li::before {
-    content: '✓';
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-gold);
+    border-radius: 50%;
     position: absolute;
     left: 0;
-    color: var(--primary-gold);
-    font-weight: bold;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .card-action {
@@ -377,10 +394,14 @@ h4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 40px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink-black);
     box-shadow: 0 10px 30px var(--shadow-gold);
     position: relative;
     z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .segment-title {
@@ -420,10 +441,16 @@ h4 {
 }
 
 .segment-features li::before {
-    content: '⚡';
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-gold);
+    border-radius: 50%;
     position: absolute;
     left: 0;
-    color: var(--primary-gold);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* 首页专属样式 */
@@ -968,10 +995,16 @@ ul li {
 }
 
 ul li::before {
-    content: '⚡';
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-gold);
+    border-radius: 50%;
     position: absolute;
     left: 0;
-    color: var(--primary-gold);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* 居间人信息栏 */
@@ -1540,4 +1573,54 @@ ul li::before {
         width: 80px;
         height: 80px;
     }
+
+    .hero-banner-image {
+        margin: 20px auto 0;
+        min-height: 250px;
+    }
+}
+
+/* =========================================
+   横幅图片区域样式
+   ========================================= */
+
+/* Hero Banner 图片区域 */
+.hero-banner-image {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px var(--shadow-gold);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.hero-banner-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* 图片占位符样式 */
+.hero-banner-image.placeholder {
+    background: linear-gradient(135deg,
+        rgba(212, 175, 55, 0.1) 0%,
+        rgba(212, 175, 55, 0.05) 100%);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-gold);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-banner-image.placeholder::before {
+    content: '图片区域 - 请上传图片到: images/banners/' attr(data-image);
 }
