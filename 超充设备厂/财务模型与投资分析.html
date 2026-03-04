@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="../玄金水墨主题.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>财务模型与投资分析 - 液冷超充设备厂</title>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html">← 返回超充设备厂</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="hero-banner fade-in" style="padding: 60px 0;">
+            <div class="segment-icon" style="margin: 0 auto 30px;">FINANCE</div>
+            <h1 style="font-size: 42px; margin-bottom: 20px;">财务模型与投资分析</h1>
+            <p style="font-size: 18px; color: var(--paper-beige);">Financial Model & Investment Analysis</p>
+            <div class="hero-banner-image placeholder" data-image="finance.jpg"></div>
+        </div>
+
+        <section class="fade-in">
+            <h2>财务画像</h2>
+            <div class="card">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div class="metric-card"><div class="metric-value">2800万美元</div><div class="metric-label">交易规模</div></div>
+                    <div class="metric-card"><div class="metric-value">71%</div><div class="metric-label">股权比例</div></div>
+                    <div class="metric-card"><div class="metric-value">≥1.25×</div><div class="metric-label">目标DSCR</div></div>
+                    <div class="metric-card"><div class="metric-value">2亿元</div><div class="metric-label">初始投资</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>五年财务预测概要</h2>
+            <div class="card">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr style="border-bottom: 2px solid var(--primary-gold);">
+                        <th style="padding: 12px; text-align: left;">项目（万元）</th>
+                        <th style="padding: 12px;">第1年</th>
+                        <th style="padding: 12px;">第2年</th>
+                        <th style="padding: 12px;">第3年</th>
+                        <th style="padding: 12px;">第4年</th>
+                        <th style="padding: 12px;">第5年</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);"><td style="padding: 10px;">营业收入</td><td style="padding: 10px;">8,000</td><td style="padding: 10px;">25,000</td><td style="padding: 10px;">50,000</td><td style="padding: 10px;">80,000</td><td style="padding: 10px;">120,000</td></tr>
+                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);"><td style="padding: 10px;">毛利润</td><td style="padding: 10px;">1,600</td><td style="padding: 10px;">6,250</td><td style="padding: 10px;">15,000</td><td style="padding: 10px;">25,600</td><td style="padding: 10px;">40,800</td></tr>
+                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);"><td style="padding: 10px;">毛利率</td><td style="padding: 10px;">20%</td><td style="padding: 10px;">25%</td><td style="padding: 10px;">30%</td><td style="padding: 10px;">32%</td><td style="padding: 10px;">34%</td></tr>
+                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);"><td style="padding: 10px;">净利润</td><td style="padding: 10px;">-2,900</td><td style="padding: 10px;">770</td><td style="padding: 10px;">6,950</td><td style="padding: 10px;">14,500</td><td style="padding: 10px;">25,650</td></tr>
+                    </table>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>投资回报分析</h2>
+            <div class="grid grid-3">
+                <div class="metric-card"><div class="metric-value">7.8%</div><div class="metric-label">5年期IRR</div></div>
+                <div class="metric-card"><div class="metric-value">1.28×</div><div class="metric-label">5年期MOIC</div></div>
+                <div class="metric-card"><div class="metric-value">4.5年</div><div class="metric-label">静态回收期</div></div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>融资结构</h2>
+            <div class="card">
+                <h3>初始融资（2亿元）</h3>
+                <div class="grid grid-2" style="margin-top: 20px;">
+                    <div><p><strong>创始股东出资：</strong>1.2亿元（60%）</p><p><strong>战略投资者：</strong>0.8亿元（40%）</p></div>
+                    <div><p><strong>厂房装修：</strong>1500万（7.5%）</p><p><strong>设备投资：</strong>7000万（35%）</p><p><strong>原材料：</strong>5000万（25%）</p><p><strong>研发人力：</strong>4000万（20%）</p></div>
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <a href="index.html" class="back-to-home">← 返回超充设备厂</a>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.1});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

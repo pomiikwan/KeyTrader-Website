@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="../玄金水墨主题.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>风险管控与合规体系 - 液冷超充设备厂</title>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html">← 返回超充设备厂</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="hero-banner fade-in" style="padding: 60px 0;">
+            <div class="segment-icon" style="margin: 0 auto 30px;">RISK</div>
+            <h1 style="font-size: 42px; margin-bottom: 20px;">风险管控与合规体系</h1>
+            <p style="font-size: 18px; color: var(--paper-beige);">Risk Management & Compliance System</p>
+            <div class="hero-banner-image placeholder" data-image="risk.jpg"></div>
+        </div>
+
+        <section class="fade-in">
+            <h2>风险热力图</h2>
+            <div class="grid grid-2">
+                <div class="card" style="border-left: 4px solid #f44336;">
+                    <h3 style="color: #f44336;">高风险（需立即关注）</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;">• 政策执行力度不及预期</li>
+                        <li style="margin-bottom: 10px;">• 市场竞争加剧导致价格战</li>
+                        <li style="margin-bottom: 10px;">• 资金链紧张</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-left: 4px solid #FF9800;">
+                    <h3 style="color: #FF9800;">中风险（需定期监控）</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;">• 研发延迟或技术路线迭代</li>
+                        <li style="margin-bottom: 10px;">• 供应链中断</li>
+                        <li style="margin-bottom: 10px;">• 核心人才流失</li>
+                        <li style="margin-bottom: 10px;">• 产品质量问题</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>主要风险应对措施</h2>
+            <div class="card">
+                <h3>市场与政策风险</h3>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                    <li style="margin-bottom: 8px;">✓ 建立政策雷达系统，实时监控</li>
+                    <li style="margin-bottom: 8px;">✓ 技术差异化，避免同质化竞争</li>
+                    <li style="margin-bottom: 8px;">✓ 332降本计划，建立成本优势</li>
+                </ul>
+                <h3>供应链风险</h3>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                    <li style="margin-bottom: 8px;">✓ AB角采购策略，安全库存3个月</li>
+                    <li style="margin-bottom: 8px;">✓ 长期协议，国产化替代</li>
+                </ul>
+                <h3>财务风险</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px;">✓ 现金流预警，多融资渠道</li>
+                    <li style="margin-bottom: 8px;">✓ 5000万银行授信作为安全垫</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>质量管理体系</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3>ISO9001认证</h3>
+                    <p><strong>目标时间：</strong>2026年Q2</p>
+                    <p><strong>适用范围：</strong>全公司质量管理体系</p>
+                </div>
+                <div class="card">
+                    <h3>IATF16949认证</h3>
+                    <p><strong>目标时间：</strong>2027年Q1</p>
+                    <p><strong>适用范围：</strong>车载充电机产品线</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>保险方案</h2>
+            <div class="card">
+                <div class="grid grid-2">
+                    <div><p><strong>企业财产险：</strong>8万元/年</p><p><strong>产品责任险：</strong>15万元/年</p></div>
+                    <div><p><strong>关键人员险：</strong>5万元/年</p><p><strong>网络安全险：</strong>3万元/年</p></div>
+                </div>
+                <p style="text-align: center; margin-top: 20px; color: var(--primary-gold); font-size: 18px;">年度保险总费用：约45万元（占收入0.06%）</p>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <a href="index.html" class="back-to-home">← 返回超充设备厂</a>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.1});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

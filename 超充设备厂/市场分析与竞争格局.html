@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="../玄金水墨主题.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>市场分析与竞争格局 - 液冷超充设备厂</title>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html">← 返回超充设备厂</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="hero-banner fade-in" style="padding: 60px 0;">
+            <div class="segment-icon" style="margin: 0 auto 30px;">MARKET</div>
+            <h1 style="font-size: 42px; margin-bottom: 20px;">市场分析与竞争格局</h1>
+            <p style="font-size: 18px; color: var(--paper-beige);">Market Analysis & Competitive Landscape</p>
+            <div class="hero-banner-image placeholder" data-image="market.jpg"></div>
+        </div>
+
+        <section class="fade-in">
+            <h2>政策红利窗口期</h2>
+            <div class="highlight-box">
+                <div class="highlight-title">"三年倍增"行动方案（2025-2027）</div>
+                <div class="grid grid-3" style="margin-top: 20px;">
+                    <div class="metric-card"><div class="metric-value">2800万</div><div class="metric-label">充电设施目标（个）</div></div>
+                    <div class="metric-card"><div class="metric-value">10万</div><div class="metric-label">大功率充电枪（个）</div></div>
+                    <div class="metric-card"><div class="metric-value">500亿</div><div class="metric-label">市场空间（元）</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>市场规模测算（TAM-SAM-SOM）</h2>
+            <div class="card">
+                <div class="metric-card" style="margin-bottom: 15px;"><div class="metric-value">8400亿</div><div class="metric-label">总潜在市场TAM（2027年全国）</div></div>
+                <div class="metric-card" style="margin-bottom: 15px;"><div class="metric-value">428亿</div><div class="metric-label">可服务市场SAM（大功率液冷）</div></div>
+                <div class="metric-card"><div class="metric-value">85.6亿</div><div class="metric-label">可获得市场SOM（初期聚焦区域）</div></div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>主要竞争对手分析</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3>特锐德（TELD）</h3>
+                    <p><strong>市场地位：</strong>充电桩运营数量第一（>40万台）</p>
+                    <p><strong>优势：</strong>品牌知名度高、运营数据丰富、渠道完善</p>
+                    <p><strong>劣势：</strong>自研模块能力弱、产品同质化严重</p>
+                </div>
+                <div class="card">
+                    <h3>华为数字能源</h3>
+                    <p><strong>市场地位：</strong>液冷超充技术领导者</p>
+                    <p><strong>优势：</strong>技术领先、品牌强势、华为生态</p>
+                    <p><strong>劣势：</strong>价格昂贵、定制化响应慢、服务资源有限</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>差异化竞争策略</h2>
+            <div class="highlight-box">
+                <div class="highlight-title">核心差异化优势</div>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;">✓ <strong>垂直整合模式</strong>：掌握核心模块技术，成本与性能可控</li>
+                    <li style="margin-bottom: 10px;">✓ <strong>技术差异化</strong>：直接切入液冷模块，避免风冷红海</li>
+                    <li style="margin-bottom: 10px;">✓ <strong>灵活定制</strong>：决策链条短，快速响应客户定制需求</li>
+                    <li style="margin-bottom: 10px;">✓ <strong>高性价比</strong>：自研模块降低BOM成本15-20%</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <a href="index.html" class="back-to-home">← 返回超充设备厂</a>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.1});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
