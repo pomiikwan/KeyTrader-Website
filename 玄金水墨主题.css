@@ -383,6 +383,8 @@ h4 {
     border-color: var(--primary-gold);
 }
 
+/* Icon样式已移除 - 2026年3月8日优化 */
+/*
 .segment-icon {
     width: 90px;
     height: 90px;
@@ -403,6 +405,7 @@ h4 {
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+*/
 
 .segment-title {
     font-size: 24px;
@@ -549,11 +552,14 @@ h4 {
     box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
 }
 
+/* Icon样式已移除 - 2026年3月8日优化 */
+/*
 .coming-soon-icon {
     font-size: 60px;
     margin-bottom: 20px;
     opacity: 0.6;
 }
+*/
 
 /* 优势区域 */
 .advantages-section {
@@ -585,6 +591,8 @@ h4 {
     box-shadow: 0 10px 30px var(--shadow-gold);
 }
 
+/* Icon样式已移除 - 2026年3月8日优化 */
+/*
 .advantage-icon {
     width: 70px;
     height: 70px;
@@ -600,8 +608,11 @@ h4 {
     color: var(--ink-black);
     box-shadow: 0 8px 25px var(--shadow-gold);
 }
+*/
 
 /* 图标样式 */
+/* Icon样式已移除 - 2026年3月8日优化 */
+/*
 .icon, .card-icon {
     width: 65px;
     height: 65px;
@@ -623,6 +634,7 @@ h4 {
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0 10px 30px var(--shadow-gold);
 }
+*/
 
 /* 按钮样式 */
 .btn, .btn-primary, .btn-secondary, .action-btn {
@@ -1477,6 +1489,8 @@ ul li::before {
     border-bottom: none;
 }
 
+/* Icon样式已移除 - 2026年3月8日优化 */
+/*
 .contact-icon {
     width: 50px;
     height: 50px;
@@ -1488,6 +1502,7 @@ ul li::before {
     font-size: 24px;
     flex-shrink: 0;
 }
+*/
 
 .contact-details h4 {
     color: var(--primary-gold);
