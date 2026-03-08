@@ -48,6 +48,14 @@ class ChinaMapController {
             return;
         }
 
+        // 检查中国地图数据是否已注册
+        if (!echarts.getMap('china')) {
+            console.warn('中国地图数据尚未加载，等待加载完成...');
+            // 等待一小段时间后重试
+            setTimeout(() => this.init(), 500);
+            return;
+        }
+
         this.mapChart = echarts.init(document.getElementById('chinaMap'));
 
         // 绑定事件
