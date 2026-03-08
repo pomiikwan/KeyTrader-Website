@@ -125,6 +125,19 @@ class ChinaMapController {
     }
 
     /**
+     * 格式化数值显示
+     */
+    formatValue(value, unit) {
+        if (value >= 100000000) {
+            return (value / 100000000).toFixed(1) + '亿' + unit;
+        } else if (value >= 10000) {
+            return (value / 10000).toFixed(1) + '万' + unit;
+        } else {
+            return value + unit;
+        }
+    }
+
+    /**
      * 渲染地图
      */
     renderMap() {
@@ -132,6 +145,10 @@ class ChinaMapController {
 
         const data = this.prepareMapData();
         const dimensionInfo = this.dimensions[this.currentDimension];
+        const currentDimension = this.currentDimension;
+
+        // 保存当前维度引用，用于formatter
+        const self = this;
 
         const option = {
             backgroundColor: 'transparent',
@@ -193,11 +210,24 @@ class ChinaMapController {
                 },
                 label: {
                     normal: {
-                        show: false,
-                        fontSize: 10
+                        show: true,
+                        fontSize: 11,
+                        color: '#1A1A1A',
+                        formatter: function(params) {
+                            if (params.data && params.data.value > 0) {
+                                const value = params.data.value;
+                                const unit = dimensionInfo.unit;
+                                const formattedValue = self.formatValue(value, unit);
+                                return `${params.name}\n${formattedValue}`;
+                            }
+                            return params.name;
+                        }
                     },
                     emphasis: {
-                        show: false
+                        show: true,
+                        fontSize: 13,
+                        fontWeight: 'bold',
+                        color: '#D4AF37'
                     }
                 },
                 data: data,
