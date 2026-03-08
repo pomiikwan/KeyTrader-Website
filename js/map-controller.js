@@ -48,14 +48,30 @@ class ChinaMapController {
             return;
         }
 
-        // 检查中国地图数据是否已注册
-        if (!echarts.getMap('china')) {
-            console.warn('中国地图数据尚未加载，等待加载完成...');
-            // 等待一小段时间后重试
-            setTimeout(() => this.init(), 500);
-            return;
-        }
+        // 等待中国地图数据加载完成
+        if (echarts.getMap('china')) {
+            // 地图已注册，直接初始化
+            this.initializeMap();
+        } else {
+            // 监听地图加载完成事件
+            console.log('等待中国地图数据加载...');
+            document.addEventListener('chinaMapLoaded', () => {
+                this.initializeMap();
+            });
 
+            // 备用方案：5秒后超时重试
+            setTimeout(() => {
+                if (!this.mapChart && echarts.getMap('china')) {
+                    this.initializeMap();
+                }
+            }, 5000);
+        }
+    }
+
+    /**
+     * 初始化地图实例
+     */
+    initializeMap() {
         this.mapChart = echarts.init(document.getElementById('chinaMap'));
 
         // 绑定事件
@@ -68,6 +84,8 @@ class ChinaMapController {
         window.addEventListener('resize', () => {
             this.mapChart && this.mapChart.resize();
         });
+
+        console.log('✓ 地图控制器初始化完成');
     }
 
     /**
