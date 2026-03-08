@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>执行摘要与战略定位 - 液冷超充设备厂</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
         .strategy-table {
             width: 100%;
@@ -39,6 +40,15 @@
             font-size: 24px;
             font-weight: bold;
             color: var(--primary-gold);
+        }
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 30px 0;
+            background: rgba(26, 26, 26, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -217,6 +227,7 @@
 
             <div class="card">
                 <h3>初始资金分配（2亿元）</h3>
+                <div id="fundAllocationChart" class="chart-container"></div>
                 <div class="grid grid-2">
                     <div>
                         <div class="okr-metric">
@@ -309,6 +320,7 @@
                         <td><strong>25,800</strong></td>
                     </tr>
                 </table>
+                <div id="revenueChart" class="chart-container" style="margin-top: 30px;"></div>
             </div>
 
             <div class="grid grid-3" style="margin-top: 30px;">
@@ -330,6 +342,7 @@
         <!-- SWOT分析 -->
         <section class="fade-in">
             <h2>SWOT分析</h2>
+            <div id="swotChart" class="chart-container"></div>
             <div class="grid grid-2">
                 <div class="card" style="border-left: 4px solid #4CAF50;">
                     <h3 style="color: #4CAF50;">优势 Strengths</h3>
@@ -466,6 +479,176 @@
 
     <!-- 返回按钮 -->
     <a href="index.html" class="back-to-home">← 返回超充设备厂</a>
+
+    <!-- 加载ECharts配置 -->
+    <script src="js/echarts-config.js"></script>
+
+    <script>
+        // 使用统一的初始化函数（带主题和响应式）
+        const fundAllocationChart = initInkGoldChartResponsive('fundAllocationChart', {
+            title: {
+                text: '初始资金分配（2亿元）',
+                left: 'center',
+                textStyle: { color: '#D4AF37', fontSize: 18 }
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c}万元 ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                textStyle: { color: '#F5F5DC' }
+            },
+            series: [{
+                name: '资金分配',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                center: ['60%', '50%'],
+                data: [
+                    {value: 7000, name: '生产与研发设备'},
+                    {value: 5000, name: '初始原材料采购'},
+                    {value: 4000, name: '研发与人力成本'},
+                    {value: 1500, name: '厂房租赁与装修'},
+                    {value: 1500, name: '流动资金与其他'},
+                    {value: 1000, name: '市场推广与开业准备'}
+                ],
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(212, 175, 55, 0.5)'
+                    }
+                },
+                label: {
+                    formatter: '{b}\n{d}%'
+                },
+                itemStyle: {
+                    borderColor: '#1A1A1A',
+                    borderWidth: 2
+                }
+            }]
+        });
+
+        // 初始化收入增长趋势图
+        const revenueChart = initInkGoldChartResponsive('revenueChart', {
+            title: {
+                text: '五年财务预测趋势',
+                left: 'center',
+                textStyle: { color: '#D4AF37', fontSize: 18 }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { type: 'shadow' }
+            },
+            legend: {
+                data: ['营业收入', '毛利润', '净利润'],
+                textStyle: { color: '#D4AF37' },
+                top: 'bottom'
+            },
+            xAxis: {
+                type: 'category',
+                data: ['第1年', '第2年', '第3年', '第4年', '第5年'],
+                axisLabel: { color: '#F5F5DC' },
+                axisLine: { lineStyle: { color: '#D4AF37' } }
+            },
+            yAxis: {
+                type: 'value',
+                name: '金额（万元）',
+                axisLabel: { color: '#F5F5DC' },
+                axisLine: { lineStyle: { color: '#D4AF37' } },
+                splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } }
+            },
+            series: [
+                {
+                    name: '营业收入',
+                    type: 'bar',
+                    data: [8000, 25000, 50000, 80000, 120000],
+                    itemStyle: { color: '#D4AF37' }
+                },
+                {
+                    name: '毛利润',
+                    type: 'bar',
+                    data: [1600, 6250, 15000, 25600, 40800],
+                    itemStyle: { color: '#8B7355' }
+                },
+                {
+                    name: '净利润',
+                    type: 'line',
+                    data: [-2900, 750, 7000, 14600, 25800],
+                    itemStyle: { color: '#F5F5DC' },
+                    lineStyle: { width: 3 },
+                    symbolSize: 8
+                }
+            ],
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '12%',
+                containLabel: true
+            }
+        });
+
+        // 初始化SWOT雷达图
+        const swotChart = initInkGoldChartResponsive('swotChart', {
+            title: {
+                text: 'SWOT竞争力分析',
+                left: 'center',
+                textStyle: { color: '#D4AF37', fontSize: 18 }
+            },
+            tooltip: {},
+            legend: {
+                data: ['本公司', '行业平均'],
+                textStyle: { color: '#D4AF37' },
+                top: 'bottom'
+            },
+            radar: {
+                indicator: [
+                    {name: '技术领先', max: 100},
+                    {name: '垂直整合', max: 100},
+                    {name: '成本控制', max: 100},
+                    {name: '市场响应', max: 100},
+                    {name: '品牌影响力', max: 100},
+                    {name: '资金实力', max: 100}
+                ],
+                center: ['50%', '55%'],
+                radius: '60%',
+                axisName: {
+                    color: '#F5F5DC'
+                },
+                splitLine: {
+                    lineStyle: { color: 'rgba(212, 175, 55, 0.3)' }
+                },
+                splitArea: {
+                    show: false
+                }
+            },
+            series: [{
+                name: '竞争力评估',
+                type: 'radar',
+                data: [
+                    {
+                        value: [90, 85, 75, 88, 65, 70],
+                        name: '本公司',
+                        areaStyle: {
+                            color: 'rgba(212, 175, 55, 0.3)'
+                        },
+                        itemStyle: { color: '#D4AF37' }
+                    },
+                    {
+                        value: [70, 65, 75, 70, 80, 75],
+                        name: '行业平均',
+                        areaStyle: {
+                            color: 'rgba(139, 115, 85, 0.3)'
+                        },
+                        itemStyle: { color: '#8B7355' }
+                    }
+                ]
+            }]
+        });
+
+        // 注意：响应式处理已由echarts-config.js统一管理，无需额外代码
+    </script>
 
     <script>
         // 添加滚动动画

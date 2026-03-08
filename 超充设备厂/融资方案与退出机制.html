@@ -2,9 +2,127 @@
 <html lang="zh-CN">
 <head>
     <link rel="stylesheet" href="../玄金水墨主题.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>融资方案与退出机制 - 液冷超充设备厂</title>
+    <style>
+        .chart-container {
+            width: 100%;
+            height: 450px;
+            margin: 30px 0;
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .highlight-title {
+            font-size: 28px;
+            color: #D4AF37;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(26, 26, 26, 0.8));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            border-color: #D4AF37;
+        }
+
+        .kpi-label {
+            font-size: 16px;
+            color: #F5F5DC;
+            margin-bottom: 10px;
+        }
+
+        .kpi-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #D4AF37;
+            margin-bottom: 5px;
+        }
+
+        .kpi-subtitle {
+            font-size: 14px;
+            color: #8B7355;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            color: #1A1A1A;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        .timeline-card {
+            background: rgba(26, 26, 26, 0.6);
+            border-left: 4px solid #D4AF37;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-left-width: 6px;
+        }
+
+        .probability-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .tag-high {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+
+        .tag-medium {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+        }
+
+        .tag-low {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <nav class="top-nav">
@@ -18,95 +136,308 @@
             <div class="segment-icon" style="margin: 0 auto 30px;">EXIT</div>
             <h1 style="font-size: 42px; margin-bottom: 20px;">融资方案与退出机制</h1>
             <p style="font-size: 18px; color: var(--paper-beige);">Financing Plan & Exit Strategy</p>
-            <div class="hero-banner-image placeholder" data-image="financing.jpg"></div>
         </div>
 
+        <!-- 关键回报指标 -->
         <section class="fade-in">
-            <h2>初始融资结构（2亿元）</h2>
+            <div class="highlight-title">预期投资回报指标</div>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">加权平均IRR</div>
+                    <div class="kpi-value">74%</div>
+                    <div class="kpi-subtitle">远超目标25%</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">IPO退出MOIC</div>
+                    <div class="kpi-value">22.5×</div>
+                    <div class="kpi-subtitle">最优路径回报</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">投资回收期</div>
+                    <div class="kpi-value">5年</div>
+                    <div class="kpi-subtitle">2030年Q2-2031年Q2</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">IPO目标估值</div>
+                    <div class="kpi-value">100亿</div>
+                    <div class="kpi-subtitle">80-120亿元区间</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 初始股权结构 -->
+        <section class="fade-in">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>初始股权结构（2亿元）</h2>
+            </div>
+            <div class="chart-container">
+                <div id="equityStructureChart" style="width: 100%; height: 100%;"></div>
+            </div>
             <div class="card">
                 <div class="grid grid-2">
-                    <div><p><strong>创始股东出资：</strong>1.2亿元（60%）</p><p><strong>战略投资者A：</strong>5000万元（25%）</p></div>
-                    <div><p><strong>战略投资者B：</strong>2000万元（10%）</p><p><strong>员工期权池：</strong>1000万元（5%）</p></div>
+                    <div>
+                        <h4 style="color: #D4AF37; margin-bottom: 15px;">股权分配详情</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;"><strong>创始团队：</strong>60%（12,000万元，3席董事）</li>
+                            <li style="margin-bottom: 10px;"><strong>战略投资者A：</strong>25%（5,000万元，1席董事）</li>
+                            <li style="margin-bottom: 10px;"><strong>战略投资者B：</strong>10%（2,000万元，1席董事）</li>
+                            <li style="margin-bottom: 10px;"><strong>员工期权池：</strong>5%（1,000万元，0席董事）</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #D4AF37; margin-bottom: 15px;">治理结构</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">• 投票权与股权比例一致</li>
+                            <li style="margin-bottom: 10px;">• 董事会共5席，创始团队占主导</li>
+                            <li style="margin-bottom: 10px;">• 战略投资者享有知情权、质询权</li>
+                            <li style="margin-bottom: 10px;">• 设立员工期权池激励核心团队</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- 融资轮次与估值增长 -->
         <section class="fade-in">
-            <h2>分阶段融资规划</h2>
-            <div class="grid grid-3">
-                <div class="card">
-                    <h3>A轮融资</h3>
-                    <p><strong>时间：</strong>2027年Q1</p>
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>融资轮次与估值增长路径</h2>
+            </div>
+            <div class="chart-container">
+                <div id="valuationGrowthChart" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="grid grid-3" style="margin-top: 30px;">
+                <div class="timeline-card">
+                    <h3 style="color: #D4AF37;">A轮融资</h3>
+                    <p><strong>时间：</strong>2027年Q1（第2年末）</p>
                     <p><strong>规模：</strong>1.5-2.0亿元</p>
-                    <p><strong>估值：</strong>7.5-10.0亿元（投后）</p>
-                    <p><strong>用途：</strong>产能扩张、120kW研发</p>
+                    <p><strong>投后估值：</strong>7.5-10.0亿元</p>
+                    <p><strong>用途：</strong>产能扩张40%、120kW研发30%、市场拓展30%</p>
                 </div>
-                <div class="card">
-                    <h3>B轮融资</h3>
-                    <p><strong>时间：</strong>2028年Q2</p>
+                <div class="timeline-card">
+                    <h3 style="color: #D4AF37;">B轮融资</h3>
+                    <p><strong>时间：</strong>2028年Q2（第3年末）</p>
                     <p><strong>规模：</strong>2.0-3.0亿元</p>
-                    <p><strong>估值：</strong>20.0-25.0亿元（投后）</p>
-                    <p><strong>用途：</strong>全国布局、海外拓展</p>
+                    <p><strong>投后估值：</strong>20.0-25.0亿元</p>
+                    <p><strong>用途：</strong>全国布局50%、海外拓展30%、技术迭代20%</p>
                 </div>
-                <div class="card">
-                    <h3>Pre-IPO轮</h3>
-                    <p><strong>时间：</strong>2030年Q1</p>
+                <div class="timeline-card">
+                    <h3 style="color: #D4AF37;">Pre-IPO轮</h3>
+                    <p><strong>时间：</strong>2030年Q1（第5年末）</p>
                     <p><strong>规模：</strong>3.0-5.0亿元</p>
-                    <p><strong>估值：</strong>53.0-75.0亿元（投后）</p>
-                    <p><strong>用途：</strong>冲刺IPO、产业并购</p>
+                    <p><strong>投后估值：</strong>53.0-75.0亿元</p>
+                    <p><strong>用途：</strong>IPO筹备50%、产业并购50%</p>
                 </div>
             </div>
         </section>
 
+        <!-- 退出路径回报对比 -->
         <section class="fade-in">
-            <h2>退出路径规划</h2>
-            <div class="grid grid-2">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>退出路径回报对比</h2>
+            </div>
+            <div class="chart-container">
+                <div id="exitReturnChart" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="grid grid-2" style="margin-top: 30px;">
                 <div class="card" style="border: 2px solid #4CAF50;">
-                    <h3 style="color: #4CAF50;">独立上市（最优，40%）</h3>
+                    <h3 style="color: #4CAF50;">
+                        独立上市（最优）
+                        <span class="probability-tag tag-high">40%</span>
+                    </h3>
                     <p><strong>上市地：</strong>科创板（首选）/创业板（备选）</p>
                     <p><strong>时间：</strong>2031年Q2</p>
-                    <p><strong>预期估值：</strong>80-120亿元</p>
+                    <p><strong>预期估值：</strong>100亿元（80-120亿元区间）</p>
                     <p><strong>MOIC：</strong>22.5×</p>
                     <p><strong>IRR：</strong>98%</p>
                 </div>
                 <div class="card" style="border: 2px solid #2196F3;">
-                    <h3 style="color: #2196F3;">并购退出（次优，30%）</h3>
+                    <h3 style="color: #2196F3;">
+                        并购退出（次优）
+                        <span class="probability-tag tag-medium">30%</span>
+                    </h3>
                     <p><strong>潜在并购方：</strong>国家电网、比亚迪、华为等</p>
                     <p><strong>时间：</strong>2030年Q2</p>
-                    <p><strong>预期估值：</strong>60-80亿元</p>
+                    <p><strong>预期估值：</strong>60亿元（60-80亿元区间）</p>
                     <p><strong>MOIC：</strong>15.0×</p>
                     <p><strong>IRR：</strong>72%</p>
                 </div>
             </div>
+            <div class="grid grid-2" style="margin-top: 20px;">
+                <div class="card" style="border: 2px solid #FF9800;">
+                    <h3 style="color: #FF9800;">
+                        股权转让（保底）
+                        <span class="probability-tag tag-medium">20%</span>
+                    </h3>
+                    <p><strong>转让对象：</strong>后续轮次投资人、战略投资者</p>
+                    <p><strong>时间：</strong>2030年Q2</p>
+                    <p><strong>预期估值：</strong>40亿元（二级市场估值）</p>
+                    <p><strong>MOIC：</strong>10.0×</p>
+                    <p><strong>IRR：</strong>58%</p>
+                </div>
+                <div class="card" style="border: 2px solid #9E9E9E;">
+                    <h3 style="color: #9E9E9E;">
+                        管理层回购（兜底）
+                        <span class="probability-tag tag-low">10%</span>
+                    </h3>
+                    <p><strong>触发条件：</strong>未完成IPO或并购，持有满5年</p>
+                    <p><strong>时间：</strong>2030年Q2</p>
+                    <p><strong>回购价格：</strong>本金+15%年化复利</p>
+                    <p><strong>MOIC：</strong>2.0×</p>
+                    <p><strong>IRR：</strong>15%</p>
+                </div>
+            </div>
         </section>
 
+        <!-- 各轮次融资规模与用途 -->
         <section class="fade-in">
-            <h2>加权平均投资回报</h2>
-            <div class="highlight-box">
-                <div class="highlight-title">预期5年期IRR：74% | MOIC：10-22.5×</div>
-                <p style="text-align: center; margin-top: 15px;">
-                    远超目标25%，具有极强的投资吸引力
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>分阶段融资规模与资金用途</h2>
+            </div>
+            <div class="chart-container">
+                <div id="financingRoundsChart" style="width: 100%; height: 100%;"></div>
+            </div>
+        </section>
+
+        <!-- 投资回报概率分布 -->
+        <section class="fade-in">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>投资回报概率分布</h2>
+            </div>
+            <div class="chart-container">
+                <div id="probabilityDistributionChart" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="highlight-box" style="margin-top: 30px;">
+                <div class="highlight-title">加权平均投资回报：IRR 74% | MOIC 10-22.5×</div>
+                <p style="text-align: center; margin-top: 15px; font-size: 16px;">
+                    四种退出路径加权平均IRR达73.9%，远超目标收益率25%，具有极强的投资吸引力
                 </p>
             </div>
         </section>
 
+        <!-- 投资者权利保护 -->
         <section class="fade-in">
-            <h2>投资者权利保护</h2>
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2>投资者权利与保护条款</h2>
+            </div>
             <div class="card">
                 <div class="grid grid-2">
                     <div>
-                        <h4>股东权利</h4>
+                        <h4 style="color: #D4AF37; margin-bottom: 15px;">股东基本权利</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 8px;">• 表决权、分红权、知情权、质询权</li>
-                            <li style="margin-bottom: 8px;">• 月度经营报告、季度财务报告</li>
+                            <li style="margin-bottom: 10px;">• <strong>表决权：</strong>参与公司重大决策</li>
+                            <li style="margin-bottom: 10px;">• <strong>分红权：</strong>优先股股东享有优先分红</li>
+                            <li style="margin-bottom: 10px;">• <strong>知情权：</strong>月度经营报告、季度财务报告</li>
+                            <li style="margin-bottom: 10px;">• <strong>质询权：</strong>可对公司经营提出质询</li>
                         </ul>
                     </div>
                     <div>
-                        <h4>保护条款</h4>
+                        <h4 style="color: #D4AF37; margin-bottom: 15px;">保护性条款</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 8px;">• 反稀释、优先认购、共售权</li>
-                            <li style="margin-bottom: 8px;">• 赎回权、优先清算权</li>
+                            <li style="margin-bottom: 10px;">• <strong>反稀释条款：</strong>加权平均反稀释保护</li>
+                            <li style="margin-bottom: 10px;">• <strong>优先认购权：</strong>后续轮次按比例优先认购</li>
+                            <li style="margin-bottom: 10px;">• <strong>赎回权：</strong>未上市可要求公司回购</li>
+                            <li style="margin-bottom: 10px;">• <strong>优先清算权：</strong>清算时优先获得分配</li>
                         </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(212, 175, 55, 0.2);">
+                    <h4 style="color: #D4AF37; margin-bottom: 15px;">公司治理机制</h4>
+                    <div class="grid grid-3">
+                        <div>
+                            <strong>董事会席位</strong>
+                            <p style="font-size: 14px; margin-top: 5px;">种子轮1席、A轮1席、B轮1席，确保投资方参与决策</p>
+                        </div>
+                        <div>
+                            <strong>保护性条款</strong>
+                            <p style="font-size: 14px; margin-top: 5px;">重大事项（>1000万元）需投资人同意</p>
+                        </div>
+                        <div>
+                            <strong>对赌协议</strong>
+                            <p style="font-size: 14px; margin-top: 5px;">第2年营收≥2.5亿、第3年营收≥5亿、第5年净利≥2.5亿</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IPO上市时间表 -->
+        <section class="fade-in">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2>IPO上市时间表（科创板）</h2>
+            </div>
+            <div class="card">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #D4AF37;">
+                            <th style="padding: 15px; text-align: left; color: #D4AF37;">时间节点</th>
+                            <th style="padding: 15px; text-align: left; color: #D4AF37;">里程碑</th>
+                            <th style="padding: 15px; text-align: left; color: #D4AF37;">关键工作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.1);">
+                            <td style="padding: 15px;">2029年Q3</td>
+                            <td style="padding: 15px;">股份制改造</td>
+                            <td style="padding: 15px;">有限责任公司变更为股份有限公司</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.1);">
+                            <td style="padding: 15px;">2029年Q4</td>
+                            <td style="padding: 15px;">辅导备案</td>
+                            <td style="padding: 15px;">聘请辅导机构，向证监局备案</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.1);">
+                            <td style="padding: 15px;">2030年Q1-Q2</td>
+                            <td style="padding: 15px;">辅导期</td>
+                            <td style="padding: 15px;">规范运营、解决历史问题</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.1);">
+                            <td style="padding: 15px;">2030年Q3</td>
+                            <td style="padding: 15px;">申报材料</td>
+                            <td style="padding: 15px;">制作招股说明书，向上交所提交</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.1);">
+                            <td style="padding: 15px;">2030年Q4</td>
+                            <td style="padding: 15px;">审核问询</td>
+                            <td style="padding: 15px;">回应审核问询，更新材料</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.1);">
+                            <td style="padding: 15px;">2031年Q1</td>
+                            <td style="padding: 15px;">发审委审核</td>
+                            <td style="padding: 15px;">通过发审委审核</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 15px;">2031年Q2</td>
+                            <td style="padding: 15px;">发行上市</td>
+                            <td style="padding: 15px;">路演、定价、挂牌上市</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="highlight-box" style="margin-top: 20px;">
+                <div class="highlight-title">预计发行方案</div>
+                <div class="grid grid-4">
+                    <div style="text-align: center;">
+                        <div style="font-size: 14px; color: #F5F5DC;">发行前总股本</div>
+                        <div style="font-size: 20px; font-weight: bold; color: #D4AF37;">1亿股</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 14px; color: #F5F5DC;">发行股数</div>
+                        <div style="font-size: 20px; font-weight: bold; color: #D4AF37;">2000万股</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 14px; color: #F5F5DC;">发行价</div>
+                        <div style="font-size: 20px; font-weight: bold; color: #D4AF37;">60-80元/股</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 14px; color: #F5F5DC;">预计市值</div>
+                        <div style="font-size: 20px; font-weight: bold; color: #D4AF37;">80-120亿元</div>
                     </div>
                 </div>
             </div>
@@ -119,10 +450,489 @@
 
     <a href="index.html" class="back-to-home">← 返回超充设备厂</a>
 
+    <script src="js/echarts-config.js"></script>
     <script>
+        // 等待页面加载完成
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. 初始股权结构饼图
+            const equityStructureChart = echarts.init(document.getElementById('equityStructureChart'));
+            equityStructureChart.setOption({
+                title: {
+                    text: '初始股权结构（2亿元）',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c}万元 ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    top: 'middle',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                series: [{
+                    name: '股权结构',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    center: ['60%', '50%'],
+                    data: [
+                        {value: 12000, name: '创始团队 60%'},
+                        {value: 5000, name: '战略投资者A 25%'},
+                        {value: 2000, name: '战略投资者B 10%'},
+                        {value: 1000, name: '员工期权池 5%'}
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(212, 175, 55, 0.5)'
+                        }
+                    },
+                    label: {
+                        formatter: '{b}\n{d}%',
+                        color: '#F5F5DC'
+                    }
+                }]
+            });
+
+            // 2. 融资轮次与估值增长趋势图
+            const valuationGrowthChart = echarts.init(document.getElementById('valuationGrowthChart'));
+            valuationGrowthChart.setOption({
+                title: {
+                    text: '融资轮次与估值增长路径（2025-2031）',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' },
+                    formatter: function(params) {
+                        let result = params[0].name + '<br/>';
+                        params.forEach(item => {
+                            result += item.seriesName + ': ' + item.value + '亿元<br/>';
+                        });
+                        return result;
+                    }
+                },
+                legend: {
+                    data: ['投前估值', '融资规模', '投后估值'],
+                    top: 'bottom',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['种子轮\n2025Q1', 'A轮\n2027Q1', 'B轮\n2028Q2', 'Pre-IPO\n2030Q1', 'IPO\n2031Q2'],
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        fontSize: 12,
+                        interval: 0
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '估值（亿元）',
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        formatter: '{value}'
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(212, 175, 55, 0.1)',
+                            type: 'dashed'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '投前估值',
+                        type: 'bar',
+                        data: [0, 7, 20, 60, null],
+                        itemStyle: {
+                            color: 'rgba(139, 115, 85, 0.6)',
+                            borderColor: '#8B7355',
+                            borderWidth: 1
+                        }
+                    },
+                    {
+                        name: '融资规模',
+                        type: 'bar',
+                        data: [2, 1.75, 2.5, 4, 12.5],
+                        itemStyle: {
+                            color: 'rgba(212, 175, 55, 0.8)',
+                            borderColor: '#D4AF37',
+                            borderWidth: 1
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}亿',
+                            color: '#D4AF37'
+                        }
+                    },
+                    {
+                        name: '投后估值',
+                        type: 'line',
+                        data: [2, 8.75, 22.5, 64, 100],
+                        smooth: true,
+                        lineStyle: {
+                            width: 4,
+                            color: '#D4AF37',
+                            shadowColor: 'rgba(212, 175, 55, 0.5)',
+                            shadowBlur: 10
+                        },
+                        itemStyle: {
+                            color: '#D4AF37',
+                            borderWidth: 2,
+                            borderColor: '#F5F5DC'
+                        },
+                        areaStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0, y: 0, x2: 0, y2: 1,
+                                colorStops: [
+                                    {offset: 0, color: 'rgba(212, 175, 55, 0.4)'},
+                                    {offset: 1, color: 'rgba(212, 175, 55, 0.05)'}
+                                ]
+                            }
+                        },
+                        markPoint: {
+                            data: [
+                                {type: 'max', name: '最高估值'},
+                                {type: 'min', name: '初始估值'}
+                            ]
+                        }
+                    }
+                ],
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    containLabel: true
+                }
+            });
+
+            // 3. 退出路径回报对比图（双Y轴：IRR和MOIC）
+            const exitReturnChart = echarts.init(document.getElementById('exitReturnChart'));
+            exitReturnChart.setOption({
+                title: {
+                    text: '四种退出路径回报对比',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' },
+                    formatter: function(params) {
+                        let exitType = params[0].name;
+                        let irr = params[0].value;
+                        let moic = params[1].value;
+                        let probability = params[2] ? params[2].value : '';
+                        return `${exitType}<br/>IRR: ${irr}%<br/>MOIC: ${moic}×<br/>概率: ${probability}%`;
+                    }
+                },
+                legend: {
+                    data: ['IRR（内部收益率）', 'MOIC（投资回报倍数）', '实现概率'],
+                    top: 'bottom',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['独立上市\n(IPO)', '并购退出', '股权转让', '管理层回购'],
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        fontSize: 13,
+                        interval: 0
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: 'IRR (%)',
+                        position: 'left',
+                        axisLabel: {
+                            color: '#F5F5DC',
+                            formatter: '{value}%'
+                        },
+                        axisLine: { lineStyle: { color: '#D4AF37' } },
+                        splitLine: {
+                            lineStyle: {
+                                color: 'rgba(212, 175, 55, 0.1)',
+                                type: 'dashed'
+                            }
+                        }
+                    },
+                    {
+                        type: 'value',
+                        name: 'MOIC (×)',
+                        position: 'right',
+                        axisLabel: {
+                            color: '#F5F5DC',
+                            formatter: '{value}×'
+                        },
+                        axisLine: { lineStyle: { color: '#D4AF37' } }
+                    }
+                ],
+                series: [
+                    {
+                        name: 'IRR（内部收益率）',
+                        type: 'bar',
+                        yAxisIndex: 0,
+                        data: [98, 72, 58, 15],
+                        itemStyle: {
+                            color: function(params) {
+                                const colors = ['#4CAF50', '#2196F3', '#FF9800', '#9E9E9E'];
+                                return colors[params.dataIndex];
+                            },
+                            borderColor: '#D4AF37',
+                            borderWidth: 1
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}%',
+                            color: '#F5F5DC'
+                        }
+                    },
+                    {
+                        name: 'MOIC（投资回报倍数）',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        data: [22.5, 15.0, 10.0, 2.0],
+                        smooth: true,
+                        lineStyle: {
+                            width: 3,
+                            color: '#DAA520'
+                        },
+                        itemStyle: {
+                            color: '#DAA520',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}×',
+                            color: '#DAA520'
+                        }
+                    },
+                    {
+                        name: '实现概率',
+                        type: 'line',
+                        data: [40, 30, 20, 10],
+                        smooth: true,
+                        lineStyle: {
+                            width: 3,
+                            color: '#CD853F',
+                            type: 'dashed'
+                        },
+                        itemStyle: {
+                            color: '#CD853F'
+                        },
+                        label: {
+                            show: true,
+                            position: 'bottom',
+                            formatter: '{c}%',
+                            color: '#CD853F'
+                        }
+                    }
+                ],
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    containLabel: true
+                }
+            });
+
+            // 4. 各轮次融资规模与资金用途（堆叠柱状图）
+            const financingRoundsChart = echarts.init(document.getElementById('financingRoundsChart'));
+            financingRoundsChart.setOption({
+                title: {
+                    text: '分阶段融资规模与资金用途规划',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' },
+                    formatter: function(params) {
+                        let round = params[0].name;
+                        let total = 0;
+                        let result = round + '资金用途<br/>';
+                        params.forEach(item => {
+                            result += item.seriesName + ': ' + item.value + '万元<br/>';
+                            total += item.value;
+                        });
+                        result += '总计: ' + total + '万元';
+                        return result;
+                    }
+                },
+                legend: {
+                    data: ['产能扩张/设备投资', '研发与技术', '市场拓展', 'IPO筹备/并购', '流动资金'],
+                    top: 'bottom',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['种子轮\n(2亿)', 'A轮\n(1.75亿)', 'B轮\n(2.5亿)', 'Pre-IPO\n(4亿)'],
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        fontSize: 12,
+                        interval: 0
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '金额（万元）',
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        formatter: '{value}'
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(212, 175, 55, 0.1)',
+                            type: 'dashed'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '产能扩张/设备投资',
+                        type: 'bar',
+                        stack: 'total',
+                        data: [7000, 6000, 0, 0],
+                        itemStyle: { color: '#D4AF37' }
+                    },
+                    {
+                        name: '研发与技术',
+                        type: 'bar',
+                        stack: 'total',
+                        data: [4000, 4500, 4000, 0],
+                        itemStyle: { color: '#DAA520' }
+                    },
+                    {
+                        name: '市场拓展',
+                        type: 'bar',
+                        stack: 'total',
+                        data: [1000, 3000, 6000, 0],
+                        itemStyle: { color: '#CD853F' }
+                    },
+                    {
+                        name: 'IPO筹备/并购',
+                        type: 'bar',
+                        stack: 'total',
+                        data: [0, 0, 0, 20000],
+                        itemStyle: { color: '#B8860B' }
+                    },
+                    {
+                        name: '流动资金',
+                        type: 'bar',
+                        stack: 'total',
+                        data: [8000, 1500, 5000, 20000],
+                        itemStyle: { color: '#8B7355' }
+                    }
+                ],
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    containLabel: true
+                }
+            });
+
+            // 5. 投资回报概率分布（饼图）
+            const probabilityDistributionChart = echarts.init(document.getElementById('probabilityDistributionChart'));
+            probabilityDistributionChart.setOption({
+                title: {
+                    text: '退出路径概率与预期回报分布',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function(params) {
+                        return params.name + '<br/>' +
+                               '概率: ' + params.percent + '%<br/>' +
+                               'IRR: ' + params.data.irr + '%<br/>' +
+                               'MOIC: ' + params.data.moic + '×';
+                    }
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    top: 'middle',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                series: [{
+                    name: '退出路径',
+                    type: 'pie',
+                    radius: ['45%', '75%'],
+                    center: ['60%', '50%'],
+                    data: [
+                        {
+                            value: 40,
+                            name: '独立上市',
+                            irr: '98',
+                            moic: '22.5',
+                            itemStyle: { color: '#4CAF50' }
+                        },
+                        {
+                            value: 30,
+                            name: '并购退出',
+                            irr: '72',
+                            moic: '15.0',
+                            itemStyle: { color: '#2196F3' }
+                        },
+                        {
+                            value: 20,
+                            name: '股权转让',
+                            irr: '58',
+                            moic: '10.0',
+                            itemStyle: { color: '#FF9800' }
+                        },
+                        {
+                            value: 10,
+                            name: '管理层回购',
+                            irr: '15',
+                            moic: '2.0',
+                            itemStyle: { color: '#9E9E9E' }
+                        }
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(212, 175, 55, 0.5)'
+                        }
+                    },
+                    label: {
+                        formatter: '{b}\n{d}%',
+                        color: '#F5F5DC',
+                        fontSize: 13
+                    }
+                }]
+            });
+
+            // 将图表实例添加到全局数组，用于响应式管理
+            chartInstances.push(equityStructureChart);
+            chartInstances.push(valuationGrowthChart);
+            chartInstances.push(exitReturnChart);
+            chartInstances.push(financingRoundsChart);
+            chartInstances.push(probabilityDistributionChart);
+        });
+
+        // 页面滚动动画
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
         }, {threshold: 0.1});
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));

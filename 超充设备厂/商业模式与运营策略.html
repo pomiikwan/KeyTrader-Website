@@ -2,46 +2,150 @@
 <html lang="zh-CN">
 <head>
     <link rel="stylesheet" href="../玄金水墨主题.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商业模式与运营策略 - 液冷超充设备厂</title>
     <style>
-        .funnel-chart {
+        .chart-container {
+            width: 100%;
+            height: 450px;
+            margin: 30px 0;
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            color: #1A1A1A;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        .highlight-title {
+            font-size: 28px;
+            color: #D4AF37;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(26, 26, 26, 0.8));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            border-color: #D4AF37;
+        }
+
+        .kpi-label {
+            font-size: 16px;
+            color: #F5F5DC;
+            margin-bottom: 10px;
+        }
+
+        .kpi-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #D4AF37;
+            margin-bottom: 5px;
+        }
+
+        .kpi-subtitle {
+            font-size: 14px;
+            color: #8B7355;
+        }
+
+        .strategy-card {
+            background: rgba(26, 26, 26, 0.6);
+            border-left: 4px solid #D4AF37;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .strategy-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-left-width: 6px;
+        }
+
+        .funnel-diagram {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             margin: 30px 0;
         }
+
         .funnel-layer {
-            background: rgba(212, 175, 55, 0.2);
-            border: 2px solid var(--primary-gold);
-            padding: 15px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(26, 26, 26, 0.8));
+            border: 2px solid #D4AF37;
+            padding: 20px;
             text-align: center;
-            transition: all 0.3s;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
+
         .funnel-layer:hover {
-            background: rgba(212, 175, 55, 0.4);
             transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
         }
-        .cost-down-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .info-table th {
+            background: rgba(212, 175, 55, 0.2);
+            color: #D4AF37;
             padding: 12px;
-            margin: 8px 0;
-            background: rgba(26, 26, 26, 0.8);
-            border-left: 4px solid var(--primary-gold);
+            text-align: left;
+            border-bottom: 2px solid #D4AF37;
         }
-        .cost-down-value {
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--primary-gold);
+
+        .info-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .info-table tr:hover td {
+            background: rgba(212, 175, 55, 0.05);
         }
     </style>
 </head>
 <body>
-    <!-- 顶部导航 -->
     <nav class="top-nav">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <a href="index.html">← 返回超充设备厂</a>
@@ -49,445 +153,959 @@
     </nav>
 
     <div class="main-container">
-        <!-- 页面标题 -->
         <div class="hero-banner fade-in" style="padding: 60px 0;">
             <div class="segment-icon" style="margin: 0 auto 30px;">BUSINESS</div>
             <h1 style="font-size: 42px; margin-bottom: 20px;">商业模式与运营策略</h1>
-            <p style="font-size: 18px; color: var(--paper-beige); max-width: 800px; margin: 0 auto;">
-                Business Model & Operations Strategy
-            </p>
-            <div class="hero-banner-image placeholder" data-image="business-model.jpg"></div>
+            <p style="font-size: 18px; color: var(--paper-beige);">Business Model & Operations Strategy</p>
         </div>
 
         <!-- 企业运营画像 -->
         <section class="fade-in">
-            <h2>企业运营画像</h2>
-            <div class="card">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                    <div class="metric-card">
-                        <div class="metric-value">0-1</div>
-                        <div class="metric-label">发展阶段</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">1100万美元</div>
-                        <div class="metric-label">首年预计营收</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">35%</div>
-                        <div class="metric-label">目标毛利率</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">启用</div>
-                        <div class="metric-label">332降本计划</div>
-                    </div>
+            <div class="highlight-title">企业运营画像</div>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">发展阶段</div>
+                    <div class="kpi-value">0-1</div>
+                    <div class="kpi-subtitle">初创期</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">首年预计营收</div>
+                    <div class="kpi-value">8000万</div>
+                    <div class="kpi-subtitle">约1100万美元</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">目标毛利率</div>
+                    <div class="kpi-value">35%</div>
+                    <div class="kpi-subtitle">通过332降本实现</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">332降本计划</div>
+                    <div class="kpi-value">已启动</div>
+                    <div class="kpi-subtitle">3年累计降本24%</div>
                 </div>
             </div>
         </section>
 
         <!-- 双轨漏斗变现模型 -->
         <section class="fade-in">
-            <h2>双轨漏斗变现模型</h2>
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>双轨漏斗变现模型</h2>
+            </div>
             <div class="highlight-box">
                 <div class="highlight-title">现金流漏斗（0-12个月，目标毛利率≥35%）</div>
 
-                <div class="funnel-chart">
+                <div class="funnel-diagram">
                     <div class="funnel-layer" style="width: 100%;">
-                        <h3>第一层：硬件销售收入（现金流主力）</h3>
-                        <table style="width: 100%; margin-top: 15px;">
-                            <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.3);">
-                                <th style="text-align: left; padding: 8px;">产品类别</th>
-                                <th style="text-align: center; padding: 8px;">毛利率</th>
-                                <th style="text-align: center; padding: 8px;">回款周期</th>
-                                <th style="text-align: center; padding: 8px;">现金流贡献</th>
-                            </tr>
-                            <tr>
-                                <td style="padding: 8px;">液冷充电模块</td>
-                                <td style="text-align: center; padding: 8px;">35-40%</td>
-                                <td style="text-align: center; padding: 8px;">30-60天</td>
-                                <td style="text-align: center; padding: 8px; color: #4CAF50;">高</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 8px;">超充整桩系统</td>
-                                <td style="text-align: center; padding: 8px;">30-35%</td>
-                                <td style="text-align: center; padding: 8px;">60-90天</td>
-                                <td style="text-align: center; padding: 8px; color: #FF9800;">中</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 8px;">定制化解决方案</td>
-                                <td style="text-align: center; padding: 8px;">40-45%</td>
-                                <td style="text-align: center; padding: 8px;">45-75天</td>
-                                <td style="text-align: center; padding: 8px; color: #2196F3;">中高</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="funnel-layer" style="width: 80%;">
-                        <h3>第二层：服务与增值收入（利润补充）</h3>
-                        <div class="grid grid-2" style="margin-top: 15px;">
-                            <div>
-                                <p><strong>延保服务</strong>：设备价的5-8%/年，毛利率>70%</p>
-                                <p><strong>能源管理SaaS</strong>：2000-5000元/站/月，毛利率>80%</p>
+                        <h3 style="color: #D4AF37;">第一层：硬件销售收入（现金流主力）</h3>
+                        <div class="grid grid-3" style="margin-top: 20px;">
+                            <div class="strategy-card">
+                                <h4>液冷充电模块</h4>
+                                <p><strong>毛利率：</strong>35-40%</p>
+                                <p><strong>回款周期：</strong>30-60天</p>
+                                <p><strong>现金流贡献：</strong><span style="color: #4CAF50;">高</span></p>
                             </div>
-                            <div>
-                                <p><strong>备件供应</strong>：成本加成30-40%，毛利率35-40%</p>
-                                <p><strong>技术培训</strong>：5000-15000元/人次，毛利率>60%</p>
+                            <div class="strategy-card">
+                                <h4>超充整桩系统</h4>
+                                <p><strong>毛利率：</strong>30-35%</p>
+                                <p><strong>回款周期：</strong>60-90天</p>
+                                <p><strong>现金流贡献：</strong><span style="color: #FF9800;">中</span></p>
+                            </div>
+                            <div class="strategy-card">
+                                <h4>定制化解决方案</h4>
+                                <p><strong>毛利率：</strong>40-45%</p>
+                                <p><strong>回款周期：</strong>45-75天</p>
+                                <p><strong>现金流贡献：</strong><span style="color: #2196F3;">中高</span></p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="funnel-layer" style="width: 60%;">
-                        <h3>研发漏斗（12-36个月，专利≥10个/年）</h3>
+                    <div class="funnel-layer" style="width: 75%;">
+                        <h3 style="color: #D4AF37;">第二层：服务与增值收入（利润补充）</h3>
+                        <div class="grid grid-2" style="margin-top: 20px;">
+                            <div>
+                                <p><strong>延保服务：</strong>设备价的5-8%/年，毛利率>70%</p>
+                                <p><strong>能源管理SaaS：</strong>2000-5000元/站/月，毛利率>80%</p>
+                            </div>
+                            <div>
+                                <p><strong>备件供应：</strong>成本加成30-40%，毛利率35-40%</p>
+                                <p><strong>技术培训：</strong>5000-15000元/人次，毛利率>60%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="funnel-layer" style="width: 50%;">
+                        <h3 style="color: #D4AF37;">研发漏斗（12-36个月）</h3>
                         <p style="margin-top: 10px;">技术迭代路径：120kW模块 → SiC深度优化 → V2G技术 → 下一代散热架构</p>
+                        <p style="font-size: 14px; color: #8B7355; margin-top: 10px;">专利布局：每年≥10个发明专利</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 收入结构设计 -->
+        <!-- 五年收入结构演变 -->
         <section class="fade-in">
-            <h2>五年收入结构演变</h2>
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>五年收入结构演变</h2>
+            </div>
+            <div class="chart-container">
+                <div id="revenueStructureChart" style="width: 100%; height: 100%;"></div>
+            </div>
             <div class="card">
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr style="border-bottom: 2px solid var(--primary-gold);">
-                        <th style="padding: 12px; text-align: left;">收入来源</th>
-                        <th style="padding: 12px; text-align: center;">第1年</th>
-                        <th style="padding: 12px; text-align: center;">第2年</th>
-                        <th style="padding: 12px; text-align: center;">第3年</th>
-                        <th style="padding: 12px; text-align: center;">第4年</th>
-                        <th style="padding: 12px; text-align: center;">第5年</th>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        <td style="padding: 12px;">液冷充电模块</td>
-                        <td style="padding: 12px; text-align: center;">70%</td>
-                        <td style="padding: 12px; text-align: center;">55%</td>
-                        <td style="padding: 12px; text-align: center;">45%</td>
-                        <td style="padding: 12px; text-align: center;">40%</td>
-                        <td style="padding: 12px; text-align: center;">35%</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        <td style="padding: 12px;">超充整桩系统</td>
-                        <td style="padding: 12px; text-align: center;">20%</td>
-                        <td style="padding: 12px; text-align: center;">30%</td>
-                        <td style="padding: 12px; text-align: center;">35%</td>
-                        <td style="padding: 12px; text-align: center;">35%</td>
-                        <td style="padding: 12px; text-align: center;">35%</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        <td style="padding: 12px;">服务与增值收入</td>
-                        <td style="padding: 12px; text-align: center;">5%</td>
-                        <td style="padding: 12px; text-align: center;">10%</td>
-                        <td style="padding: 12px; text-align: center;">15%</td>
-                        <td style="padding: 12px; text-align: center;">20%</td>
-                        <td style="padding: 12px; text-align: center;">25%</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 12px;">海外市场收入</td>
-                        <td style="padding: 12px; text-align: center;">5%</td>
-                        <td style="padding: 12px; text-align: center;">5%</td>
-                        <td style="padding: 12px; text-align: center;">5%</td>
-                        <td style="padding: 12px; text-align: center;">5%</td>
-                        <td style="padding: 12px; text-align: center;">5%</td>
-                    </tr>
-                </table>
+                <h4 style="color: #D4AF37; margin-bottom: 15px;">收入质量提升路径</h4>
+                <div class="grid grid-3">
+                    <div>
+                        <strong>经常性收入占比</strong>
+                        <p style="font-size: 14px; margin-top: 5px;">从第1年5%提升至第5年30%</p>
+                    </div>
+                    <div>
+                        <strong>客户集中度控制</strong>
+                        <p style="font-size: 14px; margin-top: 5px;">单一客户收入占比≤20%（第3年后）</p>
+                    </div>
+                    <div>
+                        <strong>区域多元化</strong>
+                        <p style="font-size: 14px; margin-top: 5px;">单一区域收入占比≤40%（第3年后）</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- 332降本计划 -->
         <section class="fade-in">
-            <h2>332降本计划</h2>
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>332降本计划</h2>
+            </div>
+            <div class="chart-container">
+                <div id="costReductionChart" style="width: 100%; height: 100%;"></div>
+            </div>
             <div class="highlight-box">
-                <div class="highlight-title">3年滚动降本，累计提升毛利率8-10个百分点</div>
-                <p style="text-align: center; margin-bottom: 20px;">
+                <div class="highlight-title">降本目标：3年累计降本24%，提升毛利率8-10个百分点</div>
+                <p style="text-align: center; margin-top: 15px;">
                     所有降本收益的80%投入"现金漏斗"（价格竞争+市场拓展），20%用于提升员工福利
                 </p>
-
-                <div style="margin-top: 30px;">
-                    <h3 style="text-align: center; margin-bottom: 20px;">降本目标分解</h3>
-
-                    <div class="cost-down-row">
-                        <div>
-                            <div style="font-size: 18px; font-weight: bold;">供应链降本</div>
-                            <div style="color: var(--paper-beige); opacity: 0.8;">集中采购、VMI/JIT、物流优化、质量成本降低</div>
-                        </div>
-                        <div class="cost-down-value">9%</div>
-                    </div>
-
-                    <div class="cost-down-row">
-                        <div>
-                            <div style="font-size: 18px; font-weight: bold;">工艺降本</div>
-                            <div style="color: var(--paper-beige); opacity: 0.8;">自动化提升、精益生产、设计优化</div>
-                        </div>
-                        <div class="cost-down-value">9%</div>
-                    </div>
-
-                    <div class="cost-down-row">
-                        <div>
-                            <div style="font-size: 18px; font-weight: bold;">管理降本</div>
-                            <div style="color: var(--paper-beige); opacity: 0.8;">组织效能提升、能源办公降本、财务费用优化</div>
-                        </div>
-                        <div class="cost-down-value">6%</div>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(212, 175, 55, 0.2); border: 2px solid var(--primary-gold);">
-                        <div style="font-size: 24px; font-weight: bold; color: var(--primary-gold);">合计降本：24%</div>
-                        <div style="margin-top: 10px; color: var(--paper-beige);">
-                            每年降本8%，持续优化成本结构
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
         <!-- 资源护城河 -->
         <section class="fade-in">
-            <h2>资源护城河构建策略</h2>
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3>市场份额护城河</h3>
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>资源护城河构建策略</h2>
+            </div>
+            <div class="chart-container">
+                <div id="moatRadarChart" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="grid grid-2" style="margin-top: 30px;">
+                <div class="strategy-card">
+                    <h3 style="color: #D4AF37;">市场份额护城河</h3>
+                    <p><strong>聚焦：</strong>大功率液冷超充（≥480kW）</p>
+                    <p><strong>目标：</strong>第3年8%，第5年15%市场份额</p>
+                    <p><strong>策略：</strong>技术锁定+服务锁定+数据锁定+金融锁定</p>
+                </div>
+                <div class="strategy-card">
+                    <h3 style="color: #D4AF37;">渠道网络护城河</h3>
+                    <p><strong>架构：</strong>直销60% + 分销40%</p>
+                    <p><strong>目标：</strong>第5年覆盖80个城市，80家代理商</p>
+                    <p><strong>赋能：</strong>培训+营销+技术+金融四维赋能</p>
+                </div>
+                <div class="strategy-card">
+                    <h3 style="color: #D4AF37;">供应链护城河</h3>
+                    <p><strong>策略：</strong>AB角采购+战略合作</p>
+                    <p><strong>安全：</strong>核心元器件备足3个月用量</p>
+                    <p><strong>优化：</strong>集中采购+VMI/JIT+国产化替代</p>
+                </div>
+                <div class="strategy-card">
+                    <h3 style="color: #D4AF37;">人才团队护城河</h3>
+                    <p><strong>规模：</strong>第5年核心团队150-180人，研发占比30%+</p>
+                    <p><strong>激励：</strong>ESOP计划，核心员工持股10-15%</p>
+                    <p><strong>薪酬：</strong>行业75分位+双通道晋升</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 渠道拓展计划 -->
+        <section class="fade-in">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>五年渠道拓展计划</h2>
+            </div>
+            <div class="chart-container">
+                <div id="channelExpansionChart" style="width: 100%; height: 100%;"></div>
+            </div>
+        </section>
+
+        <!-- 项目来源与订单获取 -->
+        <section class="fade-in">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2>项目平移订单获取模式</h2>
+            </div>
+            <div class="chart-container">
+                <div id="projectSourceChart" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="grid grid-2" style="margin-top: 30px;">
+                <div class="strategy-card">
+                    <h3 style="color: #D4AF37;">核心优势</h3>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;">• 聚焦大功率液冷超充（≥480kW）</li>
-                        <li style="margin-bottom: 10px;">• 第3年达到8%，第5年达到15%市场份额</li>
-                        <li style="margin-bottom: 10px;">• 技术锁定、服务锁定、数据锁定、金融锁定</li>
+                        <li style="margin-bottom: 10px;">✓ <strong>订单规模大：</strong>数十台至数百台设备</li>
+                        <li style="margin-bottom: 10px;">✓ <strong>需求确定性高：</strong>项目已规划立项</li>
+                        <li style="margin-bottom: 10px;">✓ <strong>回款有保障：</strong>依托项目资金安排</li>
+                        <li style="margin-bottom: 10px;">✓ <strong>客户粘性强：</strong>建立长期合作关系</li>
                     </ul>
                 </div>
-                <div class="card">
-                    <h3>渠道网络护城河</h3>
+                <div class="strategy-card">
+                    <h3 style="color: #D4AF37;">战略合作模式</h3>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;">• 直销渠道（60%收入）+ 分销渠道（40%收入）</li>
-                        <li style="margin-bottom: 10px;">• 第5年覆盖80个城市，80家代理商</li>
-                        <li style="margin-bottom: 10px;">• 培训赋能、营销赋能、技术赋能、金融赋能</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>供应链护城河</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;">• AB角采购策略，核心供应商战略合作</li>
-                        <li style="margin-bottom: 10px;">• 安全库存：核心元器件备足3个月用量</li>
-                        <li style="margin-bottom: 10px;">• 多源供应、价格锁定、国产化替代</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>人才团队护城河</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;">• 第5年核心团队150-180人，研发占比30%+</li>
-                        <li style="margin-bottom: 10px;">• ESOP计划，核心员工持股10-15%</li>
-                        <li style="margin-bottom: 10px;">• 行业75分位薪酬+双通道晋升</li>
+                        <li style="margin-bottom: 10px;">• <strong>长期框架协议：</strong>3-5年战略合作</li>
+                        <li style="margin-bottom: 10px;">• <strong>联合开发：</strong>前期技术方案参与</li>
+                        <li style="margin-bottom: 10px;">• <strong>产能预留：</strong>专用产能保障交付</li>
+                        <li style="margin-bottom: 10px;">• <strong>价格联动：</strong>原材料波动调整机制</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 全球运营模式 -->
+        <!-- 供应链降本策略 -->
         <section class="fade-in">
-            <h2>全球运营与海外拓展</h2>
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2>供应链降本四大策略</h2>
+            </div>
+            <div class="chart-container">
+                <div id="supplyChainCostChart" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="card" style="margin-top: 30px;">
+                <h4 style="color: #D4AF37; margin-bottom: 15px;">关键举措时间表</h4>
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>策略</th>
+                            <th>关键举措</th>
+                            <th>预期降本</th>
+                            <th>时间节点</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>集中采购</td>
+                            <td>年采购量≥500万，与原厂直签</td>
+                            <td style="color: #4CAF50;">2%</td>
+                            <td>2026年Q2</td>
+                        </tr>
+                        <tr>
+                            <td>价格锁定</td>
+                            <td>与核心供应商签年度价格协议</td>
+                            <td style="color: #4CAF50;">1%</td>
+                            <td>2026年Q1</td>
+                        </tr>
+                        <tr>
+                            <td>VMI模式</td>
+                            <td>供应商管理库存，降低资金占用</td>
+                            <td style="color: #4CAF50;">1%</td>
+                            <td>2026年Q3</td>
+                        </tr>
+                        <tr>
+                            <td>良率提升</td>
+                            <td>从85%→95%，不良成本降低50%</td>
+                            <td style="color: #4CAF50;">1.5%</td>
+                            <td>持续进行</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 海外拓展规划 -->
+        <section class="fade-in">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2>全球运营与海外拓展</h2>
+            </div>
             <div class="highlight-box">
                 <div class="highlight-title">目标市场筛选模型</div>
                 <div class="grid grid-3" style="margin-top: 20px;">
-                    <div class="metric-card">
-                        <div class="metric-value">第一梯队</div>
-                        <div class="metric-label">东南亚（2026-2027）</div>
-                        <p style="font-size: 14px; color: var(--paper-beige); margin-top: 10px;">
-                            市场规模+政策友好+供应链近
-                        </p>
+                    <div class="kpi-card">
+                        <div class="kpi-label">第一梯队</div>
+                        <div class="kpi-value" style="font-size: 24px;">东南亚</div>
+                        <div class="kpi-subtitle">2026-2027年</div>
+                        <p style="font-size: 14px; color: #F5F5DC; margin-top: 10px;">市场规模+政策友好+供应链近</p>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">第二梯队</div>
-                        <div class="metric-label">中东（2028-2029）</div>
-                        <p style="font-size: 14px; color: var(--paper-beige); margin-top: 10px;">
-                            高温场景需求+政策支持
-                        </p>
+                    <div class="kpi-card">
+                        <div class="kpi-label">第二梯队</div>
+                        <div class="kpi-value" style="font-size: 24px;">中东</div>
+                        <div class="kpi-subtitle">2028-2029年</div>
+                        <p style="font-size: 14px; color: #F5F5DC; margin-top: 10px;">高温场景需求+政策支持</p>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">第三梯队</div>
-                        <div class="metric-label">欧洲（2030后）</div>
-                        <p style="font-size: 14px; color: var(--paper-beige); margin-top: 10px;">
-                            市场规模大但准入门槛高
-                        </p>
+                    <div class="kpi-card">
+                        <div class="kpi-label">第三梯队</div>
+                        <div class="kpi-value" style="font-size: 24px;">欧洲</div>
+                        <div class="kpi-subtitle">2030年后</div>
+                        <p style="font-size: 14px; color: #F5F5DC; margin-top: 10px;">市场规模大但准入门槛高</p>
                     </div>
                 </div>
             </div>
-
             <div class="card" style="margin-top: 30px;">
-                <h3>海外市场进入模式</h3>
-                <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-                    <tr style="border-bottom: 2px solid var(--primary-gold);">
-                        <th style="padding: 12px; text-align: left;">进入模式</th>
-                        <th style="padding: 12px; text-align: center;">投资规模</th>
-                        <th style="padding: 12px; text-align: center;">风险程度</th>
-                        <th style="padding: 12px; text-align: center;">控制力</th>
-                        <th style="padding: 12px; text-align: center;">选择建议</th>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        <td style="padding: 12px;">直销出口</td>
-                        <td style="padding: 12px; text-align: center;">低</td>
-                        <td style="padding: 12px; text-align: center;">低</td>
-                        <td style="padding: 12px; text-align: center;">中</td>
-                        <td style="padding: 12px; text-align: center; color: #4CAF50;">初期首选</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        <td style="padding: 12px;">代理商合作</td>
-                        <td style="padding: 12px; text-align: center;">中</td>
-                        <td style="padding: 12px; text-align: center;">中</td>
-                        <td style="padding: 12px; text-align: center;">低</td>
-                        <td style="padding: 12px; text-align: center; color: #2196F3;">2026年采用</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 12px;">合资企业</td>
-                        <td style="padding: 12px; text-align: center;">高</td>
-                        <td style="padding: 12px; text-align: center;">中</td>
-                        <td style="padding: 12px; text-align: center;">中</td>
-                        <td style="padding: 12px; text-align: center; color: #FF9800;">2027年考虑</td>
-                    </tr>
+                <h3 style="color: #D4AF37; margin-bottom: 15px;">海外市场进入模式对比</h3>
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>进入模式</th>
+                            <th>投资规模</th>
+                            <th>风险程度</th>
+                            <th>控制力</th>
+                            <th>选择建议</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>直销出口</td>
+                            <td>低</td>
+                            <td>低</td>
+                            <td>中</td>
+                            <td style="color: #4CAF50;">初期首选</td>
+                        </tr>
+                        <tr>
+                            <td>代理商合作</td>
+                            <td>中</td>
+                            <td>中</td>
+                            <td>低</td>
+                            <td style="color: #2196F3;">2026年采用</td>
+                        </tr>
+                        <tr>
+                            <td>合资企业</td>
+                            <td>高</td>
+                            <td>中</td>
+                            <td>中</td>
+                            <td style="color: #FF9800;">2027年考虑</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- 项目平移订单获取 -->
-        <section class="fade-in">
-            <h2>项目平移订单获取模式</h2>
-            <div class="highlight-box">
-                <div class="highlight-title">核心优势</div>
-                <div class="grid grid-2" style="margin-top: 20px;">
-                    <div class="card">
-                        <h4>订单规模大</h4>
-                        <p>单个项目通常包含数十台至数百台设备，形成规模化订单</p>
-                    </div>
-                    <div class="card">
-                        <h4>需求确定性高</h4>
-                        <p>项目已完成前期规划和立项，需求明确</p>
-                    </div>
-                    <div class="card">
-                        <h4>回款有保障</h4>
-                        <p>依托项目整体资金安排，回款周期可控</p>
-                    </div>
-                    <div class="card">
-                        <h4>客户粘性强</h4>
-                        <p>基于项目合作建立长期合作关系</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="margin-top: 30px;">
-                <h3>项目来源渠道</h3>
-                <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-                    <tr style="border-bottom: 2px solid var(--primary-gold);">
-                        <th style="padding: 12px; text-align: left;">项目来源</th>
-                        <th style="padding: 12px; text-align: center;">合作方式</th>
-                        <th style="padding: 12px; text-align: center;">订单规模</th>
-                        <th style="padding: 12px; text-align: center;">占比</th>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        <td style="padding: 12px;">战略合作伙伴</td>
-                        <td style="padding: 12px; text-align: center;">优先供应商</td>
-                        <td style="padding: 12px; text-align: center;">大规模（50台+订单）</td>
-                        <td style="padding: 12px; text-align: center;">40%</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        <td style="padding: 12px;">政府示范项目</td>
-                        <td style="padding: 12px; text-align: center;">联合投标/直接供应</td>
-                        <td style="padding: 12px; text-align: center;">中大规模（20-100台）</td>
-                        <td style="padding: 12px; text-align: center;">25%</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                        <td style="padding: 12px;">能源集团项目</td>
-                        <td style="padding: 12px; text-align: center;">OEM/ODM合作</td>
-                        <td style="padding: 12px; text-align: center;">大规模（100台+订单）</td>
-                        <td style="padding: 12px; text-align: center;">20%</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 12px;">行业集成商</td>
-                        <td style="padding: 12px; text-align: center;">B2B供应</td>
-                        <td style="padding: 12px; text-align: center;">中小规模（10-50台）</td>
-                        <td style="padding: 12px; text-align: center;">15%</td>
-                    </tr>
-                </table>
-            </div>
-        </section>
-
-        <!-- 运营速览 -->
-        <section class="fade-in">
-            <h2>运营速览与关键监控</h2>
-            <div class="card">
-                <h3>运营指标监控</h3>
-                <div class="grid grid-2" style="margin-top: 20px;">
-                    <div>
-                        <h4 style="color: var(--primary-gold); margin-bottom: 15px;">财务指标</h4>
-                        <div class="okr-metric">
-                            <div>营业收入目标</div>
-                            <div class="okr-value">8000万</div>
-                        </div>
-                        <div class="okr-metric">
-                            <div>毛利率目标</div>
-                            <div class="okr-value">≥35%</div>
-                        </div>
-                        <div class="okr-metric">
-                            <div>现金转换周期</div>
-                            <div class="okr-value">≤75天</div>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 style="color: var(--primary-gold); margin-bottom: 15px;">运营指标</h4>
-                        <div class="okr-metric">
-                            <div>战略客户数</div>
-                            <div class="okr-value">≥5家</div>
-                        </div>
-                        <div class="okr-metric">
-                            <div>生产良率</div>
-                            <div class="okr-value">≥90%</div>
-                        </div>
-                        <div class="okr-metric">
-                            <div>交付准时率</div>
-                            <div class="okr-value">≥95%</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 页脚 -->
         <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
-            <p style="font-size: 14px; margin-top: 10px;">
-                液冷超充设备厂 - 商业模式与运营策略
-            </p>
         </footer>
     </div>
 
-    <!-- 返回按钮 -->
     <a href="index.html" class="back-to-home">← 返回超充设备厂</a>
 
+    <script src="js/echarts-config.js"></script>
     <script>
-        // 添加滚动动画
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. 五年收入结构演变（堆叠面积图）
+            const revenueStructureChart = echarts.init(document.getElementById('revenueStructureChart'));
+            revenueStructureChart.setOption({
+                title: {
+                    text: '五年收入结构演变趋势',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'cross' },
+                    formatter: function(params) {
+                        let result = params[0].name + '<br/>';
+                        params.forEach(item => {
+                            result += item.seriesName + ': ' + item.value + '%<br/>';
+                        });
+                        return result;
+                    }
+                },
+                legend: {
+                    data: ['液冷充电模块', '超充整桩系统', '服务与增值收入', '海外市场收入'],
+                    top: 'bottom',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['第1年', '第2年', '第3年', '第4年', '第5年'],
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        fontSize: 12
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '收入占比（%）',
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        formatter: '{value}%'
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(212, 175, 55, 0.1)',
+                            type: 'dashed'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '液冷充电模块',
+                        type: 'line',
+                        stack: 'total',
+                        areaStyle: {},
+                        emphasis: { focus: 'series' },
+                        data: [70, 55, 45, 40, 35],
+                        itemStyle: { color: '#D4AF37' },
+                        lineStyle: { width: 2 }
+                    },
+                    {
+                        name: '超充整桩系统',
+                        type: 'line',
+                        stack: 'total',
+                        areaStyle: {},
+                        emphasis: { focus: 'series' },
+                        data: [20, 30, 35, 35, 35],
+                        itemStyle: { color: '#DAA520' },
+                        lineStyle: { width: 2 }
+                    },
+                    {
+                        name: '服务与增值收入',
+                        type: 'line',
+                        stack: 'total',
+                        areaStyle: {},
+                        emphasis: { focus: 'series' },
+                        data: [5, 10, 15, 20, 25],
+                        itemStyle: { color: '#CD853F' },
+                        lineStyle: { width: 2 }
+                    },
+                    {
+                        name: '海外市场收入',
+                        type: 'line',
+                        stack: 'total',
+                        areaStyle: {},
+                        emphasis: { focus: 'series' },
+                        data: [5, 5, 5, 5, 5],
+                        itemStyle: { color: '#8B7355' },
+                        lineStyle: { width: 2 }
+                    }
+                ]
+            });
 
+            // 2. 332降本计划（分组柱状图）
+            const costReductionChart = echarts.init(document.getElementById('costReductionChart'));
+            costReductionChart.setOption({
+                title: {
+                    text: '332降本计划三年目标分解',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' },
+                    formatter: function(params) {
+                        let result = params[0].name + '<br/>';
+                        let total = 0;
+                        params.forEach(item => {
+                            result += item.seriesName + ': ' + item.value + '%<br/>';
+                            total += item.value;
+                        });
+                        result += '年度合计: ' + total + '%';
+                        return result;
+                    }
+                },
+                legend: {
+                    data: ['供应链降本', '工艺降本', '管理降本'],
+                    top: 'bottom',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['第1年', '第2年', '第3年'],
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        fontSize: 12
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '降本幅度（%）',
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        formatter: '{value}%'
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(212, 175, 55, 0.1)',
+                            type: 'dashed'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '供应链降本',
+                        type: 'bar',
+                        data: [3, 3, 3],
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {offset: 0, color: '#D4AF37'},
+                                {offset: 1, color: '#B8860B'}
+                            ])
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}%',
+                            color: '#F5F5DC'
+                        }
+                    },
+                    {
+                        name: '工艺降本',
+                        type: 'bar',
+                        data: [3, 3, 3],
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {offset: 0, color: '#DAA520'},
+                                {offset: 1, color: '#CD853F'}
+                            ])
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}%',
+                            color: '#F5F5DC'
+                        }
+                    },
+                    {
+                        name: '管理降本',
+                        type: 'bar',
+                        data: [2, 2, 2],
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {offset: 0, color: '#CD853F'},
+                                {offset: 1, color: '#8B7355'}
+                            ])
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}%',
+                            color: '#F5F5DC'
+                        }
+                    }
+                ],
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    containLabel: true
+                }
+            });
+
+            // 3. 资源护城河雷达图
+            const moatRadarChart = echarts.init(document.getElementById('moatRadarChart'));
+            moatRadarChart.setOption({
+                title: {
+                    text: '资源护城河五维评估体系',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function(params) {
+                        return params.name + '<br/>' +
+                               '当前得分: ' + params.value.value + '<br/>' +
+                               '目标得分: ' + params.value.target + '<br/>' +
+                               '状态: ' + params.value.status;
+                    }
+                },
+                legend: {
+                    data: ['当前水平', '目标水平'],
+                    top: 'bottom',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                radar: {
+                    indicator: [
+                        {name: '市场份额', max: 100},
+                        {name: '渠道网络', max: 100},
+                        {name: '供应链', max: 100},
+                        {name: '人才团队', max: 100},
+                        {name: '政策资源', max: 100}
+                    ],
+                    center: ['50%', '55%'],
+                    radius: '65%',
+                    axisName: {
+                        color: '#F5F5DC',
+                        fontSize: 13
+                    },
+                    splitArea: {
+                        areaStyle: {
+                            color: ['rgba(212, 175, 55, 0.05)', 'rgba(212, 175, 55, 0.1)']
+                        }
+                    },
+                    axisLine: {
+                        lineStyle: { color: 'rgba(212, 175, 55, 0.3)' }
+                    },
+                    splitLine: {
+                        lineStyle: { color: 'rgba(212, 175, 55, 0.3)' }
+                    }
+                },
+                series: [{
+                    name: '护城河评估',
+                    type: 'radar',
+                    data: [
+                        {
+                            value: [45, 50, 75, 60, 40],
+                            name: '当前水平',
+                            itemStyle: { color: '#DAA520' },
+                            areaStyle: {
+                                color: 'rgba(218, 165, 32, 0.3)'
+                            }
+                        },
+                        {
+                            value: [75, 80, 90, 85, 75],
+                            name: '目标水平',
+                            itemStyle: { color: '#D4AF37' },
+                            areaStyle: {
+                                color: 'rgba(212, 175, 55, 0.3)'
+                            }
+                        }
+                    ]
+                }]
+            });
+
+            // 4. 渠道拓展计划（双Y轴图）
+            const channelExpansionChart = echarts.init(document.getElementById('channelExpansionChart'));
+            channelExpansionChart.setOption({
+                title: {
+                    text: '五年渠道拓展计划（团队与网络增长）',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'cross' }
+                },
+                legend: {
+                    data: ['直销团队', '代理商网络', '覆盖城市', '海外市场'],
+                    top: 'bottom',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['第1年', '第2年', '第3年', '第4年', '第5年'],
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        fontSize: 12
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '人数/家数',
+                        position: 'left',
+                        axisLabel: {
+                            color: '#F5F5DC',
+                            formatter: '{value}'
+                        },
+                        axisLine: { lineStyle: { color: '#D4AF37' } }
+                    },
+                    {
+                        type: 'value',
+                        name: '城市数',
+                        position: 'right',
+                        axisLabel: {
+                            color: '#F5F5DC',
+                            formatter: '{value}'
+                        },
+                        axisLine: { lineStyle: { color: '#D4AF37' } }
+                    }
+                ],
+                series: [
+                    {
+                        name: '直销团队',
+                        type: 'bar',
+                        data: [15, 25, 40, 50, 60],
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {offset: 0, color: '#D4AF37'},
+                                {offset: 1, color: '#B8860B'}
+                            ])
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}人',
+                            color: '#F5F5DC'
+                        }
+                    },
+                    {
+                        name: '代理商网络',
+                        type: 'bar',
+                        data: [5, 15, 30, 50, 80],
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                {offset: 0, color: '#DAA520'},
+                                {offset: 1, color: '#CD853F'}
+                            ])
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}家',
+                            color: '#F5F5DC'
+                        }
+                    },
+                    {
+                        name: '覆盖城市',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        data: [5, 15, 30, 50, 80],
+                        smooth: true,
+                        lineStyle: {
+                            width: 3,
+                            color: '#CD853F'
+                        },
+                        itemStyle: {
+                            color: '#CD853F',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}个',
+                            color: '#CD853F'
+                        }
+                    },
+                    {
+                        name: '海外市场',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        data: [0, 2, 5, 10, 15],
+                        smooth: true,
+                        lineStyle: {
+                            width: 3,
+                            color: '#8B7355',
+                            type: 'dashed'
+                        },
+                        itemStyle: {
+                            color: '#8B7355'
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}国',
+                            color: '#8B7355'
+                        }
+                    }
+                ],
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    containLabel: true
+                }
+            });
+
+            // 5. 项目来源饼图
+            const projectSourceChart = echarts.init(document.getElementById('projectSourceChart'));
+            projectSourceChart.setOption({
+                title: {
+                    text: '项目来源渠道分布',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c}% ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    top: 'middle',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                series: [{
+                    name: '项目来源',
+                    type: 'pie',
+                    radius: ['45%', '75%'],
+                    center: ['60%', '50%'],
+                    data: [
+                        {
+                            value: 40,
+                            name: '战略合作伙伴\n（优先供应商）',
+                            itemStyle: { color: '#D4AF37' }
+                        },
+                        {
+                            value: 25,
+                            name: '政府示范项目\n（联合投标）',
+                            itemStyle: { color: '#DAA520' }
+                        },
+                        {
+                            value: 20,
+                            name: '能源集团项目\n（OEM/ODM）',
+                            itemStyle: { color: '#CD853F' }
+                        },
+                        {
+                            value: 15,
+                            name: '行业集成商\n（B2B供应）',
+                            itemStyle: { color: '#8B7355' }
+                        }
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(212, 175, 55, 0.5)'
+                        }
+                    },
+                    label: {
+                        formatter: '{b}\n{d}%',
+                        color: '#F5F5DC',
+                        fontSize: 12
+                    }
+                }]
+            });
+
+            // 6. 供应链降本策略（堆叠柱状图）
+            const supplyChainCostChart = echarts.init(document.getElementById('supplyChainCostChart'));
+            supplyChainCostChart.setOption({
+                title: {
+                    text: '供应链降本四大策略分解',
+                    left: 'center',
+                    textStyle: { color: '#D4AF37', fontSize: 18 }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' },
+                    formatter: function(params) {
+                        let result = params[0].name + '<br/>';
+                        let total = 0;
+                        params.forEach(item => {
+                            if (item.value > 0) {
+                                result += item.seriesName + ': ' + item.value + '%<br/>';
+                                total += item.value;
+                            }
+                        });
+                        result += '策略合计: ' + total + '%';
+                        return result;
+                    }
+                },
+                legend: {
+                    data: ['集中采购', 'VMI/JIT', '物流优化', '质量成本'],
+                    top: 'bottom',
+                    textStyle: { color: '#F5F5DC' }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['集中采购与规模效应', 'VMI与JIT模式', '物流优化', '质量成本降低'],
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        fontSize: 11,
+                        interval: 0
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '降本幅度（%）',
+                    axisLabel: {
+                        color: '#F5F5DC',
+                        formatter: '{value}%'
+                    },
+                    axisLine: { lineStyle: { color: '#D4AF37' } },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(212, 175, 55, 0.1)',
+                            type: 'dashed'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '集中采购',
+                        type: 'bar',
+                        stack: 'strategy1',
+                        data: [2, 0, 0, 0],
+                        itemStyle: { color: '#D4AF37' },
+                        label: {
+                            show: true,
+                            position: 'inside',
+                            formatter: '{c}%',
+                            color: '#1A1A1A'
+                        }
+                    },
+                    {
+                        name: 'VMI/JIT',
+                        type: 'bar',
+                        stack: 'strategy2',
+                        data: [0, 2, 0, 0],
+                        itemStyle: { color: '#DAA520' },
+                        label: {
+                            show: true,
+                            position: 'inside',
+                            formatter: '{c}%',
+                            color: '#1A1A1A'
+                        }
+                    },
+                    {
+                        name: '物流优化',
+                        type: 'bar',
+                        stack: 'strategy3',
+                        data: [0, 0, 1, 0],
+                        itemStyle: { color: '#CD853F' },
+                        label: {
+                            show: true,
+                            position: 'inside',
+                            formatter: '{c}%',
+                            color: '#1A1A1A'
+                        }
+                    },
+                    {
+                        name: '质量成本',
+                        type: 'bar',
+                        stack: 'strategy4',
+                        data: [0, 0, 0, 2],
+                        itemStyle: { color: '#8B7355' },
+                        label: {
+                            show: true,
+                            position: 'inside',
+                            formatter: '{c}%',
+                            color: '#1A1A1A'
+                        }
+                    }
+                ],
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    containLabel: true
+                }
+            });
+
+            // 将图表实例添加到全局数组，用于响应式管理
+            chartInstances.push(revenueStructureChart);
+            chartInstances.push(costReductionChart);
+            chartInstances.push(moatRadarChart);
+            chartInstances.push(channelExpansionChart);
+            chartInstances.push(projectSourceChart);
+            chartInstances.push(supplyChainCostChart);
+        });
+
+        // 页面滚动动画
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        }, {threshold: 0.1});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

@@ -5,6 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>财务模型与投资分析 - 液冷超充设备厂</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 30px 0;
+            background: rgba(26, 26, 26, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .kpi-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(26, 26, 26, 0.8) 100%);
+            border: 2px solid var(--primary-gold);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .kpi-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+        .kpi-label {
+            font-size: 14px;
+            color: var(--paper-beige);
+        }
+        .kpi-highlight {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(26, 26, 26, 0.9) 100%);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+    </style>
 </head>
 <body>
     <nav class="top-nav">
@@ -18,9 +51,9 @@
             <div class="segment-icon" style="margin: 0 auto 30px;">FINANCE</div>
             <h1 style="font-size: 42px; margin-bottom: 20px;">财务模型与投资分析</h1>
             <p style="font-size: 18px; color: var(--paper-beige);">Financial Model & Investment Analysis</p>
-            <div class="hero-banner-image placeholder" data-image="finance.jpg"></div>
         </div>
 
+        <!-- 财务画像 -->
         <section class="fade-in">
             <h2>财务画像</h2>
             <div class="card">
@@ -33,54 +66,454 @@
             </div>
         </section>
 
+        <!-- 关键财务指标 -->
         <section class="fade-in">
-            <h2>五年财务预测概要</h2>
-            <div class="card">
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr style="border-bottom: 2px solid var(--primary-gold);">
-                        <th style="padding: 12px; text-align: left;">项目（万元）</th>
-                        <th style="padding: 12px;">第1年</th>
-                        <th style="padding: 12px;">第2年</th>
-                        <th style="padding: 12px;">第3年</th>
-                        <th style="padding: 12px;">第4年</th>
-                        <th style="padding: 12px;">第5年</th>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);"><td style="padding: 10px;">营业收入</td><td style="padding: 10px;">8,000</td><td style="padding: 10px;">25,000</td><td style="padding: 10px;">50,000</td><td style="padding: 10px;">80,000</td><td style="padding: 10px;">120,000</td></tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);"><td style="padding: 10px;">毛利润</td><td style="padding: 10px;">1,600</td><td style="padding: 10px;">6,250</td><td style="padding: 10px;">15,000</td><td style="padding: 10px;">25,600</td><td style="padding: 10px;">40,800</td></tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);"><td style="padding: 10px;">毛利率</td><td style="padding: 10px;">20%</td><td style="padding: 10px;">25%</td><td style="padding: 10px;">30%</td><td style="padding: 10px;">32%</td><td style="padding: 10px;">34%</td></tr>
-                    <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);"><td style="padding: 10px;">净利润</td><td style="padding: 10px;">-2,900</td><td style="padding: 10px;">770</td><td style="padding: 10px;">6,950</td><td style="padding: 10px;">14,500</td><td style="padding: 10px;">25,650</td></tr>
-                    </table>
-            </div>
-        </section>
-
-        <section class="fade-in">
-            <h2>投资回报分析</h2>
+            <h2>关键财务指标KPI</h2>
             <div class="grid grid-3">
-                <div class="metric-card"><div class="metric-value">7.8%</div><div class="metric-label">5年期IRR</div></div>
-                <div class="metric-card"><div class="metric-value">1.28×</div><div class="metric-label">5年期MOIC</div></div>
-                <div class="metric-card"><div class="metric-value">4.5年</div><div class="metric-label">静态回收期</div></div>
+                <div class="kpi-card">
+                    <div class="kpi-value">第2年中期</div>
+                    <div class="kpi-label">盈亏平衡时间点</div>
+                </div>
+                <div class="kpi-card kpi-highlight">
+                    <div class="kpi-value">7.8%</div>
+                    <div class="kpi-label">5年期IRR</div>
+                </div>
+                <div class="kpi-card kpi-highlight">
+                    <div class="kpi-value">1.28×</div>
+                    <div class="kpi-label">5年期MOIC</div>
+                </div>
             </div>
-        </section>
-
-        <section class="fade-in">
-            <h2>融资结构</h2>
-            <div class="card">
-                <h3>初始融资（2亿元）</h3>
-                <div class="grid grid-2" style="margin-top: 20px;">
-                    <div><p><strong>创始股东出资：</strong>1.2亿元（60%）</p><p><strong>战略投资者：</strong>0.8亿元（40%）</p></div>
-                    <div><p><strong>厂房装修：</strong>1500万（7.5%）</p><p><strong>设备投资：</strong>7000万（35%）</p><p><strong>原材料：</strong>5000万（25%）</p><p><strong>研发人力：</strong>4000万（20%）</p></div>
+            <div class="grid grid-3" style="margin-top: 20px;">
+                <div class="kpi-card">
+                    <div class="kpi-value">4.5年</div>
+                    <div class="kpi-label">静态投资回收期</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">2.565亿</div>
+                    <div class="kpi-label">第5年净利润（万元）</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">21.4%</div>
+                    <div class="kpi-label">第5年净利率</div>
                 </div>
             </div>
         </section>
 
+        <!-- 五年财务预测 -->
+        <section class="fade-in">
+            <h2>五年财务预测</h2>
+            <div class="card">
+                <h3>营业收入与利润增长趋势</h3>
+                <div id="revenueProfitChart" class="chart-container"></div>
+
+                <h3>关键财务数据表（单位：万元）</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                        <tr style="background: var(--primary-gold); color: var(--ink-black);">
+                            <th style="padding: 12px; text-align: left;">项目</th>
+                            <th style="padding: 12px;">第1年</th>
+                            <th style="padding: 12px;">第2年</th>
+                            <th style="padding: 12px;">第3年</th>
+                            <th style="padding: 12px;">第4年</th>
+                            <th style="padding: 12px;">第5年</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2); background: rgba(212, 175, 55, 0.05);">
+                            <td style="padding: 10px;"><strong>营业收入</strong></td>
+                            <td style="padding: 10px;"><strong>8,000</strong></td>
+                            <td style="padding: 10px;"><strong>25,000</strong></td>
+                            <td style="padding: 10px;"><strong>50,000</strong></td>
+                            <td style="padding: 10px;"><strong>80,000</strong></td>
+                            <td style="padding: 10px;"><strong>120,000</strong></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <td style="padding: 10px;">营业成本</td>
+                            <td style="padding: 10px;">6,400</td>
+                            <td style="padding: 10px;">18,750</td>
+                            <td style="padding: 10px;">35,000</td>
+                            <td style="padding: 10px;">54,400</td>
+                            <td style="padding: 10px;">79,200</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <td style="padding: 10px;"><strong>毛利润</strong></td>
+                            <td style="padding: 10px;"><strong>1,600</strong></td>
+                            <td style="padding: 10px;"><strong>6,250</strong></td>
+                            <td style="padding: 10px;"><strong>15,000</strong></td>
+                            <td style="padding: 10px;"><strong>25,600</strong></td>
+                            <td style="padding: 10px;"><strong>40,800</strong></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <td style="padding: 10px;">毛利率</td>
+                            <td style="padding: 10px;">20%</td>
+                            <td style="padding: 10px;">25%</td>
+                            <td style="padding: 10px;">30%</td>
+                            <td style="padding: 10px;">32%</td>
+                            <td style="padding: 10px;">34%</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <td style="padding: 10px;">运营费用</td>
+                            <td style="padding: 10px;">4,500</td>
+                            <td style="padding: 10px;">5,500</td>
+                            <td style="padding: 10px;">8,000</td>
+                            <td style="padding: 10px;">11,000</td>
+                            <td style="padding: 10px;">15,000</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2); background: rgba(212, 175, 55, 0.1);">
+                            <td style="padding: 10px;"><strong>净利润</strong></td>
+                            <td style="padding: 10px;"><strong>-2,900</strong></td>
+                            <td style="padding: 10px;"><strong>770</strong></td>
+                            <td style="padding: 10px;"><strong>6,950</strong></td>
+                            <td style="padding: 10px;"><strong>14,500</strong></td>
+                            <td style="padding: 10px;"><strong>25,650</strong></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <td style="padding: 10px;">净利率</td>
+                            <td style="padding: 10px;">-36.3%</td>
+                            <td style="padding: 10px;">3.1%</td>
+                            <td style="padding: 10px;">13.9%</td>
+                            <td style="padding: 10px;">18.1%</td>
+                            <td style="padding: 10px;">21.4%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 盈亏平衡分析 -->
+        <section class="fade-in">
+            <h2>盈亏平衡分析</h2>
+            <div class="card">
+                <h3>累计现金流分析</h3>
+                <div id="cashflowChart" class="chart-container"></div>
+
+                <div class="grid grid-2" style="margin-top: 30px;">
+                    <div class="card">
+                        <h4 style="color: var(--primary-gold);">盈亏平衡时间点</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">• <strong>月度现金流平衡</strong>：第2年第5个月</li>
+                            <li style="margin-bottom: 10px;">• <strong>会计利润平衡</strong>：第2年全年</li>
+                            <li style="margin-bottom: 10px;">• <strong>累计现金流转正</strong>：第3年</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4 style="color: var(--primary-gold);">盈亏平衡收入</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">• 第1年：6,923万元</li>
+                            <li style="margin-bottom: 10px;">• 第2年：8,333万元</li>
+                            <li style="margin-bottom: 10px;">• 第3年：10,909万元</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 现金流预测 -->
+        <section class="fade-in">
+            <h2>现金流预测</h2>
+            <div class="card">
+                <div id="cashflowDetailChart" class="chart-container"></div>
+
+                <div class="grid grid-3" style="margin-top: 30px;">
+                    <div class="card">
+                        <h4 style="color: var(--primary-gold);">经营活动现金流</h4>
+                        <div style="font-size: 24px; color: var(--paper-beige); margin: 15px 0;">
+                            第1年：-3,484万<br>
+                            第2年：-1,054万<br>
+                            第3年：<strong style="color: #4CAF50;">+3,783万</strong>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4 style="color: var(--primary-gold);">投资活动现金流</h4>
+                        <div style="font-size: 24px; color: var(--paper-beige); margin: 15px 0;">
+                            第1年：-7,000万<br>
+                            第2年：-1,000万<br>
+                            第3年：-2,000万
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4 style="color: var(--primary-gold);">现金余额</h4>
+                        <div style="font-size: 24px; color: var(--paper-beige); margin: 15px 0;">
+                            第1年末：2,946万<br>
+                            第2年末：4,729万<br>
+                            第5年末：33,404万
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 敏感性分析 -->
+        <section class="fade-in">
+            <h2>敏感性分析</h2>
+            <div class="card">
+                <h3>不同情景下的净利润预测（第5年）</h3>
+                <div id="sensitivityChart" class="chart-container"></div>
+
+                <div class="grid grid-2" style="margin-top: 30px;">
+                    <div class="card">
+                        <h4 style="color: var(--primary-gold);">关键因素敏感性排序</h4>
+                        <ol style="padding-left: 20px;">
+                            <li style="margin-bottom: 10px;"><strong>收入增长率</strong>：影响±21%</li>
+                            <li style="margin-bottom: 10px;"><strong>毛利率</strong>：影响±16%</li>
+                            <li style="margin-bottom: 10px;"><strong>费用率</strong>：影响±11%</li>
+                        </ol>
+                    </div>
+                    <div class="card">
+                        <h4 style="color: var(--primary-gold);">压力测试</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">• <strong>收入下降20%</strong>：净利润2.01亿</li>
+                            <li style="margin-bottom: 10px;">• <strong>毛利率降5%</strong>：净利润2.15亿</li>
+                            <li style="margin-bottom: 10px;">• <strong>费用超支30%</strong>：净利润2.28亿</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 融资结构 -->
+        <section class="fade-in">
+            <h2>融资结构</h2>
+            <div class="card">
+                <h3>初始融资2亿元结构</h3>
+                <div id="financingChart" class="chart-container"></div>
+
+                <div class="grid grid-2" style="margin-top: 30px;">
+                    <div>
+                        <h4 style="color: var(--primary-gold);">股权结构</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">• <strong>创始团队</strong>：60%（1.2亿元）</li>
+                            <li style="margin-bottom: 10px;">• <strong>战略投资者</strong>：40%（0.8亿元）</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-gold);">资金使用</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">• <strong>生产研发设备</strong>：7000万（35%）</li>
+                            <li style="margin-bottom: 10px;">• <strong>原材料采购</strong>：5000万（25%）</li>
+                            <li style="margin-bottom: 10px;">• <strong>研发人力成本</strong>：4000万（20%）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 后续融资计划 -->
+        <section class="fade-in">
+            <h2>后续融资计划</h2>
+            <div class="card">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: var(--primary-gold); color: var(--ink-black);">
+                            <th style="padding: 12px; text-align: left;">融资轮次</th>
+                            <th style="padding: 12px;">时间</th>
+                            <th style="padding: 12px;">融资规模</th>
+                            <th style="padding: 12px;">投后估值</th>
+                            <th style="padding: 12px;">出让股权</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <td style="padding: 10px;"><strong>A轮融资</strong></td>
+                            <td style="padding: 10px;">2027年Q1</td>
+                            <td style="padding: 10px;">1-2亿元</td>
+                            <td style="padding: 10px;">8-10亿元</td>
+                            <td style="padding: 10px;">10-20%</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <td style="padding: 10px;"><strong>B轮融资</strong></td>
+                            <td style="padding: 10px;">2028年Q2</td>
+                            <td style="padding: 10px;">2-3亿元</td>
+                            <td style="padding: 10px;">20-25亿元</td>
+                            <td style="padding: 10px;">10-15%</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+                            <td style="padding: 10px;"><strong>Pre-IPO</strong></td>
+                            <td style="padding: 10px;">2030年Q1</td>
+                            <td style="padding: 10px;">3-5亿元</td>
+                            <td style="padding: 10px;">50-80亿元</td>
+                            <td style="padding: 10px;">5-10%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
         <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
-            <p>© 2025 KeyTrader. All rights reserved.</p>
+            <p>© 2026 KeyTrader. All rights reserved.</p>
+            <p style="font-size: 14px; margin-top: 10px;">液冷超充设备厂 - 财务模型与投资分析</p>
         </footer>
     </div>
 
     <a href="index.html" class="back-to-home">← 返回超充设备厂</a>
 
+    <!-- 加载ECharts配置 -->
+    <script src="js/echarts-config.js"></script>
+
     <script>
+        // 使用统一的初始化函数（带主题和响应式）
+        const revenueProfitChart = initInkGoldChartResponsive('revenueProfitChart', {
+            title: { text: '营业收入与利润增长趋势', left: 'center', textStyle: { color: '#D4AF37', fontSize: 18 }},
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }},
+            legend: { data: ['营业收入', '毛利润', '净利润'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
+            xAxis: {
+                type: 'category',
+                data: ['第1年', '第2年', '第3年', '第4年', '第5年'],
+                axisLabel: { color: '#F5F5DC' },
+                axisLine: { lineStyle: { color: '#D4AF37' } }
+            },
+            yAxis: {
+                type: 'value',
+                name: '金额（万元）',
+                axisLabel: { color: '#F5F5DC' },
+                axisLine: { lineStyle: { color: '#D4AF37' } },
+                splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } }
+            },
+            series: [
+                { name: '营业收入', type: 'bar', data: [8000, 25000, 50000, 80000, 120000], itemStyle: { color: '#D4AF37' } },
+                { name: '毛利润', type: 'bar', data: [1600, 6250, 15000, 25600, 40800], itemStyle: { color: '#8B7355' } },
+                { name: '净利润', type: 'line', data: [-2900, 770, 6950, 14500, 25650], itemStyle: { color: '#F5F5DC' }, lineStyle: { width: 3 }, symbolSize: 8 }
+            ],
+            grid: { left: '3%', right: '4%', bottom: '12%', containLabel: true }
+        });
+
+        // 累计现金流分析图
+        const cashflowChart = initInkGoldChartResponsive('cashflowChart', {
+            title: { text: '累计现金流分析（盈亏平衡）', left: 'center', textStyle: { color: '#D4AF37', fontSize: 18 }},
+            tooltip: { trigger: 'axis', formatter: '{b}年<br/>累计现金流：{c}万元' },
+            xAxis: {
+                type: 'category',
+                data: ['初始', '第1年', '第2年', '第3年', '第4年', '第5年'],
+                axisLabel: { color: '#F5F5DC' },
+                axisLine: { lineStyle: { color: '#D4AF37' } }
+            },
+            yAxis: {
+                type: 'value',
+                name: '累计现金流（万元）',
+                axisLabel: { color: '#F5F5DC' },
+                axisLine: { lineStyle: { color: '#D4AF37' } },
+                splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } }
+            },
+            series: [{
+                name: '累计现金流',
+                type: 'line',
+                data: [-20000, -23484, -24538, -20755, -9197, 16380],
+                itemStyle: { color: '#D4AF37' },
+                lineStyle: { width: 4 },
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0, y: 0, x2: 0, y2: 1,
+                        colorStops: [
+                            { offset: 0, color: 'rgba(212, 175, 55, 0.3)' },
+                            { offset: 1, color: 'rgba(212, 175, 55, 0.05)' }
+                        ]
+                    }
+                },
+                markLine: {
+                    data: [{ yAxis: 0, name: '盈亏平衡线', lineStyle: { color: '#4CAF50', type: 'dashed' }}]
+                },
+                symbolSize: 10
+            }],
+            grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true }
+        });
+
+        // 现金流详细预测图
+        const cashflowDetailChart = initInkGoldChartResponsive('cashflowDetailChart', {
+            title: { text: '现金流详细预测', left: 'center', textStyle: { color: '#D4AF37', fontSize: 18 }},
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }},
+            legend: { data: ['经营活动', '投资活动', '现金净增加'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
+            xAxis: {
+                type: 'category',
+                data: ['第1年', '第2年', '第3年', '第4年', '第5年'],
+                axisLabel: { color: '#F5F5DC' },
+                axisLine: { lineStyle: { color: '#D4AF37' } }
+            },
+            yAxis: {
+                type: 'value',
+                name: '现金流（万元）',
+                axisLabel: { color: '#F5F5DC' },
+                axisLine: { lineStyle: { color: '#D4AF37' } },
+                splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } }
+            },
+            series: [
+                { name: '经营活动', type: 'bar', data: [-3484, -1054, 3783, 11558, 22117], itemStyle: { color: '#D4AF37' } },
+                { name: '投资活动', type: 'bar', data: [-7000, -1000, -2000, -2000, -3000], itemStyle: { color: '#8B7355' } },
+                { name: '现金净增加', type: 'line', data: [-10484, -2054, 1783, 9558, 19117], itemStyle: { color: '#F5F5DC' }, lineStyle: { width: 3 }, symbolSize: 8 }
+            ],
+            grid: { left: '3%', right: '4%', bottom: '12%', containLabel: true }
+        });
+
+        // 敏感性分析图
+        const sensitivityChart = initInkGoldChartResponsive('sensitivityChart', {
+            title: { text: '敏感性分析 - 第5年净利润预测', left: 'center', textStyle: { color: '#D4AF37', fontSize: 18 }},
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }},
+            xAxis: {
+                type: 'category',
+                data: ['悲观情景', '基准情景', '乐观情景'],
+                axisLabel: { color: '#F5F5DC' },
+                axisLine: { lineStyle: { color: '#D4AF37' } }
+            },
+            yAxis: {
+                type: 'value',
+                name: '净利润（万元）',
+                axisLabel: { color: '#F5F5DC' },
+                axisLine: { lineStyle: { color: '#D4AF37' } },
+                splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } }
+            },
+            series: [{
+                name: '净利润',
+                type: 'bar',
+                data: [20100, 25650, 31200],
+                itemStyle: {
+                    color: function(params) {
+                        const colors = ['#CD853F', '#D4AF37', '#DAA520'];
+                        return colors[params.dataIndex];
+                    }
+                },
+                label: {
+                    show: true,
+                    position: 'top',
+                    formatter: '{c}万',
+                    color: '#F5F5DC'
+                }
+            }],
+            grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true }
+        });
+
+        // 融资结构饼图
+        const financingChart = initInkGoldChartResponsive('financingChart', {
+            title: { text: '初始2亿元融资结构', left: 'center', textStyle: { color: '#D4AF37', fontSize: 18 }},
+            tooltip: { trigger: 'item', formatter: '{a} <br/>{b}: {c}万元 ({d}%)' },
+            legend: { orient: 'vertical', left: 'left', textStyle: { color: '#F5F5DC' } },
+            series: [{
+                name: '资金使用',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                center: ['60%', '50%'],
+                data: [
+                    {value: 7000, name: '生产研发设备'},
+                    {value: 5000, name: '原材料采购'},
+                    {value: 4000, name: '研发人力成本'},
+                    {value: 1500, name: '厂房装修'},
+                    {value: 1500, name: '流动资金'},
+                    {value: 1000, name: '市场推广'}
+                ],
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(212, 175, 55, 0.5)'
+                    }
+                },
+                label: { formatter: '{b}\n{d}%' },
+                itemStyle: { borderColor: '#1A1A1A', borderWidth: 2 }
+            }]
+        });
+
+        // 注意：响应式处理已由echarts-config.js统一管理，无需额外代码
+
+        // 滚动动画
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
