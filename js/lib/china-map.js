@@ -1,24 +1,22 @@
 /**
  * 中国地图数据注册
  *
- * 从本地 GeoJSON 文件加载并注册中国地图到 ECharts
+ * 直接使用嵌入的 GeoJSON 数据注册中国地图到 ECharts
+ * 无需 fetch，避免 file:// 协议的 CORS 限制
  */
 
 (function() {
     'use strict';
 
     /**
-     * 加载并注册中国地图
+     * 注册中国地图
      */
-    async function registerChinaMap() {
+    function registerChinaMap() {
         try {
-            // 加载 GeoJSON 数据
-            const response = await fetch('js/lib/china.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            // 检查地图数据是否已加载
+            if (typeof chinaGeoJSON === 'undefined') {
+                throw new Error('chinaGeoJSON 数据未定义，请确保 china-data.js 已加载');
             }
-
-            const chinaGeoJSON = await response.json();
 
             // 注册地图到 ECharts
             echarts.registerMap('china', chinaGeoJSON);
@@ -29,31 +27,21 @@
             document.dispatchEvent(new CustomEvent('chinaMapLoaded'));
 
         } catch (error) {
-            console.error('✗ 中国地图数据加载失败:', error);
-
-            // 降级方案：使用 CDN
-            console.warn('尝试使用备用 CDN 加载地图...');
-            loadChinaMapFromCDN();
+            console.error('✗ 中国地图数据注册失败:', error);
         }
     }
 
-    /**
-     * 备用方案：从 CDN 加载
-     */
-    function loadChinaMapFromCDN() {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/echarts@5.4.3/map/js/china.js';
-        script.onerror = () => {
-            console.error('✗ CDN 地图加载也失败了，地图功能将不可用');
-        };
-        document.head.appendChild(script);
+    // 页面加载时注册地图（需要等待 ECharts 和地图数据都加载完成）
+    function waitForDependencies() {
+        if (typeof echarts !== 'undefined' && typeof chinaGeoJSON !== 'undefined') {
+            registerChinaMap();
+        } else {
+            // 等待100ms后重试
+            setTimeout(waitForDependencies, 100);
+        }
     }
 
-    // 页面加载时注册地图
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', registerChinaMap);
-    } else {
-        registerChinaMap();
-    }
+    // 开始等待依赖
+    waitForDependencies();
 
 })();
