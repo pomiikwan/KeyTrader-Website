@@ -2,10 +2,20 @@
 <html lang="zh-CN">
 <head>
     <link rel="stylesheet" href="../玄金水墨主题.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>财务分析 - 千站液冷超充项目</title>
     <style>
+        .chart-container {
+            width: 100%;
+            height: 450px;
+            margin: 30px 0;
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+        }
         .financial-table {
             width: 100%;
             border-collapse: collapse;
@@ -145,6 +155,12 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- 投资构成饼图 -->
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">投资构成可视化</h3>
+                <div id="investmentChart" class="chart-container"></div>
+            </div>
         </section>
 
         <!-- 收入预测 -->
@@ -201,6 +217,12 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <!-- 单站收入预测图 -->
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">单站年收入增长趋势</h3>
+                <div id="revenueChart" class="chart-container"></div>
             </div>
 
             <div class="grid grid-2">
@@ -265,6 +287,12 @@
                     </ul>
                 </div>
             </div>
+
+            <!-- 1000站总收入增长图 -->
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">1000站总收入增长趋势</h3>
+                <div id="totalRevenueChart" class="chart-container"></div>
+            </div>
         </section>
 
         <!-- 盈利能力 -->
@@ -322,6 +350,12 @@
                 </table>
             </div>
 
+            <!-- 利润预测图 -->
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">单站利润增长趋势</h3>
+                <div id="profitChart" class="chart-container"></div>
+            </div>
+
             <div class="card" style="margin-top: 30px;">
                 <h3 style="color: var(--primary-gold); margin-bottom: 20px;">1000站总利润预测</h3>
                 <div class="grid grid-4">
@@ -342,6 +376,12 @@
                         <div class="metric-label">5年累计利润</div>
                     </div>
                 </div>
+            </div>
+
+            <!-- 1000站总利润图 -->
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">1000站总利润增长趋势</h3>
+                <div id="totalProfitChart" class="chart-container"></div>
             </div>
         </section>
 
@@ -405,6 +445,12 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <!-- 现金流图 -->
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">现金流可视化分析</h3>
+                <div id="cashflowChart" class="chart-container"></div>
             </div>
         </section>
 
@@ -482,6 +528,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 敏感性分析图 -->
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">敏感性分析可视化</h3>
+                <div id="sensitivityChart" class="chart-container"></div>
+            </div>
         </section>
 
         <!-- CTA -->
@@ -503,6 +555,133 @@
     </div>
 
     <a href="../index.html" class="back-to-home">← 返回首页</a>
+
+    <!-- 加载ECharts配置 -->
+    <script src="js/echarts-config.js"></script>
+
+    <script>
+        // 等待DOM完全加载后再初始化图表
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM已加载，开始初始化图表...');
+
+            // 投资构成饼图（数据来自原文）
+            const investmentChart = initInkGoldChartResponsive('investmentChart', {
+            title: { text: '投资构成分布（28亿元）', left: 'center' },
+            tooltip: { trigger: 'item', formatter: '{b}: {c}亿元 ({d}%)' },
+            legend: { orient: 'vertical', left: 'left', textStyle: { color: '#F5F5DC' } },
+            series: [{
+                name: '投资构成',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                center: ['60%', '50%'],
+                data: [
+                    {value: 168, name: '设备投资 60%'},
+                    {value: 56, name: '土建工程 20%'},
+                    {value: 42, name: '运营资金 15%'},
+                    {value: 14, name: '其他费用 5%'}
+                ]
+            }]
+        });
+
+        // 单站收入预测图
+        const revenueChart = initInkGoldChartResponsive('revenueChart', {
+            title: { text: '单站年收入预测（万元）', left: 'center' },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            legend: { data: ['充电收入', '增值服务', '政府补贴'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
+            xAxis: { type: 'category', data: ['第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
+            yAxis: { type: 'value', name: '金额（万元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            series: [
+                { name: '充电收入', type: 'bar', stack: 'total', data: [336, 504, 672, 840, 1008], itemStyle: { color: '#D4AF37' } },
+                { name: '增值服务', type: 'bar', stack: 'total', data: [42, 63, 84, 105, 126], itemStyle: { color: '#8B7355' } },
+                { name: '政府补贴', type: 'bar', stack: 'total', data: [84, 42, 21, 0, 0], itemStyle: { color: '#DAA520' } }
+            ]
+        });
+
+        // 1000站总收入增长图
+        const totalRevenueChart = initInkGoldChartResponsive('totalRevenueChart', {
+            title: { text: '1000站年总收入增长趋势', left: 'center' },
+            tooltip: { trigger: 'axis', formatter: '{b}<br/>年总收入: {c}亿元' },
+            xAxis: { type: 'category', data: ['第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
+            yAxis: { type: 'value', name: '金额（亿元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            series: [{
+                name: '年总收入',
+                type: 'line',
+                data: [46.2, 60.9, 77.7, 94.5, 113.4],
+                itemStyle: { color: '#D4AF37' },
+                lineStyle: { width: 4 },
+                areaStyle: {
+                    color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{offset: 0, color: 'rgba(212, 175, 55, 0.3)'}, {offset: 1, color: 'rgba(212, 175, 55, 0.05)'}] }
+                },
+                markPoint: { data: [{type: 'max', name: '最大值'}, {type: 'min', name: '最小值'}] }
+            }]
+        });
+
+        // 单站利润预测图
+        const profitChart = initInkGoldChartResponsive('profitChart', {
+            title: { text: '单站利润预测（万元/年）', left: 'center' },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            legend: { data: ['收入', '成本', '利润'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
+            xAxis: { type: 'category', data: ['第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
+            yAxis: { type: 'value', name: '金额（万元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            series: [
+                { name: '收入', type: 'bar', data: [462, 609, 777, 945, 1134], itemStyle: { color: '#D4AF37' } },
+                { name: '成本', type: 'bar', data: [271, 405, 542, 676, 813], itemStyle: { color: '#8B7355' } },
+                { name: '利润', type: 'line', data: [191, 204, 235, 269, 321], itemStyle: { color: '#F5F5DC' }, lineStyle: { width: 3 } }
+            ]
+        });
+
+        // 1000站总利润图
+        const totalProfitChart = initInkGoldChartResponsive('totalProfitChart', {
+            title: { text: '1000站总利润增长趋势', left: 'center' },
+            tooltip: { trigger: 'axis', formatter: '{b}<br/>总利润: {c}亿元' },
+            xAxis: { type: 'category', data: ['第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
+            yAxis: { type: 'value', name: '金额（亿元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            series: [{
+                name: '总利润',
+                type: 'bar',
+                data: [19.1, 20.4, 23.5, 26.9, 32.1],
+                itemStyle: {
+                    color: function(params) {
+                        const colors = ['#CD853F', '#DAA520', '#D4AF37', '#B8860B', '#D4AF37'];
+                        return colors[params.dataIndex];
+                    }
+                },
+                label: { show: true, position: 'top', formatter: '{c}亿', color: '#F5F5DC' }
+            }]
+        });
+
+        // 现金流图
+        const cashflowChart = initInkGoldChartResponsive('cashflowChart', {
+            title: { text: '现金流分析（1000站/亿元）', left: 'center' },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            legend: { data: ['经营现金流', '净现金流', '累计现金流'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
+            xAxis: { type: 'category', data: ['第0年', '第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
+            yAxis: { type: 'value', name: '金额（亿元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            series: [
+                { name: '经营现金流', type: 'bar', data: [0, 19.1, 20.4, 23.5, 26.9, 32.1], itemStyle: { color: '#D4AF37' } },
+                { name: '净现金流', type: 'bar', data: [-28, 13.5, 14.8, 17.9, 21.3, 26.5], itemStyle: { color: '#8B7355' } },
+                { name: '累计现金流', type: 'line', data: [-28, -14.5, 0.3, 18.2, 39.5, 66], itemStyle: { color: '#F5F5DC' }, lineStyle: { width: 3 }, markLine: { data: [{ yAxis: 0, name: '盈亏平衡', lineStyle: { color: '#4CAF50', type: 'dashed' } }] } }
+            ]
+        });
+
+        // 敏感性分析图
+        const sensitivityChart = initInkGoldChartResponsive('sensitivityChart', {
+            title: { text: '敏感性分析 - IRR范围对比', left: 'center' },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            xAxis: { type: 'category', data: ['充电量变动', '电价变动', '服务费变动'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
+            yAxis: { type: 'value', name: 'IRR（%）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            series: [
+                { name: '最低IRR', type: 'bar', data: [35.6, 38.1, 32.4], itemStyle: { color: '#CD853F' } },
+                { name: '最高IRR', type: 'bar', data: [50.2, 47.5, 53.7], itemStyle: { color: '#D4AF37' } },
+                { name: '基准IRR', type: 'line', data: [42.8, 42.8, 42.8], itemStyle: { color: '#F5F5DC' }, lineStyle: { width: 3, type: 'dashed' } }
+            ]
+        });
+
+        // 注意：响应式处理已由echarts-config.js统一管理
+
+        console.log('所有图表初始化完成！');
+        }); // DOMContentLoaded结束
+    </script>
 
     <script>
         const observer = new IntersectionObserver((entries) => {

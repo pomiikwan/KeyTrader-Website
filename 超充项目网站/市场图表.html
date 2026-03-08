@@ -2,10 +2,20 @@
 <html lang="zh-CN">
 <head>
     <link rel="stylesheet" href="../玄金水墨主题.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>市场分析 - 千站液冷超充项目</title>
     <style>
+        .chart-container {
+            width: 100%;
+            height: 450px;
+            margin: 30px 0;
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+        }
         .market-metric {
             background: rgba(212, 175, 55, 0.1);
             padding: 30px;
@@ -124,6 +134,15 @@
             </div>
         </section>
 
+        <!-- 市场规模增长图 -->
+        <section class="fade-in">
+            <h2>市场规模增长预测</h2>
+            <div class="card">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">新能源汽车保有量与充电桩需求</h3>
+                <div id="marketGrowthChart" class="chart-container"></div>
+            </div>
+        </section>
+
         <!-- 新能源汽车增长趋势 -->
         <section class="fade-in">
             <h2>新能源汽车爆发式增长</h2>
@@ -186,11 +205,30 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 新能源汽车销量增长图 -->
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">新能源汽车销量增长趋势</h3>
+                <div id="evSalesChart" class="chart-container"></div>
+            </div>
+
+            <!-- 新能源汽车渗透率图 -->
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">新能源汽车市场渗透率提升</h3>
+                <div id="evPenetrationChart" class="chart-container"></div>
+            </div>
         </section>
 
         <!-- 充电基础设施需求 -->
         <section class="fade-in">
             <h2>充电基础设施需求</h2>
+
+            <!-- 充电桩需求图 -->
+            <div class="card">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">充电桩需求预测（万根）</h3>
+                <div id="chargingDemandChart" class="chart-container"></div>
+            </div>
+
             <div class="grid grid-3">
                 <div class="card">
                     <h3 style="color: var(--primary-gold); margin-bottom: 15px;">当前状况</h3>
@@ -214,13 +252,14 @@
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 竞争格局 -->
-        <section class="fade-in">
-            <h2>充电桩市场竞争格局</h2>
-            <div class="card">
-                <h3 style="color: var(--primary-gold); margin-bottom: 25px;">市场占有率（2023）</h3>
+            <!-- 市场竞争格局图 -->
+            <div class="card" style="margin-top: 30px;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">充电桩市场份额分布（2023）</h3>
+                <div id="competitionChart" class="chart-container"></div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
                 
                 <div class="competition-bar">
                     <div class="competition-label">特来电</div>
@@ -407,6 +446,124 @@
     </div>
 
     <a href="../index.html" class="back-to-home">← 返回首页</a>
+
+    <!-- 加载ECharts配置 -->
+    <script src="js/echarts-config.js"></script>
+
+    <script>
+        // 等待DOM完全加载后再初始化图表
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM已加载，开始初始化市场图表...');
+
+            // 市场规模增长图
+            const marketGrowthChart = initInkGoldChartResponsive('marketGrowthChart', {
+            title: { text: '新能源汽车保有量与充电桩需求增长', left: 'center' },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            legend: { data: ['新能源汽车保有量（万辆）', '充电桩总数（万根）'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
+            xAxis: { type: 'category', data: ['2023', '2024预测', '2025预测', '2026预测', '2027预测', '2028预测'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
+            yAxis: [
+                { type: 'value', name: '保有量（万辆）', position: 'left', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+                { type: 'value', name: '充电桩（万根）', position: 'right', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { show: false } }
+            ],
+            series: [
+                { name: '新能源汽车保有量（万辆）', type: 'bar', yAxisIndex: 0, data: [2100, 2800, 3500, 4500, 5600, 7000], itemStyle: { color: '#D4AF37' } },
+                { name: '充电桩总数（万根）', type: 'line', yAxisIndex: 1, data: [580, 1100, 1700, 2400, 3100, 3800], itemStyle: { color: '#F5F5DC' }, lineStyle: { width: 4 } }
+            ]
+        });
+
+        // 新能源汽车销量增长图
+        const evSalesChart = initInkGoldChartResponsive('evSalesChart', {
+            title: { text: '新能源汽车销量增长（2020-2023）', left: 'center' },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: '{b}<br/>销量: {c}万辆' },
+            xAxis: { type: 'category', data: ['2020', '2021', '2022', '2023'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
+            yAxis: { type: 'value', name: '销量（万辆）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [137, 352, 649, 950],
+                itemStyle: {
+                    color: function(params) {
+                        const colors = ['#CD853F', '#DAA520', '#D4AF37', '#B8860B'];
+                        return colors[params.dataIndex];
+                    }
+                },
+                label: { show: true, position: 'top', formatter: '{c}万', color: '#F5F5DC' },
+                markLine: {
+                    data: [{ type: 'average', name: '平均值' }],
+                    lineStyle: { color: '#F5F5DC', type: 'dashed' }
+                }
+            }]
+        });
+
+        // 渗透率提升图
+        const evPenetrationChart = initInkGoldChartResponsive('evPenetrationChart', {
+            title: { text: '新能源汽车市场渗透率提升', left: 'center' },
+            tooltip: { trigger: 'axis', formatter: '{b}<br/>渗透率: {c}%' },
+            xAxis: { type: 'category', data: ['2020', '2021', '2022', '2023'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
+            yAxis: { type: 'value', name: '渗透率（%）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } }, max: 40 },
+            series: [{
+                name: '渗透率',
+                type: 'line',
+                data: [5, 15, 25, 35],
+                itemStyle: { color: '#D4AF37' },
+                lineStyle: { width: 4 },
+                areaStyle: {
+                    color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{offset: 0, color: 'rgba(212, 175, 55, 0.3)'}, {offset: 1, color: 'rgba(212, 175, 55, 0.05)'}] }
+                },
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            }]
+        });
+
+        // 充电桩需求预测图
+        const chargingDemandChart = initInkGoldChartResponsive('chargingDemandChart', {
+            title: { text: '充电桩需求预测（万根）', left: 'center' },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            legend: { data: ['当前总数', '累计新增'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
+            xAxis: { type: 'category', data: ['2023', '2024预测', '2025预测', '2026预测', '2027预测', '2028预测'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
+            yAxis: { type: 'value', name: '数量（万根）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            series: [
+                { name: '当前总数', type: 'bar', data: [580, 1100, 1700, 2400, 3100, 3800], itemStyle: { color: '#D4AF37' } },
+                { name: '累计新增', type: 'line', data: [0, 520, 1120, 1820, 2520, 3220], itemStyle: { color: '#F5F5DC' }, lineStyle: { width: 3 } }
+            ]
+        });
+
+        // 市场竞争格局图
+        const competitionChart = initInkGoldChartResponsive('competitionChart', {
+            title: { text: '充电桩市场竞争格局（2023）', left: 'center' },
+            tooltip: { trigger: 'item', formatter: '{a} <br/>{b}: {c}%' },
+            legend: { orient: 'vertical', left: 'left', textStyle: { color: '#F5F5DC' } },
+            series: [{
+                name: '市场份额',
+                type: 'pie',
+                radius: ['30%', '70%'],
+                center: ['60%', '50%'],
+                data: [
+                    {value: 28, name: '特来电 28%'},
+                    {value: 22, name: '星星充电 22%'},
+                    {value: 18, name: '国家电网 18%'},
+                    {value: 32, name: '其他品牌 32%'}
+                ],
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(212, 175, 55, 0.5)'
+                    }
+                },
+                label: { formatter: '{b}\n{d}%' }
+            }]
+        });
+
+        // 注意：响应式处理已由echarts-config.js统一管理
+
+        console.log('所有市场图表初始化完成！');
+        }); // DOMContentLoaded结束
+    </script>
 
     <script>
         const observer = new IntersectionObserver((entries) => {

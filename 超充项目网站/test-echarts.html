@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECharts测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #1a1a1a;
+            color: #f5f5dc;
+        }
+        .chart-container {
+            width: 100%;
+            height: 450px;
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .status {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border: 1px solid #D4AF37;
+        }
+        .error {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid #ff6b6b;
+            color: #ff6b6b;
+        }
+        .success {
+            background: rgba(81, 207, 102, 0.1);
+            border: 1px solid #51cf66;
+            color: #51cf66;
+        }
+    </style>
+</head>
+<body>
+    <h1>ECharts配置测试页面</h1>
+
+    <div id="status-echarts" class="status">正在检查ECharts...</div>
+    <div id="status-config" class="status">正在检查配置文件...</div>
+    <div id="status-theme" class="status">正在检查主题...</div>
+    <div id="status-function" class="status">正在检查初始化函数...</div>
+
+    <div class="chart-container">
+        <div id="testChart" style="width: 100%; height: 100%;"></div>
+    </div>
+
+    <div id="chart-status" class="status">等待图表渲染...</div>
+
+    <!-- 加载ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <script>
+        // 检查ECharts是否加载
+        if (typeof echarts !== 'undefined') {
+            document.getElementById('status-echarts').innerHTML = '✅ ECharts已加载（版本: ' + echarts.version + '）';
+            document.getElementById('status-echarts').className = 'status success';
+        } else {
+            document.getElementById('status-echarts').innerHTML = '❌ ECharts未加载';
+            document.getElementById('status-echarts').className = 'status error';
+        }
+    </script>
+
+    <!-- 加载ECharts配置 -->
+    <script src="js/echarts-config.js"></script>
+
+    <script>
+        // 检查配置文件是否加载
+        setTimeout(function() {
+            if (typeof inkGoldTheme !== 'undefined') {
+                document.getElementById('status-config').innerHTML = '✅ 配置文件已加载';
+                document.getElementById('status-config').className = 'status success';
+            } else {
+                document.getElementById('status-config').innerHTML = '❌ 配置文件未加载';
+                document.getElementById('status-config').className = 'status error';
+            }
+
+            if (typeof initInkGoldChartResponsive !== 'undefined') {
+                document.getElementById('status-function').innerHTML = '✅ 初始化函数可用';
+                document.getElementById('status-function').className = 'status success';
+            } else {
+                document.getElementById('status-function').innerHTML = '❌ 初始化函数不可用';
+                document.getElementById('status-function').className = 'status error';
+            }
+
+            if (typeof inkGoldTheme !== 'undefined') {
+                document.getElementById('status-theme').innerHTML = '✅ 主题对象可用';
+                document.getElementById('status-theme').className = 'status success';
+            } else {
+                document.getElementById('status-theme').innerHTML = '❌ 主题对象不可用';
+                document.getElementById('status-theme').className = 'status error';
+            }
+
+            // 尝试创建图表
+            try {
+                if (typeof initInkGoldChartResponsive === 'function') {
+                    const testChart = initInkGoldChartResponsive('testChart', {
+                        title: { text: '测试图表', left: 'center' },
+                        tooltip: { trigger: 'item' },
+                        series: [{
+                            name: '测试数据',
+                            type: 'pie',
+                            radius: '50%',
+                            data: [
+                                {value: 335, name: '测试A'},
+                                {value: 310, name: '测试B'},
+                                {value: 234, name: '测试C'}
+                            ]
+                        }]
+                    });
+
+                    if (testChart) {
+                        document.getElementById('chart-status').innerHTML = '✅ 图表创建成功！';
+                        document.getElementById('chart-status').className = 'status success';
+                    } else {
+                        document.getElementById('chart-status').innerHTML = '❌ 图表创建失败（返回null）';
+                        document.getElementById('chart-status').className = 'status error';
+                    }
+                } else {
+                    document.getElementById('chart-status').innerHTML = '❌ 无法调用initInkGoldChartResponsive函数';
+                    document.getElementById('chart-status').className = 'status error';
+                }
+            } catch (e) {
+                document.getElementById('chart-status').innerHTML = '❌ 图表创建错误: ' + e.message;
+                document.getElementById('chart-status').className = 'status error';
+                console.error('Chart creation error:', e);
+            }
+        }, 500);
+    </script>
+</body>
+</html>
