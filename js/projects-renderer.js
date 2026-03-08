@@ -51,8 +51,8 @@ class ProjectsRenderer {
      */
     renderProjectCard(project) {
         const statusClass = project.hasLaunched ? 'launched' : 'upcoming';
-        const statusText = project.hasLaunched ? '✨ 已上线' : '🔜 筹备中';
-        const statusEmoji = project.hasLaunched ? '✨' : '🚧';
+        const statusText = project.hasLaunched ? '已上线' : '筹备中';
+        const statusEmoji = project.hasLaunched ? '' : '';
 
         return `
             <a href="${project.link || '#'}" class="project-card" ${!project.link ? 'onclick="return false;" style="cursor: not-allowed; opacity: 0.7;"' : ''}>

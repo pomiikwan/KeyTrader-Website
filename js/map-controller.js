@@ -186,9 +186,11 @@ class ChinaMapController {
                 textStyle: {
                     color: '#F5F0E6'
                 },
-                left: 'left',
-                bottom: '5%',
-                orient: 'horizontal'
+                left: '2%',
+                bottom: '3%',
+                orient: 'horizontal',
+                itemWidth: 15,
+                itemHeight: 140
             },
             series: [{
                 name: dimensionInfo.name,
@@ -211,23 +213,33 @@ class ChinaMapController {
                 label: {
                     normal: {
                         show: true,
-                        fontSize: 11,
+                        fontSize: 12,
                         color: '#1A1A1A',
+                        fontWeight: '500',
                         formatter: function(params) {
                             if (params.data && params.data.value > 0) {
                                 const value = params.data.value;
                                 const unit = dimensionInfo.unit;
                                 const formattedValue = self.formatValue(value, unit);
-                                return `${params.name}\n${formattedValue}`;
+                                return formattedValue;
                             }
-                            return params.name;
+                            return '';
                         }
                     },
                     emphasis: {
                         show: true,
-                        fontSize: 13,
+                        fontSize: 14,
                         fontWeight: 'bold',
-                        color: '#D4AF37'
+                        color: '#D4AF37',
+                        formatter: function(params) {
+                            if (params.data && params.data.value > 0) {
+                                const value = params.data.value;
+                                const unit = dimensionInfo.unit;
+                                const formattedValue = self.formatValue(value, unit);
+                                return formattedValue;
+                            }
+                            return '';
+                        }
                     }
                 },
                 data: data,

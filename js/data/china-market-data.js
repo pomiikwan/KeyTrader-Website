@@ -16,49 +16,49 @@ const chinaMarketData = {
             unit: "万辆",
             description: "各地区新能源汽车累计保有量",
             color: "#2196F3",
-            icon: "🚗"
+            icon: ""
         },
         "charging_stations": {
             name: "超充站数量",
             unit: "座",
             description: "各地区超级充电站数量",
             color: "#D4AF37",
-            icon: "⚡"
+            icon: ""
         },
         "charging_supply_demand": {
             name: "超充设备供需比",
             unit: "%",
             description: "超充设备供应与需求比率",
             color: "#FF9800",
-            icon: "📊"
+            icon: ""
         },
         "chip_supply_demand": {
             name: "芯片供需比",
             unit: "%",
             description: "芯片供应与需求比率",
             color: "#9C27B0",
-            icon: "💾"
+            icon: ""
         },
         "server_supply_demand": {
             name: "服务器供需比",
             unit: "%",
             description: "服务器供应与需求比率",
             color: "#00BCD4",
-            icon: "🖥️"
+            icon: ""
         },
         "computing_centers": {
             name: "算力中心数量",
             unit: "个",
             description: "各地区AI算力中心数量",
             color: "#4CAF50",
-            icon: "🏢"
+            icon: ""
         },
         "huawei_dealers": {
             name: "华为授权商",
             unit: "家",
             description: "华为终端设备授权经销商数量",
             color: "#F44336",
-            icon: "🏪"
+            icon: ""
         }
     },
 
