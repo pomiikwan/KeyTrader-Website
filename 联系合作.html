@@ -2,11 +2,38 @@
 <html lang="zh-CN">
 <head>
     <link rel="stylesheet" href="玄金水墨主题.css">
+    <link rel="stylesheet" href="导航栏.css">
+    <script src="导航栏.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>联系合作 - KeyTrader</title>
 </head>
 <body>
+    <!-- 汉堡菜单按钮 -->
+    <button id="menuToggle" class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="sideNav">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- 侧边导航栏 -->
+    <nav id="sideNav" class="side-nav" aria-label="主导航">
+        <div class="side-nav-header">
+            <h2>导航菜单</h2>
+            <button id="closeNav" class="close-nav" aria-label="关闭导航">×</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="index.html#business">业务板块</a></li>
+            <li><a href="超充设备厂/index.html">液冷超充设备厂</a></li>
+            <li><a href="服务器组装厂/index.html">服务器组装厂</a></li>
+            <li><a href="联系合作.html">联系合作</a></li>
+        </ul>
+    </nav>
+
+    <!-- 遮罩层 -->
+    <div id="overlay" class="overlay"></div>
+
     <!-- 顶部导航 -->
     <nav class="top-nav">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
@@ -18,9 +45,6 @@
         <!-- 页面标题 -->
         <div class="hero-banner fade-in" style="padding: 80px 0;">
             <h1 style="font-size: 48px; margin-bottom: 20px;">联系合作</h1>
-            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">
-                Contact Us for Cooperation
-            </p>
             <!-- 横幅图片区域 -->
             <div class="hero-banner-image placeholder" data-image="contact.jpg"></div>
         </div>
@@ -40,12 +64,15 @@
                     </div>
                 </div>
 
+                <!-- 电话号码暂时隐藏，等待真实联系方式 -->
+                <!--
                 <div class="contact-method">
                     <div class="contact-details">
                         <h4>电话</h4>
                         <p>+86 xxx xxxx xxxx</p>
                     </div>
                 </div>
+                -->
 
                 <div class="contact-method">
                     <div class="contact-details">

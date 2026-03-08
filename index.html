@@ -2,17 +2,67 @@
 <html lang="zh-CN">
 <head>
     <link rel="stylesheet" href="玄金水墨主题.css">
+    <link rel="stylesheet" href="导航栏.css">
+    <script src="导航栏.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KeyTrader - 资金·项目·贸易专业对接平台</title>
+
+    <!-- SEO优化 -->
+    <title>KeyTrader - 资金项目贸易专业对接平台 | 新能源基础设施 · 芯片分销 · 服务器算力</title>
+    <meta name="description" content="KeyTrader是专业的资金、项目、贸易业务对接平台，专注新能源基础设施、芯片授权分销、服务器与算力中心设备三大核心业务领域，为全球合作伙伴提供高效可靠的商业合作机会。">
+    <meta name="keywords" content="KeyTrader,资金对接,项目对接,贸易平台,新能源,超充设备,芯片分销,服务器算力,商业合作">
+    <meta name="author" content="KeyTrader">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.keytrader.com/">
+    <meta property="og:title" content="KeyTrader - 资金项目贸易专业对接平台">
+    <meta property="og:description" content="专业的资金、项目、贸易业务对接平台，专注新能源基础设施、芯片授权分销、服务器与算力中心设备。">
+    <meta property="og:image" content="https://www.keytrader.com/images/banners/home.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.keytrader.com/">
+    <meta property="twitter:title" content="KeyTrader - 资金项目贸易专业对接平台">
+    <meta property="twitter:description" content="专业的资金、项目、贸易业务对接平台，专注新能源基础设施、芯片授权分销、服务器与算力中心设备。">
+
+    <!-- 语义化HTML标签 -->
 </head>
 <body>
-    <div class="main-container">
+    <!-- 跳转到主要内容（可访问性） -->
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <!-- 汉堡菜单按钮 -->
+    <button id="menuToggle" class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="sideNav">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- 侧边导航栏 -->
+    <nav id="sideNav" class="side-nav" aria-label="主导航">
+        <div class="side-nav-header">
+            <h2>导航菜单</h2>
+            <button id="closeNav" class="close-nav" aria-label="关闭导航">×</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="index.html#business">业务板块</a></li>
+            <li><a href="超充设备厂/index.html">液冷超充设备厂</a></li>
+            <li><a href="服务器组装厂/index.html">服务器组装厂</a></li>
+            <li><a href="联系合作.html">联系合作</a></li>
+        </ul>
+    </nav>
+
+    <!-- 遮罩层 -->
+    <div id="overlay" class="overlay"></div>
+
+    <main id="main-content" class="main-container" role="main">
         <!-- Hero Banner -->
         <div class="hero-section fade-in">
             <div class="company-logo"></div>
             <h1 class="company-name">KeyTrader</h1>
-            <div class="company-english">KeyTrader Business Platform</div>
             <div class="company-tagline">
                 专业的资金、项目、贸易业务对接平台<br>
                 新能源基础设施 · 芯片授权分销 · 服务器算力设备 · 专业贸易服务
@@ -23,7 +73,6 @@
 
         <!-- 推荐人信息栏 -->
         <div id="referrerInfo" class="referrer-info-bar" style="display: none;">
-            <div class="icon" style="margin: 0; width: 40px; height: 40px; font-size: 14px;">REF</div>
             <div class="referrer-text">
                 当前推荐人：<span id="referrerCode"></span>
             </div>
@@ -37,13 +86,6 @@
                     KeyTrader 是一家专业的资金、项目、贸易业务对接平台，致力于为全球合作伙伴提供高效、可靠的商业合作机会。
                     我们专注于新能源基础设施、芯片授权分销、服务器与算力中心设备三大核心业务领域，
                     通过资源整合和专业服务，为投资者、项目方和贸易伙伴搭建起信任的桥梁。
-                </p>
-                <p>
-                    KeyTrader is a professional platform for capital, project, and trade business matching,
-                    dedicated to providing efficient and reliable business cooperation opportunities for global partners.
-                    We focus on three core business areas: new energy infrastructure, chip authorized distribution,
-                    and server & computing center equipment, building bridges of trust for investors,
-                    project owners, and trade partners through resource integration and professional services.
                 </p>
             </div>
         </section>
@@ -194,10 +236,10 @@
         </section>
 
         <!-- 页脚信息 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;" role="contentinfo">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
-                资金·项目·贸易专业对接平台 | New Energy Infrastructure · Chip Distribution · Server Solutions
+                专业资金项目贸易对接服务平台 | 新能源基础设施 · 芯片分销 · 服务器算力
             </p>
         </footer>
     </div>

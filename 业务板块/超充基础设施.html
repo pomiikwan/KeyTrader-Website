@@ -2,11 +2,38 @@
 <html lang="zh-CN">
 <head>
     <link rel="stylesheet" href="../玄金水墨主题.css">
+    <link rel="stylesheet" href="../导航栏.css">
+    <script src="../导航栏.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新能源汽车超级充电基础设施 - KeyTrader</title>
 </head>
 <body>
+    <!-- 汉堡菜单按钮 -->
+    <button id="menuToggle" class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="sideNav">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- 侧边导航栏 -->
+    <nav id="sideNav" class="side-nav" aria-label="主导航">
+        <div class="side-nav-header">
+            <h2>导航菜单</h2>
+            <button id="closeNav" class="close-nav" aria-label="关闭导航">×</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../index.html#business">业务板块</a></li>
+            <li><a href="../超充设备厂/index.html">液冷超充设备厂</a></li>
+            <li><a href="../服务器组装厂/index.html">服务器组装厂</a></li>
+            <li><a href="../联系合作.html">联系合作</a></li>
+        </ul>
+    </nav>
+
+    <!-- 遮罩层 -->
+    <div id="overlay" class="overlay"></div>
+
     <!-- 顶部导航 -->
     <nav class="top-nav">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
@@ -19,9 +46,6 @@
         <!-- 页面标题 -->
         <div class="hero-banner fade-in">
             <h1 style="font-size: 48px; margin-bottom: 20px;">新能源汽车超级充电基础设施</h1>
-            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">
-                New Energy Vehicle Super Charging Infrastructure
-            </p>
             <!-- 横幅图片区域 -->
             <div class="hero-banner-image placeholder" data-image="ev-charging.jpg"></div>
         </div>
@@ -47,10 +71,7 @@
             <h2>核心服务</h2>
 
             <div class="service-detail">
-                <h3>
-                    <div class="icon">PLAN</div>
-                    场站规划与设计服务
-                </h3>
+                <h3>场站规划与设计服务</h3>
                 <p>专业的场站选址评估、电网容量分析、充换电方案设计、智能化系统架构设计</p>
                 <ul style="margin-top: 15px;">
                     <li>选址评估与可行性分析</li>
@@ -61,10 +82,7 @@
             </div>
 
             <div class="service-detail">
-                <h3>
-                    <div class="icon">POWER</div>
-                    兆瓦级超充设备供应
-                </h3>
+                <h3>兆瓦级超充设备供应</h3>
                 <p>提供华为600kW全液冷超充设备，支持"一秒一公里"的极速充电体验</p>
                 <ul style="margin-top: 15px;">
                     <li>600kW全液冷超充桩</li>
@@ -75,10 +93,7 @@
             </div>
 
             <div class="service-detail">
-                <h3>
-                    <div class="icon">SMART</div>
-                    智能化运营管理
-                </h3>
+                <h3>智能化运营管理</h3>
                 <p>基于AIoT的智能运营平台，实现无人值守、远程监控、智能调度</p>
                 <ul style="margin-top: 15px;">
                     <li>远程监控与故障诊断</li>
@@ -89,10 +104,7 @@
             </div>
 
             <div class="service-detail">
-                <h3>
-                    <div class="icon">STORE</div>
-                    储能系统集成
-                </h3>
+                <h3>储能系统集成</h3>
                 <p>光储充一体化解决方案，降低运营成本，提升用电效率</p>
                 <ul style="margin-top: 15px;">
                     <li>光伏发电系统</li>
@@ -103,10 +115,7 @@
             </div>
 
             <div class="service-detail">
-                <h3>
-                    <div class="icon">ELEC</div>
-                    电力配套设备
-                </h3>
+                <h3>电力配套设备</h3>
                 <p>完整的电力配套解决方案，确保充电站稳定运行</p>
                 <ul style="margin-top: 15px;">
                     <li>变压器及配电柜</li>
@@ -122,22 +131,18 @@
             <h2>技术优势</h2>
             <div class="advantages-grid">
                 <div class="advantage-item">
-                    <div class="advantage-icon">COOL</div>
                     <h3>液冷超充技术</h3>
                     <p>全液冷架构，充电枪线更轻，15年超长使用寿命</p>
                 </div>
                 <div class="advantage-item">
-                    <div class="advantage-icon">MW</div>
                     <h3>兆瓦级功率</h3>
                     <p>最大600kW单桩功率，实现"一秒一公里"充电体验</p>
                 </div>
                 <div class="advantage-item">
-                    <div class="advantage-icon">AI</div>
                     <h3>AIoT智能管理</h3>
                     <p>智能化运营管理平台，实现无人值守运营</p>
                 </div>
                 <div class="advantage-item">
-                    <div class="advantage-icon">V2G</div>
                     <h3>V2G车网互动</h3>
                     <p>支持双向功率流动，实现车网能量互动</p>
                 </div>
@@ -149,21 +154,18 @@
             <h2 style="text-align: center; margin-bottom: 40px;">相关项目</h2>
             <div class="project-grid">
                 <a href="../超充项目网站/index.html" class="project-card" target="_blank">
-                    <div class="segment-icon" style="margin: 0 auto 20px;">BUILD</div>
                     <h3>超充建站项目</h3>
                     <p>千站液冷超充项目综合规划与实施</p>
                     <div class="btn btn-secondary" style="margin-top: 20px;">查看详情 →</div>
                 </a>
 
                 <div class="project-card" style="opacity: 0.7; cursor: not-allowed;">
-                    <div class="segment-icon" style="margin: 0 auto 20px;">🏭</div>
                     <h3>超充设备厂</h3>
                     <p>设备制造与供应链体系</p>
                     <div class="btn btn-secondary" style="margin-top: 20px;" disabled>即将上线</div>
                 </div>
 
                 <div class="project-card" style="opacity: 0.7; cursor: not-allowed;">
-                    <div class="segment-icon" style="margin: 0 auto 20px;">💰</div>
                     <h3>建站金融方案</h3>
                     <p>项目融资与金融解决方案</p>
                     <div class="btn btn-secondary" style="margin-top: 20px;" disabled>即将上线</div>

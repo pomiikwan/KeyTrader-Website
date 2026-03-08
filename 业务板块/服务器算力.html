@@ -2,11 +2,38 @@
 <html lang="zh-CN">
 <head>
     <link rel="stylesheet" href="../玄金水墨主题.css">
+    <link rel="stylesheet" href="../导航栏.css">
+    <script src="../导航栏.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>服务器与算力中心设备 - KeyTrader</title>
 </head>
 <body>
+    <!-- 汉堡菜单按钮 -->
+    <button id="menuToggle" class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="sideNav">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- 侧边导航栏 -->
+    <nav id="sideNav" class="side-nav" aria-label="主导航">
+        <div class="side-nav-header">
+            <h2>导航菜单</h2>
+            <button id="closeNav" class="close-nav" aria-label="关闭导航">×</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../index.html#business">业务板块</a></li>
+            <li><a href="../超充设备厂/index.html">液冷超充设备厂</a></li>
+            <li><a href="../服务器组装厂/index.html">服务器组装厂</a></li>
+            <li><a href="../联系合作.html">联系合作</a></li>
+        </ul>
+    </nav>
+
+    <!-- 遮罩层 -->
+    <div id="overlay" class="overlay"></div>
+
     <!-- 顶部导航 -->
     <nav class="top-nav">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
@@ -19,9 +46,6 @@
         <!-- 页面标题 -->
         <div class="hero-banner fade-in">
             <h1 style="font-size: 48px; margin-bottom: 20px;">服务器与算力中心设备</h1>
-            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">
-                Server & Computing Center Equipment
-            </p>
             <!-- 横幅图片区域 -->
             <div class="hero-banner-image placeholder" data-image="server-computing.jpg"></div>
         </div>
@@ -47,10 +71,7 @@
             <h2>核心产品与服务</h2>
 
             <div class="service-item">
-                <h3>
-                    <div class="icon" style="margin: 0; font-size: 14px;">SERVER</div>
-                    高性能服务器
-                </h3>
+                <h3>高性能服务器</h3>
                 <p style="color: var(--paper-beige); margin: 15px 0;">
                     提供企业级高性能服务器，支持各种工作负载和应用场景
                 </p>
@@ -64,10 +85,7 @@
             </div>
 
             <div class="service-item">
-                <h3>
-                    <div class="icon" style="margin: 0; font-size: 14px;">AI</div>
-                    AI算力设备
-                </h3>
+                <h3>AI算力设备</h3>
                 <p style="color: var(--paper-beige); margin: 15px 0;">
                     专业的AI训练和推理设备，支持深度学习和机器学习应用
                 </p>
@@ -81,10 +99,7 @@
             </div>
 
             <div class="service-item">
-                <h3>
-                    <div class="icon" style="margin: 0; font-size: 14px;">DC</div>
-                    数据中心基础设施
-                </h3>
+                <h3>数据中心基础设施</h3>
                 <p style="color: var(--paper-beige); margin: 15px 0;">
                     完整的数据中心基础设施解决方案，确保数据中心稳定高效运行
                 </p>
@@ -98,10 +113,7 @@
             </div>
 
             <div class="service-item">
-                <h3>
-                    <div class="icon" style="margin: 0; font-size: 14px;">TRADE</div>
-                    对外贸易服务
-                </h3>
+                <h3>对外贸易服务</h3>
                 <p style="color: var(--paper-beige); margin: 15px 0;">
                     专业的国际贸易服务，为客户提供全球采购和物流解决方案
                 </p>
@@ -115,10 +127,7 @@
             </div>
 
             <div class="service-item">
-                <h3>
-                    <div class="icon" style="margin: 0; font-size: 14px;">SUPPLY</div>
-                    供应链管理
-                </h3>
+                <h3>供应链管理</h3>
                 <p style="color: var(--paper-beige); margin: 15px 0;">
                     全流程供应链管理服务，帮助客户优化成本和效率
                 </p>
@@ -183,22 +192,18 @@
             <h2>服务优势</h2>
             <div class="advantages-grid">
                 <div class="advantage-item">
-                    <div class="advantage-icon">TECH</div>
                     <h3>技术实力雄厚</h3>
                     <p>多年服务器和算力设备行业经验，技术领先</p>
                 </div>
                 <div class="advantage-item">
-                    <div class="advantage-icon">QUALITY</div>
                     <h3>产品品质卓越</h3>
                     <p>严格的质量控制体系，确保产品可靠性</p>
                 </div>
                 <div class="advantage-item">
-                    <div class="advantage-icon">CUSTOM</div>
                     <h3>定制化服务</h3>
                     <p>根据客户需求提供定制化解决方案</p>
                 </div>
                 <div class="advantage-item">
-                    <div class="advantage-icon">GLOBAL</div>
                     <h3>全球服务网络</h3>
                     <p>覆盖全球的销售和服务网络</p>
                 </div>
