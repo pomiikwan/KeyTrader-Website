@@ -55,45 +55,44 @@ class ProjectsRenderer {
         const statusEmoji = project.hasLaunched ? '' : '';
 
         return `
-            <a href="${project.link || '#'}" class="project-card" ${!project.link ? 'onclick="return false;" style="cursor: not-allowed; opacity: 0.7;"' : ''}>
-                <span class="project-status ${statusClass}">${statusEmoji} ${statusText}</span>
-                <h3 class="project-name">${project.name}</h3>
-                <p class="project-summary">${project.summary}</p>
-
-                <div class="metric-highlight">
-                    <div class="metric-label-large">可投金额范围</div>
-                    <div class="metric-value-large">${project.investRange}</div>
+            <div class="wm-card">
+                <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: start;">
+                    <h3 style="font-size: 16px; font-weight: 700; color: var(--wm-text); margin: 0;">${project.name}</h3>
+                    <span style="font-size: 10px; padding: 4px 8px; border-radius: 4px; background: ${project.hasLaunched ? 'var(--wm-overlay-light)' : 'var(--wm-overlay-medium)'}; border: 1px solid ${project.hasLaunched ? 'var(--wm-border)' : 'var(--wm-border-strong)'}; color: ${project.hasLaunched ? 'var(--wm-text-secondary)' : 'var(--wm-text-dim)'};">
+                        ${statusEmoji} ${statusText}
+                    </span>
                 </div>
-
-                <div class="metric-grid">
-                    <div class="metric-item">
-                        <span class="metric-item-label">建设周期</span>
-                        <span class="metric-item-value">${project.buildPeriod}</span>
+                <p style="font-size: 12px; color: var(--wm-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                    ${project.summary}
+                </p>
+                <div class="wm-metric" style="margin-bottom: 12px;">
+                    <div class="wm-metric-label">可投金额范围</div>
+                    <div class="wm-metric-value ${project.investMax >= 5000 ? 'critical' : project.investMax >= 1000 ? 'high' : 'normal'}">${project.investRange}</div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px;">
+                    <div style="text-align: center; padding: 8px; background: var(--wm-overlay-subtle); border: 1px solid var(--wm-border-subtle); border-radius: 4px;">
+                        <div style="font-size: 10px; color: var(--wm-text-dim); margin-bottom: 4px;">建设周期</div>
+                        <div style="font-size: 13px; font-weight: 600; color: var(--wm-text);">${project.buildPeriod}</div>
                     </div>
-                    <div class="metric-item">
-                        <span class="metric-item-label">回报周期</span>
-                        <span class="metric-item-value">${project.returnPeriod}</span>
+                    <div style="text-align: center; padding: 8px; background: var(--wm-overlay-subtle); border: 1px solid var(--wm-border-subtle); border-radius: 4px;">
+                        <div style="font-size: 10px; color: var(--wm-text-dim); margin-bottom: 4px;">回报周期</div>
+                        <div style="font-size: 13px; font-weight: 600; color: var(--wm-text);">${project.returnPeriod}</div>
                     </div>
-                    <div class="metric-item">
-                        <span class="metric-item-label">年化收益</span>
-                        <span class="metric-item-value">${project.annualReturn}</span>
+                    <div style="text-align: center; padding: 8px; background: var(--wm-overlay-subtle); border: 1px solid var(--wm-border-subtle); border-radius: 4px;">
+                        <div style="font-size: 10px; color: var(--wm-text-dim); margin-bottom: 4px;">年化收益</div>
+                        <div style="font-size: 13px; font-weight: 600; color: var(--wm-high);">${project.annualReturn}</div>
                     </div>
                 </div>
-
                 ${project.hasLaunched ? `
-                    <div style="text-align: center; margin-top: var(--spacing-md);">
-                        <span style="color: var(--primary-gold); font-weight: 600;">
-                            ↓ 点击查看详情
-                        </span>
-                    </div>
+                    <a href="${project.link}" class="wm-btn wm-btn-primary" style="width: 100%; text-align: center;">
+                        查看详情 →
+                    </a>
                 ` : `
-                    <div style="text-align: center; margin-top: var(--spacing-md);">
-                        <span style="color: var(--text-muted); font-size: 14px;">
-                            敬请期待
-                        </span>
-                    </div>
+                    <button class="wm-btn" disabled style="width: 100%; text-align: center; opacity: 0.5; cursor: not-allowed;">
+                        敬请期待
+                    </button>
                 `}
-            </a>
+            </div>
         `;
     }
 }

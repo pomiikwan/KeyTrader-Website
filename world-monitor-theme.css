@@ -1,0 +1,603 @@
+/**
+ * World Monitor 风格主题
+ * 复刻自 world_monitor 项目
+ * 特点：纯黑暗色主题、高对比度、等宽字体、极简主义、面板化设计
+ * 优化：增强手机端适配
+ */
+
+/* ============================================================
+   CSS 变量系统 - 暗色主题（默认）
+   ============================================================ */
+:root {
+  /* === 背景色系 === */
+  --wm-bg: #0a0a0a;              /* 主背景 - 纯黑 */
+  --wm-bg-secondary: #111;       /* 次级背景 */
+  --wm-surface: #141414;         /* 表面/面板背景 */
+  --wm-surface-hover: #1e1e1e;   /* 悬停背景 */
+  --wm-surface-active: #1a1a2e;  /* 激活背景 */
+
+  /* === 边框色系 === */
+  --wm-border: #2a2a2a;          /* 标准边框 */
+  --wm-border-strong: #444;      /* 强边框 */
+  --wm-border-subtle: #1a1a1a;   /* 弱边框 */
+
+  /* === 文字色系 === */
+  --wm-text: #e8e8e8;            /* 主文字 */
+  --wm-text-secondary: #ccc;     /* 次级文字 */
+  --wm-text-dim: #888;           /* 暗淡文字 */
+  --wm-text-muted: #666;         /* 静音文字 */
+  --wm-text-faint: #555;         /* 微弱文字 */
+  --wm-text-ghost: #444;         /* 幽灵文字 */
+  --wm-accent: #fff;             /* 强调文字 */
+
+  /* === 语义颜色 === */
+  --wm-critical: #ff4444;        /* 严重 - 红色 */
+  --wm-high: #ff8800;            /* 高级 - 橙色 */
+  --wm-elevated: #ffaa00;        /* 抬升 - 黄色 */
+  --wm-normal: #44aa44;          /* 正常 - 绿色 */
+  --wm-low: #3388ff;             /* 低级 - 蓝色 */
+  --wm-info: #3b82f6;            /* 信息 - 蓝色 */
+  --wm-positive: #44ff88;        /* 积极 - 亮绿 */
+
+  /* === 叠加层和阴影 === */
+  --wm-overlay-subtle: rgba(255, 255, 255, 0.03);
+  --wm-overlay-light: rgba(255, 255, 255, 0.05);
+  --wm-overlay-medium: rgba(255, 255, 255, 0.1);
+  --wm-overlay-heavy: rgba(255, 255, 255, 0.2);
+  --wm-shadow-color: rgba(0, 0, 0, 0.5);
+
+  /* === 滚动条 === */
+  --wm-scrollbar-thumb: #333;
+  --wm-scrollbar-thumb-hover: #555;
+
+  /* === 输入框 === */
+  --wm-input-bg: #1a1a1a;
+
+  /* === 面板 === */
+  --wm-panel-bg: #141414;
+  --wm-panel-border: #2a2a2a;
+
+  /* === 地图 === */
+  --wm-map-bg: #020a08;
+  --wm-map-grid: #0a2a20;
+  --wm-map-country: #0a2018;
+  --wm-map-stroke: #0f5040;
+
+  /* === 字体栈 === */
+  --wm-font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Fira Code',
+                   'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', monospace;
+  --wm-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+                  'Helvetica Neue', 'Arial', sans-serif;
+
+  /* === 间距系统 === */
+  --wm-space-xs: 4px;
+  --wm-space-sm: 8px;
+  --wm-space-md: 16px;
+  --wm-space-lg: 24px;
+  --wm-space-xl: 32px;
+  --wm-space-2xl: 48px;
+
+  /* === 圆角 === */
+  --wm-radius-sm: 4px;
+  --wm-radius-md: 8px;
+  --wm-radius-lg: 12px;
+
+  /* === 过渡动画 === */
+  --wm-transition: 200ms ease;
+}
+
+/* ============================================================
+   全局重置和基础样式
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--wm-font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  background: var(--wm-bg);
+  color: var(--wm-text);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* 平滑过渡动画 */
+*,
+*::before,
+*::after {
+  transition: background-color var(--wm-transition),
+              color var(--wm-transition),
+              border-color var(--wm-transition),
+              box-shadow var(--wm-transition);
+}
+
+/* 抑制初始加载时的过渡 */
+.no-transition *,
+.no-transition *::before,
+.no-transition *::after {
+  transition: none !important;
+}
+
+/* 地图和画布元素自己管理渲染 */
+canvas,
+.echarts-gl,
+.echarts-layer {
+  transition: none !important;
+}
+
+/* ============================================================
+   布局容器
+   ============================================================ */
+
+/* 主容器 - 全屏布局 */
+.wm-container {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--wm-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部导航栏 */
+.wm-header {
+  background: var(--wm-surface);
+  border-bottom: 1px solid var(--wm-border);
+  padding: var(--wm-space-md) var(--wm-space-lg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.wm-header-content {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wm-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--wm-accent);
+  letter-spacing: -0.5px;
+}
+
+.wm-tagline {
+  font-size: 11px;
+  color: var(--wm-text-dim);
+  margin-top: 2px;
+}
+
+/* 主内容区域 */
+.wm-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: var(--wm-space-lg);
+}
+
+/* ============================================================
+   面板系统
+   ============================================================ */
+
+.wm-panel {
+  background: var(--wm-panel-bg);
+  border: 1px solid var(--wm-panel-border);
+  border-radius: var(--wm-radius-md);
+  padding: var(--wm-space-lg);
+  margin-bottom: var(--wm-space-lg);
+}
+
+.wm-panel-header {
+  margin-bottom: var(--wm-space-md);
+}
+
+.wm-panel-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--wm-text);
+  margin-bottom: var(--wm-space-xs);
+}
+
+.wm-panel-subtitle {
+  font-size: 12px;
+  color: var(--wm-text-dim);
+}
+
+/* ============================================================
+   控制器样式
+   ============================================================ */
+
+.wm-controls {
+  display: flex;
+  gap: var(--wm-space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--wm-space-lg);
+  padding: var(--wm-space-md);
+  background: var(--wm-surface);
+  border: 1px solid var(--wm-border);
+  border-radius: var(--wm-radius-md);
+}
+
+.wm-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wm-space-xs);
+}
+
+.wm-control-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--wm-text-dim);
+  font-weight: 600;
+}
+
+.wm-select {
+  background: var(--wm-input-bg);
+  border: 1px solid var(--wm-border);
+  color: var(--wm-text);
+  padding: var(--wm-space-sm) var(--wm-space-md);
+  border-radius: var(--wm-radius-sm);
+  font-family: var(--wm-font-mono);
+  font-size: 12px;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.wm-select:hover {
+  border-color: var(--wm-border-strong);
+}
+
+.wm-select:focus {
+  outline: none;
+  border-color: var(--wm-info);
+  box-shadow: 0 0 0 2px var(--wm-overlay-light);
+}
+
+/* ============================================================
+   地图容器
+   ============================================================ */
+
+.wm-map-container {
+  width: 100%;
+  height: 60vh;
+  min-height: 500px;
+  background: var(--wm-map-bg);
+  border: 1px solid var(--wm-border);
+  border-radius: var(--wm-radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================================================
+   网格布局
+   ============================================================ */
+
+.wm-grid {
+  display: grid;
+  gap: var(--wm-space-md);
+}
+
+.wm-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.wm-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.wm-grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ============================================================
+   卡片样式
+   ============================================================ */
+
+.wm-card {
+  background: var(--wm-surface);
+  border: 1px solid var(--wm-border);
+  border-radius: var(--wm-radius-md);
+  padding: var(--wm-space-md);
+  transition: all var(--wm-transition);
+}
+
+.wm-card:hover {
+  background: var(--wm-surface-hover);
+  border-color: var(--wm-border-strong);
+}
+
+.wm-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--wm-text);
+  margin-bottom: var(--wm-space-sm);
+}
+
+.wm-card-content {
+  font-size: 12px;
+  color: var(--wm-text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   数据高亮
+   ============================================================ */
+
+.wm-metric {
+  display: inline-block;
+  padding: var(--wm-space-sm) var(--wm-space-md);
+  background: var(--wm-overlay-light);
+  border: 1px solid var(--wm-border);
+  border-radius: var(--wm-radius-sm);
+  font-family: var(--wm-font-mono);
+}
+
+.wm-metric-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--wm-text-dim);
+  margin-bottom: 2px;
+}
+
+.wm-metric-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--wm-accent);
+  line-height: 1;
+}
+
+.wm-metric-value.critical { color: var(--wm-critical); }
+.wm-metric-value.high { color: var(--wm-high); }
+.wm-metric-value.normal { color: var(--wm-normal); }
+.wm-metric-value.low { color: var(--wm-low); }
+
+/* ============================================================
+   按钮样式
+   ============================================================ */
+
+.wm-btn {
+  background: var(--wm-surface);
+  border: 1px solid var(--wm-border);
+  color: var(--wm-text);
+  padding: var(--wm-space-sm) var(--wm-space-md);
+  border-radius: var(--wm-radius-sm);
+  font-family: var(--wm-font-mono);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all var(--wm-transition);
+  display: inline-block;
+}
+
+.wm-btn:hover {
+  background: var(--wm-surface-hover);
+  border-color: var(--wm-border-strong);
+}
+
+.wm-btn:active {
+  background: var(--wm-surface-active);
+}
+
+.wm-btn-primary {
+  background: var(--wm-info);
+  border-color: var(--wm-info);
+  color: #fff;
+}
+
+.wm-btn-primary:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+/* ============================================================
+   滚动条样式
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--wm-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--wm-scrollbar-thumb);
+  border-radius: var(--wm-radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wm-scrollbar-thumb-hover);
+}
+
+/* ============================================================
+   响应式设计 - 手机端优化
+   ============================================================ */
+
+/* 平板设备（768px - 1024px） */
+@media (max-width: 1024px) {
+  .wm-main {
+    padding: var(--wm-space-md);
+  }
+
+  .wm-map-container {
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .wm-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wm-controls {
+    flex-direction: column;
+  }
+
+  .wm-select {
+    min-width: 100%;
+  }
+}
+
+/* 手机设备（< 768px） */
+@media (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+
+  .wm-header {
+    padding: var(--wm-space-sm) var(--wm-space-md);
+  }
+
+  .wm-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--wm-space-sm);
+  }
+
+  .wm-main {
+    padding: var(--wm-space-sm);
+  }
+
+  .wm-panel {
+    padding: var(--wm-space-md);
+    margin-bottom: var(--wm-space-md);
+    border-radius: var(--wm-radius-sm);
+  }
+
+  .wm-panel-title {
+    font-size: 14px;
+  }
+
+  .wm-panel-subtitle {
+    font-size: 11px;
+  }
+
+  /* 地图容器 - 手机端全宽 */
+  .wm-map-container {
+    height: 45vh;
+    min-height: 350px;
+    border-radius: var(--wm-radius-sm);
+  }
+
+  /* 网格布局 - 手机端单列 */
+  .wm-grid-2,
+  .wm-grid-3,
+  .wm-grid-auto {
+    grid-template-columns: 1fr;
+  }
+
+  /* 控制器 - 手机端优化 */
+  .wm-controls {
+    gap: var(--wm-space-sm);
+    padding: var(--wm-space-sm);
+  }
+
+  .wm-control-group {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .wm-select {
+    min-width: 100%;
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  /* 按钮优化 */
+  .wm-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 数据高亮 - 手机端优化 */
+  .wm-metric-value {
+    font-size: 20px;
+  }
+
+  /* 卡片 - 手机端优化 */
+  .wm-card {
+    padding: var(--wm-space-sm);
+  }
+
+  .wm-card-title {
+    font-size: 13px;
+  }
+
+  .wm-card-content {
+    font-size: 11px;
+  }
+}
+
+/* 小屏手机（< 480px） */
+@media (max-width: 480px) {
+  body {
+    font-size: 11px;
+  }
+
+  .wm-logo {
+    font-size: 16px;
+  }
+
+  .wm-tagline {
+    font-size: 10px;
+  }
+
+  .wm-panel-title {
+    font-size: 13px;
+  }
+
+  .wm-map-container {
+    height: 40vh;
+    min-height: 300px;
+  }
+
+  .wm-metric-value {
+    font-size: 18px;
+  }
+
+  /* 间距缩小 */
+  :root {
+    --wm-space-xs: 3px;
+    --wm-space-sm: 6px;
+    --wm-space-md: 12px;
+    --wm-space-lg: 16px;
+    --wm-space-xl: 24px;
+  }
+}
+
+/* ============================================================
+   工具类
+   ============================================================ */
+
+.wm-text-critical { color: var(--wm-critical); }
+.wm-text-high { color: var(--wm-high); }
+.wm-text-normal { color: var(--wm-normal); }
+.wm-text-low { color: var(--wm-low); }
+.wm-text-info { color: var(--wm-info); }
+.wm-text-dim { color: var(--wm-text-dim); }
+.wm-text-muted { color: var(--wm-text-muted); }
+
+.wm-bg-surface { background: var(--wm-surface); }
+.wm-bg-hover { background: var(--wm-surface-hover); }
+
+.wm-border { border: 1px solid var(--wm-border); }
+.wm-border-strong { border: 1px solid var(--wm-border-strong); }
+.wm-border-subtle { border: 1px solid var(--wm-border-subtle); }
+
+.wm-mono { font-family: var(--wm-font-mono); }
+.wm-sans { font-family: var(--wm-font-sans); }

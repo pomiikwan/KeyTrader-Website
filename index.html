@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="玄金水墨主题.css">
-    <link rel="stylesheet" href="导航栏.css">
-    <script src="导航栏.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- SEO优化 -->
     <title>KeyTrader - 资金项目贸易专业对接平台 | 新能源基础设施 · 芯片分销 · 服务器算力</title>
@@ -13,19 +10,22 @@
     <meta name="keywords" content="KeyTrader,资金对接,项目对接,贸易平台,新能源,超充设备,芯片分销,服务器算力,商业合作">
     <meta name="author" content="KeyTrader">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0a">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.keytrader.com/">
     <meta property="og:title" content="KeyTrader - 资金项目贸易专业对接平台">
     <meta property="og:description" content="专业的资金、项目、贸易业务对接平台，专注新能源基础设施、芯片授权分销、服务器与算力中心设备。">
-    <meta property="og:image" content="https://www.keytrader.com/images/banners/home.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.keytrader.com/">
     <meta property="twitter:title" content="KeyTrader - 资金项目贸易专业对接平台">
-    <meta property="twitter:description" content="专业的资金、项目、贸易业务对接平台，专注新能源基础设施、芯片授权分销、服务器与算力中心设备。">
+    <meta property="twitter:description" content="专业的资金、项目、贸易业务对接平台">
+
+    <!-- World Monitor 主题 -->
+    <link rel="stylesheet" href="world-monitor-theme.css">
 
     <!-- ECharts CDN -->
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
@@ -34,11 +34,11 @@
     <script src="js/lib/china-data.js"></script>
     <script src="js/lib/china-map.js"></script>
 
-    <!-- 语义化HTML标签 -->
+    <!-- 导航栏样式和脚本 -->
+    <link rel="stylesheet" href="导航栏.css">
+    <script src="导航栏.js"></script>
 </head>
-<body>
-    <!-- 跳转到主要内容（可访问性） -->
-    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+<body class="no-transition">
 
     <!-- 汉堡菜单按钮 -->
     <button id="menuToggle" class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="sideNav">
@@ -55,9 +55,9 @@
         </div>
         <ul class="nav-links">
             <li><a href="index.html">首页</a></li>
-            <li><a href="index.html#map-section">市场数据</a></li>
-            <li><a href="index.html#projects">投资项目</a></li>
-            <li><a href="index.html#cooperation">合作模式</a></li>
+            <li><a href="#map-section">市场数据</a></li>
+            <li><a href="#projects">投资项目</a></li>
+            <li><a href="#cooperation">合作模式</a></li>
             <li><a href="超充设备厂/index.html">液冷超充设备厂</a></li>
             <li><a href="服务器组装厂/index.html">服务器组装厂</a></li>
             <li><a href="联系合作.html">联系合作</a></li>
@@ -67,200 +67,189 @@
     <!-- 遮罩层 -->
     <div id="overlay" class="overlay"></div>
 
-    <main id="main-content" class="main-container" role="main">
-        <!-- Hero区域（简化版） -->
-        <section class="hero-section-compact fade-in">
-            <div class="company-logo"></div>
-            <h1 class="company-name">KeyTrader</h1>
-            <p class="company-tagline-compact">资金·项目·贸易 一站式对接平台</p>
-        </section>
+    <!-- 主容器 -->
+    <div class="wm-container">
 
-        <!-- 上部分：交互式中国地图 -->
-        <section id="map-section" class="map-section fade-in">
-            <div class="section-header">
-                <h2 class="section-title">
-                    中国市场数据洞察
-                </h2>
-                <p class="section-subtitle">实时了解各行业市场数据，把握投资机遇</p>
+        <!-- 头部 -->
+        <header class="wm-header">
+            <div class="wm-header-content">
+                <div>
+                    <div class="wm-logo">KeyTrader</div>
+                    <div class="wm-tagline">资金·项目·贸易 一站式对接平台</div>
+                </div>
+                <nav class="wm-nav-desktop" style="display: none;">
+                    <a href="#map-section" class="wm-btn">市场数据</a>
+                    <a href="#projects" class="wm-btn">投资项目</a>
+                    <a href="#cooperation" class="wm-btn">合作模式</a>
+                </nav>
             </div>
+        </header>
 
-            <!-- 数据筛选器 -->
-            <div class="map-controls">
-                <div class="control-group">
-                    <label for="dimension-select">数据维度</label>
-                    <select id="dimension-select" class="control-select">
-                        <option value="ev_ownership">新能源汽车保有量</option>
-                        <option value="charging_stations">超充站数量</option>
-                        <option value="charging_supply_demand">超充设备供需比</option>
-                        <option value="chip_supply_demand">芯片供需比</option>
-                        <option value="server_supply_demand">服务器供需比</option>
-                        <option value="computing_centers">算力中心数量</option>
-                        <option value="huawei_dealers">华为授权商</option>
-                    </select>
+        <!-- 主内容 -->
+        <main class="wm-main">
+
+            <!-- 地图部分 -->
+            <section id="map-section" class="wm-panel">
+                <div class="wm-panel-header">
+                    <h2 class="wm-panel-title">中国市场数据洞察</h2>
+                    <p class="wm-panel-subtitle">实时了解各行业市场数据，把握投资机遇</p>
                 </div>
 
-                <div class="control-group">
-                    <label for="year-select">年份</label>
-                    <select id="year-select" class="control-select">
-                        <option value="2026">2026年（预测）</option>
-                        <option value="2025">2025年</option>
-                        <option value="2024">2024年</option>
-                    </select>
-                </div>
-
-                <button id="reset-map" class="btn btn-secondary btn-sm">重置地图</button>
-            </div>
-
-            <!-- 地图容器 -->
-            <div id="chinaMap" class="map-container"></div>
-
-            <!-- 地图图例 -->
-            <div class="map-legend">
-                <div class="legend-item">
-                    <span class="legend-color high"></span>
-                    <span>高</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color medium"></span>
-                    <span>中</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color low"></span>
-                    <span>低</span>
-                </div>
-                <div class="legend-hint">💡 点击省份查看详情</div>
-            </div>
-        </section>
-
-        <!-- 中部分：动态内容区域 -->
-        <section id="projects" class="dynamic-content-section fade-in">
-            <!-- 默认状态：项目卡片展示 -->
-            <div id="default-content" class="content-panel active">
-                <div class="section-header">
-                    <h2 class="section-title">
-                        
-                        优质投资项目
-                    </h2>
-                    <p class="section-subtitle">按投资金额排序（从大到小）</p>
-                </div>
-
-                <div id="projects-grid" class="projects-grid">
-                    <!-- 项目卡片将通过JavaScript动态生成 -->
-                </div>
-            </div>
-
-            <!-- 地图选择状态：商业计划方案 -->
-            <div id="business-plan-content" class="content-panel">
-                <div class="section-header">
-                    <h2 class="section-title">
-                        <span class="title-icon">📋</span>
-                        <span id="plan-title">商业计划方案</span>
-                    </h2>
-                    <p class="section-subtitle" id="plan-subtitle">基于您选择的地区和数据维度</p>
-                </div>
-
-                <div id="business-plan-grid" class="business-plan-grid">
-                    <!-- 商业计划卡片将通过JavaScript动态生成 -->
-                </div>
-
-                <div class="back-to-projects">
-                    <button id="back-to-default" class="btn btn-primary">
-                        ← 返回项目列表
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- 下部分：合作模式 -->
-        <section id="cooperation" class="cooperation-section fade-in">
-            <div class="section-header">
-                <h2 class="section-title">
-                    
-                    合作模式
-                </h2>
-                <p class="section-subtitle">多种合作方式，共创价值</p>
-            </div>
-
-            <div class="cooperation-grid">
-                <!-- 投资者 -->
-                <div class="cooperation-card investor">
-                    <div class="cooperation-icon">
-                        
+                <!-- 数据控制器 -->
+                <div class="wm-controls">
+                    <div class="wm-control-group">
+                        <label class="wm-control-label" for="dimension-select">数据维度</label>
+                        <select id="dimension-select" class="wm-select">
+                            <option value="ev_ownership">新能源汽车保有量</option>
+                            <option value="charging_stations">超充站数量</option>
+                            <option value="charging_supply_demand">超充设备供需比</option>
+                            <option value="chip_supply_demand">芯片供需比</option>
+                            <option value="server_supply_demand">服务器供需比</option>
+                            <option value="computing_centers">算力中心数量</option>
+                            <option value="huawei_dealers">华为授权商</option>
+                        </select>
                     </div>
-                    <h3 class="cooperation-title">投资者</h3>
-                    <p class="cooperation-description">
-                        为投资者提供优质项目对接服务，从项目筛选、尽职调查到投后管理全流程支持。
-                    </p>
-                    <ul class="cooperation-features">
-                        <li>✓ 项目筛选与评估</li>
-                        <li>✓ 尽职调查服务</li>
-                        <li>✓ 投后管理与退出</li>
-                        <li>✓ 多元化投资组合</li>
-                    </ul>
-                    <div class="cooperation-highlight">
-                        <div class="highlight-label">年化收益率</div>
-                        <div class="highlight-value">25-50%</div>
+
+                    <div class="wm-control-group">
+                        <label class="wm-control-label" for="year-select">年份</label>
+                        <select id="year-select" class="wm-select">
+                            <option value="2026">2026年（预测）</option>
+                            <option value="2025">2025年</option>
+                            <option value="2024">2024年</option>
+                        </select>
                     </div>
-                    <a href="联系合作.html?type=investor" class="btn btn-primary">了解详情 →</a>
+
+                    <div class="wm-control-group">
+                        <label class="wm-control-label">&nbsp;</label>
+                        <button id="reset-map" class="wm-btn">重置地图</button>
+                    </div>
                 </div>
 
-                <!-- 推荐人 -->
-                <div class="cooperation-card referrer">
-                    <div class="cooperation-icon">
-                        
+                <!-- 地图容器 -->
+                <div id="chinaMap" class="wm-map-container"></div>
+            </section>
+
+            <!-- 动态内容区域 -->
+            <section id="projects" class="wm-panel">
+                <!-- 默认状态：项目卡片展示 -->
+                <div id="default-content">
+                    <div class="wm-panel-header">
+                        <h2 class="wm-panel-title">优质投资项目</h2>
+                        <p class="wm-panel-subtitle">按投资金额排序（从大到小）</p>
                     </div>
-                    <h3 class="cooperation-title">推荐人</h3>
-                    <p class="cooperation-description">
-                        推荐优质项目资源，享受推荐奖励。建立人脉网络，实现资源共享与价值共创。
-                    </p>
-                    <ul class="cooperation-features">
-                        <li>✓ 推荐奖励机制</li>
-                        <li>✓ 人脉资源拓展</li>
-                        <li>✓ 培训与支持</li>
-                        <li>✓ 长期收益分成</li>
-                    </ul>
-                    <div class="cooperation-highlight">
-                        <div class="highlight-label">推荐佣金</div>
-                        <div class="highlight-value">1-5%</div>
+                    <div id="projects-grid" class="wm-grid wm-grid-auto">
+                        <!-- 项目卡片将通过JavaScript动态生成 -->
                     </div>
-                    <a href="联系合作.html?type=referrer" class="btn btn-secondary">了解详情 →</a>
                 </div>
 
-                <!-- 业务合伙人 -->
-                <div class="cooperation-card partner">
-                    <div class="cooperation-icon">
-                        <span class="icon-emoji">🤝</span>
+                <!-- 地图选择状态：商业计划方案 -->
+                <div id="business-plan-content" style="display: none;">
+                    <div class="wm-panel-header">
+                        <h2 class="wm-panel-title">
+                            <span id="plan-title">商业计划方案</span>
+                        </h2>
+                        <p class="wm-panel-subtitle" id="plan-subtitle">基于您选择的地区和数据维度</p>
                     </div>
-                    <h3 class="cooperation-title">业务合伙人</h3>
-                    <p class="cooperation-description">
-                        深度参与项目运营，共享收益与成长。提供专业能力与资源，共同打造行业领先地位。
-                    </p>
-                    <ul class="cooperation-features">
-                        <li>✓ 深度参与决策</li>
-                        <li>✓ 资源整合协同</li>
-                        <li>✓ 收益共享机制</li>
-                        <li>✓ 长期战略合作</li>
-                    </ul>
-                    <div class="cooperation-highlight">
-                        <div class="highlight-label">股权比例</div>
-                        <div class="highlight-value">10-30%</div>
+                    <div id="business-plan-grid" class="wm-grid wm-grid-auto">
+                        <!-- 商业计划卡片将通过JavaScript动态生成 -->
                     </div>
-                    <a href="联系合作.html?type=partner" class="btn btn-primary">了解详情 →</a>
+                    <div style="margin-top: 24px; text-align: center;">
+                        <button id="back-to-default" class="wm-btn wm-btn-primary">
+                            返回项目列表
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 页脚信息 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;" role="contentinfo">
+            <!-- 合作模式 -->
+            <section id="cooperation" class="wm-panel">
+                <div class="wm-panel-header">
+                    <h2 class="wm-panel-title">合作模式</h2>
+                    <p class="wm-panel-subtitle">多种合作方式，共创价值</p>
+                </div>
+                <div class="wm-grid wm-grid-3" id="cooperation-grid">
+                    <!-- 投资者 -->
+                    <div class="wm-card">
+                        <h3 class="wm-card-title">投资者</h3>
+                        <div class="wm-card-content">
+                            <p style="margin-bottom: 16px;">
+                                为投资者提供优质项目对接服务，从项目筛选、尽职调查到投后管理全流程支持。
+                            </p>
+                            <ul style="list-style: none; line-height: 2; margin-bottom: 16px;">
+                                <li>✓ 项目筛选与评估</li>
+                                <li>✓ 尽职调查服务</li>
+                                <li>✓ 投后管理与退出</li>
+                                <li>✓ 多元化投资组合</li>
+                            </ul>
+                            <div class="wm-metric" style="margin-bottom: 16px;">
+                                <div class="wm-metric-label">年化收益率</div>
+                                <div class="wm-metric-value high">25-50%</div>
+                            </div>
+                            <a href="联系合作.html?type=investor" class="wm-btn wm-btn-primary" style="width: 100%; text-align: center;">
+                                了解详情 →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 推荐人 -->
+                    <div class="wm-card">
+                        <h3 class="wm-card-title">推荐人</h3>
+                        <div class="wm-card-content">
+                            <p style="margin-bottom: 16px;">
+                                推荐优质项目资源，享受推荐奖励。建立人脉网络，实现资源共享与价值共创。
+                            </p>
+                            <ul style="list-style: none; line-height: 2; margin-bottom: 16px;">
+                                <li>✓ 推荐奖励机制</li>
+                                <li>✓ 人脉资源拓展</li>
+                                <li>✓ 培训与支持</li>
+                                <li>✓ 长期收益分成</li>
+                            </ul>
+                            <div class="wm-metric" style="margin-bottom: 16px;">
+                                <div class="wm-metric-label">推荐佣金</div>
+                                <div class="wm-metric-value normal">1-5%</div>
+                            </div>
+                            <a href="联系合作.html?type=referrer" class="wm-btn" style="width: 100%; text-align: center;">
+                                了解详情 →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 业务合伙人 -->
+                    <div class="wm-card">
+                        <h3 class="wm-card-title">业务合伙人</h3>
+                        <div class="wm-card-content">
+                            <p style="margin-bottom: 16px;">
+                                深度参与项目运营，共享收益与成长。提供专业能力与资源，共同打造行业领先地位。
+                            </p>
+                            <ul style="list-style: none; line-height: 2; margin-bottom: 16px;">
+                                <li>✓ 深度参与决策</li>
+                                <li>✓ 资源整合协同</li>
+                                <li>✓ 收益共享机制</li>
+                                <li>✓ 长期战略合作</li>
+                            </ul>
+                            <div class="wm-metric" style="margin-bottom: 16px;">
+                                <div class="wm-metric-label">股权比例</div>
+                                <div class="wm-metric-value critical">10-30%</div>
+                            </div>
+                            <a href="联系合作.html?type=partner" class="wm-btn wm-btn-primary" style="width: 100%; text-align: center;">
+                                了解详情 →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 页脚 -->
+        <footer style="text-align: center; padding: 32px 16px; color: var(--wm-text-dim); border-top: 1px solid var(--wm-border); margin-top: 32px;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
-            <p style="font-size: 14px; margin-top: 10px;">
+            <p style="font-size: 11px; margin-top: 8px;">
                 专业资金项目贸易对接服务平台 | 新能源基础设施 · 芯片分销 · 服务器算力
             </p>
         </footer>
-    </main>
 
-    <!-- 返回首页按钮 -->
-    <a href="index.html" class="back-to-home" style="display: none;">← 返回首页</a>
+    </div>
 
     <!-- 引入数据文件 -->
     <script src="js/data/projects-data.js"></script>
@@ -296,28 +285,12 @@
                 return localStorage.getItem('keytrader_referrer') || '';
             }
 
-            // 显示推荐人信息
-            function displayReferrerInfo() {
-                const referrer = getCurrentReferrer();
-                const referrerInfoDiv = document.getElementById('referrerInfo');
-                const referrerCodeSpan = document.getElementById('referrerCode');
-
-                if (referrer && referrerInfoDiv && referrerCodeSpan) {
-                    referrerCodeSpan.textContent = referrer;
-                    referrerInfoDiv.style.display = 'flex';
-                }
-            }
-
             // 初始化推荐人系统
             function initReferrerSystem() {
-                // 优先从URL获取推荐人
                 const urlReferrer = getReferrerFromURL();
                 if (urlReferrer) {
                     saveReferrer(urlReferrer);
                 }
-
-                // 显示推荐人信息
-                displayReferrerInfo();
             }
 
             // 页面加载时初始化
@@ -328,22 +301,9 @@
             }
         })();
 
-        // 添加滚动动画
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        // 移除初始加载时的过渡动画
+        window.addEventListener('load', () => {
+            document.body.classList.remove('no-transition');
         });
 
         // 平滑滚动
@@ -362,6 +322,20 @@
                 }
             });
         });
+
+        // 桌面端导航显示
+        function updateDesktopNav() {
+            const nav = document.querySelector('.wm-nav-desktop');
+            if (nav) {
+                nav.style.display = window.innerWidth > 768 ? 'flex' : 'none';
+                if (window.innerWidth > 768) {
+                    nav.style.gap = '12px';
+                }
+            }
+        }
+
+        window.addEventListener('resize', updateDesktopNav);
+        updateDesktopNav();
     </script>
 </body>
 </html>

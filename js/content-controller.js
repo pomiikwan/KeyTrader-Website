@@ -132,12 +132,18 @@ class ContentController {
             const projectData = getProjectById(plan.planId);
 
             return `
-                <div class="plan-card">
-                    <span class="plan-priority">${plan.priority}</span>
-                    <h3 class="plan-name">${plan.planName}</h3>
-                    <p class="plan-reason">${plan.reason}</p>
+                <div class="wm-card">
+                    <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: start;">
+                        <h3 style="font-size: 16px; font-weight: 700; color: var(--wm-text); margin: 0;">${plan.planName}</h3>
+                        <span style="font-size: 11px; padding: 4px 8px; border-radius: 4px; background: var(--wm-overlay-light); border: 1px solid var(--wm-border); color: var(--wm-text-dim); font-weight: 600;">
+                            ${plan.priority}
+                        </span>
+                    </div>
+                    <p style="font-size: 12px; color: var(--wm-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                        ${plan.reason}
+                    </p>
                     ${this.renderPlanProjectInfo(projectData)}
-                    <div style="text-align: center; margin-top: var(--spacing-md);">
+                    <div style="text-align: center; margin-top: 16px;">
                         ${this.renderPlanAction(projectData)}
                     </div>
                 </div>
@@ -151,8 +157,8 @@ class ContentController {
     renderPlanProjectInfo(projectData) {
         if (!projectData) {
             return `
-                <div class="plan-info">
-                    <p style="color: var(--text-muted); font-style: italic;">
+                <div style="padding: 16px; background: var(--wm-overlay-subtle); border: 1px solid var(--wm-border-subtle); border-radius: 4px; text-align: center;">
+                    <p style="color: var(--wm-text-dim); font-style: italic; font-size: 12px; margin: 0;">
                         该项目正在筹备中，敬请期待...
                     </p>
                 </div>
@@ -160,24 +166,22 @@ class ContentController {
         }
 
         return `
-            <div class="plan-info" style="margin-top: var(--spacing-md);">
-                <div class="metric-grid" style="grid-template-columns: repeat(2, 1fr); gap: 10px;">
-                    <div class="metric-item">
-                        <span class="metric-item-label">可投金额</span>
-                        <span class="metric-item-value">${projectData.investRange}</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-item-label">建设周期</span>
-                        <span class="metric-item-value">${projectData.buildPeriod}</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-item-label">回报周期</span>
-                        <span class="metric-item-value">${projectData.returnPeriod}</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-item-label">年化收益</span>
-                        <span class="metric-item-value">${projectData.annualReturn}</span>
-                    </div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+                <div style="padding: 8px; background: var(--wm-overlay-subtle); border: 1px solid var(--wm-border-subtle); border-radius: 4px;">
+                    <div style="font-size: 10px; color: var(--wm-text-dim); margin-bottom: 4px;">可投金额</div>
+                    <div style="font-size: 13px; font-weight: 600; color: var(--wm-text);">${projectData.investRange}</div>
+                </div>
+                <div style="padding: 8px; background: var(--wm-overlay-subtle); border: 1px solid var(--wm-border-subtle); border-radius: 4px;">
+                    <div style="font-size: 10px; color: var(--wm-text-dim); margin-bottom: 4px;">建设周期</div>
+                    <div style="font-size: 13px; font-weight: 600; color: var(--wm-text);">${projectData.buildPeriod}</div>
+                </div>
+                <div style="padding: 8px; background: var(--wm-overlay-subtle); border: 1px solid var(--wm-border-subtle); border-radius: 4px;">
+                    <div style="font-size: 10px; color: var(--wm-text-dim); margin-bottom: 4px;">回报周期</div>
+                    <div style="font-size: 13px; font-weight: 600; color: var(--wm-text);">${projectData.returnPeriod}</div>
+                </div>
+                <div style="padding: 8px; background: var(--wm-overlay-subtle); border: 1px solid var(--wm-border-subtle); border-radius: 4px;">
+                    <div style="font-size: 10px; color: var(--wm-text-dim); margin-bottom: 4px;">年化收益</div>
+                    <div style="font-size: 13px; font-weight: 600; color: var(--wm-high);">${projectData.annualReturn}</div>
                 </div>
             </div>
         `;
@@ -189,14 +193,14 @@ class ContentController {
     renderPlanAction(projectData) {
         if (!projectData || !projectData.hasLaunched) {
             return `
-                <span class="btn btn-secondary" disabled style="opacity: 0.6; cursor: not-allowed;">
-                    🔒 敬请期待
-                </span>
+                <button class="wm-btn" disabled style="opacity: 0.5; cursor: not-allowed;">
+                    敬请期待
+                </button>
             `;
         }
 
         return `
-            <a href="${projectData.link}" class="plan-link">
+            <a href="${projectData.link}" class="wm-btn wm-btn-primary" style="display: inline-block;">
                 了解详情 →
             </a>
         `;
