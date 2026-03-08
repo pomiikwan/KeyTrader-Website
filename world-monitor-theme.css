@@ -58,10 +58,12 @@
   --wm-panel-border: #2a2a2a;
 
   /* === 地图 === */
-  --wm-map-bg: #020a08;
-  --wm-map-grid: #0a2a20;
-  --wm-map-country: #0a2018;
-  --wm-map-stroke: #0f5040;
+  --wm-map-bg: #020a08;          /* 深绿黑色背景 */
+  --wm-map-grid: #0a2a20;        /* 绿色调网格 */
+  --wm-map-country: #0a2018;     /* 绿色调省份 */
+  --wm-map-stroke: #0f5040;      /* 绿色调边框 */
+  --wm-map-hover: #1a4030;       /* 悬停颜色 */
+  --wm-map-selected: #2a5a40;    /* 选中颜色 */
 
   /* === 字体栈 === */
   --wm-font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Fira Code',
@@ -275,11 +277,28 @@ canvas,
   width: 100%;
   height: 60vh;
   min-height: 500px;
-  background: var(--wm-map-bg);
-  border: 1px solid var(--wm-border);
+  background: linear-gradient(180deg, #020a08 0%, #0a2018 100%);
+  border: 1px solid var(--wm-map-stroke);
   border-radius: var(--wm-radius-md);
   position: relative;
   overflow: hidden;
+  box-shadow: inset 0 0 60px rgba(10, 32, 24, 0.5);
+}
+
+/* 地图网格效果（可选） */
+.wm-map-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(15, 80, 64, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 80, 64, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 /* ============================================================

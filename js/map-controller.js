@@ -162,16 +162,16 @@ class ChinaMapController {
                         const dimensionName = dimensionInfo.name;
                         const unit = dimensionInfo.unit;
                         const value = params.data.value;
-                        return `${params.name}<br/>${dimensionName}：<strong style="color: #D4AF37">${value}</strong> ${unit}`;
+                        return `${params.name}<br/>${dimensionName}：<strong style="color: #44ff88">${value}</strong> ${unit}`;
                     }
                     return params.name;
                 },
-                backgroundColor: 'rgba(26, 26, 26, 0.95)',
-                borderColor: '#D4AF37',
+                backgroundColor: 'rgba(10, 32, 24, 0.95)',
+                borderColor: '#0f5040',
                 borderWidth: 1,
                 textStyle: {
-                    color: '#F5F0E6',
-                    fontSize: 14
+                    color: '#e8e8e8',
+                    fontSize: 13
                 }
             },
             visualMap: {
@@ -181,10 +181,10 @@ class ChinaMapController {
                 realtime: false,
                 calculable: true,
                 inRange: {
-                    color: [dimensionInfo.colorStart, dimensionInfo.colorEnd]
+                    color: ['#0a2018', '#1a4030', '#2a5a40', '#3a7a50', '#4a9a60']
                 },
                 textStyle: {
-                    color: '#F5F0E6'
+                    color: '#888'
                 },
                 left: '2%',
                 bottom: '3%',
@@ -200,21 +200,23 @@ class ChinaMapController {
                 scaleLimit: { min: 1, max: 1 },
                 itemStyle: {
                     normal: {
-                        borderColor: 'rgba(212, 175, 55, 0.5)',
+                        areaColor: '#0a2018',
+                        borderColor: '#0f5040',
                         borderWidth: 1
                     },
                     emphasis: {
-                        borderColor: '#D4AF37',
+                        areaColor: '#1a4030',
+                        borderColor: '#2a5a40',
                         borderWidth: 2,
                         shadowBlur: 10,
-                        shadowColor: 'rgba(212, 175, 55, 0.5)'
+                        shadowColor: 'rgba(42, 90, 64, 0.5)'
                     }
                 },
                 label: {
                     normal: {
                         show: true,
                         fontSize: 12,
-                        color: '#1A1A1A',
+                        color: '#888',
                         fontWeight: '500',
                         formatter: function(params) {
                             if (params.data && params.data.value > 0) {
@@ -230,7 +232,7 @@ class ChinaMapController {
                         show: true,
                         fontSize: 14,
                         fontWeight: 'bold',
-                        color: '#D4AF37',
+                        color: '#44ff88',
                         formatter: function(params) {
                             if (params.data && params.data.value > 0) {
                                 const value = params.data.value;
@@ -245,12 +247,12 @@ class ChinaMapController {
                 data: data,
                 emphasis: {
                     itemStyle: {
-                        areaColor: '#D4AF37'
+                        areaColor: '#2a5a40'
                     }
                 },
                 select: {
                     itemStyle: {
-                        areaColor: '#2196F3'
+                        areaColor: '#3a7a50'
                     }
                 }
             }]
