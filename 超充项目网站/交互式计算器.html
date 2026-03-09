@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>交互式计算器 - 千站液冷超充项目</title>
@@ -11,14 +10,14 @@
             border-radius: 20px;
             padding: 40px;
             margin: 30px 0;
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(59, 130, 246, 0.3);
         }
         .input-group {
             margin-bottom: 25px;
         }
         .input-group label {
             display: block;
-            color: var(--primary-gold);
+            color: var(--wm-info);
             font-weight: 600;
             margin-bottom: 10px;
             font-size: 16px;
@@ -26,7 +25,7 @@
         .input-group input[type="range"] {
             width: 100%;
             height: 8px;
-            background: rgba(212, 175, 55, 0.2);
+            background: rgba(59, 130, 246, 0.2);
             border-radius: 5px;
             outline: none;
             -webkit-appearance: none;
@@ -36,23 +35,23 @@
             appearance: none;
             width: 20px;
             height: 20px;
-            background: var(--primary-gold);
+            background: var(--wm-info);
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 0 10px var(--primary-gold);
+            box-shadow: 0 0 10px var(--wm-info);
         }
         .input-group input[type="number"] {
             width: 100%;
             padding: 12px;
-            background: rgba(212, 175, 55, 0.1);
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: rgba(59, 130, 246, 0.1);
+            border: 2px solid rgba(59, 130, 246, 0.3);
             border-radius: 8px;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             font-size: 16px;
         }
         .input-group input[type="number"]:focus {
             outline: none;
-            border-color: var(--primary-gold);
+            border-color: var(--wm-info);
         }
         .range-value {
             display: flex;
@@ -62,18 +61,18 @@
         }
         .range-value .current {
             font-size: 24px;
-            color: var(--primary-gold);
+            color: var(--wm-info);
             font-weight: bold;
         }
         .range-value .unit {
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             margin-left: 5px;
         }
         .results-box {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
             border-radius: 15px;
             padding: 30px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(59, 130, 246, 0.3);
         }
         .result-item {
             text-align: center;
@@ -87,24 +86,24 @@
         }
         .result-label {
             font-size: 14px;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             margin-bottom: 10px;
         }
         .result-value {
             font-size: 36px;
-            color: var(--primary-gold);
+            color: var(--wm-info);
             font-weight: bold;
         }
         .result-unit {
             font-size: 16px;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             margin-left: 5px;
         }
         .calculate-btn {
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
-            color: var(--ink-black);
+            background: linear-gradient(135deg, var(--wm-info) 0%, var(--primary-gold-light) 100%);
+            color: var(--wm-bg);
             border: none;
             border-radius: 10px;
             font-size: 18px;
@@ -125,44 +124,45 @@
         }
         .preset-btn {
             padding: 10px 20px;
-            background: rgba(212, 175, 55, 0.2);
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: rgba(59, 130, 246, 0.2);
+            border: 2px solid rgba(59, 130, 246, 0.3);
             border-radius: 8px;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 14px;
         }
         .preset-btn:hover, .preset-btn.active {
-            background: rgba(212, 175, 55, 0.3);
-            border-color: var(--primary-gold);
+            background: rgba(59, 130, 246, 0.3);
+            border-color: var(--wm-info);
         }
     </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html">← 返回导航中心</a>
-            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+<body class="no-transition">
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
-        <div class="hero-banner fade-in">
+    <main class="wm-main">
+        <div class="wm-panel">
             <h1 style="font-size: 48px; margin-bottom: 20px;">交互式计算器</h1>
-            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">投资回报实时计算工具</p>
+            <p style="font-size: 20px; color: var(--wm-text-secondary); max-width: 900px; margin: 0 auto;">投资回报实时计算工具</p>
         </div>
 
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>投资回报计算器</h2>
-            <p style="color: var(--paper-beige); margin: 20px 0;">
+            <p style="color: var(--wm-text-secondary); margin: 20px 0;">
                 调整下方参数，实时查看投资回报分析。本计算器基于千站液冷超充项目财务模型。
             </p>
 
-            <div class="grid grid-2">
+            <div class="wm-grid wm-grid-2">
                 <!-- 输入参数 -->
                 <div class="calculator-container">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 25px; text-align: center;">输入参数</h3>
+                    <h3 style="color: var(--wm-info); margin-bottom: 25px; text-align: center;">输入参数</h3>
 
                     <div class="input-group">
                         <label>投资规模（座）</label>
@@ -212,7 +212,7 @@
 
                 <!-- 计算结果 -->
                 <div class="calculator-container">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 25px; text-align: center;">计算结果</h3>
+                    <h3 style="color: var(--wm-info); margin-bottom: 25px; text-align: center;">计算结果</h3>
 
                     <div class="results-box">
                         <div class="result-item">
@@ -272,52 +272,52 @@
         </section>
 
         <!-- 敏感性分析 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>敏感性分析</h2>
-            <div class="card">
-                <p style="color: var(--paper-beige); margin-bottom: 20px;">
+            <div class="wm-card">
+                <p style="color: var(--wm-text-secondary); margin-bottom: 20px;">
                     调整关键参数，观察对IRR和投资回收期的影响
                 </p>
 
-                <div class="grid grid-3">
-                    <div style="padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 15px;">充电量影响</h4>
-                        <p style="color: var(--paper-beige); font-size: 14px; margin-bottom: 10px;">充电量 ±20%</p>
-                        <div style="font-size: 20px; color: var(--primary-gold); font-weight: bold; margin-bottom: 5px;">
+                <div class="wm-grid wm-grid-3">
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                        <h4 style="color: var(--wm-info); margin-bottom: 15px;">充电量影响</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px; margin-bottom: 10px;">充电量 ±20%</p>
+                        <div style="font-size: 20px; color: var(--wm-info); font-weight: bold; margin-bottom: 5px;">
                             IRR: <span id="sensitivityCharging">32.4% - 53.7%</span>
                         </div>
-                        <p style="color: var(--paper-beige); font-size: 12px;">回收期: 3.5 - 5.8年</p>
+                        <p style="color: var(--wm-text-secondary); font-size: 12px;">回收期: 3.5 - 5.8年</p>
                     </div>
 
-                    <div style="padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                        h4 style="color: var(--primary-gold); margin-bottom: 15px;">服务费影响</h4>
-                        <p style="color: var(--paper-beige); font-size: 14px; margin-bottom: 10px;">服务费 ±20%</p>
-                        <div style="font-size: 20px; color: var(--primary-gold); font-weight: bold; margin-bottom: 5px;">
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                        h4 style="color: var(--wm-info); margin-bottom: 15px;">服务费影响</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px; margin-bottom: 10px;">服务费 ±20%</p>
+                        <div style="font-size: 20px; color: var(--wm-info); font-weight: bold; margin-bottom: 5px;">
                             IRR: <span id="sensitivityFee">32.4% - 53.7%</span>
                         </div>
-                        <p style="color: var(--paper-beige); font-size: 12px;">回收期: 3.5 - 5.8年</p>
+                        <p style="color: var(--wm-text-secondary); font-size: 12px;">回收期: 3.5 - 5.8年</p>
                     </div>
 
-                    <div style="padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                        h4 style="color: var(--primary-gold); margin-bottom: 15px;">投资成本影响</h4>
-                        <p style="color: var(--paper-beige); font-size: 14px; margin-bottom: 10px;">投资额 ±20%</p>
-                        <div style="font-size: 20px; color: var(--primary-gold); font-weight: bold; margin-bottom: 5px;">
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                        h4 style="color: var(--wm-info); margin-bottom: 15px;">投资成本影响</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px; margin-bottom: 10px;">投资额 ±20%</p>
+                        <div style="font-size: 20px; color: var(--wm-info); font-weight: bold; margin-bottom: 5px;">
                             IRR: <span id="sensitivityInvestment">38.1% - 47.5%</span>
                         </div>
-                        <p style="color: var(--paper-beige); font-size: 12px;">回收期: 4.1 - 5.0年</p>
+                        <p style="color: var(--wm-text-secondary); font-size: 12px;">回收期: 4.1 - 5.0年</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 使用说明 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             h2>使用说明</h2>
-            <div class="card">
-                <div class="grid grid-2">
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-2">
                     <div>
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">参数说明</h3>
-                        <ul style="color: var(--paper-beige); line-height: 2;">
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">参数说明</h3>
+                        <ul style="color: var(--wm-text-secondary); line-height: 2;">
                             <li><strong>投资规模：</strong>计划建设的充电站数量</li>
                             <li><strong>单站投资：</strong>每座充电站的建设成本</li>
                             <li><strong>日均充电量：</strong>每站每天的平均充电量</li>
@@ -326,8 +326,8 @@
                         </ul>
                     </div>
                     <div>
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">计算方法</h3>
-                        <ul style="color: var(--paper-beige); line-height: 2;">
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">计算方法</h3>
+                        <ul style="color: var(--wm-text-secondary); line-height: 2;">
                             <li>基于项目实际财务模型</li>
                             <li>考虑建设期和运营期现金流</li>
                             <li>采用标准IRR计算方法</li>
@@ -340,26 +340,25 @@
         </section>
 
         <!-- CTA -->
-        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+        <section class="wm-panel" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(59, 130, 246, 0.3);">
             <h2>需要更详细的财务模型？</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
                 联系我们获取完整的Excel财务模型和投资测算工具
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
-                <a href="财务图表.html" class="btn btn-secondary">查看详细财务分析</a>
+                <a href="../联系合作.html" class="wm-btn wm-btn-primary">联系合作</a>
+                <a href="财务图表.html" class="wm-btn">查看详细财务分析</a>
             </div>
         </section>
 
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 千站液冷超充项目 - 交互式计算器
             </p>
         </footer>
     </div>
-
-    <a href="../index.html" class="back-to-home">← 返回首页</a>
 
     <script>
         // 设置预设值

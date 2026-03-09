@@ -11,6 +11,24 @@ const projectsData = [
     // ========== 已上线项目 ==========
 
     {
+        id: 'thousand-station-charging',
+        name: '千站液冷超充项目',
+        englishName: 'Thousand Station Liquid Cooling Super Charging Project',
+        summary: '全国1000座华为600kW全液冷超充站建设，"一秒一公里"极致体验',
+        investRange: '28亿',
+        investMin: 280000, // 万
+        investMax: 280000, // 万
+        buildPeriod: '5年（2025-2029）',
+        returnPeriod: '4.5年',
+        annualReturn: '42.8%',
+        hasLaunched: true,
+        link: '超充项目网站/index.html',
+        priority: 1,
+        tags: ['超充站', '新能源', '基础设施', '华为技术'],
+        description: '千站液冷超充项目是由KeyTrade主导的新能源汽车充电基础设施建设工程，计划在全国范围内建设1000座采用华为600kW全液冷超充技术的充电站。项目依托华为数字能源的先进技术，提供"一秒一公里"的极致充电体验。'
+    },
+
+    {
         id: 'ev-charging-factory',
         name: '液冷超充设备厂',
         englishName: 'Liquid-Cooled Ultra-Fast Charging Equipment Factory',
@@ -23,7 +41,7 @@ const projectsData = [
         annualReturn: '28.5%',
         hasLaunched: true,
         link: '超充设备厂/index.html',
-        priority: 1,
+        priority: 2,
         tags: ['新能源', '超充设备', '制造业'],
         description: '专注新能源汽车充电基础设施核心部件研发制造，依托华为数字能源生态，提供600kW全液冷超充设备及整体解决方案。'
     },

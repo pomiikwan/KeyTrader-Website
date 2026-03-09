@@ -1,59 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
-    <link rel="stylesheet" href="../导航栏.css">
-    <script src="../导航栏.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新能源汽车超级充电基础设施 - KeyTrader</title>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
-    <!-- 汉堡菜单按钮 -->
-    <button id="menuToggle" class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="sideNav">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <!-- 侧边导航栏 -->
-    <nav id="sideNav" class="side-nav" aria-label="主导航">
-        <div class="side-nav-header">
-            <h2>导航菜单</h2>
-            <button id="closeNav" class="close-nav" aria-label="关闭导航">×</button>
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.html">首页</a></li>
-            <li><a href="../index.html#business">业务板块</a></li>
-            <li><a href="../超充设备厂/index.html">液冷超充设备厂</a></li>
-            <li><a href="../服务器组装厂/index.html">服务器组装厂</a></li>
-            <li><a href="../联系合作.html">联系合作</a></li>
-        </ul>
-    </nav>
-
+<body class="no-transition">
     <!-- 遮罩层 -->
-    <div id="overlay" class="overlay"></div>
-
     <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="../index.html">← 返回首页</a>
-            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
+    <main class="wm-main">
         <!-- 页面标题 -->
-        <div class="hero-banner fade-in">
+        <div class="wm-panel">
             <h1 style="font-size: 48px; margin-bottom: 20px;">新能源汽车超级充电基础设施</h1>
             <!-- 横幅图片区域 -->
             <img src="../images/banners/factory-hero.png" alt="新能源汽车超级充电基础设施" class="hero-banner-image" loading="lazy">
         </div>
 
         <!-- 业务概述 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>业务概述</h2>
-            <div class="card">
+            <div class="wm-card">
                 <p>
                     KeyTrade 依托华为数字能源生态合作伙伴体系，专注于新能源汽车超级充电基础设施的
                     投资建设与运营服务。我们提供从场站规划、设备供应到智能运营的一体化解决方案，
@@ -67,7 +41,7 @@
         </section>
 
         <!-- 核心服务 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>核心服务</h2>
 
             <div class="service-detail">
@@ -127,7 +101,7 @@
         </section>
 
         <!-- 技术优势 -->
-        <section class="advantages-section fade-in">
+        <section class="wm-panel">
             <h2>技术优势</h2>
             <div class="advantages-grid">
                 <div class="advantage-item">
@@ -150,7 +124,7 @@
         </section>
 
         <!-- 相关项目展示 -->
-        <section class="project-showcase fade-in">
+        <section class="wm-panel">
             <h2 style="text-align: center; margin-bottom: 40px;">相关项目</h2>
             <div class="project-grid">
                 <a href="../超充项目网站/index.html" class="project-card" target="_blank">
@@ -174,10 +148,10 @@
         </section>
 
         <!-- 应用场景 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>应用场景</h2>
-            <div class="grid grid-2">
-                <div class="card">
+            <div class="wm-grid wm-grid-2">
+                <div class="wm-card">
                     <h3>城市充电网络建设</h3>
                     <ul>
                         <li>公共充电站：市区公共停车场、商业综合体</li>
@@ -186,7 +160,7 @@
                         <li>交通枢纽：机场、高铁站、港口码头</li>
                     </ul>
                 </div>
-                <div class="card">
+                <div class="wm-card">
                     <h3>高速公路网络布局</h3>
                     <ul>
                         <li>服务区超充站：高速服务区快速补能</li>
@@ -199,9 +173,9 @@
         </section>
 
         <!-- CTA 区域 -->
-        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+        <section class="cta-section" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(59, 130, 246, 0.3);">
             <h2>准备好开始合作了吗？</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
                 无论您是投资者、场地资源方还是运营合作伙伴，我们都期待与您合作
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
@@ -211,7 +185,8 @@
         </section>
 
         <!-- 页脚信息 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 新能源汽车超级充电基础设施专业服务商
@@ -220,8 +195,6 @@
     </div>
 
     <!-- 返回首页按钮 -->
-    <a href="../index.html" class="back-to-home">← 返回首页</a>
-
     <script>
         // 添加滚动动画
         const observerOptions = {

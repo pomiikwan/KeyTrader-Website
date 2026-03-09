@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>行业动态新闻 - 千站液冷超充项目</title>
@@ -11,7 +10,7 @@
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 25px;
-            border-left: 4px solid var(--primary-gold);
+            border-left: 4px solid var(--wm-info);
             transition: all 0.3s ease;
         }
         .news-item:hover {
@@ -21,8 +20,8 @@
         }
         .news-date {
             display: inline-block;
-            background: rgba(212, 175, 55, 0.2);
-            color: var(--primary-gold);
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--wm-info);
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 14px;
@@ -31,19 +30,19 @@
         }
         .news-title {
             font-size: 24px;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             margin-bottom: 15px;
             font-weight: 600;
         }
         .news-content {
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             line-height: 1.8;
             opacity: 0.9;
         }
         .news-tag {
             display: inline-block;
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--primary-gold);
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--wm-info);
             padding: 3px 10px;
             border-radius: 5px;
             font-size: 12px;
@@ -56,50 +55,51 @@
             align-items: center;
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
         }
         .news-source {
             font-size: 14px;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             opacity: 0.7;
         }
     </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html">← 返回导航中心</a>
-            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+<body class="no-transition">
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
-        <div class="hero-banner fade-in">
+    <main class="wm-main">
+        <div class="wm-panel">
             <h1 style="font-size: 48px; margin-bottom: 20px;">行业动态新闻</h1>
-            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">Industry News & Updates</p>
+            <p style="font-size: 20px; color: var(--wm-text-secondary); max-width: 900px; margin: 0 auto;">Industry News & Updates</p>
         </div>
 
         <!-- 标签筛选 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
-                <button style="padding: 10px 25px; background: var(--primary-gold); color: var(--ink-black); border: none; border-radius: 25px; font-weight: 600; cursor: pointer;">全部</button>
-                <button style="padding: 10px 25px; background: rgba(212, 175, 55, 0.2); color: var(--paper-beige); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">政策动态</button>
-                <button style="padding: 10px 25px; background: rgba(212, 175, 55, 0.2); color: var(--paper-beige); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">技术突破</button>
-                <button style="padding: 10px 25px; background: rgba(212, 175, 55, 0.2); color: var(--paper-beige); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">市场数据</button>
-                <button style="padding: 10px 25px; background: rgba(212, 175, 55, 0.2); color: var(--paper-beige); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">行业活动</button>
+                <button style="padding: 10px 25px; background: var(--wm-info); color: var(--wm-bg); border: none; border-radius: 25px; font-weight: 600; cursor: pointer;">全部</button>
+                <button style="padding: 10px 25px; background: rgba(59, 130, 246, 0.2); color: var(--wm-text-secondary); border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">政策动态</button>
+                <button style="padding: 10px 25px; background: rgba(59, 130, 246, 0.2); color: var(--wm-text-secondary); border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">技术突破</button>
+                <button style="padding: 10px 25px; background: rgba(59, 130, 246, 0.2); color: var(--wm-text-secondary); border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">市场数据</button>
+                <button style="padding: 10px 25px; background: rgba(59, 130, 246, 0.2); color: var(--wm-text-secondary); border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">行业活动</button>
             </div>
         </section>
 
         <!-- 新闻列表 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>最新动态</h2>
 
             <!-- 新闻1 -->
             <div class="news-item">
                 <span class="news-date">2025年3月</span>
                 <div>
-                    <span class="news-tag">政策动态</span>
-                    <span class="news-tag">市场支持</span>
+                    <span class="wm-metric-label">政策动态</span>
+                    <span class="wm-metric-label">市场支持</span>
                 </div>
                 <h3 class="news-title">国家发改委：加快推进充电基础设施建设，2025年新增充电桩200万个</h3>
                 <p class="news-content">
@@ -107,7 +107,7 @@
                 </p>
                 <div class="news-meta">
                     <span class="news-source">来源：国家发改委官网</span>
-                    <a href="../联系合作.html" style="color: var(--primary-gold); text-decoration: none;">了解详情 →</a>
+                    <a href="../联系合作.html" style="color: var(--wm-info); text-decoration: none;">了解详情 →</a>
                 </div>
             </div>
 
@@ -115,8 +115,8 @@
             <div class="news-item">
                 <span class="news-date">2025年2月</span>
                 <div>
-                    <span class="news-tag">技术突破</span>
-                    <span class="news-tag">超充技术</span>
+                    <span class="wm-metric-label">技术突破</span>
+                    <span class="wm-metric-label">超充技术</span>
                 </div>
                 <h3 class="news-title">华为发布新一代600kW全液冷超充技术，充电速度提升60%</h3>
                 <p class="news-content">
@@ -124,7 +124,7 @@
                 </p>
                 <div class="news-meta">
                     <span class="news-source">来源：华为数字能源发布会</span>
-                    <a href="系统架构图.html" style="color: var(--primary-gold); text-decoration: none;">查看技术详情 →</a>
+                    <a href="系统架构图.html" style="color: var(--wm-info); text-decoration: none;">查看技术详情 →</a>
                 </div>
             </div>
 
@@ -132,8 +132,8 @@
             <div class="news-item">
                 <span class="news-date">2025年2月</span>
                 <div>
-                    <span class="news-tag">市场数据</span>
-                    <span class="news-tag">行业报告</span>
+                    <span class="wm-metric-label">市场数据</span>
+                    <span class="wm-metric-label">行业报告</span>
                 </div>
                 <h3 class="news-title">中汽协：2025年新能源汽车销量预计突破1500万辆，渗透率超45%</h3>
                 <p class="news-content">
@@ -141,7 +141,7 @@
                 </p>
                 <div class="news-meta">
                     <span class="news-source">来源：中国汽车工业协会</span>
-                    <a href="市场图表.html" style="color: var(--primary-gold); text-decoration: none;">查看市场分析 →</a>
+                    <a href="市场图表.html" style="color: var(--wm-info); text-decoration: none;">查看市场分析 →</a>
                 </div>
             </div>
 
@@ -149,8 +149,8 @@
             <div class="news-item">
                 <span class="news-date">2025年1月</span>
                 <div>
-                    <span class="news-tag">行业活动</span>
-                    <span class="news-tag">战略合作</span>
+                    <span class="wm-metric-label">行业活动</span>
+                    <span class="wm-metric-label">战略合作</span>
                 </div>
                 <h3 class="news-title">KeyTrade与华为数字能源签署战略合作协议，共建超充网络</h3>
                 <p class="news-content">
@@ -158,7 +158,7 @@
                 </p>
                 <div class="news-meta">
                     <span class="news-source">来源：KeyTrade官方新闻</span>
-                    <a href="项目摘要.html" style="color: var(--primary-gold); text-decoration: none;">了解项目详情 →</a>
+                    <a href="项目摘要.html" style="color: var(--wm-info); text-decoration: none;">了解项目详情 →</a>
                 </div>
             </div>
 
@@ -166,8 +166,8 @@
             <div class="news-item">
                 <span class="news-date">2024年12月</span>
                 <div>
-                    <span class="news-tag">市场数据</span>
-                    <span class="news-tag">行业增长</span>
+                    <span class="wm-metric-label">市场数据</span>
+                    <span class="wm-metric-label">行业增长</span>
                 </div>
                 <h3 class="news-title">充电桩保有量突破800万台，超充站建设加速</h3>
                 <p class="news-content">
@@ -175,7 +175,7 @@
                 </p>
                 <div class="news-meta">
                     <span class="news-source">来源：中国充电联盟</span>
-                    <a href="市场图表.html" style="color: var(--primary-gold); text-decoration: none;">查看更多数据 →</a>
+                    <a href="市场图表.html" style="color: var(--wm-info); text-decoration: none;">查看更多数据 →</a>
                 </div>
             </div>
 
@@ -183,8 +183,8 @@
             <div class="news-item">
                 <span class="news-date">2024年11月</span>
                 <div>
-                    <span class="news-tag">技术突破</span>
-                    <span class="news-tag">行业标准</span>
+                    <span class="wm-metric-label">技术突破</span>
+                    <span class="wm-metric-label">行业标准</span>
                 </div>
                 <h3 class="news-title">工信部发布《超级充电桩技术规范》，推动行业标准化</h3>
                 <p class="news-content">
@@ -197,48 +197,47 @@
         </section>
 
         <!-- 行业趋势 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>行业发展趋势</h2>
-            <div class="grid grid-3">
-                <div class="card">
+            <div class="wm-grid wm-grid-3">
+                <div class="wm-card">
                     <div style="font-size: 48px; text-align: center; margin-bottom: 15px;">EV</div>
-                    <h3 style="color: var(--primary-gold); text-align: center; margin-bottom: 15px;">超充化</h3>
-                    <p style="color: var(--paper-beige); text-align: center;">充电功率不断提升，600kW超充成为高端车型标配</p>
+                    <h3 style="color: var(--wm-info); text-align: center; margin-bottom: 15px;">超充化</h3>
+                    <p style="color: var(--wm-text-secondary); text-align: center;">充电功率不断提升，600kW超充成为高端车型标配</p>
                 </div>
-                <div class="card">
+                <div class="wm-card">
                     <div style="font-size: 48px; text-align: center; margin-bottom: 15px;">AI</div>
-                    <h3 style="color: var(--primary-gold); text-align: center; margin-bottom: 15px;">智能化</h3>
-                    <p style="color: var(--paper-beige); text-align: center;">AI智能运维，无人值守运营成为主流</p>
+                    <h3 style="color: var(--wm-info); text-align: center; margin-bottom: 15px;">智能化</h3>
+                    <p style="color: var(--wm-text-secondary); text-align: center;">AI智能运维，无人值守运营成为主流</p>
                 </div>
-                <div class="card">
+                <div class="wm-card">
                     <div style="font-size: 48px; text-align: center; margin-bottom: 15px;">ECO</div>
-                    <h3 style="color: var(--primary-gold); text-align: center; margin-bottom: 15px;">绿色化</h3>
-                    <p style="color: var(--paper-beige); text-align: center;">光储充一体化，清洁能源应用加速</p>
+                    <h3 style="color: var(--wm-info); text-align: center; margin-bottom: 15px;">绿色化</h3>
+                    <p style="color: var(--wm-text-secondary); text-align: center;">光储充一体化，清洁能源应用加速</p>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+        <section class="wm-panel" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(59, 130, 246, 0.3);">
             <h2>订阅行业资讯</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
                 获取最新的行业动态、政策解读和市场分析报告
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="../联系合作.html" class="btn btn-primary">订阅资讯</a>
-                <a href="商业计划书投资者版.html" class="btn btn-secondary">查看商业计划书</a>
+                <a href="../联系合作.html" class="wm-btn wm-btn-primary">订阅资讯</a>
+                <a href="商业计划书投资者版.html" class="wm-btn">查看商业计划书</a>
             </div>
         </section>
 
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 千站液冷超充项目 - 行业动态新闻
             </p>
         </footer>
     </div>
-
-    <a href="../index.html" class="back-to-home">← 返回首页</a>
 
     <script>
         const observer = new IntersectionObserver((entries) => {

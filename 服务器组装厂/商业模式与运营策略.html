@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商业模式与运营策略 - 服务器组装厂项目</title>
@@ -14,18 +13,18 @@
             background: rgba(26, 26, 26, 0.8);
         }
         .strategy-table th {
-            background: var(--primary-gold);
-            color: var(--ink-black);
+            background: var(--wm-info);
+            color: var(--wm-bg);
             padding: 12px;
             text-align: left;
             font-weight: 600;
         }
         .strategy-table td {
             padding: 12px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
         .strategy-table tr:hover {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(59, 130, 246, 0.1);
         }
         .chart-container {
             width: 100%;
@@ -40,14 +39,14 @@
             padding: 25px;
             margin: 20px 0;
             border-radius: 10px;
-            border-left: 4px solid var(--primary-gold);
+            border-left: 4px solid var(--wm-info);
         }
         .cost-reduction-box {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
             padding: 30px;
             margin: 30px 0;
             border-radius: 15px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(59, 130, 246, 0.3);
         }
         .reduction-item {
             display: flex;
@@ -57,43 +56,42 @@
             margin: 15px 0;
             background: rgba(26, 26, 26, 0.5);
             border-radius: 10px;
-            border-left: 5px solid var(--primary-gold);
+            border-left: 5px solid var(--wm-info);
         }
         .reduction-percentage {
             font-size: 32px;
             font-weight: bold;
-            color: var(--primary-gold);
+            color: var(--wm-info);
         }
     </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
+<body class="no-transition">
     <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html">← 返回服务器组装厂</a>
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
+    <main class="wm-main">
         <!-- 页面标题 -->
-        <div class="hero-banner fade-in" style="padding: 60px 0;">
+        <div class="wm-panel" style="padding: 60px 0;">
             <h1 style="font-size: 42px; margin-bottom: 20px;">商业模式与运营策略</h1>
-            <p style="font-size: 18px; color: var(--paper-beige); max-width: 800px; margin: 0 auto;">
-                Business Model & Operations Strategy
-            </p>
-            <img src="../images/banners/server-factory-hero.png" alt="服务器组装厂" class="hero-banner-image" loading="lazy">
+            <img src="../images/banners/server-factory-hero.png" alt="服务器组装厂 - AI算力设备制造中心" class="hero-banner-image" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: var(--wm-radius-md); margin-top: var(--wm-space-md);" loading="eager">
         </div>
 
         <!-- 双轨漏斗变现模式 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>双轨漏斗变现模式</h2>
-            <div class="card">
+            <div class="wm-card">
                 <p style="text-align: center; margin-bottom: 30px;">
                     本项目采用<strong>双轨漏斗变现模式</strong>，通过硬件产品漏斗和软件服务漏斗构建多元化的收入结构
                 </p>
 
                 <div class="funnel-section">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">第一轨：硬件产品漏斗</h3>
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">第一轨：硬件产品漏斗</h3>
                     <ul style="line-height: 2;">
                         <li><strong>漏斗顶层：</strong>全栈AI解决方案（提供从硬件到算法的全栈解决方案）</li>
                         <li><strong>漏斗中层：</strong>核心硬件产品（AI服务器、光模块、AI应用工作站）</li>
@@ -102,7 +100,7 @@
                 </div>
 
                 <div class="funnel-section">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">第二轨：软件服务漏斗</h3>
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">第二轨：软件服务漏斗</h3>
                     <ul style="line-height: 2;">
                         <li><strong>漏斗顶层：</strong>AI即服务（AIaaS）- 基于自有硬件的AI云服务、算力租赁</li>
                         <li><strong>漏斗中层：</strong>软件授权（DeepSeek模型授权、行业垂直应用软件）</li>
@@ -118,7 +116,7 @@
         </section>
 
         <!-- 332降本计划 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>332降本计划</h2>
             <div class="cost-reduction-box">
                 <div class="highlight-title" style="text-align: center; font-size: 24px; margin-bottom: 30px;">
@@ -127,7 +125,7 @@
 
                 <div class="reduction-item">
                     <div>
-                        <h3 style="color: var(--primary-gold); font-size: 24px;">供应链降本</h3>
+                        <h3 style="color: var(--wm-info); font-size: 24px;">供应链降本</h3>
                         <p style="margin-top: 10px;">上游供应商整合、集中采购、全球寻源、库存优化</p>
                     </div>
                     <div class="reduction-percentage">30%</div>
@@ -135,7 +133,7 @@
 
                 <div class="reduction-item">
                     <div>
-                        <h3 style="color: var(--primary-gold); font-size: 24px;">工艺降本</h3>
+                        <h3 style="color: var(--wm-info); font-size: 24px;">工艺降本</h3>
                         <p style="margin-top: 10px;">自动化生产、良率提升、工艺优化、产能规划</p>
                     </div>
                     <div class="reduction-percentage">30%</div>
@@ -143,7 +141,7 @@
 
                 <div class="reduction-item">
                     <div>
-                        <h3 style="color: var(--primary-gold); font-size: 24px;">管理降本</h3>
+                        <h3 style="color: var(--wm-info); font-size: 24px;">管理降本</h3>
                         <p style="margin-top: 10px;">组织优化、人力资源配置、数字化管理、流程自动化</p>
                     </div>
                     <div class="reduction-percentage">20%</div>
@@ -157,12 +155,12 @@
         </section>
 
         <!-- 核心盈利模式 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>核心盈利模式</h2>
-            <div class="card">
-                <div class="grid grid-2">
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">硬件销售模式</h3>
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-2">
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 10px;">
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">硬件销售模式</h3>
                         <ul style="line-height: 2;">
                             <li><strong>定制化销售：</strong>根据客户需求定制配置</li>
                             <li><strong>批量采购：</strong>政府和企业的大批量订单</li>
@@ -170,8 +168,8 @@
                             <li><strong>分期付款：</strong>缓解客户资金压力</li>
                         </ul>
                     </div>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">服务增值模式</h3>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 10px;">
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">服务增值模式</h3>
                         <ul style="line-height: 2;">
                             <li><strong>硬件+服务：</strong>捆绑销售，提高客单价</li>
                             <li><strong>订阅制：</strong>AI服务按年订阅</li>
@@ -184,9 +182,9 @@
         </section>
 
         <!-- 定价策略 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>定价策略</h2>
-            <div class="card">
+            <div class="wm-card">
                 <table class="strategy-table">
                     <thead>
                         <tr>
@@ -202,46 +200,46 @@
                             <td><strong>AI服务器（8卡）</strong></td>
                             <td>20万元</td>
                             <td>30%</td>
-                            <td><strong style="color: var(--primary-gold);">30万元</strong></td>
+                            <td><strong style="color: var(--wm-info);">30万元</strong></td>
                             <td>低14-25% vs 竞争对手</td>
                         </tr>
                         <tr>
                             <td><strong>DeepSeek一体机（4090）</strong></td>
                             <td>17.5万元</td>
                             <td>30%</td>
-                            <td><strong style="color: var(--primary-gold);">25万元</strong></td>
+                            <td><strong style="color: var(--wm-info);">25万元</strong></td>
                             <td>一体化解决方案</td>
                         </tr>
                         <tr>
                             <td><strong>光模块（800G）</strong></td>
                             <td>3,500元</td>
                             <td>40%</td>
-                            <td><strong style="color: var(--primary-gold);">6,000元</strong></td>
+                            <td><strong style="color: var(--wm-info);">6,000元</strong></td>
                             <td>低14-25% vs 市场价</td>
                         </tr>
                         <tr>
                             <td><strong>光模块（1.6T）</strong></td>
                             <td>4,000元</td>
                             <td>50%</td>
-                            <td><strong style="color: var(--primary-gold);">8,000元</strong></td>
+                            <td><strong style="color: var(--wm-info);">8,000元</strong></td>
                             <td>技术领先</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <div class="highlight-box" style="margin-top: 30px;">
+                <div class="wm-card" style="margin-top: 30px;">
                     <div class="highlight-title">差异化定价策略</div>
-                    <div class="grid grid-3" style="margin-top: 20px;">
+                    <div class="wm-grid wm-grid-3" style="margin-top: 20px;">
                         <div style="text-align: center;">
-                            <div style="font-weight: bold; color: var(--primary-gold); margin-bottom: 10px;">政府客户</div>
+                            <div style="font-weight: bold; color: var(--wm-info); margin-bottom: 10px;">政府客户</div>
                             <p style="font-size: 14px;">成本加成+政策导向<br>价格敏感度低</p>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-weight: bold; color: var(--primary-gold); margin-bottom: 10px;">企业客户</div>
+                            <div style="font-weight: bold; color: var(--wm-info); margin-bottom: 10px;">企业客户</div>
                             <p style="font-size: 14px;">批量折扣<br>ROI分析+增值服务</p>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-weight: bold; color: var(--primary-gold); margin-bottom: 10px;">标杆客户</div>
+                            <div style="font-weight: bold; color: var(--wm-info); margin-bottom: 10px;">标杆客户</div>
                             <p style="font-size: 14px;">前10家享受15%折扣<br>建立示范效应</p>
                         </div>
                     </div>
@@ -250,12 +248,12 @@
         </section>
 
         <!-- 渠道策略 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>渠道策略</h2>
-            <div class="card">
-                <div class="grid grid-2">
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-2">
                     <div>
-                        <h3 style="color: var(--primary-gold); margin-bottom: 20px;">直销渠道（70%收入）</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 20px;">直销渠道（70%收入）</h3>
                         <ul style="line-height: 2;">
                             <li><strong>政府事业部：</strong>省市级政府、智慧城市项目</li>
                             <li><strong>企业事业部：</strong>大型企业、行业龙头</li>
@@ -263,7 +261,7 @@
                         </ul>
                     </div>
                     <div>
-                        <h3 style="color: var(--primary-gold); margin-bottom: 20px;">分销渠道（30%收入）</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 20px;">分销渠道（30%收入）</h3>
                         <ul style="line-height: 2;">
                             <li><strong>系统集成商：</strong>为SI提供AI算力基础设施</li>
                             <li><strong>行业代理商：</strong>特定行业（教育、医疗、金融）</li>
@@ -310,25 +308,25 @@
         </section>
 
         <!-- 客户获取策略 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>客户获取策略</h2>
-            <div class="card">
+            <div class="wm-card">
                 <div class="funnel-section">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">项目平移订单获取模式</h3>
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">项目平移订单获取模式</h3>
                     <p style="margin-bottom: 20px;">利用现有AI算力项目的平移经验，实现快速客户积累</p>
-                    <div class="grid grid-3">
-                        <div style="text-align: center; padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                            <div style="font-size: 32px; font-weight: bold; color: var(--primary-gold);">1</div>
+                    <div class="wm-grid wm-grid-3">
+                        <div style="text-align: center; padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                            <div style="font-size: 32px; font-weight: bold; color: var(--wm-info);">1</div>
                             <div style="margin-top: 10px;"><strong>项目识别</strong></div>
                             <p style="font-size: 14px; margin-top: 10px;">筛选现有AI算力客户，评估平移可行性</p>
                         </div>
-                        <div style="text-align: center; padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                            <div style="font-size: 32px; font-weight: bold; color: var(--primary-gold);">2</div>
+                        <div style="text-align: center; padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                            <div style="font-size: 32px; font-weight: bold; color: var(--wm-info);">2</div>
                             <div style="margin-top: 10px;"><strong>需求匹配</strong></div>
                             <p style="font-size: 14px; margin-top: 10px;">分析客户现有需求，对应产品线匹配</p>
                         </div>
-                        <div style="text-align: center; padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                            <div style="font-size: 32px; font-weight: bold; color: var(--primary-gold);">3</div>
+                        <div style="text-align: center; padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                            <div style="font-size: 32px; font-weight: bold; color: var(--wm-info);">3</div>
                             <div style="margin-top: 10px;"><strong>转移实施</strong></div>
                             <p style="font-size: 14px; margin-top: 10px;">设备迁移服务、数据迁移支持</p>
                         </div>
@@ -336,10 +334,10 @@
                 </div>
 
                 <div class="funnel-section">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">目标客户画像</h3>
-                    <div class="grid grid-2">
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">目标客户画像</h3>
+                    <div class="wm-grid wm-grid-2">
                         <div>
-                            <h4 style="color: var(--primary-gold); margin-bottom: 15px;">政府客户</h4>
+                            <h4 style="color: var(--wm-info); margin-bottom: 15px;">政府客户</h4>
                             <ul style="line-height: 1.8;">
                                 <li><strong>路政部门：</strong>智慧交通、智能监控</li>
                                 <li><strong>教育部门：</strong>智慧校园、校园安全</li>
@@ -347,7 +345,7 @@
                             </ul>
                         </div>
                         <div>
-                            <h4 style="color: var(--primary-gold); margin-bottom: 15px;">企业客户</h4>
+                            <h4 style="color: var(--wm-info); margin-bottom: 15px;">企业客户</h4>
                             <ul style="line-height: 1.8;">
                                 <li><strong>制造企业：</strong>AI质检、智能制造</li>
                                 <li><strong>科技创新企业：</strong>算力支持</li>
@@ -360,36 +358,36 @@
         </section>
 
         <!-- 资源护城河构建 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>资源护城河构建策略</h2>
-            <div class="card">
-                <div class="grid grid-2">
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">技术护城河</h3>
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-2">
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 10px;">
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">技术护城河</h3>
                         <ul style="line-height: 2;">
                             <li><strong>核心技术研发：</strong>散热技术专利、性能调优算法</li>
                             <li><strong>技术合作：</strong>产学研合作、开源社区参与</li>
                             <li><strong>专利布局：</strong>年申请10-15项发明专利</li>
                         </ul>
                     </div>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">供应链护城河</h3>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 10px;">
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">供应链护城河</h3>
                         <ul style="line-height: 2;">
                             <li><strong>核心资源锁定：</strong>GPU芯片长期采购协议</li>
                             <li><strong>战略合作伙伴：</strong>芯片厂商深度绑定</li>
                             <li><strong>供应链韧性：</strong>多源供应+应急采购机制</li>
                         </ul>
                     </div>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">品牌护城河</h3>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 10px;">
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">品牌护城河</h3>
                         <ul style="line-height: 2;">
                             <li><strong>专业品牌形象：</strong>技术领先、可靠性口碑</li>
                             <li><strong>行业影响力：</strong>标准制定、技术奖项</li>
                             <li><strong>品牌延伸：</strong>产品线扩展、国际化</li>
                         </ul>
                     </div>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">人才护城河</h3>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 10px;">
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">人才护城河</h3>
                         <ul style="line-height: 2;">
                             <li><strong>核心团队建设：</strong>研发团队+销售精英</li>
                             <li><strong>人才激励：</strong>股权激励（期权池15%）</li>
@@ -401,11 +399,11 @@
         </section>
 
         <!-- 执行计划 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>执行计划</h2>
-            <div class="card">
+            <div class="wm-card">
                 <div class="funnel-section">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">短期目标（1年内）</h3>
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">短期目标（1年内）</h3>
                     <ul style="line-height: 2;">
                         <li><strong>商业模式验证：</strong>建立核心产品线，完善定价体系，建立初始客户群（目标15家战略客户）</li>
                         <li><strong>供应链建设：</strong>关键供应商确定，降本计划启动，质量体系建立，达到毛利率30%目标</li>
@@ -414,7 +412,7 @@
                 </div>
 
                 <div class="funnel-section">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">中期目标（2-3年）</h3>
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">中期目标（2-3年）</h3>
                     <ul style="line-height: 2;">
                         <li><strong>市场扩张：</strong>客户群体扩大至50家以上，区域市场覆盖"东数西算"枢纽节点</li>
                         <li><strong>运营优化：</strong>供应链优化（全面达成332降本目标），生产效率提升（良率≥98%）</li>
@@ -423,7 +421,7 @@
                 </div>
 
                 <div class="funnel-section">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">长期目标（3-5年）</h3>
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">长期目标（3-5年）</h3>
                     <ul style="line-height: 2;">
                         <li><strong>行业地位：</strong>市场份额≥10%，技术标准制定，品牌价值提升</li>
                         <li><strong>可持续发展：</strong>持续创新，生态建设，国际化布局（东南亚、中东）</li>
@@ -434,9 +432,9 @@
         </section>
 
         <!-- CTA -->
-        <section class="cta-section fade-in">
+        <section class="wm-panel">
             <h2>准备好了解更多细节？</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
                 查看完整的财务分析、市场格局和风险管控体系
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
@@ -446,7 +444,8 @@
         </section>
 
         <!-- 页脚信息 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 服务器组装厂项目 - 商业模式与运营策略
@@ -455,8 +454,6 @@
     </div>
 
     <!-- 返回按钮 -->
-    <a href="index.html" class="back-to-home">← 返回服务器组装厂</a>
-
     <!-- 引入ECharts配置 -->
     <script src="js/echarts-config.js"></script>
     <script>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>风险管控与合规体系 - 服务器组装厂项目</title>
@@ -14,18 +13,18 @@
             background: rgba(26, 26, 26, 0.8);
         }
         .strategy-table th {
-            background: var(--primary-gold);
-            color: var(--ink-black);
+            background: var(--wm-info);
+            color: var(--wm-bg);
             padding: 12px;
             text-align: left;
             font-weight: 600;
         }
         .strategy-table td {
             padding: 12px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
         .strategy-table tr:hover {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(59, 130, 246, 0.1);
         }
         .chart-container {
             width: 100%;
@@ -40,35 +39,34 @@
             padding: 25px;
             margin: 20px 0;
             border-radius: 10px;
-            border-left: 4px solid var(--primary-gold);
+            border-left: 4px solid var(--wm-info);
         }
         .risk-high { border-left-color: #ff6b6b; }
-        .risk-medium { border-left-color: var(--primary-gold); }
+        .risk-medium { border-left-color: var(--wm-info); }
         .risk-low { border-left-color: #67e0e3; }
     </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
+<body class="no-transition">
     <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html">← 返回服务器组装厂</a>
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
+    <main class="wm-main">
         <!-- 页面标题 -->
-        <div class="hero-banner fade-in" style="padding: 60px 0;">
+        <div class="wm-panel" style="padding: 60px 0;">
             <h1 style="font-size: 42px; margin-bottom: 20px;">风险管控与合规体系</h1>
-            <p style="font-size: 18px; color: var(--paper-beige); max-width: 800px; margin: 0 auto;">
-                Risk Management & Compliance System
-            </p>
-            <img src="../images/banners/server-factory-hero.png" alt="服务器组装厂" class="hero-banner-image" loading="lazy">
+            <img src="../images/banners/server-factory-hero.png" alt="服务器组装厂 - AI算力设备制造中心" class="hero-banner-image" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: var(--wm-radius-md); margin-top: var(--wm-space-md);" loading="eager">
         </div>
 
         <!-- 风险评估总览 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>风险评估矩阵</h2>
-            <div class="card">
+            <div class="wm-card">
                 <table class="strategy-table">
                     <thead>
                         <tr>
@@ -106,14 +104,14 @@
                             <td>质量控制、人才流失、数据安全</td>
                             <td>中</td>
                             <td>中</td>
-                            <td><span style="color: var(--primary-gold); font-weight: bold;">中等</span></td>
+                            <td><span style="color: var(--wm-info); font-weight: bold;">中等</span></td>
                         </tr>
                         <tr>
                             <td><strong>财务风险</strong></td>
                             <td>现金流紧张、汇率波动、估值风险</td>
                             <td>中</td>
                             <td>高</td>
-                            <td><span style="color: var(--primary-gold); font-weight: bold;">中等</span></td>
+                            <td><span style="color: var(--wm-info); font-weight: bold;">中等</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -121,9 +119,9 @@
         </section>
 
         <!-- 市场风险应对 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>市场风险应对</h2>
-            <div class="card">
+            <div class="wm-card">
                 <div class="risk-box risk-high">
                     <h3 style="color: #ff6b6b; margin-bottom: 15px;">GPU供应不足风险</h3>
                     <p><strong>风险描述：</strong>NVIDIA高端GPU受美国出口管制限制，供应紧张，采购周期延长至12-16周</p>
@@ -136,7 +134,7 @@
                 </div>
 
                 <div class="risk-box risk-medium" style="margin-top: 20px;">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 15px;">竞争加剧风险</h3>
+                    <h3 style="color: var(--wm-info); margin-bottom: 15px;">竞争加剧风险</h3>
                     <p><strong>风险描述：</strong>浪潮、曙光等传统厂商发起价格战，毛利率可能下降5-8个百分点</p>
                     <p style="margin-top: 15px;"><strong>应对措施：</strong></p>
                     <ul style="line-height: 2;">
@@ -149,9 +147,9 @@
         </section>
 
         <!-- 技术风险应对 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>技术风险应对</h2>
-            <div class="card">
+            <div class="wm-card">
                 <div class="risk-box risk-high">
                     <h3 style="color: #ff6b6b; margin-bottom: 15px;">技术依赖风险</h3>
                     <p><strong>风险描述：</strong>操作系统依赖Windows/Linux，AI框架依赖CUDA生态，迁移成本高</p>
@@ -177,31 +175,31 @@
         </section>
 
         <!-- 供应链风险应对 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>供应链风险应对</h2>
-            <div class="card">
+            <div class="wm-card">
                 <div class="risk-box risk-high">
                     <h3 style="color: #ff6b6b; margin-bottom: 15px;">供应链多元化策略</h3>
                     <p><strong>应对措施：</strong></p>
-                    <div class="grid grid-3" style="margin-top: 20px;">
-                        <div style="padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                            <h4 style="color: var(--primary-gold); margin-bottom: 10px;">GPU供应商多元化</h4>
+                    <div class="wm-grid wm-grid-3" style="margin-top: 20px;">
+                        <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                            <h4 style="color: var(--wm-info); margin-bottom: 10px;">GPU供应商多元化</h4>
                             <ul style="line-height: 1.8; font-size: 14px;">
                                 <li>一级：英伟达官方渠道（50%）</li>
                                 <li>二级：授权代理商（30%）</li>
                                 <li>三级：国产替代（20%）</li>
                             </ul>
                         </div>
-                        <div style="padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                            <h4 style="color: var(--primary-gold); margin-bottom: 10px;">光模块供应商布局</h4>
+                        <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                            <h4 style="color: var(--wm-info); margin-bottom: 10px;">光模块供应商布局</h4>
                             <ul style="line-height: 1.8; font-size: 14px;">
                                 <li>主供应商：中际旭创、光迅科技（60%）</li>
                                 <li>备选：新易盛、华工科技（30%）</li>
                                 <li>战略储备：海外供应商（10%）</li>
                             </ul>
                         </div>
-                        <div style="padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                            <h4 style="color: var(--primary-gold); margin-bottom: 10px;">关键器件战略储备</h4>
+                        <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                            <h4 style="color: var(--wm-info); margin-bottom: 10px;">关键器件战略储备</h4>
                             <ul style="line-height: 1.8; font-size: 14px;">
                                 <li>GPU：3个月用量（约5000万元）</li>
                                 <li>光芯片：6个月用量（约2000万元）</li>
@@ -214,12 +212,12 @@
         </section>
 
         <!-- 运营风险应对 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>运营风险应对</h2>
-            <div class="card">
-                <div class="grid grid-2">
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-2">
                     <div class="risk-box risk-medium">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">质量管理</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">质量管理</h3>
                         <p style="margin-top: 15px;"><strong>ISO9001认证计划：</strong></p>
                         <ul style="line-height: 1.8;">
                             <li>2026年Q1启动认证准备</li>
@@ -235,7 +233,7 @@
                     </div>
 
                     <div class="risk-box risk-medium">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">人才保留</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">人才保留</h3>
                         <p style="margin-top: 15px;"><strong>薪酬竞争力：</strong></p>
                         <ul style="line-height: 1.8;">
                             <li>AI工程师薪资保持市场75分位水平</li>
@@ -254,24 +252,24 @@
         </section>
 
         <!-- 财务风险应对 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>财务风险应对</h2>
-            <div class="card">
+            <div class="wm-card">
                 <div class="risk-box risk-medium">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 15px;">现金流管理（已优化）</h3>
-                    <div class="highlight-box" style="margin-top: 20px;">
+                    <h3 style="color: var(--wm-info); margin-bottom: 15px;">现金流管理（已优化）</h3>
+                    <div class="wm-card" style="margin-top: 20px;">
                         <div class="highlight-title">现金流优化措施已全面落实</div>
-                        <div class="grid grid-3" style="margin-top: 20px;">
+                        <div class="wm-grid wm-grid-3" style="margin-top: 20px;">
                             <div style="text-align: center; padding: 15px; background: rgba(26, 26, 26, 0.6); border-radius: 10px;">
-                                <div style="font-size: 24px; font-weight: bold; color: var(--primary-gold);">60天</div>
+                                <div style="font-size: 24px; font-weight: bold; color: var(--wm-info);">60天</div>
                                 <div style="font-size: 14px; margin-top: 10px;">应收账款周转（优化前90天）</div>
                             </div>
                             <div style="text-align: center; padding: 15px; background: rgba(26, 26, 26, 0.6); border-radius: 10px;">
-                                <div style="font-size: 24px; font-weight: bold; color: var(--primary-gold);">45天</div>
+                                <div style="font-size: 24px; font-weight: bold; color: var(--wm-info);">45天</div>
                                 <div style="font-size: 14px; margin-top: 10px;">存货周转（优化前60天）</div>
                             </div>
                             <div style="text-align: center; padding: 15px; background: rgba(26, 26, 26, 0.6); border-radius: 10px;">
-                                <div style="font-size: 24px; font-weight: bold; color: var(--primary-gold);">充裕</div>
+                                <div style="font-size: 24px; font-weight: bold; color: var(--wm-info);">充裕</div>
                                 <div style="font-size: 14px; margin-top: 10px;">第2年末现金6.18亿元</div>
                             </div>
                         </div>
@@ -318,12 +316,12 @@
         </section>
 
         <!-- 合规体系建设 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>合规体系建设</h2>
-            <div class="card">
-                <div class="grid grid-2">
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-2">
                     <div class="risk-box">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">质量管理体系</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">质量管理体系</h3>
                         <ul style="line-height: 2;">
                             <li><strong>认证范围：</strong>AI服务器组装、光模块制造、AI应用工作站集成</li>
                             <li><strong>体系文件：</strong>质量手册、程序文件（26个）、作业指导书（50+份）</li>
@@ -332,7 +330,7 @@
                     </div>
 
                     <div class="risk-box">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">数据安全合规</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">数据安全合规</h3>
                         <ul style="line-height: 2;">
                             <li><strong>等保三级认证：</strong>2026年Q2启动、Q3整改、Q4通过测评</li>
                             <li><strong>数据分类分级：</strong>核心数据（加密存储）、重要数据（访问控制）、一般数据（基础防护）</li>
@@ -341,7 +339,7 @@
                     </div>
 
                     <div class="risk-box">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">知识产权保护</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">知识产权保护</h3>
                         <ul style="line-height: 2;">
                             <li><strong>专利申请：</strong>第1年5-8项、第2年8-10项、第3年10-15项，3年累计30-45项</li>
                             <li><strong>专利预算：</strong>申请费+代理费+年费，总预算500万元/年</li>
@@ -350,7 +348,7 @@
                     </div>
 
                     <div class="risk-box">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">风险预警机制</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">风险预警机制</h3>
                         <ul style="line-height: 2;">
                             <li><strong>财务指标：</strong>现金流覆盖率≥1.2倍、应收账款≤60天、毛利率≥28%</li>
                             <li><strong>运营指标：</strong>库存周转≤45天、产品良率≥98%、人才流失率≤15%</li>
@@ -363,10 +361,10 @@
         </section>
 
         <!-- 应急预案 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>应急预案</h2>
-            <div class="card">
-                <div class="grid grid-2">
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-2">
                     <div class="risk-box risk-high">
                         <h3 style="color: #ff6b6b; margin-bottom: 15px;">GPU断供应急预案</h3>
                         <ul style="line-height: 2;">
@@ -399,7 +397,7 @@
                     </div>
 
                     <div class="risk-box risk-medium">
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">质量问题应急预案</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">质量问题应急预案</h3>
                         <ul style="line-height: 2;">
                             <li>立即停产整改</li>
                             <li>召回问题产品</li>
@@ -412,9 +410,9 @@
         </section>
 
         <!-- CTA -->
-        <section class="cta-section fade-in">
+        <section class="wm-panel">
             <h2>准备好了解更多细节？</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
                 查看完整的融资方案和退出机制
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
@@ -424,7 +422,8 @@
         </section>
 
         <!-- 页脚信息 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 服务器组装厂项目 - 风险管控与合规体系
@@ -433,8 +432,6 @@
     </div>
 
     <!-- 返回按钮 -->
-    <a href="index.html" class="back-to-home">← 返回服务器组装厂</a>
-
     <script>
         // 添加滚动动画
         const observerOptions = {

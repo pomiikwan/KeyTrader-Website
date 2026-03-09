@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
-    <link rel="stylesheet" href="../导航栏.css">
-    <script src="../导航栏.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>执行摘要与战略定位 - 液冷超充设备厂</title>
@@ -16,18 +13,18 @@
             background: rgba(26, 26, 26, 0.8);
         }
         .strategy-table th {
-            background: var(--primary-gold);
-            color: var(--ink-black);
+            background: var(--wm-info);
+            color: var(--wm-bg);
             padding: 12px;
             text-align: left;
             font-weight: 600;
         }
         .strategy-table td {
             padding: 12px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
         .strategy-table tr:hover {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(59, 130, 246, 0.1);
         }
         .okr-metric {
             display: flex;
@@ -35,13 +32,13 @@
             align-items: center;
             padding: 15px;
             margin: 10px 0;
-            background: rgba(212, 175, 55, 0.1);
-            border-left: 4px solid var(--primary-gold);
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--wm-info);
         }
         .okr-value {
             font-size: 24px;
             font-weight: bold;
-            color: var(--primary-gold);
+            color: var(--wm-info);
         }
         .chart-container {
             width: 100%;
@@ -53,62 +50,61 @@
             box-sizing: border-box;
         }
     </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
+<body class="no-transition">
     <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html">← 返回超充设备厂</a>
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
+    <main class="wm-main">
         <!-- 页面标题 -->
-        <div class="hero-banner fade-in" style="padding: 60px 0;">
+        <div class="wm-panel" style="padding: 60px 0;">
             <h1 style="font-size: 42px; margin-bottom: 20px;">执行摘要与战略定位</h1>
-            <p style="font-size: 18px; color: var(--paper-beige); max-width: 800px; margin: 0 auto;">
-                Executive Summary & Strategic Positioning
-            </p>
-            <img src="../images/banners/factory-hero.png" alt="液冷超充设备厂" class="hero-banner-image" loading="lazy">
+            <img src="../images/banners/factory-hero.png" alt="液冷超充设备厂 - 高科技制造生产线"  class="hero-banner-image" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: var(--wm-radius-md); margin-top: var(--wm-space-md);" loading="eager">
         </div>
 
         <!-- 战略画像 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>战略画像</h2>
-            <div class="card">
+            <div class="wm-card">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                    <div class="metric-card">
-                        <div class="metric-value">新能源</div>
-                        <div class="metric-label">行业定位</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">新能源</div>
+                        <div class="wm-metric-label">行业定位</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">0-1</div>
-                        <div class="metric-label">公司阶段</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">0-1</div>
+                        <div class="wm-metric-label">公司阶段</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">15亿元</div>
-                        <div class="metric-label">首年预计营收</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">15亿元</div>
+                        <div class="wm-metric-label">首年预计营收</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">38%</div>
-                        <div class="metric-label">目标ROI</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">38%</div>
+                        <div class="wm-metric-label">目标ROI</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">海外</div>
-                        <div class="metric-label">市场拓展</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">海外</div>
+                        <div class="wm-metric-label">市场拓展</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">人民币</div>
-                        <div class="metric-label">基础货币</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">人民币</div>
+                        <div class="wm-metric-label">基础货币</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 公司概况 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>公司概况</h2>
-            <div class="card">
+            <div class="wm-card">
                 <p>
                     <strong>成立时间：</strong>2024年<br>
                     <strong>注册地点：</strong>中国深圳<br>
@@ -122,7 +118,7 @@
         </section>
 
         <!-- 核心价值主张 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>核心价值主张</h2>
             <div class="highlight-box">
                 <div class="highlight-title">技术定位</div>
@@ -134,16 +130,16 @@
                 </p>
             </div>
 
-            <div class="grid grid-3" style="margin-top: 30px;">
-                <div class="card">
+            <div class="wm-grid wm-grid-3" style="margin-top: 30px;">
+                <div class="wm-card">
                     <h3>高密度液冷超充模块</h3>
                     <p>30kW/40kW/60kW系列，2026年Q3规划推出120kW超高功率模块</p>
                 </div>
-                <div class="card">
+                <div class="wm-card">
                     <h3>液冷超充系统/整桩</h3>
                     <p>240kW-2880kW全功率覆盖，支持分体式与一体式部署</p>
                 </div>
-                <div class="card">
+                <div class="wm-card">
                     <h3>能源管理软件服务</h3>
                     <p>场级智能调度、负荷管理、数据分析SaaS平台</p>
                 </div>
@@ -151,15 +147,15 @@
 
             <div class="highlight-box" style="margin-top: 30px;">
                 <div class="highlight-title">技术优势</div>
-                <div class="grid grid-2">
-                    <div class="card">
+                <div class="wm-grid wm-grid-2">
+                    <div class="wm-card">
                         <ul style="list-style: none; padding: 0; margin: 0;">
                             <li style="margin-bottom: 10px;">✓ 全灌胶工艺与液冷散热设计</li>
                             <li style="margin-bottom: 10px;">✓ 转换效率&gt;97%</li>
                             <li style="margin-bottom: 10px;">✓ 支持宽电压输出200-1000V</li>
                         </ul>
                     </div>
-                    <div class="card">
+                    <div class="wm-card">
                         <ul style="list-style: none; padding: 0; margin: 0;">
                             <li style="margin-bottom: 10px;">✓ 集成自研SiC功率器件应用方案</li>
                             <li style="margin-bottom: 10px;">✓ 防护等级IP65</li>
@@ -171,10 +167,10 @@
         </section>
 
         <!-- 市场机遇 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>市场机遇</h2>
-            <div class="card">
-                <h3 style="color: var(--primary-gold); margin-bottom: 15px;">政策红利窗口期</h3>
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 15px;">政策红利窗口期</h3>
                 <p>2025年9月，国家发改委、国家能源局等六部门联合印发《电动汽车充电设施服务能力"三年倍增"行动方案(2025-2027年)》</p>
 
                 <table class="strategy-table">
@@ -198,24 +194,24 @@
 
                 <div class="okr-metric">
                     <div>
-                        <div style="color: var(--paper-beige); opacity: 0.8;">市场空间测算（新增10万大功率枪）</div>
-                        <div style="color: var(--primary-gold); font-size: 16px; margin-top: 5px;">单枪平均480kW | 设备成本800元/kW</div>
+                        <div style="color: var(--wm-text-secondary); opacity: 0.8;">市场空间测算（新增10万大功率枪）</div>
+                        <div style="color: var(--wm-info); font-size: 16px; margin-top: 5px;">单枪平均480kW | 设备成本800元/kW</div>
                     </div>
                     <div class="okr-value">384亿元</div>
                 </div>
 
                 <div class="okr-metric">
                     <div>
-                        <div style="color: var(--paper-beige); opacity: 0.8;">加上存量升级需求</div>
-                        <div style="color: var(--primary-gold); font-size: 16px; margin-top: 5px;">2025-2027年液冷超充设备总市场空间</div>
+                        <div style="color: var(--wm-text-secondary); opacity: 0.8;">加上存量升级需求</div>
+                        <div style="color: var(--wm-info); font-size: 16px; margin-top: 5px;">2025-2027年液冷超充设备总市场空间</div>
                     </div>
                     <div class="okr-value">>500亿元</div>
                 </div>
 
                 <div class="okr-metric">
                     <div>
-                        <div style="color: var(--paper-beige); opacity: 0.8;">模块作为核心部件（占整桩成本35-40%）</div>
-                        <div style="color: var(--primary-gold); font-size: 16px; margin-top: 5px;">液冷超充模块市场空间</div>
+                        <div style="color: var(--wm-text-secondary); opacity: 0.8;">模块作为核心部件（占整桩成本35-40%）</div>
+                        <div style="color: var(--wm-info); font-size: 16px; margin-top: 5px;">液冷超充模块市场空间</div>
                     </div>
                     <div class="okr-value">175-200亿元</div>
                 </div>
@@ -223,13 +219,13 @@
         </section>
 
         <!-- 财务亮点 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>财务亮点</h2>
 
-            <div class="card">
+            <div class="wm-card">
                 <h3>初始资金分配（2亿元）</h3>
                 <div id="fundAllocationChart" class="chart-container"></div>
-                <div class="grid grid-2">
+                <div class="wm-grid wm-grid-2">
                     <div>
                         <div class="okr-metric">
                             <div>厂房租赁与装修</div>
@@ -261,7 +257,7 @@
                 </div>
             </div>
 
-            <div class="card" style="margin-top: 30px;">
+            <div class="wm-card" style="margin-top: 30px;">
                 <h3>五年财务预测概要（乐观情形）</h3>
                 <table class="strategy-table">
                     <tr>
@@ -324,28 +320,28 @@
                 <div id="revenueChart" class="chart-container" style="margin-top: 30px;"></div>
             </div>
 
-            <div class="grid grid-3" style="margin-top: 30px;">
-                <div class="metric-card">
-                    <div class="metric-value">第1年Q4</div>
-                    <div class="metric-label">月度现金流盈亏平衡</div>
+            <div class="wm-grid wm-grid-3" style="margin-top: 30px;">
+                <div class="wm-metric">
+                    <div class="wm-metric-value">第1年Q4</div>
+                    <div class="wm-metric-label">月度现金流盈亏平衡</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">2.5年</div>
-                    <div class="metric-label">投资回收期</div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">2.5年</div>
+                    <div class="wm-metric-label">投资回收期</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">68.5%</div>
-                    <div class="metric-label">5年期内部收益率IRR</div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">68.5%</div>
+                    <div class="wm-metric-label">5年期内部收益率IRR</div>
                 </div>
             </div>
         </section>
 
         <!-- SWOT分析 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>SWOT分析</h2>
             <div id="swotChart" class="chart-container"></div>
-            <div class="grid grid-2">
-                <div class="card" style="border-left: 4px solid #4CAF50;">
+            <div class="wm-grid wm-grid-2">
+                <div class="wm-card" style="border-left: 4px solid #4CAF50;">
                     <h3 style="color: #4CAF50;">优势 Strengths</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px;">✓ <strong>技术领先</strong>：聚焦液冷技术，转换效率&gt;97%</li>
@@ -355,7 +351,7 @@
                         <li style="margin-bottom: 10px;">✓ <strong>灵活高效</strong>：初创企业，决策链短，响应速度快</li>
                     </ul>
                 </div>
-                <div class="card" style="border-left: 4px solid #f44336;">
+                <div class="wm-card" style="border-left: 4px solid #f44336;">
                     <h3 style="color: #f44336;">劣势 Weaknesses</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px;">✗ <strong>品牌认知度低</strong>：新进入市场，缺乏品牌影响力</li>
@@ -365,7 +361,7 @@
                         <li style="margin-bottom: 10px;">✗ <strong>资金约束</strong>：初创期资金有限，需控制投入节奏</li>
                     </ul>
                 </div>
-                <div class="card" style="border-left: 4px solid #2196F3;">
+                <div class="wm-card" style="border-left: 4px solid #2196F3;">
                     <h3 style="color: #2196F3;">机会 Opportunities</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px;">◆ <strong>政策驱动</strong>："三年倍增"行动方案带来明确需求增长</li>
@@ -375,7 +371,7 @@
                         <li style="margin-bottom: 10px;">◆ <strong>标准制定</strong>：行业标准尚未完全固化</li>
                     </ul>
                 </div>
-                <div class="card" style="border-left: 4px solid #FF9800;">
+                <div class="wm-card" style="border-left: 4px solid #FF9800;">
                     <h3 style="color: #FF9800;">威胁 Threats</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px;">⚠ <strong>竞争加剧</strong>：头部厂商（华为、特锐德等）资源雄厚</li>
@@ -389,10 +385,10 @@
         </section>
 
         <!-- 战略目标 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>五年战略目标（2025-2029）</h2>
-            <div class="grid grid-2">
-                <div class="card">
+            <div class="wm-grid wm-grid-2">
+                <div class="wm-card">
                     <h3>财务层面</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px;">• 第2年Q3实现2.5年投资回收期，累计净利润达2亿元</li>
@@ -400,7 +396,7 @@
                         <li style="margin-bottom: 10px;">• 5年累计净利润超过11.66亿元</li>
                     </ul>
                 </div>
-                <div class="card">
+                <div class="wm-card">
                     <h3>市场层面</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px;">• 第3年进入行业前五，市场份额≥8%</li>
@@ -408,7 +404,7 @@
                         <li style="margin-bottom: 10px;">• 打造3-5个省级标杆项目</li>
                     </ul>
                 </div>
-                <div class="card">
+                <div class="wm-card">
                     <h3>技术层面</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px;">• 2026年Q3推出120kW超高功率液冷模块（行业首发）</li>
@@ -416,7 +412,7 @@
                         <li style="margin-bottom: 10px;">• 建立省级工程技术研究中心</li>
                     </ul>
                 </div>
-                <div class="card">
+                <div class="wm-card">
                     <h3>运营层面</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px;">• 2026年通过ISO9001认证，2027年通过IATF16949认证</li>
@@ -428,7 +424,7 @@
         </section>
 
         <!-- 风险预警 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>风险预警与应对</h2>
             <table class="strategy-table">
                 <tr>
@@ -470,7 +466,8 @@
         </section>
 
         <!-- 页脚 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 液冷超充设备厂 - 执行摘要与战略定位
@@ -479,8 +476,6 @@
     </div>
 
     <!-- 返回按钮 -->
-    <a href="index.html" class="back-to-home">← 返回超充设备厂</a>
-
     <!-- 加载ECharts配置 -->
     <script src="js/echarts-config.js"></script>
 
@@ -518,7 +513,7 @@
                     itemStyle: {
                         shadowBlur: 10,
                         shadowOffsetX: 0,
-                        shadowColor: 'rgba(212, 175, 55, 0.5)'
+                        shadowColor: 'rgba(59, 130, 246, 0.5)'
                     }
                 },
                 label: {
@@ -558,7 +553,7 @@
                 name: '金额（万元）',
                 axisLabel: { color: '#F5F5DC' },
                 axisLine: { lineStyle: { color: '#D4AF37' } },
-                splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } }
+                splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } }
             },
             series: [
                 {
@@ -618,7 +613,7 @@
                     color: '#F5F5DC'
                 },
                 splitLine: {
-                    lineStyle: { color: 'rgba(212, 175, 55, 0.3)' }
+                    lineStyle: { color: 'rgba(59, 130, 246, 0.3)' }
                 },
                 splitArea: {
                     show: false
@@ -632,7 +627,7 @@
                         value: [90, 85, 75, 88, 65, 70],
                         name: '本公司',
                         areaStyle: {
-                            color: 'rgba(212, 175, 55, 0.3)'
+                            color: 'rgba(59, 130, 246, 0.3)'
                         },
                         itemStyle: { color: '#D4AF37' }
                     },

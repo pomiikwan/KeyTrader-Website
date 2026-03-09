@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,7 @@
             background: rgba(26, 26, 26, 0.6);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
         }
 
         .highlight-title {
@@ -33,8 +32,8 @@
         }
 
         .kpi-card {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(26, 26, 26, 0.8));
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(26, 26, 26, 0.8));
+            border: 2px solid rgba(59, 130, 246, 0.3);
             border-radius: 12px;
             padding: 25px;
             text-align: center;
@@ -43,7 +42,7 @@
 
         .kpi-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
             border-color: #D4AF37;
         }
 
@@ -95,7 +94,7 @@
         }
 
         .competitor-card:hover {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             border-left-width: 6px;
         }
 
@@ -106,7 +105,7 @@
         }
 
         .info-table th {
-            background: rgba(212, 175, 55, 0.2);
+            background: rgba(59, 130, 246, 0.2);
             color: #D4AF37;
             padding: 12px;
             text-align: left;
@@ -115,11 +114,11 @@
 
         .info-table td {
             padding: 12px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
         }
 
         .info-table tr:hover td {
-            background: rgba(212, 175, 55, 0.05);
+            background: rgba(59, 130, 246, 0.05);
         }
 
         .tag-high {
@@ -142,22 +141,24 @@
             color: white;
         }
     </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html">← 返回超充设备厂</a>
+<body class="no-transition">
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
-        <div class="hero-banner fade-in" style="padding: 60px 0;">
+    <main class="wm-main">
+        <div class="wm-panel" style="padding: 60px 0;">
             <h1 style="font-size: 42px; margin-bottom: 20px;">市场分析与竞争格局</h1>
-            <p style="font-size: 18px; color: var(--paper-beige);">Market Analysis & Competitive Landscape</p>
+            <img src="../images/banners/factory-hero.png" alt="液冷超充设备厂 - 高科技制造生产线"  class="hero-banner-image" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: var(--wm-radius-md); margin-top: var(--wm-space-md);" loading="eager">
         </div>
 
         <!-- 政策红利窗口期 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <div class="highlight-title">政策红利窗口期 - "三年倍增"行动方案（2025-2027）</div>
             <div class="kpi-grid">
                 <div class="kpi-card">
@@ -178,7 +179,7 @@
             </div>
             <div class="highlight-box" style="margin-top: 30px;">
                 <div class="highlight-title">政策窗口期分析</div>
-                <div class="grid grid-3">
+                <div class="wm-grid wm-grid-3">
                     <div>
                         <strong>补贴高峰期</strong>
                         <p style="font-size: 14px; margin-top: 5px;">2025-2027年（"三年倍增"行动期）</p>
@@ -199,7 +200,7 @@
         </section>
 
         <!-- TAM-SAM-SOM市场规模 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <div class="section-header">
                 <div class="section-number">1</div>
                 <h2>市场规模测算（TAM-SAM-SOM模型）</h2>
@@ -210,7 +211,7 @@
         </section>
 
         <!-- 市场规模增长预测 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <div class="section-header">
                 <div class="section-number">2</div>
                 <h2>液冷超充设备市场规模增长预测（2025-2030）</h2>
@@ -221,7 +222,7 @@
         </section>
 
         <!-- 分场景市场空间 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <div class="section-header">
                 <div class="section-number">3</div>
                 <h2>分场景市场空间分析</h2>
@@ -232,7 +233,7 @@
         </section>
 
         <!-- 竞争格局分析 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <div class="section-header">
                 <div class="section-number">4</div>
                 <h2>主要竞争对手分析</h2>
@@ -240,7 +241,7 @@
             <div class="chart-container">
                 <div id="competitorShareChart" style="width: 100%; height: 100%;"></div>
             </div>
-            <div class="grid grid-2" style="margin-top: 30px;">
+            <div class="wm-grid wm-grid-2" style="margin-top: 30px;">
                 <div class="competitor-card">
                     <h3 style="color: #D4AF37;">特锐德（TELD）</h3>
                     <p><strong>市场地位：</strong>充电桩运营数量第一（>40万台）</p>
@@ -269,7 +270,7 @@
         </section>
 
         <!-- 竞争对手能力对比 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <div class="section-header">
                 <div class="section-number">5</div>
                 <h2>竞争对手能力对比雷达图</h2>
@@ -280,7 +281,7 @@
         </section>
 
         <!-- 目标客户分析 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <div class="section-header">
                 <div class="section-number">6</div>
                 <h2>目标客户类型分析</h2>
@@ -288,7 +289,7 @@
             <div class="chart-container">
                 <div id="customerTypeChart" style="width: 100%; height: 100%;"></div>
             </div>
-            <div class="card" style="margin-top: 30px;">
+            <div class="wm-card" style="margin-top: 30px;">
                 <h4 style="color: #D4AF37; margin-bottom: 15px;">客户需求对比</h4>
                 <table class="info-table">
                     <thead>
@@ -324,7 +325,7 @@
         </section>
 
         <!-- 获客渠道分析 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <div class="section-header">
                 <div class="section-number">7</div>
                 <h2>获客渠道转化效果分析</h2>
@@ -332,7 +333,7 @@
             <div class="chart-container">
                 <div id="channelFunnelChart" style="width: 100%; height: 100%;"></div>
             </div>
-            <div class="card" style="margin-top: 30px;">
+            <div class="wm-card" style="margin-top: 30px;">
                 <h4 style="color: #D4AF37; margin-bottom: 15px;">获客渠道效果对比</h4>
                 <table class="info-table">
                     <thead>
@@ -379,12 +380,12 @@
         </section>
 
         <!-- 市场进入策略 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <div class="section-header">
                 <div class="section-number">8</div>
                 <h2>区域市场进入策略</h2>
             </div>
-            <div class="grid grid-3">
+            <div class="wm-grid wm-grid-3">
                 <div class="competitor-card" style="border-left-color: #4CAF50;">
                     <h3 style="color: #4CAF50;">第一优先级（2026年）</h3>
                     <div style="margin-top: 15px;">
@@ -413,7 +414,7 @@
             </div>
             <div class="highlight-box" style="margin-top: 30px;">
                 <div class="highlight-title">差异化竞争策略</div>
-                <div class="grid grid-2" style="margin-top: 20px;">
+                <div class="wm-grid wm-grid-2" style="margin-top: 20px;">
                     <div>
                         <h4 style="color: #D4AF37; margin-bottom: 10px;">核心差异化优势</h4>
                         <ul style="list-style: none; padding: 0;">
@@ -436,12 +437,11 @@
             </div>
         </section>
 
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
         </footer>
     </div>
-
-    <a href="index.html" class="back-to-home">← 返回超充设备厂</a>
 
     <script src="js/echarts-config.js"></script>
     <script>
@@ -498,7 +498,7 @@
                         itemStyle: {
                             shadowBlur: 10,
                             shadowOffsetX: 0,
-                            shadowColor: 'rgba(212, 175, 55, 0.5)'
+                            shadowColor: 'rgba(59, 130, 246, 0.5)'
                         }
                     },
                     data: [
@@ -558,7 +558,7 @@
                         axisLine: { lineStyle: { color: '#D4AF37' } },
                         splitLine: {
                             lineStyle: {
-                                color: 'rgba(212, 175, 55, 0.1)',
+                                color: 'rgba(59, 130, 246, 0.1)',
                                 type: 'dashed'
                             }
                         }
@@ -681,7 +681,7 @@
                         itemStyle: {
                             shadowBlur: 10,
                             shadowOffsetX: 0,
-                            shadowColor: 'rgba(212, 175, 55, 0.5)'
+                            shadowColor: 'rgba(59, 130, 246, 0.5)'
                         }
                     },
                     label: {
@@ -741,7 +741,7 @@
                         itemStyle: {
                             shadowBlur: 10,
                             shadowOffsetX: 0,
-                            shadowColor: 'rgba(212, 175, 55, 0.5)'
+                            shadowColor: 'rgba(59, 130, 246, 0.5)'
                         }
                     },
                     label: {
@@ -785,14 +785,14 @@
                     },
                     splitArea: {
                         areaStyle: {
-                            color: ['rgba(212, 175, 55, 0.05)', 'rgba(212, 175, 55, 0.1)']
+                            color: ['rgba(59, 130, 246, 0.05)', 'rgba(59, 130, 246, 0.1)']
                         }
                     },
                     axisLine: {
-                        lineStyle: { color: 'rgba(212, 175, 55, 0.3)' }
+                        lineStyle: { color: 'rgba(59, 130, 246, 0.3)' }
                     },
                     splitLine: {
-                        lineStyle: { color: 'rgba(212, 175, 55, 0.3)' }
+                        lineStyle: { color: 'rgba(59, 130, 246, 0.3)' }
                     }
                 },
                 series: [{
@@ -828,7 +828,7 @@
                             name: '目标公司',
                             itemStyle: { color: '#D4AF37' },
                             areaStyle: {
-                                color: 'rgba(212, 175, 55, 0.3)',
+                                color: 'rgba(59, 130, 246, 0.3)',
                                 opacity: 0.5
                             }
                         }
@@ -980,7 +980,7 @@
                         axisLine: { lineStyle: { color: '#D4AF37' } },
                         splitLine: {
                             lineStyle: {
-                                color: 'rgba(212, 175, 55, 0.1)',
+                                color: 'rgba(59, 130, 246, 0.1)',
                                 type: 'dashed'
                             }
                         }

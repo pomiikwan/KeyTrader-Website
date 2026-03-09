@@ -1,59 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
-    <link rel="stylesheet" href="../导航栏.css">
-    <script src="../导航栏.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>服务器与算力中心设备 - KeyTrader</title>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
-    <!-- 汉堡菜单按钮 -->
-    <button id="menuToggle" class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="sideNav">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <!-- 侧边导航栏 -->
-    <nav id="sideNav" class="side-nav" aria-label="主导航">
-        <div class="side-nav-header">
-            <h2>导航菜单</h2>
-            <button id="closeNav" class="close-nav" aria-label="关闭导航">×</button>
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.html">首页</a></li>
-            <li><a href="../index.html#business">业务板块</a></li>
-            <li><a href="../超充设备厂/index.html">液冷超充设备厂</a></li>
-            <li><a href="../服务器组装厂/index.html">服务器组装厂</a></li>
-            <li><a href="../联系合作.html">联系合作</a></li>
-        </ul>
-    </nav>
-
+<body class="no-transition">
     <!-- 遮罩层 -->
-    <div id="overlay" class="overlay"></div>
-
     <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="../index.html">← 返回首页</a>
-            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
+    <main class="wm-main">
         <!-- 页面标题 -->
-        <div class="hero-banner fade-in">
+        <div class="wm-panel">
             <h1 style="font-size: 48px; margin-bottom: 20px;">服务器与算力中心设备</h1>
             <!-- 横幅图片区域 -->
             <img src="../images/banners/server-factory-hero.png" alt="服务器与算力中心设备" class="hero-banner-image" loading="lazy">
         </div>
 
         <!-- 业务概述 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>业务概述</h2>
-            <div class="card">
+            <div class="wm-card">
                 <p>
                     KeyTrader 依托在先进算力领域的技术优势，为全球客户提供完整的服务器与算力中心解决方案。
                     我们的产品涵盖高性能服务器、AI算力设备、数据中心基础设施等多个领域，
@@ -67,12 +41,12 @@
         </section>
 
         <!-- 核心产品与服务 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>核心产品与服务</h2>
 
             <div class="service-item">
                 <h3>高性能服务器</h3>
-                <p style="color: var(--paper-beige); margin: 15px 0;">
+                <p style="color: var(--wm-text-secondary); margin: 15px 0;">
                     提供企业级高性能服务器，支持各种工作负载和应用场景
                 </p>
                 <ul>
@@ -86,7 +60,7 @@
 
             <div class="service-item">
                 <h3>AI算力设备</h3>
-                <p style="color: var(--paper-beige); margin: 15px 0;">
+                <p style="color: var(--wm-text-secondary); margin: 15px 0;">
                     专业的AI训练和推理设备，支持深度学习和机器学习应用
                 </p>
                 <ul>
@@ -100,7 +74,7 @@
 
             <div class="service-item">
                 <h3>数据中心基础设施</h3>
-                <p style="color: var(--paper-beige); margin: 15px 0;">
+                <p style="color: var(--wm-text-secondary); margin: 15px 0;">
                     完整的数据中心基础设施解决方案，确保数据中心稳定高效运行
                 </p>
                 <ul>
@@ -114,7 +88,7 @@
 
             <div class="service-item">
                 <h3>对外贸易服务</h3>
-                <p style="color: var(--paper-beige); margin: 15px 0;">
+                <p style="color: var(--wm-text-secondary); margin: 15px 0;">
                     专业的国际贸易服务，为客户提供全球采购和物流解决方案
                 </p>
                 <ul>
@@ -128,7 +102,7 @@
 
             <div class="service-item">
                 <h3>供应链管理</h3>
-                <p style="color: var(--paper-beige); margin: 15px 0;">
+                <p style="color: var(--wm-text-secondary); margin: 15px 0;">
                     全流程供应链管理服务，帮助客户优化成本和效率
                 </p>
                 <ul>
@@ -142,9 +116,9 @@
         </section>
 
         <!-- 应用场景 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>应用场景</h2>
-            <div class="grid grid-2">
+            <div class="wm-grid wm-grid-2">
                 <div class="solution-showcase">
                     <h3>企业数据中心</h3>
                     <ul>
@@ -188,7 +162,7 @@
         </section>
 
         <!-- 技术优势 -->
-        <section class="advantages-section fade-in">
+        <section class="wm-panel">
             <h2>服务优势</h2>
             <div class="advantages-grid">
                 <div class="advantage-item">
@@ -211,53 +185,53 @@
         </section>
 
         <!-- 合作伙伴 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>服务领域</h2>
             <div class="grid grid-4">
-                <div class="metric-card">
-                    <div class="metric-value">互联网企业</div>
-                    <div class="metric-label">大型互联网公司</div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">互联网企业</div>
+                    <div class="wm-metric-label">大型互联网公司</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">金融机构</div>
-                    <div class="metric-label">银行、保险、证券</div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">金融机构</div>
+                    <div class="wm-metric-label">银行、保险、证券</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">科研机构</div>
-                    <div class="metric-label">高校、研究所</div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">科研机构</div>
+                    <div class="wm-metric-label">高校、研究所</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">制造业</div>
-                    <div class="metric-label">智能制造、工业4.0</div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">制造业</div>
+                    <div class="wm-metric-label">智能制造、工业4.0</div>
                 </div>
             </div>
         </section>
 
         <!-- 新增项目：服务器组装厂 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>新增项目：服务器组装厂</h2>
-            <div class="highlight-box" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); border: 2px solid rgba(212, 175, 55, 0.3);">
+            <div class="wm-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); border: 2px solid rgba(59, 130, 246, 0.3);">
                 <div class="highlight-title">AI算力基础设施建设与制造</div>
                 <p style="text-align: center; line-height: 2; margin-bottom: 30px;">
                     基于国家"东数西算"战略，专注AI服务器、光模块和AI应用工作站的研发制造
                 </p>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                    <div class="metric-card" style="background: rgba(212, 175, 55, 0.1);">
-                        <div class="metric-value" style="color: var(--primary-gold);">2亿</div>
-                        <div class="metric-label">初始投资（元）</div>
+                    <div class="wm-metric" style="background: rgba(59, 130, 246, 0.1);">
+                        <div class="metric-value" style="color: var(--wm-info);">2亿</div>
+                        <div class="wm-metric-label">初始投资（元）</div>
                     </div>
-                    <div class="metric-card" style="background: rgba(212, 175, 55, 0.1);">
-                        <div class="metric-value" style="color: var(--primary-gold);">49.8%</div>
-                        <div class="metric-label">实际IRR（超目标99%）</div>
+                    <div class="wm-metric" style="background: rgba(59, 130, 246, 0.1);">
+                        <div class="metric-value" style="color: var(--wm-info);">49.8%</div>
+                        <div class="wm-metric-label">实际IRR（超目标99%）</div>
                     </div>
-                    <div class="metric-card" style="background: rgba(212, 175, 55, 0.1);">
-                        <div class="metric-value" style="color: var(--primary-gold);">1.9年</div>
-                        <div class="metric-label">投资回收期</div>
+                    <div class="wm-metric" style="background: rgba(59, 130, 246, 0.1);">
+                        <div class="metric-value" style="color: var(--wm-info);">1.9年</div>
+                        <div class="wm-metric-label">投资回收期</div>
                     </div>
-                    <div class="metric-card" style="background: rgba(212, 175, 55, 0.1);">
-                        <div class="metric-value" style="color: var(--primary-gold);">8.93亿</div>
-                        <div class="metric-label">第5年净利润（元）</div>
+                    <div class="wm-metric" style="background: rgba(59, 130, 246, 0.1);">
+                        <div class="metric-value" style="color: var(--wm-info);">8.93亿</div>
+                        <div class="wm-metric-label">第5年净利润（元）</div>
                     </div>
                 </div>
 
@@ -266,18 +240,18 @@
                 </div>
 
                 <div style="margin-top: 20px; padding: 20px; background: rgba(26, 26, 26, 0.5); border-radius: 10px;">
-                    <div class="grid grid-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div class="wm-grid wm-grid-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
                         <div style="text-align: center;">
-                            <div style="font-size: 12px; color: var(--paper-beige); opacity: 0.7;">AI服务器</div>
-                            <div style="font-size: 16px; color: var(--primary-gold); margin-top: 5px;">DeepSeek一体机</div>
+                            <div style="font-size: 12px; color: var(--wm-text-secondary); opacity: 0.7;">AI服务器</div>
+                            <div style="font-size: 16px; color: var(--wm-info); margin-top: 5px;">DeepSeek一体机</div>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-size: 12px; color: var(--paper-beige); opacity: 0.7;">高端光模块</div>
-                            <div style="font-size: 16px; color: var(--primary-gold); margin-top: 5px;">400G/800G/1.6T</div>
+                            <div style="font-size: 12px; color: var(--wm-text-secondary); opacity: 0.7;">高端光模块</div>
+                            <div style="font-size: 16px; color: var(--wm-info); margin-top: 5px;">400G/800G/1.6T</div>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-size: 12px; color: var(--paper-beige); opacity: 0.7;">AI应用工作站</div>
-                            <div style="font-size: 16px; color: var(--primary-gold); margin-top: 5px;">硬件+软件+场景</div>
+                            <div style="font-size: 12px; color: var(--wm-text-secondary); opacity: 0.7;">AI应用工作站</div>
+                            <div style="font-size: 16px; color: var(--wm-info); margin-top: 5px;">硬件+软件+场景</div>
                         </div>
                     </div>
                 </div>
@@ -285,9 +259,9 @@
         </section>
 
         <!-- CTA 区域 -->
-        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+        <section class="cta-section" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(59, 130, 246, 0.3);">
             <h2>准备好开始合作了吗？</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
                 无论您是需要算力设备、数据中心建设还是贸易服务，我们都期待与您合作
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
@@ -297,7 +271,8 @@
         </section>
 
         <!-- 页脚信息 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 服务器与算力中心设备专业服务商
@@ -306,8 +281,6 @@
     </div>
 
     <!-- 返回首页按钮 -->
-    <a href="../index.html" class="back-to-home">← 返回首页</a>
-
     <script>
         // 添加滚动动画
         const observerOptions = {

@@ -1,59 +1,105 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>服务器组装厂项目 - KeyTrader</title>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
+<body class="no-transition">
     <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="../index.html">← 返回首页</a>
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
+    <main class="wm-main">
         <!-- Hero Banner -->
-        <div class="hero-section fade-in">
-            <h1 style="font-size: 48px; margin-bottom: 20px;">服务器组装厂项目</h1>
-            <img src="../images/banners/server-factory-hero.png" alt="服务器组装厂 - AI算力设备制造中心" class="hero-banner-image" loading="eager">
-        </div>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h1 class="wm-panel-title" style="font-size: 24px;">服务器组装厂项目</h1>
+                <p class="wm-panel-subtitle">AI算力基础设施建设与制造</p>
+            </div>
+            <img src="../images/banners/server-factory-hero.png" alt="服务器组装厂 - AI算力设备制造中心" class="hero-banner-image" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: var(--wm-radius-md); margin-top: var(--wm-space-md);" loading="eager">
+        </section>
 
         <!-- 项目摘要 -->
-        <section class="fade-in">
-            <h2>项目概述</h2>
-            <div class="card">
-                <p style="text-align: center; line-height: 2; margin-bottom: 20px;">
-                    <strong>专注AI算力基础设施建设，让AI算力触手可及</strong><br>
-                    成立于2025年 | 初始投资2亿元 | 目标ROI 25% | 实际IRR 49.8%<br>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">项目概述</h2>
+                <p class="wm-panel-subtitle">专注AI算力基础设施建设，让AI算力触手可及</p>
+            </div>
+            <div class="wm-card">
+                <p style="text-align: center; line-height: 2; margin-bottom: var(--wm-space-lg); font-size: 13px;">
+                    <strong>成立于2025年 | 初始投资2亿元 | 目标ROI 25% | 实际IRR 49.8%</strong><br>
                     立足国家"东数西算"战略 | 基于DeepSeek等国产大模型 | 致力于成为领先的AI算力基础设施提供商
                 </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
-                    <div class="metric-card">
-                        <div class="metric-value">2亿</div>
-                        <div class="metric-label">初始投资（元）</div>
+                <div class="wm-grid wm-grid-auto" style="margin-top: var(--wm-space-lg);">
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">2亿</div>
+                        <div class="wm-metric-label">初始投资</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">2.5亿</div>
-                        <div class="metric-label">首年营收（元）</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">2.5亿</div>
+                        <div class="wm-metric-label">首年营收</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">1.9年</div>
-                        <div class="metric-label">投资回收期</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">1.9年</div>
+                        <div class="wm-metric-label">投资回收期</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">49.8%</div>
-                        <div class="metric-label">实际IRR</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value high">49.8%</div>
+                        <div class="wm-metric-label">实际IRR</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 核心产品 -->
-        <section class="business-segments fade-in">
-            <h2>核心产品矩阵</h2>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">核心产品矩阵</h2>
+                <p class="wm-panel-subtitle">AI算力基础设施产品线</p>
+            </div>
+            <style>
+                .segment-card {
+                    background: var(--wm-surface);
+                    border: 1px solid var(--wm-border);
+                    border-radius: var(--wm-radius-md);
+                    padding: var(--wm-space-lg);
+                    margin-bottom: var(--wm-space-md);
+                }
+                .segment-title {
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: var(--wm-accent);
+                    margin-bottom: var(--wm-space-sm);
+                }
+                .segment-description {
+                    font-size: 13px;
+                    color: var(--wm-text-secondary);
+                    margin-bottom: var(--wm-space-md);
+                }
+                .segment-features ul {
+                    list-style: none;
+                    padding: 0;
+                }
+                .segment-features li {
+                    font-size: 12px;
+                    color: var(--wm-text-secondary);
+                    padding: var(--wm-space-xs) 0;
+                    padding-left: var(--wm-space-md);
+                    position: relative;
+                }
+                .segment-features li:before {
+                    content: "✓";
+                    position: absolute;
+                    left: 0;
+                    color: var(--wm-normal);
+                }
+            </style>
             <div class="segment-card">
                 <div class="segment-title">AI服务器</div>
                 <div class="segment-description">
@@ -105,51 +151,127 @@
         </section>
 
         <!-- 财务亮点 -->
-        <section class="fade-in">
-            <h2>财务亮点</h2>
-            <div class="highlight-box" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%);">
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">财务亮点</h2>
+                <p class="wm-panel-subtitle">卓越的财务表现</p>
+            </div>
+            <style>
+                .highlight-box {
+                    background: var(--wm-overlay-light);
+                    border: 1px solid var(--wm-border);
+                    border-radius: var(--wm-radius-md);
+                    padding: var(--wm-space-lg);
+                    margin-bottom: var(--wm-space-lg);
+                }
+                .highlight-title {
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: var(--wm-accent);
+                    margin-bottom: var(--wm-space-md);
+                    text-align: center;
+                }
+                .metric-card {
+                    background: var(--wm-surface);
+                    border: 1px solid var(--wm-border);
+                    border-radius: var(--wm-radius-md);
+                    padding: var(--wm-space-md);
+                }
+                .metric-value {
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: var(--wm-info);
+                }
+            </style>
+            <div class="wm-card">
                 <div class="highlight-title">卓越的财务表现</div>
-                <p style="text-align: center; line-height: 2; margin-bottom: 30px;">
+                <p style="text-align: center; line-height: 2; margin-bottom: var(--wm-space-lg); font-size: 12px; color: var(--wm-text-secondary);">
                     本项目通过332降本计划（供应链降30%、工艺降30%、管理降20%）和规模化复制，实现了超越预期的财务指标
                 </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                    <div class="metric-card" style="background: rgba(212, 175, 55, 0.1);">
-                        <div class="metric-value" style="color: var(--primary-gold);">1.9年</div>
-                        <div class="metric-label">投资回收期（目标2年，提前达成）</div>
+                <div class="wm-grid wm-grid-auto">
+                    <div class="wm-metric">
+                        <div class="metric-value">1.9年</div>
+                        <div class="wm-metric-label">投资回收期<br><span style="font-size: 11px; opacity: 0.7;">目标2年，提前达成</span></div>
                     </div>
-                    <div class="metric-card" style="background: rgba(212, 175, 55, 0.1);">
-                        <div class="metric-value" style="color: var(--primary-gold);">49.8%</div>
-                        <div class="metric-label">IRR（目标25%，超目标99%）</div>
+                    <div class="wm-metric">
+                        <div class="metric-value">49.8%</div>
+                        <div class="wm-metric-label">IRR<br><span style="font-size: 11px; opacity: 0.7;">目标25%，超目标99%</span></div>
                     </div>
-                    <div class="metric-card" style="background: rgba(212, 175, 55, 0.1);">
-                        <div class="metric-value" style="color: var(--primary-gold);">+16.27亿</div>
-                        <div class="metric-label">NPV（万元）- 投资价值显著</div>
+                    <div class="wm-metric">
+                        <div class="metric-value">+16.27亿</div>
+                        <div class="wm-metric-label">NPV<br><span style="font-size: 11px; opacity: 0.7;">投资价值显著</span></div>
                     </div>
-                    <div class="metric-card" style="background: rgba(212, 175, 55, 0.1);">
-                        <div class="metric-value" style="color: var(--primary-gold);">8.93亿</div>
-                        <div class="metric-label">第5年净利润（万元）</div>
+                    <div class="wm-metric">
+                        <div class="metric-value">8.93亿</div>
+                        <div class="wm-metric-label">第5年净利润<br><span style="font-size: 11px; opacity: 0.7;">万元</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 商业计划书章节导航 -->
-        <section class="fade-in">
-            <h2>商业计划书</h2>
-            <div class="highlight-box">
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">商业计划书</h2>
+                <p class="wm-panel-subtitle">完整商业分析报告</p>
+            </div>
+
+            <style>
+                .card-link {
+                    display: block;
+                    text-decoration: none;
+                    transition: all var(--wm-transition);
+                }
+                .card-link:hover {
+                    transform: translateY(-2px);
+                }
+                .card-link h3 {
+                    color: var(--wm-text);
+                    font-size: 14px;
+                    font-weight: 700;
+                    margin-bottom: var(--wm-space-sm);
+                }
+                .card-link p {
+                    color: var(--wm-text-dim);
+                    font-size: 11px;
+                    margin-bottom: var(--wm-space-sm);
+                }
+                .card-link ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: var(--wm-space-sm) 0;
+                }
+                .card-link ul li {
+                    font-size: 11px;
+                    color: var(--wm-text-secondary);
+                    padding: var(--wm-space-xs) 0;
+                    padding-left: var(--wm-space-md);
+                    position: relative;
+                }
+                .card-link ul li:before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: var(--wm-info);
+                }
+                .card-link .view-more {
+                    color: var(--wm-info);
+                    font-size: 12px;
+                    margin-top: var(--wm-space-md);
+                }
+            </style>
+            <div class="wm-card">
                 <div class="highlight-title">完整商业分析报告</div>
-                <p style="text-align: center; line-height: 2; margin-bottom: 30px;">
+                <p style="text-align: center; line-height: 2; margin-bottom: var(--wm-space-lg); font-size: 12px; color: var(--wm-text-secondary);">
                     以下章节详细阐述了服务器组装厂项目的战略定位、商业模式、财务分析、市场格局、风险管控及融资方案
                 </p>
             </div>
 
-            <div class="grid grid-2">
-                <a href="执行摘要与战略定位.html" class="card" style="display: block; text-decoration: none; transition: transform 0.3s;">
+            <div class="wm-grid wm-grid-2">
+                <a href="执行摘要与战略定位.html" class="wm-card card-link">
                     <h3>执行摘要与战略定位</h3>
-                    <p style="color: var(--paper-beige); margin-bottom: 15px;">
-                        Executive Summary & Strategic Positioning
-                    </p>
-                    <ul style="color: var(--paper-beige); opacity: 0.9;">
+                    <p>Executive Summary & Strategic Positioning</p>
+                    <ul>
                         <li>公司概况与核心价值主张</li>
                         <li>市场机遇与财务概要</li>
                         <li>战略环境分析（PEST/SWOT）</li>
@@ -157,15 +279,13 @@
                         <li>竞争战略与博弈分析</li>
                         <li>OKR战略目标（2026年Q1-Q2）</li>
                     </ul>
-                    <div style="margin-top: 20px; color: var(--primary-gold);">查看详情 →</div>
+                    <div class="view-more">查看详情 →</div>
                 </a>
 
-                <a href="商业模式与运营策略.html" class="card" style="display: block; text-decoration: none; transition: transform 0.3s;">
+                <a href="商业模式与运营策略.html" class="wm-card card-link">
                     <h3>商业模式与运营策略</h3>
-                    <p style="color: var(--paper-beige); margin-bottom: 15px;">
-                        Business Model & Operations Strategy
-                    </p>
-                    <ul style="color: var(--paper-beige); opacity: 0.9;">
+                    <p>Business Model & Operations Strategy</p>
+                    <ul>
                         <li>双轨漏斗变现模式</li>
                         <li>核心盈利模式设计</li>
                         <li>332降本计划（供应链30%、工艺30%、管理20%）</li>
@@ -173,15 +293,13 @@
                         <li>客户获取策略（项目平移模式）</li>
                         <li>资源护城河构建</li>
                     </ul>
-                    <div style="margin-top: 20px; color: var(--primary-gold);">查看详情 →</div>
+                    <div class="view-more">查看详情 →</div>
                 </a>
 
-                <a href="财务模型与投资分析.html" class="card" style="display: block; text-decoration: none; transition: transform 0.3s;">
+                <a href="财务模型与投资分析.html" class="wm-card card-link">
                     <h3>财务模型与投资分析</h3>
-                    <p style="color: var(--paper-beige); margin-bottom: 15px;">
-                        Financial Model & Investment Analysis
-                    </p>
-                    <ul style="color: var(--paper-beige); opacity: 0.9;">
+                    <p>Financial Model & Investment Analysis</p>
+                    <ul>
                         <li>财务假设与参数设定</li>
                         <li>三大财务报表预测（5年）</li>
                         <li>盈亏平衡分析（第1年第8个月）</li>
@@ -189,15 +307,13 @@
                         <li>融资结构与资金使用计划</li>
                         <li>敏感性分析与压力测试</li>
                     </ul>
-                    <div style="margin-top: 20px; color: var(--primary-gold);">查看详情 →</div>
+                    <div class="view-more">查看详情 →</div>
                 </a>
 
-                <a href="市场分析与竞争格局.html" class="card" style="display: block; text-decoration: none; transition: transform 0.3s;">
+                <a href="市场分析与竞争格局.html" class="wm-card card-link">
                     <h3>市场分析与竞争格局</h3>
-                    <p style="color: var(--paper-beige); margin-bottom: 15px;">
-                        Market Analysis & Competitive Landscape
-                    </p>
-                    <ul style="color: var(--paper-beige); opacity: 0.9;">
+                    <p>Market Analysis & Competitive Landscape</p>
+                    <ul>
                         <li>宏观环境分析（PEST）</li>
                         <li>市场规模测算（中国AI算力市场2027年7400亿元）</li>
                         <li>竞争格局分析（波特五力模型）</li>
@@ -205,15 +321,13 @@
                         <li>差异化竞争策略</li>
                         <li>目标客户画像（政府/企业）</li>
                     </ul>
-                    <div style="margin-top: 20px; color: var(--primary-gold);">查看详情 →</div>
+                    <div class="view-more">查看详情 →</div>
                 </a>
 
-                <a href="风险管控与合规体系.html" class="card" style="display: block; text-decoration: none; transition: transform 0.3s;">
+                <a href="风险管控与合规体系.html" class="wm-card card-link">
                     <h3>风险管控与合规体系</h3>
-                    <p style="color: var(--paper-beige); margin-bottom: 15px;">
-                        Risk Management & Compliance System
-                    </p>
-                    <ul style="color: var(--paper-beige); opacity: 0.9;">
+                    <p>Risk Management & Compliance System</p>
+                    <ul>
                         <li>全面风险识别与评估（市场/技术/供应链/运营/财务）</li>
                         <li>详细风险应对策略</li>
                         <li>质量管理体系（ISO9001认证）</li>
@@ -221,15 +335,13 @@
                         <li>知识产权保护（专利申请）</li>
                         <li>风险预警机制与应急预案</li>
                     </ul>
-                    <div style="margin-top: 20px; color: var(--primary-gold);">查看详情 →</div>
+                    <div class="view-more">查看详情 →</div>
                 </a>
 
-                <a href="融资方案与退出机制.html" class="card" style="display: block; text-decoration: none; transition: transform 0.3s;">
+                <a href="融资方案与退出机制.html" class="wm-card card-link">
                     <h3>融资方案与退出机制</h3>
-                    <p style="color: var(--paper-beige); margin-bottom: 15px;">
-                        Financing Plan & Exit Strategy
-                    </p>
-                    <ul style="color: var(--paper-beige); opacity: 0.9;">
+                    <p>Financing Plan & Exit Strategy</p>
+                    <ul>
                         <li>初始融资2亿元结构</li>
                         <li>A轮融资计划（第2年末，1.7亿元）</li>
                         <li>B轮融资计划（第3年末，4.6亿元）</li>
@@ -237,14 +349,41 @@
                         <li>投资回报分析（预期10x+）</li>
                         <li>关键里程碑与调整机制</li>
                     </ul>
-                    <div style="margin-top: 20px; color: var(--primary-gold);">查看详情 →</div>
+                    <div class="view-more">查看详情 →</div>
                 </a>
             </div>
         </section>
 
         <!-- 投资亮点 -->
-        <section class="advantages-section fade-in">
-            <h2>投资亮点</h2>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">投资亮点</h2>
+                <p class="wm-panel-subtitle">核心竞争优势</p>
+            </div>
+            <style>
+                .advantages-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: var(--wm-space-md);
+                }
+                .advantage-item {
+                    background: var(--wm-surface);
+                    border: 1px solid var(--wm-border);
+                    border-radius: var(--wm-radius-md);
+                    padding: var(--wm-space-md);
+                }
+                .advantage-item h3 {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--wm-text);
+                    margin-bottom: var(--wm-space-sm);
+                }
+                .advantage-item p {
+                    font-size: 12px;
+                    color: var(--wm-text-secondary);
+                    line-height: 1.6;
+                }
+            </style>
             <div class="advantages-grid">
                 <div class="advantage-item">
                     <h3>政策强力支持</h3>
@@ -266,48 +405,31 @@
         </section>
 
         <!-- 合作联系 -->
-        <section class="cta-section fade-in">
-            <h2>准备了解更多详情？</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
-                如您对本项目感兴趣，欢迎通过以下方式联系我们，获取完整的商业计划书和投资资料
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">准备了解更多详情？</h2>
+                <p class="wm-panel-subtitle">如您对本项目感兴趣，欢迎联系我们</p>
+            </div>
+            <p style="font-size: 13px; margin-bottom: var(--wm-space-lg); color: var(--wm-text-secondary); text-align: center;">
+                获取完整的商业计划书和投资资料
             </p>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
-                <a href="../业务板块/服务器算力.html" class="btn btn-secondary">了解服务器与算力设备</a>
+            <div style="display: flex; gap: var(--wm-space-md); justify-content: center; flex-wrap: wrap;">
+                <a href="../联系合作.html" class="wm-btn wm-btn-primary">联系合作</a>
+                <a href="../业务板块/服务器算力.html" class="wm-btn">了解服务器与算力设备</a>
             </div>
         </section>
 
         <!-- 页脚信息 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+        <footer style="text-align: center; padding: 32px 16px; color: var(--wm-text-dim); border-top: 1px solid var(--wm-border); margin-top: 32px;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
-            <p style="font-size: 14px; margin-top: 10px;">
+            <p style="font-size: 11px; margin-top: 8px;">
                 服务器组装厂项目 | 专业的AI算力基础设施建设与制造
             </p>
         </footer>
     </div>
 
-    <!-- 返回首页按钮 -->
-    <a href="../index.html" class="back-to-home">← 返回首页</a>
-
     <script>
-        // 添加滚动动画
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -320,6 +442,11 @@
                     });
                 }
             });
+        });
+
+        // 移除初始加载时的过渡动画
+        window.addEventListener('load', () => {
+            document.body.classList.remove('no-transition');
         });
     </script>
 </body>

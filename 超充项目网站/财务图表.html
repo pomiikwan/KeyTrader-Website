@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,29 +13,29 @@
             background: rgba(26, 26, 26, 0.6);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
         }
         .financial-table {
             width: 100%;
             border-collapse: collapse;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             margin: 20px 0;
         }
         .financial-table thead {
-            border-bottom: 2px solid var(--primary-gold);
+            border-bottom: 2px solid var(--wm-info);
         }
         .financial-table th {
             padding: 15px;
             text-align: left;
-            color: var(--primary-gold);
+            color: var(--wm-info);
             font-weight: 600;
         }
         .financial-table td {
             padding: 12px 15px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
         }
         .financial-table tbody tr:hover {
-            background: rgba(212, 175, 55, 0.05);
+            background: rgba(59, 130, 246, 0.05);
         }
         .financial-table .number {
             text-align: right;
@@ -44,12 +43,12 @@
             font-weight: 600;
         }
         .financial-table .highlight {
-            color: var(--primary-gold);
+            color: var(--wm-info);
             font-size: 1.1em;
         }
         .chart-placeholder {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-            border: 2px dashed rgba(212, 175, 55, 0.3);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 2px dashed rgba(59, 130, 246, 0.3);
             border-radius: 15px;
             padding: 60px 40px;
             text-align: center;
@@ -60,48 +59,49 @@
             margin-bottom: 20px;
         }
     </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html">← 返回导航中心</a>
-            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+<body class="no-transition">
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
-        <div class="hero-banner fade-in">
+    <main class="wm-main">
+        <div class="wm-panel">
             <h1 style="font-size: 48px; margin-bottom: 20px;">财务分析</h1>
-            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">Financial Analysis</p>
+            <p style="font-size: 20px; color: var(--wm-text-secondary); max-width: 900px; margin: 0 auto;">Financial Analysis</p>
         </div>
 
         <!-- 投资概览 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>投资规模与结构</h2>
-            <div class="card" style="margin-bottom: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">总投资概览</h3>
-                <div class="grid grid-4">
-                    <div class="metric-card">
-                        <div class="metric-value">28亿元</div>
-                        <div class="metric-label">总投资额</div>
+            <div class="wm-card" style="margin-bottom: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">总投资概览</h3>
+                <div class="wm-grid wm-grid-auto">
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">28亿元</div>
+                        <div class="wm-metric-label">总投资额</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">280万元</div>
-                        <div class="metric-label">单站投资</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">280万元</div>
+                        <div class="wm-metric-label">单站投资</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">1000座</div>
-                        <div class="metric-label">建设规模</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">1000座</div>
+                        <div class="wm-metric-label">建设规模</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">5年</div>
-                        <div class="metric-label">建设周期</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">5年</div>
+                        <div class="wm-metric-label">建设周期</div>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">投资构成明细</h3>
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">投资构成明细</h3>
                 <table class="financial-table">
                     <thead>
                         <tr>
@@ -116,17 +116,17 @@
                             <td class="number highlight">168</td>
                             <td class="number">60%</td>
                         </tr>
-                        <tr style="color: var(--paper-beige); opacity: 0.8;">
+                        <tr style="color: var(--wm-text-secondary); opacity: 0.8;">
                             <td style="padding-left: 30px;">• 充电桩设备</td>
                             <td class="number">126</td>
                             <td class="number">45%</td>
                         </tr>
-                        <tr style="color: var(--paper-beige); opacity: 0.8;">
+                        <tr style="color: var(--wm-text-secondary); opacity: 0.8;">
                             <td style="padding-left: 30px;">• 电力设备</td>
                             <td class="number">28</td>
                             <td class="number">10%</td>
                         </tr>
-                        <tr style="color: var(--paper-beige); opacity: 0.8;">
+                        <tr style="color: var(--wm-text-secondary); opacity: 0.8;">
                             <td style="padding-left: 30px;">• 辅助设备</td>
                             <td class="number">14</td>
                             <td class="number">5%</td>
@@ -146,7 +146,7 @@
                             <td class="number highlight">14</td>
                             <td class="number">5%</td>
                         </tr>
-                        <tr style="border-top: 2px solid var(--primary-gold);">
+                        <tr style="border-top: 2px solid var(--wm-info);">
                             <td><strong>合计</strong></td>
                             <td class="number highlight" style="font-size: 1.3em;">28</td>
                             <td class="number">100%</td>
@@ -156,18 +156,18 @@
             </div>
 
             <!-- 投资构成饼图 -->
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">投资构成可视化</h3>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">投资构成可视化</h3>
                 <div id="investmentChart" class="chart-container"></div>
             </div>
         </section>
 
         <!-- 收入预测 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>收入预测模型</h2>
             
-            <div class="card" style="margin-bottom: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">单站年收入预测（万元）</h3>
+            <div class="wm-card" style="margin-bottom: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">单站年收入预测（万元）</h3>
                 <table class="financial-table">
                     <thead>
                         <tr>
@@ -219,14 +219,14 @@
             </div>
 
             <!-- 单站收入预测图 -->
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">单站年收入增长趋势</h3>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">单站年收入增长趋势</h3>
                 <div id="revenueChart" class="chart-container"></div>
             </div>
 
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">1000站年总收入预测</h3>
+            <div class="wm-grid wm-grid-2">
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">1000站年总收入预测</h3>
                     <table class="financial-table">
                         <thead>
                             <tr>
@@ -265,40 +265,40 @@
                     </table>
                 </div>
 
-                <div class="card">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">运营成本构成</h3>
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">运营成本构成</h3>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                            <strong>电费成本：</strong><span style="color: var(--primary-gold); font-size: 1.2em;">40%</span> 占收入比
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(59, 130, 246, 0.2);">
+                            <strong>电费成本：</strong><span style="color: var(--wm-info); font-size: 1.2em;">40%</span> 占收入比
                         </li>
-                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                            <strong>人工成本：</strong><span style="color: var(--primary-gold); font-size: 1.2em;">15%</span> 占收入比
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(59, 130, 246, 0.2);">
+                            <strong>人工成本：</strong><span style="color: var(--wm-info); font-size: 1.2em;">15%</span> 占收入比
                         </li>
-                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                            <strong>场地租金：</strong><span style="color: var(--primary-gold); font-size: 1.2em;">10%</span> 占收入比
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(59, 130, 246, 0.2);">
+                            <strong>场地租金：</strong><span style="color: var(--wm-info); font-size: 1.2em;">10%</span> 占收入比
                         </li>
-                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                            <strong>设备维护：</strong><span style="color: var(--primary-gold); font-size: 1.2em;">8%</span> 占收入比
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(59, 130, 246, 0.2);">
+                            <strong>设备维护：</strong><span style="color: var(--wm-info); font-size: 1.2em;">8%</span> 占收入比
                         </li>
                         <li style="padding: 15px 0;">
-                            <strong>其他费用：</strong><span style="color: var(--primary-gold); font-size: 1.2em;">7%</span> 占收入比
+                            <strong>其他费用：</strong><span style="color: var(--wm-info); font-size: 1.2em;">7%</span> 占收入比
                         </li>
                     </ul>
                 </div>
             </div>
 
             <!-- 1000站总收入增长图 -->
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">1000站总收入增长趋势</h3>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">1000站总收入增长趋势</h3>
                 <div id="totalRevenueChart" class="chart-container"></div>
             </div>
         </section>
 
         <!-- 盈利能力 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>盈利能力分析</h2>
-            <div class="card">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">利润预测（单站/年）</h3>
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">利润预测（单站/年）</h3>
                 <table class="financial-table">
                     <thead>
                         <tr>
@@ -350,45 +350,45 @@
             </div>
 
             <!-- 利润预测图 -->
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">单站利润增长趋势</h3>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">单站利润增长趋势</h3>
                 <div id="profitChart" class="chart-container"></div>
             </div>
 
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">1000站总利润预测</h3>
-                <div class="grid grid-4">
-                    <div class="metric-card">
-                        <div class="metric-value">19.1亿元</div>
-                        <div class="metric-label">第1年利润</div>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">1000站总利润预测</h3>
+                <div class="wm-grid wm-grid-auto">
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">19.1亿元</div>
+                        <div class="wm-metric-label">第1年利润</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">63.0亿元</div>
-                        <div class="metric-label">前3年累计</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">63.0亿元</div>
+                        <div class="wm-metric-label">前3年累计</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">89.9亿元</div>
-                        <div class="metric-label">前4年累计</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">89.9亿元</div>
+                        <div class="wm-metric-label">前4年累计</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">122.0亿元</div>
-                        <div class="metric-label">5年累计利润</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-value">122.0亿元</div>
+                        <div class="wm-metric-label">5年累计利润</div>
                     </div>
                 </div>
             </div>
 
             <!-- 1000站总利润图 -->
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">1000站总利润增长趋势</h3>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">1000站总利润增长趋势</h3>
                 <div id="totalProfitChart" class="chart-container"></div>
             </div>
         </section>
 
         <!-- 现金流分析 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>现金流分析</h2>
-            <div class="card">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">现金流预测（1000站）</h3>
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">现金流预测（1000站）</h3>
                 <table class="financial-table">
                     <thead>
                         <tr>
@@ -419,82 +419,82 @@
                             <td class="number">20.4</td>
                             <td class="number">-5.6</td>
                             <td class="number highlight">14.8</td>
-                            <td class="number" style="color: var(--primary-gold);">0.3</td>
+                            <td class="number" style="color: var(--wm-info);">0.3</td>
                         </tr>
                         <tr>
                             <td>第3年</td>
                             <td class="number">23.5</td>
                             <td class="number">-5.6</td>
                             <td class="number highlight">17.9</td>
-                            <td class="number" style="color: var(--primary-gold);">18.2</td>
+                            <td class="number" style="color: var(--wm-info);">18.2</td>
                         </tr>
                         <tr>
                             <td>第4年</td>
                             <td class="number">26.9</td>
                             <td class="number">-5.6</td>
                             <td class="number highlight">21.3</td>
-                            <td class="number" style="color: var(--primary-gold);">39.5</td>
+                            <td class="number" style="color: var(--wm-info);">39.5</td>
                         </tr>
                         <tr>
                             <td>第5年</td>
                             <td class="number">32.1</td>
                             <td class="number">-5.6</td>
                             <td class="number highlight">26.5</td>
-                            <td class="number" style="color: var(--primary-gold);">66.0</td>
+                            <td class="number" style="color: var(--wm-info);">66.0</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <!-- 现金流图 -->
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">现金流可视化分析</h3>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">现金流可视化分析</h3>
                 <div id="cashflowChart" class="chart-container"></div>
             </div>
         </section>
 
         <!-- 关键财务指标 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>关键财务指标</h2>
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">投资回报指标</h3>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-                        <div style="font-size: 14px; color: var(--paper-beige);">投资回收期</div>
-                        <div style="font-size: 36px; color: var(--primary-gold); font-weight: bold; margin-top: 5px;">4.5年</div>
+            <div class="wm-grid wm-grid-2">
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">投资回报指标</h3>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: var(--wm-text-secondary);">投资回收期</div>
+                        <div style="font-size: 36px; color: var(--wm-info); font-weight: bold; margin-top: 5px;">4.5年</div>
                     </div>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-                        <div style="font-size: 14px; color: var(--paper-beige);">净现值 (NPV@12%)</div>
-                        <div style="font-size: 36px; color: var(--primary-gold); font-weight: bold; margin-top: 5px;">12.4亿元</div>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: var(--wm-text-secondary);">净现值 (NPV@12%)</div>
+                        <div style="font-size: 36px; color: var(--wm-info); font-weight: bold; margin-top: 5px;">12.4亿元</div>
                     </div>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-                        <div style="font-size: 14px; color: var(--paper-beige);">内部收益率 (IRR)</div>
-                        <div style="font-size: 36px; color: var(--primary-gold); font-weight: bold; margin-top: 5px;">42.8%</div>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: var(--wm-text-secondary);">内部收益率 (IRR)</div>
+                        <div style="font-size: 36px; color: var(--wm-info); font-weight: bold; margin-top: 5px;">42.8%</div>
                     </div>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 10px;">
-                        <div style="font-size: 14px; color: var(--paper-beige);">投资回报率 (ROI/10年)</div>
-                        <div style="font-size: 36px; color: var(--primary-gold); font-weight: bold; margin-top: 5px;">435%</div>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 10px;">
+                        <div style="font-size: 14px; color: var(--wm-text-secondary);">投资回报率 (ROI/10年)</div>
+                        <div style="font-size: 36px; color: var(--wm-info); font-weight: bold; margin-top: 5px;">435%</div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">盈利能力指标</h3>
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">盈利能力指标</h3>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 20px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                            <div style="font-size: 16px; color: var(--paper-beige);">毛利率（第5年）</div>
-                            <div style="font-size: 28px; color: var(--primary-gold); font-weight: bold;">28.3%</div>
+                        <li style="padding: 20px 0; border-bottom: 1px solid rgba(59, 130, 246, 0.2);">
+                            <div style="font-size: 16px; color: var(--wm-text-secondary);">毛利率（第5年）</div>
+                            <div style="font-size: 28px; color: var(--wm-info); font-weight: bold;">28.3%</div>
                         </li>
-                        <li style="padding: 20px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                            <div style="font-size: 16px; color: var(--paper-beige);">净利率（第5年）</div>
-                            <div style="font-size: 28px; color: var(--primary-gold); font-weight: bold;">22.1%</div>
+                        <li style="padding: 20px 0; border-bottom: 1px solid rgba(59, 130, 246, 0.2);">
+                            <div style="font-size: 16px; color: var(--wm-text-secondary);">净利率（第5年）</div>
+                            <div style="font-size: 28px; color: var(--wm-info); font-weight: bold;">22.1%</div>
                         </li>
-                        <li style="padding: 20px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                            <div style="font-size: 16px; color: var(--paper-beige);">资产收益率 (ROA)</div>
-                            <div style="font-size: 28px; color: var(--primary-gold); font-weight: bold;">15.2%</div>
+                        <li style="padding: 20px 0; border-bottom: 1px solid rgba(59, 130, 246, 0.2);">
+                            <div style="font-size: 16px; color: var(--wm-text-secondary);">资产收益率 (ROA)</div>
+                            <div style="font-size: 28px; color: var(--wm-info); font-weight: bold;">15.2%</div>
                         </li>
                         <li style="padding: 20px 0;">
-                            <div style="font-size: 16px; color: var(--paper-beige);">净资产收益率 (ROE)</div>
-                            <div style="font-size: 28px; color: var(--primary-gold); font-weight: bold;">25.3%</div>
+                            <div style="font-size: 16px; color: var(--wm-text-secondary);">净资产收益率 (ROE)</div>
+                            <div style="font-size: 28px; color: var(--wm-info); font-weight: bold;">25.3%</div>
                         </li>
                     </ul>
                 </div>
@@ -502,58 +502,57 @@
         </section>
 
         <!-- 敏感性分析 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>敏感性分析</h2>
-            <div class="card">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">关键变量影响分析</h3>
-                <div class="grid grid-3">
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 15px;">充电量变动 ±20%</h4>
-                        <p style="color: var(--paper-beige); margin-bottom: 10px;"><strong>IRR范围：</strong></p>
-                        <div style="font-size: 24px; color: var(--primary-gold); font-weight: bold; margin-bottom: 15px;">35.6% - 50.2%</div>
-                        <p style="color: var(--paper-beige);"><strong>回收期：</strong>3.8年 - 5.2年</p>
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">关键变量影响分析</h3>
+                <div class="wm-grid wm-grid-3">
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 10px;">
+                        <h4 style="color: var(--wm-info); margin-bottom: 15px;">充电量变动 ±20%</h4>
+                        <p style="color: var(--wm-text-secondary); margin-bottom: 10px;"><strong>IRR范围：</strong></p>
+                        <div style="font-size: 24px; color: var(--wm-info); font-weight: bold; margin-bottom: 15px;">35.6% - 50.2%</div>
+                        <p style="color: var(--wm-text-secondary);"><strong>回收期：</strong>3.8年 - 5.2年</p>
                     </div>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 15px;">电价变动 ±20%</h4>
-                        <p style="color: var(--paper-beige); margin-bottom: 10px;"><strong>IRR范围：</strong></p>
-                        <div style="font-size: 24px; color: var(--primary-gold); font-weight: bold; margin-bottom: 15px;">38.1% - 47.5%</div>
-                        <p style="color: var(--paper-beige);"><strong>回收期：</strong>4.1年 - 5.0年</p>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 10px;">
+                        <h4 style="color: var(--wm-info); margin-bottom: 15px;">电价变动 ±20%</h4>
+                        <p style="color: var(--wm-text-secondary); margin-bottom: 10px;"><strong>IRR范围：</strong></p>
+                        <div style="font-size: 24px; color: var(--wm-info); font-weight: bold; margin-bottom: 15px;">38.1% - 47.5%</div>
+                        <p style="color: var(--wm-text-secondary);"><strong>回收期：</strong>4.1年 - 5.0年</p>
                     </div>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 25px; border-radius: 10px;">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 15px;">服务费变动 ±20%</h4>
-                        <p style="color: var(--paper-beige); margin-bottom: 10px;"><strong>IRR范围：</strong></p>
-                        <div style="font-size: 24px; color: var(--primary-gold); font-weight: bold; margin-bottom: 15px;">32.4% - 53.7%</div>
-                        <p style="color: var(--paper-beige);"><strong>回收期：</strong>3.5年 - 5.8年</p>
+                    <div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 10px;">
+                        <h4 style="color: var(--wm-info); margin-bottom: 15px;">服务费变动 ±20%</h4>
+                        <p style="color: var(--wm-text-secondary); margin-bottom: 10px;"><strong>IRR范围：</strong></p>
+                        <div style="font-size: 24px; color: var(--wm-info); font-weight: bold; margin-bottom: 15px;">32.4% - 53.7%</div>
+                        <p style="color: var(--wm-text-secondary);"><strong>回收期：</strong>3.5年 - 5.8年</p>
                     </div>
                 </div>
             </div>
 
             <!-- 敏感性分析图 -->
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">敏感性分析可视化</h3>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">敏感性分析可视化</h3>
                 <div id="sensitivityChart" class="chart-container"></div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+        <section class="wm-panel" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(59, 130, 246, 0.3);">
             <h2>需要详细财务模型？</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">联系我们获取完整的财务分析报告和投资测算模型</p>
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">联系我们获取完整的财务分析报告和投资测算模型</p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
-                <a href="商业计划书投资者版.html" class="btn btn-secondary">查看商业计划书</a>
+                <a href="../联系合作.html" class="wm-btn wm-btn-primary">联系合作</a>
+                <a href="商业计划书投资者版.html" class="wm-btn">查看商业计划书</a>
             </div>
         </section>
 
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 千站液冷超充项目 - 财务分析
             </p>
         </footer>
     </div>
-
-    <a href="../index.html" class="back-to-home">← 返回首页</a>
 
     <!-- 加载ECharts配置 -->
     <script src="js/echarts-config.js"></script>
@@ -588,7 +587,7 @@
             tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
             legend: { data: ['充电收入', '增值服务', '政府补贴'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
             xAxis: { type: 'category', data: ['第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
-            yAxis: { type: 'value', name: '金额（万元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            yAxis: { type: 'value', name: '金额（万元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } } },
             series: [
                 { name: '充电收入', type: 'bar', stack: 'total', data: [336, 504, 672, 840, 1008], itemStyle: { color: '#D4AF37' } },
                 { name: '增值服务', type: 'bar', stack: 'total', data: [42, 63, 84, 105, 126], itemStyle: { color: '#8B7355' } },
@@ -601,7 +600,7 @@
             title: { text: '1000站年总收入增长趋势', left: 'center' },
             tooltip: { trigger: 'axis', formatter: '{b}<br/>年总收入: {c}亿元' },
             xAxis: { type: 'category', data: ['第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
-            yAxis: { type: 'value', name: '金额（亿元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            yAxis: { type: 'value', name: '金额（亿元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } } },
             series: [{
                 name: '年总收入',
                 type: 'line',
@@ -609,7 +608,7 @@
                 itemStyle: { color: '#D4AF37' },
                 lineStyle: { width: 4 },
                 areaStyle: {
-                    color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{offset: 0, color: 'rgba(212, 175, 55, 0.3)'}, {offset: 1, color: 'rgba(212, 175, 55, 0.05)'}] }
+                    color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{offset: 0, color: 'rgba(59, 130, 246, 0.3)'}, {offset: 1, color: 'rgba(59, 130, 246, 0.05)'}] }
                 },
                 markPoint: { data: [{type: 'max', name: '最大值'}, {type: 'min', name: '最小值'}] }
             }]
@@ -621,7 +620,7 @@
             tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
             legend: { data: ['收入', '成本', '利润'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
             xAxis: { type: 'category', data: ['第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
-            yAxis: { type: 'value', name: '金额（万元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            yAxis: { type: 'value', name: '金额（万元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } } },
             series: [
                 { name: '收入', type: 'bar', data: [462, 609, 777, 945, 1134], itemStyle: { color: '#D4AF37' } },
                 { name: '成本', type: 'bar', data: [271, 405, 542, 676, 813], itemStyle: { color: '#8B7355' } },
@@ -634,7 +633,7 @@
             title: { text: '1000站总利润增长趋势', left: 'center' },
             tooltip: { trigger: 'axis', formatter: '{b}<br/>总利润: {c}亿元' },
             xAxis: { type: 'category', data: ['第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
-            yAxis: { type: 'value', name: '金额（亿元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            yAxis: { type: 'value', name: '金额（亿元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } } },
             series: [{
                 name: '总利润',
                 type: 'bar',
@@ -655,7 +654,7 @@
             tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
             legend: { data: ['经营现金流', '净现金流', '累计现金流'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
             xAxis: { type: 'category', data: ['第0年', '第1年', '第2年', '第3年', '第4年', '第5年'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
-            yAxis: { type: 'value', name: '金额（亿元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            yAxis: { type: 'value', name: '金额（亿元）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } } },
             series: [
                 { name: '经营现金流', type: 'bar', data: [0, 19.1, 20.4, 23.5, 26.9, 32.1], itemStyle: { color: '#D4AF37' } },
                 { name: '净现金流', type: 'bar', data: [-28, 13.5, 14.8, 17.9, 21.3, 26.5], itemStyle: { color: '#8B7355' } },
@@ -668,7 +667,7 @@
             title: { text: '敏感性分析 - IRR范围对比', left: 'center' },
             tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
             xAxis: { type: 'category', data: ['充电量变动', '电价变动', '服务费变动'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
-            yAxis: { type: 'value', name: 'IRR（%）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            yAxis: { type: 'value', name: 'IRR（%）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } } },
             series: [
                 { name: '最低IRR', type: 'bar', data: [35.6, 38.1, 32.4], itemStyle: { color: '#CD853F' } },
                 { name: '最高IRR', type: 'bar', data: [50.2, 47.5, 53.7], itemStyle: { color: '#D4AF37' } },

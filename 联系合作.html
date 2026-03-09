@@ -1,220 +1,322 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="玄金水墨主题.css">
-    <link rel="stylesheet" href="导航栏.css">
-    <script src="导航栏.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系合作 - KeyTrader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- SEO优化 -->
+    <title>联系合作 - KeyTrader | 资金项目贸易专业对接平台</title>
+    <meta name="description" content="联系KeyTrader开启商业合作。我们提供专业资金项目贸易对接服务，涵盖新能源基础设施、芯片分销、服务器算力等领域。">
+    <meta name="keywords" content="联系合作,商务合作,投资合作,推荐人,KeyTrader">
+    <meta name="author" content="KeyTrader">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.keytrader.com/联系合作.html">
+    <meta property="og:title" content="联系合作 - KeyTrader">
+    <meta property="og:description" content="联系KeyTrader开启商业合作">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.keytrader.com/联系合作.html">
+    <meta property="twitter:title" content="联系合作 - KeyTrader">
+    <meta property="twitter:description" content="联系KeyTrader开启商业合作">
+
+    <!-- World Monitor 主题 -->
+    <link rel="stylesheet" href="world-monitor-theme.css">
+
+    <style>
+        /* 页面特定样式 */
+        .contact-method {
+            padding: var(--wm-space-md);
+            border-bottom: 1px solid var(--wm-border);
+        }
+        .contact-method:last-child {
+            border-bottom: none;
+        }
+        .contact-details h4 {
+            font-size: 13px;
+            color: var(--wm-text-dim);
+            margin-bottom: var(--wm-space-xs);
+        }
+        .contact-details p {
+            font-size: 14px;
+            color: var(--wm-text);
+        }
+        .form-group {
+            margin-bottom: var(--wm-space-md);
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: var(--wm-space-xs);
+            font-size: 12px;
+            color: var(--wm-text-dim);
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--wm-space-sm) var(--wm-space-md);
+            background: var(--wm-input-bg);
+            border: 1px solid var(--wm-border);
+            border-radius: var(--wm-radius-sm);
+            color: var(--wm-text);
+            font-family: var(--wm-font-mono);
+            font-size: 12px;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--wm-info);
+            box-shadow: 0 0 0 2px var(--wm-overlay-light);
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .referrer-info {
+            display: flex;
+            gap: var(--wm-space-md);
+            padding: var(--wm-space-md);
+            background: var(--wm-overlay-light);
+            border: 1px solid var(--wm-border);
+            border-radius: var(--wm-radius-sm);
+            margin-bottom: var(--wm-space-md);
+        }
+        .hero-banner-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: var(--wm-radius-md);
+            margin-top: var(--wm-space-md);
+        }
+        .highlight-box {
+            background: var(--wm-overlay-light);
+            border: 1px solid var(--wm-border);
+            border-radius: var(--wm-radius-md);
+            padding: var(--wm-space-lg);
+            margin-bottom: var(--wm-space-lg);
+        }
+        .highlight-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--wm-accent);
+            margin-bottom: var(--wm-space-md);
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
-    <!-- 汉堡菜单按钮 -->
-    <button id="menuToggle" class="menu-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="sideNav">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+<body class="no-transition">
 
-    <!-- 侧边导航栏 -->
-    <nav id="sideNav" class="side-nav" aria-label="主导航">
-        <div class="side-nav-header">
-            <h2>导航菜单</h2>
-            <button id="closeNav" class="close-nav" aria-label="关闭导航">×</button>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="index.html#business">业务板块</a></li>
-            <li><a href="超充设备厂/index.html">液冷超充设备厂</a></li>
-            <li><a href="服务器组装厂/index.html">服务器组装厂</a></li>
-            <li><a href="联系合作.html">联系合作</a></li>
-        </ul>
-    </nav>
+    <!-- 主容器 -->
+    <div class="wm-container">
 
-    <!-- 遮罩层 -->
-    <div id="overlay" class="overlay"></div>
+        <!-- 头部 -->
+        <header class="wm-header">
+            <div class="wm-header-content">
+                <a href="index.html" class="wm-btn">← 返回首页</a>
+                <div style="font-size: 14px; color: var(--wm-text-dim);">联系合作</div>
+            </div>
+        </header>
 
-    <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html">← 返回首页</a>
-        </div>
-    </nav>
+        <!-- 主内容 -->
+        <main class="wm-main">
 
-    <div class="main-container">
-        <!-- 页面标题 -->
-        <div class="hero-banner fade-in" style="padding: 80px 0;">
-            <h1 style="font-size: 48px; margin-bottom: 20px;">联系合作</h1>
-            <!-- 横幅图片区域 -->
-            <img src="images/banners/contact.png" alt="联系合作 - 专业商务合作服务" class="hero-banner-image" loading="lazy">
-        </div>
+            <!-- 页面标题 -->
+            <section class="wm-panel">
+                <div class="wm-panel-header">
+                    <h1 class="wm-panel-title" style="font-size: 24px;">联系合作</h1>
+                    <p class="wm-panel-subtitle">开启您的商业合作之旅</p>
+                </div>
+                <!-- 横幅图片区域 -->
+                <img src="images/banners/contact.png" alt="联系合作 - 专业商务合作服务" class="hero-banner-image" loading="lazy">
+            </section>
 
-        <!-- 联系信息与表单 -->
-        <div class="contact-container fade-in">
-            <!-- 联系方式 -->
-            <div class="contact-info-card">
-                <h3>
-                    联系方式
-                </h3>
+            <!-- 联系信息与表单 -->
+            <div class="wm-grid wm-grid-2">
+                <!-- 联系方式 -->
+                <div class="wm-panel">
+                    <div class="wm-panel-header">
+                        <h2 class="wm-panel-title">联系方式</h2>
+                        <p class="wm-panel-subtitle">我们随时为您服务</p>
+                    </div>
 
-                <div class="contact-method">
-                    <div class="contact-details">
-                        <h4>邮箱</h4>
-                        <p>contact@keytrader.com</p>
+                    <div class="wm-card">
+                        <div class="contact-method">
+                            <div class="contact-details">
+                                <h4>邮箱</h4>
+                                <p>contact@keytrader.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-details">
+                                <h4>微信</h4>
+                                <p>KeyTrader_Official</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-details">
+                                <h4>网站</h4>
+                                <p>www.keytrader.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-details">
+                                <h4>地址</h4>
+                                <p>中国广东省深圳市</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 电话号码暂时隐藏，等待真实联系方式 -->
-                <!--
-                <div class="contact-method">
-                    <div class="contact-details">
-                        <h4>电话</h4>
-                        <p>+86 xxx xxxx xxxx</p>
+                <!-- 联系表单 -->
+                <div class="wm-panel">
+                    <div class="wm-panel-header">
+                        <h2 class="wm-panel-title">在线留言</h2>
+                        <p class="wm-panel-subtitle">我们会尽快回复您</p>
                     </div>
-                </div>
-                -->
 
-                <div class="contact-method">
-                    <div class="contact-details">
-                        <h4>微信</h4>
-                        <p>KeyTrader_Official</p>
-                    </div>
-                </div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">姓名 *</label>
+                            <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+                        </div>
 
-                <div class="contact-method">
-                    <div class="contact-details">
-                        <h4>网站</h4>
-                        <p>www.keytrader.com</p>
-                    </div>
-                </div>
+                        <div class="form-group">
+                            <label for="email">邮箱 *</label>
+                            <input type="email" id="email" name="email" placeholder="请输入您的邮箱地址" required>
+                        </div>
 
-                <div class="contact-method">
-                    <div class="contact-details">
-                        <h4>地址</h4>
-                        <p>中国广东省深圳市</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="phone">联系电话</label>
+                            <input type="tel" id="phone" name="phone" placeholder="请输入您的手机号码">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">公司名称</label>
+                            <input type="text" id="company" name="company" placeholder="请输入您的公司名称">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="business_type">业务类型 *</label>
+                            <select id="business_type" name="business_type" required>
+                                <option value="">请选择业务类型</option>
+                                <option value="charging">超充基础设施</option>
+                                <option value="chip">芯片分销</option>
+                                <option value="server">服务器算力</option>
+                                <option value="referral">推荐人合作</option>
+                                <option value="investment">投资合作</option>
+                                <option value="other">其他合作</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">留言内容 *</label>
+                            <textarea id="message" name="message" placeholder="请描述您的合作意向或需求..." required></textarea>
+                        </div>
+
+                        <!-- 推荐人信息（隐藏） -->
+                        <input type="hidden" name="referrer" id="referrerInput">
+
+                        <!-- 推荐人信息显示 -->
+                        <div id="referrerInfoDisplay" class="referrer-info" style="display: none;">
+                            <div>
+                                <div style="font-size: 11px; color: var(--wm-text-dim); margin-bottom: 5px; font-weight: 600;">当前推荐人</div>
+                                <div id="referrerCodeDisplay" style="color: var(--wm-text);"></div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="wm-btn wm-btn-primary" style="width: 100%; margin-top: var(--wm-space-md);">提交留言</button>
+                    </form>
                 </div>
             </div>
 
-            <!-- 联系表单 -->
-            <div class="form-container">
-                <h3 style="margin-bottom: 30px; color: var(--primary-gold);">在线留言</h3>
-
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">姓名 *</label>
-                        <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">邮箱 *</label>
-                        <input type="email" id="email" name="email" placeholder="请输入您的邮箱地址" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">联系电话</label>
-                        <input type="tel" id="phone" name="phone" placeholder="请输入您的手机号码">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="company">公司名称</label>
-                        <input type="text" id="company" name="company" placeholder="请输入您的公司名称">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="business_type">业务类型 *</label>
-                        <select id="business_type" name="business_type" required>
-                            <option value="">请选择业务类型</option>
-                            <option value="charging">超充基础设施</option>
-                            <option value="chip">芯片分销</option>
-                            <option value="server">服务器算力</option>
-                            <option value="referral">推荐人合作</option>
-                            <option value="investment">投资合作</option>
-                            <option value="other">其他合作</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">留言内容 *</label>
-                        <textarea id="message" name="message" placeholder="请描述您的合作意向或需求..." required></textarea>
-                    </div>
-
-                    <!-- 推荐人信息（隐藏） -->
-                    <input type="hidden" name="referrer" id="referrerInput">
-
-                    <!-- 推荐人信息显示 -->
-                    <div id="referrerInfoDisplay" class="referrer-info" style="display: none;">
-                        <div>
-                            <div style="color: var(--primary-gold); font-weight: 600; margin-bottom: 5px;">当前推荐人</div>
-                            <div id="referrerCodeDisplay" style="color: var(--paper-beige);"></div>
+            <!-- 合作说明 -->
+            <section class="wm-panel">
+                <div class="wm-panel-header">
+                    <h2 class="wm-panel-title">合作说明</h2>
+                    <p class="wm-panel-subtitle">多种合作方式，共创价值</p>
+                </div>
+                <div class="wm-grid wm-grid-3">
+                    <div class="wm-card">
+                        <h3 class="wm-card-title">企业合作</h3>
+                        <div class="wm-card-content">
+                            <p>欢迎各类企业与我们建立合作关系，共同开拓市场，实现互利共赢</p>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">提交留言</button>
-                </form>
-            </div>
-        </div>
+                    <div class="wm-card">
+                        <h3 class="wm-card-title">投资合作</h3>
+                        <div class="wm-card-content">
+                            <p>为投资者提供优质项目资源，专业的项目评估和风险管理服务</p>
+                        </div>
+                    </div>
 
-        <!-- 合作说明 -->
-        <section class="cooperation-info fade-in">
-            <h2 style="text-align: center; margin-bottom: 40px;">合作说明</h2>
-
-            <div class="grid grid-3">
-                <div class="card">
-                    <h3>企业合作</h3>
-                    <p>欢迎各类企业与我们建立合作关系，共同开拓市场，实现互利共赢</p>
+                    <div class="wm-card">
+                        <h3 class="wm-card-title">推荐人合作</h3>
+                        <div class="wm-card-content">
+                            <p>欢迎推荐人推荐优质项目和合作伙伴，提供公正的撮合费用管理</p>
+                        </div>
+                    </div>
                 </div>
+            </section>
 
-                <div class="card">
-                    <h3>投资合作</h3>
-                    <p>为投资者提供优质项目资源，专业的项目评估和风险管理服务</p>
+            <!-- 常见问题 -->
+            <section class="wm-panel">
+                <div class="wm-panel-header">
+                    <h2 class="wm-panel-title">常见问题</h2>
+                    <p class="wm-panel-subtitle">快速了解合作流程</p>
                 </div>
+                <div class="wm-grid wm-grid-2">
+                    <div class="wm-card">
+                        <h3 class="wm-card-title">Q: 如何成为合作伙伴？</h3>
+                        <div class="wm-card-content">
+                            <p>A: 请通过上方的联系表单或直接联系我们，我们会尽快与您联系并安排专属客户经理对接。</p>
+                        </div>
+                    </div>
 
-                <div class="card">
-                    <h3>推荐人合作</h3>
-                    <p>欢迎推荐人推荐优质项目和合作伙伴，提供公正的撮合费用管理</p>
+                    <div class="wm-card">
+                        <h3 class="wm-card-title">Q: 推荐人如何获得撮合费用？</h3>
+                        <div class="wm-card-content">
+                            <p>A: 推荐人通过推荐链接推荐项目，项目成功合作后，我们会根据协议约定公正地结算撮合费用。</p>
+                        </div>
+                    </div>
+
+                    <div class="wm-card">
+                        <h3 class="wm-card-title">Q: 合作流程是怎样的？</h3>
+                        <div class="wm-card-content">
+                            <p>A: 初步接洽 → 需求了解 → 方案制定 → 协议签署 → 项目实施 → 长期合作</p>
+                        </div>
+                    </div>
+
+                    <div class="wm-card">
+                        <h3 class="wm-card-title">Q: 多久能得到回复？</h3>
+                        <div class="wm-card-content">
+                            <p>A: 我们会在收到您的留言后24小时内回复，紧急事项请直接电话联系。</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 常见问题 -->
-        <section class="fade-in" style="margin: 60px 0;">
-            <h2>常见问题</h2>
+        </main>
 
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3>Q: 如何成为合作伙伴？</h3>
-                    <p>A: 请通过上方的联系表单或直接联系我们，我们会尽快与您联系并安排专属客户经理对接。</p>
-                </div>
-
-                <div class="card">
-                    <h3>Q: 推荐人如何获得撮合费用？</h3>
-                    <p>A: 推荐人通过推荐链接推荐项目，项目成功合作后，我们会根据协议约定公正地结算撮合费用。</p>
-                </div>
-
-                <div class="card">
-                    <h3>Q: 合作流程是怎样的？</h3>
-                    <p>A: 初步接洽 → 需求了解 → 方案制定 → 协议签署 → 项目实施 → 长期合作</p>
-                </div>
-
-                <div class="card">
-                    <h3>Q: 多久能得到回复？</h3>
-                    <p>A: 我们会在收到您的留言后24小时内回复，紧急事项请直接电话联系。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 页脚信息 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        <!-- 页脚 -->
+        <footer style="text-align: center; padding: 32px 16px; color: var(--wm-text-dim); border-top: 1px solid var(--wm-border); margin-top: 32px;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
-            <p style="font-size: 14px; margin-top: 10px;">
+            <p style="font-size: 11px; margin-top: 8px;">
                 资金·项目·贸易专业对接平台 | 期待与您合作
             </p>
         </footer>
-    </div>
 
-    <!-- 返回首页按钮 -->
-    <a href="index.html" class="back-to-home">← 返回首页</a>
+    </div>
 
     <script src="js/推荐人系统.js"></script>
     <script src="js/联系表单处理.js"></script>
@@ -232,24 +334,6 @@
             }
         })();
 
-        // 添加滚动动画
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -262,6 +346,11 @@
                     });
                 }
             });
+        });
+
+        // 移除初始加载时的过渡动画
+        window.addEventListener('load', () => {
+            document.body.classList.remove('no-transition');
         });
     </script>
 </body>

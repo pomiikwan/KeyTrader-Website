@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>财务模型与投资分析 - 服务器组装厂项目</title>
@@ -15,8 +14,8 @@
             font-size: 14px;
         }
         .strategy-table th {
-            background: var(--primary-gold);
-            color: var(--ink-black);
+            background: var(--wm-info);
+            color: var(--wm-bg);
             padding: 10px;
             text-align: right;
             font-weight: 600;
@@ -26,7 +25,7 @@
         }
         .strategy-table td {
             padding: 10px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
             text-align: right;
         }
         .strategy-table td:first-child {
@@ -34,9 +33,9 @@
             font-weight: 600;
         }
         .strategy-table tr:hover {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(59, 130, 246, 0.1);
         }
-        .positive { color: var(--primary-gold); }
+        .positive { color: var(--wm-info); }
         .negative { color: #ff6b6b; }
         .chart-container {
             width: 100%;
@@ -47,8 +46,8 @@
             padding: 20px;
         }
         .kpi-box {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%);
-            border: 2px solid var(--primary-gold);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 2px solid var(--wm-info);
             border-radius: 15px;
             padding: 30px;
             margin: 30px 0;
@@ -68,35 +67,34 @@
         .kpi-value {
             font-size: 36px;
             font-weight: bold;
-            color: var(--primary-gold);
+            color: var(--wm-info);
             margin: 15px 0;
         }
         .kpi-label {
             font-size: 14px;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
         }
     </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
+<body class="no-transition">
     <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html">← 返回服务器组装厂</a>
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
+    <main class="wm-main">
         <!-- 页面标题 -->
-        <div class="hero-banner fade-in" style="padding: 60px 0;">
+        <div class="wm-panel" style="padding: 60px 0;">
             <h1 style="font-size: 42px; margin-bottom: 20px;">财务模型与投资分析</h1>
-            <p style="font-size: 18px; color: var(--paper-beige); max-width: 800px; margin: 0 auto;">
-                Financial Model & Investment Analysis
-            </p>
-            <img src="../images/banners/server-factory-hero.png" alt="服务器组装厂" class="hero-banner-image" loading="lazy">
+            <img src="../images/banners/server-factory-hero.png" alt="服务器组装厂 - AI算力设备制造中心" class="hero-banner-image" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: var(--wm-radius-md); margin-top: var(--wm-space-md);" loading="eager">
         </div>
 
         <!-- 核心财务亮点 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>核心财务亮点</h2>
             <div class="kpi-box">
                 <div class="highlight-title" style="text-align: center; font-size: 24px; margin-bottom: 20px;">
@@ -124,12 +122,12 @@
         </section>
 
         <!-- 财务假设 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>财务假设与参数设定</h2>
-            <div class="card">
-                <div class="grid grid-2">
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-2">
                     <div>
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">收入增长假设</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">收入增长假设</h3>
                         <table class="strategy-table">
                             <thead>
                                 <tr>
@@ -168,7 +166,7 @@
                         </table>
                     </div>
                     <div>
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">毛利率假设</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">毛利率假设</h3>
                         <table class="strategy-table">
                             <thead>
                                 <tr>
@@ -204,7 +202,7 @@
                 </div>
 
                 <div style="margin-top: 30px;">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 15px;">费用率假设</h3>
+                    <h3 style="color: var(--wm-info); margin-bottom: 15px;">费用率假设</h3>
                     <table class="strategy-table">
                         <thead>
                             <tr>
@@ -248,12 +246,12 @@
         </section>
 
         <!-- 三大财务报表预测 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>三大财务报表预测</h2>
-            <div class="card">
-                <div class="grid grid-2">
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-2">
                     <div>
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">利润表预测（单位：万元）</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">利润表预测（单位：万元）</h3>
                         <table class="strategy-table">
                             <thead>
                                 <tr>
@@ -276,7 +274,7 @@
                                     <td>49,600</td>
                                     <td>87,000</td>
                                 </tr>
-                                <tr style="background: rgba(212, 175, 55, 0.1);">
+                                <tr style="background: rgba(59, 130, 246, 0.1);">
                                     <td><strong>毛利</strong></td>
                                     <td><strong>7,500</strong></td>
                                     <td><strong>30,400</strong></td>
@@ -288,7 +286,7 @@
                                     <td class="positive">6,400</td>
                                     <td class="positive">25,500</td>
                                 </tr>
-                                <tr style="background: rgba(212, 175, 55, 0.1);">
+                                <tr style="background: rgba(59, 130, 246, 0.1);">
                                     <td><strong>净利润</strong></td>
                                     <td class="negative"><strong>-1,650</strong></td>
                                     <td class="positive"><strong>5,695</strong></td>
@@ -298,7 +296,7 @@
                         </table>
                     </div>
                     <div>
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">关键财务指标</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">关键财务指标</h3>
                         <table class="strategy-table">
                             <thead>
                                 <tr>
@@ -346,26 +344,26 @@
         </section>
 
         <!-- 盈亏平衡分析 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>盈亏平衡分析</h2>
-            <div class="card">
-                <div class="kpi-box" style="background: rgba(212, 175, 55, 0.15);">
+            <div class="wm-card">
+                <div class="kpi-box" style="background: rgba(59, 130, 246, 0.15);">
                     <div class="highlight-title">关键里程碑</div>
-                    <div class="grid grid-3" style="margin-top: 20px;">
+                    <div class="wm-grid wm-grid-3" style="margin-top: 20px;">
                         <div style="text-align: center; padding: 20px; background: rgba(26, 26, 26, 0.6); border-radius: 10px;">
-                            <div style="font-size: 28px; font-weight: bold; color: var(--primary-gold); margin-bottom: 10px;">第1年第8个月</div>
+                            <div style="font-size: 28px; font-weight: bold; color: var(--wm-info); margin-bottom: 10px;">第1年第8个月</div>
                             <div><strong>单月盈亏平衡</strong></div>
-                            <p style="font-size: 14px; margin-top: 10px; color: var(--paper-beige);">较原计划提前16个月</p>
+                            <p style="font-size: 14px; margin-top: 10px; color: var(--wm-text-secondary);">较原计划提前16个月</p>
                         </div>
                         <div style="text-align: center; padding: 20px; background: rgba(26, 26, 26, 0.6); border-radius: 10px;">
-                            <div style="font-size: 28px; font-weight: bold; color: var(--primary-gold); margin-bottom: 10px;">第1年第11个月</div>
+                            <div style="font-size: 28px; font-weight: bold; color: var(--wm-info); margin-bottom: 10px;">第1年第11个月</div>
                             <div><strong>累计小幅亏损</strong></div>
-                            <p style="font-size: 14px; margin-top: 10px; color: var(--paper-beige);">仅-1,650万元，远优于原计划</p>
+                            <p style="font-size: 14px; margin-top: 10px; color: var(--wm-text-secondary);">仅-1,650万元，远优于原计划</p>
                         </div>
-                        <div style="text-align: center; padding: 20px; background: rgba(26, 26, 26, 0.6); border-radius: 10px; border: 2px solid var(--primary-gold);">
-                            <div style="font-size: 28px; font-weight: bold; color: var(--primary-gold); margin-bottom: 10px;">第2年第3个月</div>
+                        <div style="text-align: center; padding: 20px; background: rgba(26, 26, 26, 0.6); border-radius: 10px; border: 2px solid var(--wm-info);">
+                            <div style="font-size: 28px; font-weight: bold; color: var(--wm-info); margin-bottom: 10px;">第2年第3个月</div>
                             <div><strong>✓ 完成投资回收</strong></div>
-                            <p style="font-size: 14px; margin-top: 10px; color: var(--paper-beige);">2年回报期目标完美达成</p>
+                            <p style="font-size: 14px; margin-top: 10px; color: var(--wm-text-secondary);">2年回报期目标完美达成</p>
                         </div>
                     </div>
                 </div>
@@ -378,9 +376,9 @@
         </section>
 
         <!-- NPV与IRR分析 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>NPV与IRR分析</h2>
-            <div class="card">
+            <div class="wm-card">
                 <div class="kpi-box">
                     <div class="highlight-title">投资回报分析（优化后 vs 优化前）</div>
                     <table class="strategy-table">
@@ -435,12 +433,12 @@
         </section>
 
         <!-- 融资结构与资金使用 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>融资结构与资金使用计划</h2>
-            <div class="card">
-                <div class="grid grid-2">
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-2">
                     <div>
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">初始融资结构（2亿元）</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">初始融资结构（2亿元）</h3>
                         <table class="strategy-table">
                             <thead>
                                 <tr>
@@ -470,7 +468,7 @@
                                     <td>5,000</td>
                                     <td>25%</td>
                                 </tr>
-                                <tr style="background: rgba(212, 175, 55, 0.1);">
+                                <tr style="background: rgba(59, 130, 246, 0.1);">
                                     <td><strong>合计</strong></td>
                                     <td><strong>20,000</strong></td>
                                     <td><strong>100%</strong></td>
@@ -479,32 +477,32 @@
                         </table>
                     </div>
                     <div>
-                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">资金使用明细（2亿元）</h3>
+                        <h3 style="color: var(--wm-info); margin-bottom: 15px;">资金使用明细（2亿元）</h3>
                         <div style="margin-top: 30px;">
                             <div class="chart-container" id="fundUsageChart" style="height: 350px;"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="highlight-box" style="margin-top: 30px;">
+                <div class="wm-card" style="margin-top: 30px;">
                     <div class="highlight-title">分阶段融资计划</div>
-                    <div class="grid grid-3" style="margin-top: 20px;">
-                        <div style="padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                            <div style="font-weight: bold; color: var(--primary-gold); margin-bottom: 10px;">A轮融资（第2年末）</div>
+                    <div class="wm-grid wm-grid-3" style="margin-top: 20px;">
+                        <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                            <div style="font-weight: bold; color: var(--wm-info); margin-bottom: 10px;">A轮融资（第2年末）</div>
                             <p style="font-size: 14px; line-height: 1.8;">
                                 <strong>目标：</strong>1.7亿元<br>
                                 <strong>用途：</strong>产能快速扩充、光模块制造设备投资
                             </p>
                         </div>
-                        <div style="padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                            <div style="font-weight: bold; color: var(--primary-gold); margin-bottom: 10px;">B轮融资（第3年末）</div>
+                        <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                            <div style="font-weight: bold; color: var(--wm-info); margin-bottom: 10px;">B轮融资（第3年末）</div>
                             <p style="font-size: 14px; line-height: 1.8;">
                                 <strong>目标：</strong>4.6亿元<br>
                                 <strong>用途：</strong>产能规模化扩充、HDR板激光钻孔设备
                             </p>
                         </div>
-                        <div style="padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                            <div style="font-weight: bold; color: var(--primary-gold); margin-bottom: 10px;">IPO准备（第3-5年）</div>
+                        <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                            <div style="font-weight: bold; color: var(--wm-info); margin-bottom: 10px;">IPO准备（第3-5年）</div>
                             <p style="font-size: 14px; line-height: 1.8;">
                                 <strong>目标：</strong>独立上市<br>
                                 <strong>预期回报：</strong>10x+
@@ -516,9 +514,9 @@
         </section>
 
         <!-- 敏感性分析 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>敏感性分析与压力测试</h2>
-            <div class="card">
+            <div class="wm-card">
                 <table class="strategy-table">
                     <thead>
                         <tr>
@@ -561,16 +559,16 @@
                     </tbody>
                 </table>
 
-                <div class="highlight-box" style="margin-top: 30px;">
+                <div class="wm-card" style="margin-top: 30px;">
                     <div class="highlight-title">结论：即使在悲观场景下，财务模型仍保持较强抗风险能力，投资回收期仍可控制在2-3年内。</div>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="cta-section fade-in">
+        <section class="wm-panel">
             <h2>准备好了解更多细节？</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
                 查看完整的市场格局分析和风险管控体系
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
@@ -580,7 +578,8 @@
         </section>
 
         <!-- 页脚信息 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 服务器组装厂项目 - 财务模型与投资分析
@@ -589,8 +588,6 @@
     </div>
 
     <!-- 返回按钮 -->
-    <a href="index.html" class="back-to-home">← 返回服务器组装厂</a>
-
     <!-- 引入ECharts配置 -->
     <script src="js/echarts-config.js"></script>
     <script>
@@ -623,7 +620,7 @@
                         name: '营业收入',
                         type: 'bar',
                         data: [25000, 80000, 150000, 250000, 400000],
-                        itemStyle: { color: 'rgba(212, 175, 55, 0.6)' }
+                        itemStyle: { color: 'rgba(59, 130, 246, 0.6)' }
                     },
                     {
                         name: '毛利',
@@ -678,7 +675,7 @@
                             x: 0, y: 0, x2: 0, y2: 1,
                             colorStops: [
                                 {offset: 0, color: 'rgba(255, 107, 107, 0.3)'},
-                                {offset: 0.57, color: 'rgba(212, 175, 55, 0.1)'},
+                                {offset: 0.57, color: 'rgba(59, 130, 246, 0.1)'},
                                 {offset: 1, color: 'rgba(103, 224, 227, 0.3)'}
                             ]
                         }
@@ -723,7 +720,7 @@
                         name: '净现金流',
                         type: 'bar',
                         data: [-20000, 1960, 1978, 20529, 51439, 82832],
-                        itemStyle: { color: 'rgba(212, 175, 55, 0.6)' }
+                        itemStyle: { color: 'rgba(59, 130, 246, 0.6)' }
                     },
                     {
                         name: '折现值',

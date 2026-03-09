@@ -138,6 +138,35 @@ class ChinaMapController {
     }
 
     /**
+     * 生成热力图渐变色阶
+     * @param {string} startColor - 起始颜色
+     * @param {string} endColor - 结束颜色
+     * @returns {string[]} 5级渐变色数组
+     */
+    generateHeatmapColors(startColor, endColor) {
+        // 简单的颜色插值（使用预设的深色渐变）
+        const colorGradients = {
+            '#E3F2FD': ['#0d1a2b', '#1a3a5c', '#2a5a8c', '#3a7abc', '#4a9adc'], // 蓝色系
+            '#FFF8E1': ['#1a180d', '#3a3020', '#5a4835', '#7a604a', '#9a785f'], // 黄色系
+            '#FFF3E0': ['#1a150d', '#3a2a1a', '#5a3f2a', '#7a543a', '#9a694a'], // 橙色系
+            '#F3E5F5': ['#1a0d1a', '#3a1a3a', '#5a2a5a', '#7a3a7a', '#9a4a9a'], // 紫色系
+            '#E0F7FA': ['#0d1a1a', '#1a3a3a', '#2a5a5a', '#3a7a7a', '#4a9a9a'], // 青色系
+            '#E8F5E9': ['#0d1a0d', '#1a3a1a', '#2a5a2a', '#3a7a3a', '#4a9a4a'], // 绿色系
+            '#FFEBEE': ['#1a0d0d', '#3a1a1a', '#5a2a2a', '#7a3a3a', '#9a4a4a']  // 红色系
+        };
+
+        // 根据起始颜色返回对应的渐变色阶
+        for (const [key, value] of Object.entries(colorGradients)) {
+            if (startColor.includes(key)) {
+                return value;
+            }
+        }
+
+        // 默认返回绿色系渐变
+        return ['#0d1a0d', '#1a3a1a', '#2a5a2a', '#3a7a3a', '#4a9a4a'];
+    }
+
+    /**
      * 渲染地图
      */
     renderMap() {
@@ -149,6 +178,9 @@ class ChinaMapController {
 
         // 保存当前维度引用，用于formatter
         const self = this;
+
+        // 根据维度生成渐变颜色
+        const dimensionColors = this.generateHeatmapColors(dimensionInfo.colorStart, dimensionInfo.colorEnd);
 
         const option = {
             backgroundColor: 'transparent',
@@ -181,7 +213,7 @@ class ChinaMapController {
                 realtime: false,
                 calculable: true,
                 inRange: {
-                    color: ['#0a2018', '#1a4030', '#2a5a40', '#3a7a50', '#4a9a60']
+                    color: dimensionColors
                 },
                 textStyle: {
                     color: '#888'

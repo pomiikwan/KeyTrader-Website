@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>千站液冷超充项目 - 智能导航中心</title>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
+</head>
+<body class="no-transition">
+    <!-- 顶部导航 -->
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
+        </div>
+    </header>
+
+    <main class="wm-main">
+        <!-- 页面标题 -->
+        <div class="wm-panel" style="padding: 80px 0;">
+            <h1 style="font-size: 48px; margin-bottom: 20px;">千站液冷超充项目</h1>
+            <p style="font-size: 20px; color: var(--wm-text-secondary); max-width: 900px; margin: 0 auto;">
+                Thousand Station Liquid Cooling Super Charging Project
+            </p>
+            <p style="font-size: 16px; color: var(--wm-text-secondary); margin-top: 30px; opacity: 0.8;">
+                智能导航中心 - 选择您要查看的模块
+            </p>
+        </div>
+
+        <!-- 导航卡片网格 -->
+        <section class="wm-panel">
+            <div class="wm-grid wm-grid-auto">
+
+                <!-- 项目摘要 -->
+                <a href="项目摘要.html" class="wm-card">
+                    <h3 class="wm-card-title">项目摘要</h3>
+                    <p class="wm-card-content">项目概述、使用说明和开发文档</p>
+                    <ul class="wm-card-content">
+                        <li>项目背景介绍</li>
+                        <li>功能使用指南</li>
+                        <li>技术实现说明</li>
+                        <li>常见问题解答</li>
+                    </ul>
+                    <div class="wm-btn" style="margin-top: auto;">
+                        项目说明 →
+                    </div>
+                </a>
+
+                <!-- 项目实施计划 -->
+                <a href="项目实施计划.html" class="wm-card">
+                    <h3 class="wm-card-title">项目实施计划</h3>
+                    <p class="wm-card-content">超充站效果图、技术图片和项目实施规划</p>
+                    <ul class="wm-card-content">
+                        <li>超充站设计效果图</li>
+                        <li>技术设备图片</li>
+                        <li>场地规划图</li>
+                        <li>项目进展照片</li>
+                    </ul>
+                    <div class="wm-btn" style="margin-top: auto;">
+                        查看详情 →
+                    </div>
+                </a>
+
+                <!-- 系统架构图 -->
+                <a href="系统架构图.html" class="wm-card">
+                    <h3 class="wm-card-title">核心竞争定位</h3>
+                    <p class="wm-card-content">技术架构和核心竞争优势展示</p>
+                    <ul class="wm-card-content">
+                        <li>三层系统架构</li>
+                        <li>液冷技术方案</li>
+                        <li>智能化运维系统</li>
+                        <li>技术优势说明</li>
+                    </ul>
+                    <div class="wm-btn" style="margin-top: auto;">
+                        技术架构 →
+                    </div>
+                </a>
+
+                <!-- 财务分析 -->
+                <a href="财务图表.html" class="wm-card">
+                    <h3 class="wm-card-title">财务分析</h3>
+                    <p class="wm-card-content">专业财务分析，现金流量和投资回报分析</p>
+                    <ul class="wm-card-content">
+                        <li>现金流预测分析</li>
+                        <li>IRR敏感性分析</li>
+                        <li>投资回收期计算</li>
+                        <li>盈利能力评估</li>
+                    </ul>
+                    <div class="wm-btn" style="margin-top: auto;">
+                        财务分析 →
+                    </div>
+                </a>
+
+                <!-- 商业计划书 -->
+                <a href="商业计划书投资者版.html" class="wm-card">
+                    <h3 class="wm-card-title">官方商业计划书</h3>
+                    <p class="wm-card-content">完整项目展示，包含市场分析、技术方案、财务预测</p>
+                    <ul class="wm-card-content">
+                        <li>市场机遇和竞争分析</li>
+                        <li>技术架构和优势说明</li>
+                        <li>详细的财务模型</li>
+                        <li>风险分析和应对策略</li>
+                    </ul>
+                    <div class="wm-btn" style="margin-top: auto;">
+                        查看计划书 →
+                    </div>
+                </a>
+
+                <!-- 交互式计算器 -->
+                <a href="交互式计算器.html" class="wm-card">
+                    <h3 class="wm-card-title">交互式计算器</h3>
+                    <p class="wm-card-content">实时调整参数，查看财务分析结果</p>
+                    <ul class="wm-card-content">
+                        <li>投资成本计算</li>
+                        <li>收入预测分析</li>
+                        <li>ROI实时计算</li>
+                        <li>敏感性分析工具</li>
+                    </ul>
+                    <div class="wm-btn" style="margin-top: auto;">
+                        开始计算 →
+                    </div>
+                </a>
+
+                <!-- 市场分析 -->
+                <a href="市场图表.html" class="wm-card">
+                    <h3 class="wm-card-title">市场分析</h3>
+                    <p class="wm-card-content">电动车市场趋势和充电基础设施发展分析</p>
+                    <ul class="wm-card-content">
+                        <li>电动车增长趋势</li>
+                        <li>充电基础设施需求</li>
+                        <li>竞争格局分析</li>
+                        <li>政策支持评估</li>
+                    </ul>
+                    <div class="wm-btn" style="margin-top: auto;">
+                        市场分析 →
+                    </div>
+                </a>
+
+                <!-- 行业动态新闻 -->
+                <a href="行业动态新闻.html" class="wm-card">
+                    <h3 class="wm-card-title">行业动态新闻</h3>
+                    <p class="wm-card-content">实时监控新能源汽车行业政策、技术、市场和竞争对手动态</p>
+                    <ul class="wm-card-content">
+                        <li>政策法规实时更新</li>
+                        <li>技术发展趋势跟踪</li>
+                        <li>市场竞争格局分析</li>
+                        <li>竞争对手动态监控</li>
+                    </ul>
+                    <div class="wm-btn" style="margin-top: auto;">
+                        查看资讯 →
+                    </div>
+                </a>
+
+                <!-- 图表中心 -->
+                <a href="图表中心.html" class="wm-card">
+                    <h3 class="wm-card-title">图表中心</h3>
+                    <p class="wm-card-content">集中展示所有数据可视化图表</p>
+                    <ul class="wm-card-content">
+                        <li>财务数据图表</li>
+                        <li>市场趋势图表</li>
+                        <li>技术参数图表</li>
+                        <li>综合数据分析</li>
+                    </ul>
+                    <div class="wm-btn" style="margin-top: auto;">
+                        查看图表 →
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- CTA 区域 -->
+        <section class="wm-panel" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(59, 130, 246, 0.3);">
+            <h2>准备好了解更多了吗？</h2>
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
+                点击上方任一模块，深入了解千站液冷超充项目的详细信息
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="项目摘要.html" class="wm-btn wm-btn-primary">从项目摘要开始</a>
+                <a href="../联系合作.html" class="wm-btn">联系合作</a>
+            </div>
+        </section>
+
+        <!-- 页脚信息 -->
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+            <p style="font-size: 14px; margin-top: 10px;">
+                千站液冷超充项目 - 专业的新能源充电基础设施解决方案
+            </p>
+        </footer>
+    </div>
+
+    <!-- 返回首页按钮 -->
+    <script>
+        // 添加滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

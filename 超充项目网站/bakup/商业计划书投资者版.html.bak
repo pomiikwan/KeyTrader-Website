@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>官方商业计划书 - 千站液冷超充项目</title>
+    <style>
+        .toc-section {
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .toc-item {
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: rgba(59, 130, 246, 0.05);
+            border-left: 3px solid var(--wm-info);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .toc-item:hover {
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateX(10px);
+        }
+        .toc-item-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        .toc-item-title {
+            flex: 1;
+            color: var(--wm-text-secondary);
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .toc-item-arrow {
+            color: var(--wm-info);
+            font-size: 20px;
+        }
+        .chapter-section {
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .chapter-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--wm-info) 0%, var(--primary-gold-light) 100%);
+            color: var(--wm-bg);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .pdf-preview-container {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            text-align: center;
+        }
+        .pdf-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
+</head>
+<body class="no-transition">
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
+        </div>
+    </header>
+
+    <main class="wm-main">
+        <div class="wm-panel">
+            <h1 style="font-size: 48px; margin-bottom: 20px;">官方商业计划书</h1>
+            <p style="font-size: 20px; color: var(--wm-text-secondary); max-width: 900px; margin: 0 auto;">Business Plan</p>
+        </div>
+
+        <!-- PDF下载区域 -->
+        <section class="wm-panel">
+            <div class="pdf-preview-container">
+                <h2 style="color: var(--wm-info); margin-bottom: 20px;">获取完整商业计划书PDF</h2>
+                <p style="color: var(--wm-text-secondary); font-size: 18px; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    完整的商业计划书包含详细的市场分析、技术方案、财务模型、风险评估等内容，共计80+页专业分析报告
+                </p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="../联系合作.html" class="btn btn-primary" style="font-size: 18px; padding: 15px 40px;">
+                        联系获取PDF版
+                    </a>
+                    <a href="财务图表.html" class="btn btn-secondary" style="font-size: 18px; padding: 15px 40px;">
+                        查看财务分析
+                    </a>
+                </div>
+                <div style="margin-top: 30px; padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                    <p style="color: var(--wm-text-secondary); font-size: 16px;">
+                        <strong style="color: var(--wm-info);">PDF内容包括：</strong>
+                        项目概述 • 市场分析 • 技术方案 • 商业模式 • 财务预测 • 风险分析 • 融资方案 • 投资回报
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 目录导航 -->
+        <section class="wm-panel">
+            <h2>商业计划书目录</h2>
+            <div class="toc-section">
+                <a href="#chapter1" class="toc-item">
+                    <span style="display: flex; align-items: center; flex: 1;">
+                        <span class="toc-item-number">1</span>
+                        <span class="toc-item-title">项目概述</span>
+                    </span>
+                    <span class="toc-item-arrow">→</span>
+                </a>
+                <a href="#chapter2" class="toc-item">
+                    <span style="display: flex; align-items: center; flex: 1;">
+                        <span class="toc-item-number">2</span>
+                        <span class="toc-item-title">市场分析</span>
+                    </span>
+                    <span class="toc-item-arrow">→</span>
+                </a>
+                <a href="#chapter3" class="toc-item">
+                    <span style="display: flex; align-items: center; flex: 1;">
+                        <span class="toc-item-number">3</span>
+                        <span class="toc-item-title">技术方案</span>
+                    </span>
+                    <span class="toc-item-arrow">→</span>
+                </a>
+                <a href="#chapter4" class="toc-item">
+                    <span style="display: flex; align-items: center; flex: 1;">
+                        <span class="toc-item-number">4</span>
+                        <span class="toc-item-title">商业模式</span>
+                    </span>
+                    <span class="toc-item-arrow">→</span>
+                </a>
+                <a href="#chapter5" class="toc-item">
+                    <span style="display: flex; align-items: center; flex: 1;">
+                        <span class="toc-item-number">5</span>
+                        <span class="toc-item-title">实施计划</span>
+                    </span>
+                    <span class="toc-item-arrow">→</span>
+                </a>
+                <a href="#chapter6" class="toc-item">
+                    <span style="display: flex; align-items: center; flex: 1;">
+                        <span class="toc-item-number">6</span>
+                        <span class="toc-item-title">财务分析</span>
+                    </span>
+                    <span class="toc-item-arrow">→</span>
+                </a>
+                <a href="#chapter7" class="toc-item">
+                    <span style="display: flex; align-items: center; flex: 1;">
+                        <span class="toc-item-number">7</span>
+                        <span class="toc-item-title">风险分析</span>
+                    </span>
+                    <span class="toc-item-arrow">→</span>
+                </a>
+                <a href="#chapter8" class="toc-item">
+                    <span style="display: flex; align-items: center; flex: 1;">
+                        <span class="toc-item-number">8</span>
+                        <span class="toc-item-title">融资方案</span>
+                    </span>
+                    <span class="toc-item-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 第一章：项目概述 -->
+        <section id="chapter1" class="chapter-section">
+            <span class="chapter-number">第1章</span>
+            <h2 style="color: var(--wm-info); margin-bottom: 25px;">项目概述</h2>
+            
+            <div class="wm-card" style="margin-bottom: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 15px;">项目定位</h3>
+                <p style="color: var(--wm-text-secondary); line-height: 1.8; margin-bottom: 15px;">
+                    千站液冷超充项目是由KeyTrade主导的新能源汽车充电基础设施建设工程，
+                    计划在全国范围内建设<strong>1000座</strong>采用华为600kW全液冷超充技术的充电站。
+                </p>
+                <p style="color: var(--wm-text-secondary); line-height: 1.8;">
+                    项目依托华为数字能源的先进技术，提供<strong>"一秒一公里"</strong>的极致充电体验，
+                    打造中国领先的液冷超充网络。
+                </p>
+            </div>
+
+            <div class="grid grid-4">
+                <div class="wm-metric">
+                    <div class="wm-metric-value">28亿元</div>
+                    <div class="wm-metric-label">总投资规模</div>
+                </div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">1000座</div>
+                    <div class="wm-metric-label">超充站建设</div>
+                </div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">600kW</div>
+                    <div class="wm-metric-label">单枪功率</div>
+                </div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">5年</div>
+                    <div class="wm-metric-label">建设周期</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二章：市场分析 -->
+        <section id="chapter2" class="chapter-section">
+            <span class="chapter-number">第2章</span>
+            <h2 style="color: var(--wm-info); margin-bottom: 25px;">市场分析</h2>
+            
+            <div class="wm-grid wm-grid-2" style="margin-bottom: 30px;">
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 15px;">新能源汽车爆发式增长</h3>
+                    <ul style="color: var(--wm-text-secondary); line-height: 2;">
+                        <li>渗透率从5%快速增长至35%（2020-2025）</li>
+                        <li>2030年保有量预计达8000万辆</li>
+                        <li>需要1000万+充电桩配套</li>
+                        <li>超万亿级市场空间</li>
+                    </ul>
+                </div>
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 15px;">市场规模预测</h3>
+                    <ul style="color: var(--wm-text-secondary); line-height: 2;">
+                        <li>年复合增长率：35%</li>
+                        <li>2030年全球市场：1253.9亿美元</li>
+                        <li>中国市场份额：40%+</li>
+                        <li>超充技术占比：快速提升至25%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 15px;">政策强力支持</h3>
+                <div class="grid grid-4">
+                    <div style="text-align: center; padding: 15px;">
+                        <div style="font-size: 32px; color: var(--wm-info); font-weight: bold;">双碳目标</div>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px; margin-top: 5px;">2030碳达峰<br>2060碳中和</p>
+                    </div>
+                    <div style="text-align: center; padding: 15px;">
+                        <div style="font-size: 32px; color: var(--wm-info); font-weight: bold;">30%</div>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px; margin-top: 5px;">最高建设<br>补贴比例</p>
+                    </div>
+                    <div style="text-align: center; padding: 15px;">
+                        <div style="font-size: 32px; color: var(--wm-info); font-weight: bold;">优惠</div>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px; margin-top: 5px;">建设用地<br>优惠政策</p>
+                    </div>
+                    <div style="text-align: center; padding: 15px;">
+                        <div style="font-size: 32px; color: var(--wm-info); font-weight: bold;">支持</div>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px; margin-top: 5px;">大工业用电<br>价格支持</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三章：技术方案 -->
+        <section id="chapter3" class="chapter-section">
+            <span class="chapter-number">第3章</span>
+            <h2 style="color: var(--wm-info); margin-bottom: 25px;">技术方案</h2>
+            
+            <div class="wm-card" style="margin-bottom: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 15px;">华为600kW全液冷超充技术</h3>
+                <div class="wm-grid wm-grid-2">
+                    <div>
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">技术优势</h4>
+                        <ul style="color: var(--wm-text-secondary); line-height: 2;">
+                            <li><strong>功率优势：</strong>600kW单枪最大功率，行业最高</li>
+                            <li><strong>充电速度：</strong>"一秒一公里"，比传统充电快60倍</li>
+                            <li><strong>转换效率：</strong>>96%，能源利用效率行业领先</li>
+                            <li><strong>散热技术：</strong>全液冷散热，散热效率提升300%</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">核心参数</h4>
+                        <ul style="color: var(--wm-text-secondary); line-height: 2;">
+                            <li><strong>设计寿命：</strong>15年+，行业平均2倍</li>
+                            <li><strong>运行噪音：</strong><60dB，静音运行</li>
+                            <li><strong>防护等级：</strong>IP54，适应各种环境</li>
+                            <li><strong>智能运维：</strong>AI预测性维护，无人值守</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="advantages-section">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">核心技术亮点</h3>
+                <div class="advantages-grid">
+                    <div class="advantage-item">
+                        <h3>超快充电</h3>
+                        <p>600kW最大功率，充电速度全球领先</p>
+                    </div>
+                    <div class="advantage-item">
+                        <h3>液冷散热</h3>
+                        <p>全液冷架构，设备寿命更长</p>
+                    </div>
+                    <div class="advantage-item">
+                        <h3>智能运维</h3>
+                        <p>AIoT技术，无人值守运营</p>
+                    </div>
+                    <div class="advantage-item">
+                        <h3>绿色环保</h3>
+                        <p>光储充一体，清洁能源</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第四章：商业模式 -->
+        <section id="chapter4" class="chapter-section">
+            <span class="chapter-number">第4章</span>
+            <h2 style="color: var(--wm-info); margin-bottom: 25px;">商业模式</h2>
+            
+            <div class="wm-card" style="margin-bottom: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 15px;">收入来源</h3>
+                <div class="wm-grid wm-grid-2">
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">充电服务费</h4>
+                        <p style="color: var(--wm-text-secondary);">核心收入来源，按度数收取服务费</p>
+                        <div style="font-size: 24px; color: var(--wm-info); font-weight: bold; margin-top: 10px;">占收入70%+</div>
+                    </div>
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">增值服务</h4>
+                        <p style="color: var(--wm-text-secondary);">广告、便利店、数据服务等</p>
+                        <div style="font-size: 24px; color: var(--wm-info); font-weight: bold; margin-top: 10px;">占收入15%</div>
+                    </div>
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">政府补贴</h4>
+                        <p style="color: var(--wm-text-secondary);">建设补贴和运营补贴</p>
+                        <div style="font-size: 24px; color: var(--wm-info); font-weight: bold; margin-top: 10px;">前期支持</div>
+                    </div>
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">储能套利</h4>
+                        <p style="color: var(--wm-text-secondary);">峰谷电价差收益</p>
+                        <div style="font-size: 24px; color: var(--wm-info); font-weight: bold; margin-top: 10px;">额外收益</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 15px;">竞争优势</h3>
+                <div class="grid grid-4">
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">TECH</div>
+                        <h4 style="color: var(--wm-info);">技术壁垒</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">华为技术深度合作</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">REM</div>
+                        <h4 style="color: var(--wm-info);">规模优势</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">千站规模效应</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">REM</div>
+                        <h4 style="color: var(--wm-info);">运营优势</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">AI智能管理</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">REM</div>
+                        <h4 style="color: var(--wm-info);">网络效应</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">全国性品牌</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第五章：实施计划 -->
+        <section id="chapter5" class="chapter-section">
+            <span class="chapter-number">第5章</span>
+            <h2 style="color: var(--wm-info); margin-bottom: 25px;">实施计划</h2>
+            
+            <div class="wm-card" style="margin-bottom: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 15px;">5年分阶段建设（2025-2029）</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.15); border-radius: 10px; border-left: 4px solid var(--wm-info);">
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">第一阶段：2025年</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 24px; font-weight: bold; margin: 10px 0;">100座</p>
+                        <p style="color: var(--wm-text-secondary);">试点验证 • 建立供应链 • 组建团队</p>
+                    </div>
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.15); border-radius: 10px; border-left: 4px solid var(--wm-info);">
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">第二阶段：2026-2027年</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 24px; font-weight: bold; margin: 10px 0;">400座</p>
+                        <p style="color: var(--wm-text-secondary);">规模扩张 • 覆盖省会 • 品牌建设</p>
+                    </div>
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.15); border-radius: 10px; border-left: 4px solid var(--wm-info);">
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">第三阶段：2028年</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 24px; font-weight: bold; margin: 10px 0;">300座</p>
+                        <p style="color: var(--wm-text-secondary);">全国布局 • 深耕三四线 • 智能运维</p>
+                    </div>
+                    <div style="padding: 20px; background: rgba(59, 130, 246, 0.15); border-radius: 10px; border-left: 4px solid var(--wm-info);">
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">第四阶段：2029年</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 24px; font-weight: bold; margin: 10px 0;">200座</p>
+                        <p style="color: var(--wm-text-secondary);">完善优化 • 网络优化 • 盈利提升</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wm-card">
+                h3 style="color: var(--wm-info); margin-bottom: 15px;">建设标准</h3>
+                <div class="wm-grid wm-grid-3">
+                    <div style="text-align: center;">
+                        <div style="font-size: 32px; color: var(--wm-info); font-weight: bold;">国标</div>
+                        <p style="color: var(--wm-text-secondary);">符合国家标准</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 32px; color: var(--wm-info); font-weight: bold;">华为</div>
+                        <p style="color: var(--wm-text-secondary);">华为技术标准</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 32px; color: var(--wm-info); font-weight: bold;">ISO</div>
+                        <p style="color: var(--wm-text-secondary);">ISO 9001质量管理</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第六章：财务分析 -->
+        <section id="chapter6" class="chapter-section">
+            <span class="chapter-number">第6章</span>
+            h2 style="color: var(--wm-info); margin-bottom: 25px;">财务分析</h2>
+            
+            <div class="grid grid-4" style="margin-bottom: 30px;">
+                <div class="wm-metric">
+                    <div class="wm-metric-value">42.8%</div>
+                    <div class="wm-metric-label">内部收益率IRR</div>
+                </div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">4.5年</div>
+                    <div class="wm-metric-label">投资回收期</div>
+                </div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">12.4亿元</div>
+                    <div class="wm-metric-label">净现值NPV</div>
+                </div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">435%</div>
+                    <div class="wm-metric-label">10年回报率</div>
+                </div>
+            </div>
+
+            <div class="wm-card" style="margin-bottom: 30px;">
+                h3 style="color: var(--wm-info); margin-bottom: 15px;">1000站财务预测</h3>
+                <div class="wm-grid wm-grid-3">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 16px; color: var(--wm-text-secondary); margin-bottom: 10px;">第1年收入</div>
+                        <div style="font-size: 32px; color: var(--wm-info); font-weight: bold;">46.2亿元</div>
+                    </div>
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 16px; color: var(--wm-text-secondary); margin-bottom: 10px;">第1年利润</div>
+                        <div style="font-size: 32px; color: var(--wm-info); font-weight: bold;">19.1亿元</div>
+                    </div>
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 16px; color: var(--wm-text-secondary); margin-bottom: 10px;">5年累计利润</div>
+                        <div style="font-size: 32px; color: var(--wm-info); font-weight: bold;">122亿元</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 15px;">⭐ 投资亮点总结</h3>
+                <ul style="color: var(--wm-text-secondary); line-height: 2;">
+                    <li>✓ <strong>技术壁垒高：</strong>华为液冷超充技术行业领先</li>
+                    <li>✓ <strong>市场空间大：</strong>年复合增长率35%，超万亿市场</li>
+                    <li>✓ <strong>财务回报优：</strong>IRR 42.8%，4.5年回收期</li>
+                    <li>✓ <strong>政策支持强：</strong>国家新能源政策全力支持</li>
+                    <li>✓ <strong>风险可控：</strong>多重风控措施，三重退出机制</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 第七章：风险分析 -->
+        <section id="chapter7" class="chapter-section">
+            <span class="chapter-number">第7章</span>
+            <h2 style="color: var(--wm-info); margin-bottom: 25px;">风险分析</h2>
+            
+            <div class="wm-grid wm-grid-2" style="margin-bottom: 30px;">
+                <div class="wm-card">
+                    h3 style="color: var(--wm-info); margin-bottom: 15px;">主要风险</h3>
+                    <ul style="color: var(--wm-text-secondary); line-height: 2;">
+                        <li><strong>政策风险：</strong>新能源政策调整</li>
+                        <li><strong>市场风险：</strong>竞争加剧，技术迭代</li>
+                        <li><strong>运营风险：</strong>设备故障，成本上升</li>
+                        <li><strong>财务风险：</strong>资金链，利率波动</li>
+                    </ul>
+                </div>
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 15px;">应对措施</h3>
+                    <ul style="color: var(--wm-text-secondary); line-height: 2;">
+                        <li><strong>政策跟踪：</strong>建立政策研究团队</li>
+                        <li><strong>技术领先：</strong>持续研发保持优势</li>
+                        <li><strong>成本控制：</strong>规模化降本增效</li>
+                        <li><strong>资金保障：</strong>多元化融资渠道</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 15px;">🔒 风险控制体系</h3>
+                <div class="grid grid-4">
+                    <div style="text-align: center;">
+                        <div style="font-size: 40px; margin-bottom: 10px;">REM</div>
+                        <h4 style="color: var(--wm-info);">风险识别</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">定期风险评估</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 40px; margin-bottom: 10px;"></div>
+                        <h4 style="color: var(--wm-info);">预防措施</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">提前部署防范</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 40px; margin-bottom: 10px;">🚨</div>
+                        <h4 style="color: var(--wm-info);">应急预案</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">快速响应机制</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 40px; margin-bottom: 10px;">🔄</div>
+                        <h4 style="color: var(--wm-info);">持续改进</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">优化风控体系</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第八章：融资方案 -->
+        <section id="chapter8" class="chapter-section">
+            <span class="chapter-number">第8章</span>
+            h2 style="color: var(--wm-info); margin-bottom: 25px;">融资方案</h2>
+            
+            <div class="wm-card" style="margin-bottom: 30px;">
+                h3 style="color: var(--wm-info); margin-bottom: 15px;">融资结构</h3>
+                <div class="wm-grid wm-grid-2">
+                    <div style="padding: 30px; background: rgba(59, 130, 246, 0.15); border-radius: 10px; text-align: center;">
+                        <div style="font-size: 48px; color: var(--wm-info); font-weight: bold; margin-bottom: 10px;">40%</div>
+                        <h4 style="color: var(--wm-info); margin-bottom: 15px;">股权融资</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 24px; font-weight: bold;">11.2亿元</p>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px; margin-top: 10px;">种子轮 • A轮 • B轮</p>
+                    </div>
+                    <div style="padding: 30px; background: rgba(59, 130, 246, 0.15); border-radius: 10px; text-align: center;">
+                        <div style="font-size: 48px; color: var(--wm-info); font-weight: bold; margin-bottom: 10px;">60%</div>
+                        <h4 style="color: var(--wm-info); margin-bottom: 15px;">债权融资</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 24px; font-weight: bold;">16.8亿元</p>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px; margin-top: 10px;">银行贷款 • 债券发行</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wm-card" style="margin-bottom: 30px;">
+                h3 style="color: var(--wm-info); margin-bottom: 15px;">退出机制</h3>
+                <div class="wm-grid wm-grid-3">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">REM</div>
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">IPO上市</h4>
+                        <p style="color: var(--wm-text-secondary);">预计2028年科创板/创业板上市</p>
+                        <p style="color: var(--wm-info); font-weight: bold; margin-top: 10px;">估值500-800亿</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">REM</div>
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">战略并购</h4>
+                        <p style="color: var(--wm-text-secondary);">与行业龙头企业战略合作</p>
+                        <p style="color: var(--wm-info); font-weight: bold; margin-top: 10px;">高溢价退出</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">REM</div>
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">管理层回购</h4>
+                        <p style="color: var(--wm-text-secondary);">投资本金+15%年化收益</p>
+                        <p style="color: var(--wm-info); font-weight: bold; margin-top: 10px;">保底退出</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wm-card">
+                h3 style="color: var(--wm-info); margin-bottom: 15px;">投资回报</h3>
+                <div class="wm-grid wm-grid-3">
+                    <div style="text-align: center;">
+                        <div style="font-size: 16px; color: var(--wm-text-secondary); margin-bottom: 10px;">股权投资者年化收益</div>
+                        <div style="font-size: 36px; color: var(--wm-info); font-weight: bold;">35%+</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 16px; color: var(--wm-text-secondary); margin-bottom: 10px;">投资回报倍数</div>
+                        <div style="font-size: 36px; color: var(--wm-info); font-weight: bold;">15-25x</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 16px; color: var(--wm-text-secondary); margin-bottom: 10px;">债权投资者年化收益</div>
+                        <div style="font-size: 36px; color: var(--wm-info); font-weight: bold;">5.5-7%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(59, 130, 246, 0.3);">
+            <h2>🎉 对本项目感兴趣？</h2>
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
+                联系我们获取完整的商业计划书和详细的财务分析报告
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="../联系合作.html" class="btn btn-primary" style="font-size: 18px; padding: 15px 40px;">
+                    立即联系
+                </a>
+                <a href="财务图表.html" class="btn btn-secondary" style="font-size: 18px; padding: 15px 40px;">
+                    查看财务分析
+                </a>
+                <a href="项目实施计划.html" class="btn btn-secondary" style="font-size: 18px; padding: 15px 40px;">
+                    查看实施计划
+                </a>
+            </div>
+        </section>
+
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+            <p style="font-size: 14px; margin-top: 10px;">
+                千站液冷超充项目 - 官方商业计划书
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 淡入动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

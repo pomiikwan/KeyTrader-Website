@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目实施计划 - 千站液冷超充项目</title>
+    <style>
+        .tech-image-container {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            text-align: center;
+        }
+        .tech-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        .image-caption {
+            margin-top: 20px;
+            font-size: 18px;
+            color: var(--wm-info);
+            font-weight: 600;
+        }
+        .phase-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .phase-item {
+            position: relative;
+            padding-bottom: 40px;
+            border-left: 3px solid rgba(59, 130, 246, 0.3);
+            padding-left: 30px;
+        }
+        .phase-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--wm-info);
+            box-shadow: 0 0 20px var(--wm-info);
+        }
+        .phase-title {
+            font-size: 20px;
+            color: var(--wm-info);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
+</head>
+<body class="no-transition">
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
+        </div>
+    </header>
+
+    <main class="wm-main">
+        <div class="wm-panel">
+            <h1 style="font-size: 48px; margin-bottom: 20px;">项目实施计划</h1>
+            <p style="font-size: 20px; color: var(--wm-text-secondary); max-width: 900px; margin: 0 auto;">Project Implementation Plan</p>
+        </div>
+
+        <!-- 项目总览 -->
+        <section class="wm-panel">
+            <h2>项目总览</h2>
+            <div class="grid grid-4">
+                <div class="wm-metric">
+                    <div class="wm-metric-value">5年</div>
+                    <div class="wm-metric-label">项目周期（2025-2029）</div>
+                </div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">1000座</div>
+                    <div class="wm-metric-label">建设目标</div>
+                </div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">28亿</div>
+                    <div class="wm-metric-label">总投资额（人民币）</div>
+                </div>
+                <div class="wm-metric">
+                    <div class="wm-metric-value">国标+华为</div>
+                    <div class="wm-metric-label">质量标准</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分阶段实施 -->
+        <section class="wm-panel">
+            <h2>分阶段实施策略</h2>
+            <div class="phase-timeline">
+                <div class="phase-item">
+                    <div class="phase-title">第一阶段：试点验证（2025年）</div>
+                    <div class="wm-card">
+                        <p><strong>建设目标</strong>：100座超充站</p>
+                        <p><strong>重点区域</strong>：</p>
+                        <ul style="margin-top: 10px;">
+                            <li>一线城市核心商圈（30座）</li>
+                            <li>高速公路服务区（40座）</li>
+                            <li>产业园区（20座）</li>
+                            <li>物流枢纽（10座）</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>关键任务</strong>：完成选址勘察、建立供应链、组建团队、质量管理体系、技术方案验证</p>
+                    </div>
+                </div>
+
+                <div class="phase-item">
+                    <div class="phase-title">第二阶段：规模扩张（2026-2027年）</div>
+                    <div class="wm-card">
+                        <p><strong>建设目标</strong>：新增400座超充站</p>
+                        <p><strong>扩张策略</strong>：</p>
+                        <ul style="margin-top: 10px;">
+                            <li>覆盖所有省会城市</li>
+                            <li>完善高速网络布局</li>
+                            <li>深耕重点产业区域</li>
+                            <li>建立品牌影响力</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>关键任务</strong>：优化建设流程、提升建设效率、完善运营体系、建立客户服务体系</p>
+                    </div>
+                </div>
+
+                <div class="phase-item">
+                    <div class="phase-title">第三阶段：全国布局（2028年）</div>
+                    <div class="wm-card">
+                        <p><strong>建设目标</strong>：新增300座超充站</p>
+                        <p><strong>布局重点</strong>：</p>
+                        <ul style="margin-top: 10px;">
+                            <li>三四线城市扩展</li>
+                            <li>县域市场覆盖</li>
+                            <li>特殊应用场景</li>
+                            <li>国际化试点</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>关键任务</strong>：标准化流程推广、智能化运维升级、多元化业务拓展、品牌全国推广</p>
+                    </div>
+                </div>
+
+                <div class="phase-item" style="border-left: none;">
+                    <div class="phase-title">第四阶段：完善优化（2029年）</div>
+                    <div class="wm-card">
+                        <p><strong>建设目标</strong>：新增200座超充站</p>
+                        <p><strong>优化重点</strong>：</p>
+                        <ul style="margin-top: 10px;">
+                            <li>网络密度优化</li>
+                            <li>服务质量提升</li>
+                            <li>运营效率改进</li>
+                            <li>盈利模式优化</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>关键任务</strong>：网络优化调整、服务标准统一、运营成本控制、新业务模式探索</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 充电站效果图 -->
+        <section class="wm-panel">
+            <h2>超充站设计效果图</h2>
+            <div class="tech-image-container">
+                <img src="images/充电站布局图.png" alt="充电站布局图" class="tech-image">
+                <p class="image-caption">超充站布局设计效果图</p>
+            </div>
+        </section>
+
+        <!-- 建设流程 -->
+        <section class="wm-panel">
+            <h2>建设实施流程</h2>
+
+            <div class="service-detail">
+                <h3>选址规划阶段（2-3个月/站点）</h3>
+                <p><strong>关键要素</strong>：电网接入评估、交通流量分析、土地使用权确认、环评安评办理</p>
+                <p style="margin-top: 15px;"><strong>选址标准</strong>：</p>
+                <ul style="margin-top: 10px;">
+                    <li>10kV/20kV电网接入能力</li>
+                    <li>日均车流量>2000辆</li>
+                    <li>土地面积>1000m²</li>
+                    <li>消防验收合格</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h3>设计审批阶段（1-2个月/站点）</h3>
+                <p><strong>设计内容</strong>：电力系统、土建工程、消防系统、智能化系统</p>
+                <p style="margin-top: 15px;"><strong>审批流程</strong>：供电方案审批、建设工程许可、消防设计审核、环保验收许可</p>
+            </div>
+
+            <div class="service-detail">
+                <h3>建设施工阶段（3-4个月/站点）</h3>
+                <p><strong>施工内容</strong>：场地平整、基础建设、电力设备安装、充电桩安装、智能化系统部署</p>
+                <p style="margin-top: 15px;"><strong>质量控制</strong>：施工图纸审查、材料进场检验、施工过程监督、竣工验收检查</p>
+            </div>
+
+            <div class="service-detail">
+                <h3>运营准备阶段（1个月/站点）</h3>
+                <p><strong>准备工作</strong>：运营人员培训、收费系统调试、客户服务准备、市场推广启动</p>
+            </div>
+        </section>
+
+        <!-- 场地要求 -->
+        <section class="wm-panel">
+            <h2>场地要求</h2>
+            <div class="wm-grid wm-grid-2">
+                <div class="wm-card">
+                    <h3>场地面积</h3>
+                    <ul>
+                        <li>单超充站：200-500平方米</li>
+                        <li>中小型站：3-5个车位</li>
+                        <li>大型站：10-20个车位</li>
+                        <li>枢纽站：20+车位</li>
+                    </ul>
+                </div>
+                <div class="wm-card">
+                    <h3>电力要求</h3>
+                    <ul>
+                        <li>单桩功率：480-600kW</li>
+                        <li>变压器容量：630-2000kVA</li>
+                        <li>电网接入：10kV或更高</li>
+                        <li>备用电源建议配置</li>
+                    </ul>
+                </div>
+                <div class="wm-card">
+                    <h3>交通条件</h3>
+                    <ul>
+                        <li>车流量：日均500+车辆</li>
+                        <li>可见性：主路可见度高</li>
+                        <li>可达性：进出方便</li>
+                        <li>停车位：充足停车位</li>
+                    </ul>
+                </div>
+                <div class="wm-card">
+                    <h3>配套设施</h3>
+                    <ul>
+                        <li>休息区：司机休息等待区</li>
+                        <li>服务区：便利店、餐饮等</li>
+                        <li>安防：监控和安保系统</li>
+                        <li>网络：稳定的网络连接</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 进度管理 -->
+        <section class="wm-panel">
+            <h2>项目管理体系</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <h3>进度管理</h3>
+                    <p>周进度报告、月进度评估、季度调整优化、年度总结规划</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>质量管理</h3>
+                    <p>ISO 9001标准、设计审查、材料检验、施工监督、竣工验收</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>成本管理</h3>
+                    <p>详细成本预算、实时成本监控、定期成本分析、严格成本控制</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>风险管理</h3>
+                    <p>风险识别、预防措施、应急预案、持续监控改进</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA 区域 -->
+        <section class="cta-section" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(59, 130, 246, 0.3);">
+            <h2>准备好开始了吗？</h2>
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
+                如果您有合适的场地资源或投资意向，欢迎与我们联系
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
+                <a href="财务图表.html" class="btn btn-secondary">查看财务分析</a>
+            </div>
+        </section>
+
+        <!-- 页脚信息 -->
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
+            <p>© 2025 KeyTrader. All rights reserved.</p>
+            <p style="font-size: 14px; margin-top: 10px;">
+                千站液冷超充项目 - 项目实施计划
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

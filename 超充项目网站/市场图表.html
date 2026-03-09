@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,43 +13,43 @@
             background: rgba(26, 26, 26, 0.6);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
         }
         .market-metric {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             padding: 30px;
             border-radius: 15px;
             text-align: center;
-            border: 2px solid rgba(212, 175, 55, 0.2);
+            border: 2px solid rgba(59, 130, 246, 0.2);
             transition: all 0.3s ease;
         }
         .market-metric:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-gold);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            border-color: var(--wm-info);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
         }
         .market-metric-value {
             font-size: 48px;
-            color: var(--primary-gold);
+            color: var(--wm-info);
             font-weight: bold;
             margin-bottom: 10px;
         }
         .market-metric-label {
             font-size: 16px;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
         }
         .market-metric-sub {
             font-size: 14px;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             opacity: 0.7;
             margin-top: 5px;
         }
         .trend-chart {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
             border-radius: 20px;
             padding: 40px;
             margin: 30px 0;
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(59, 130, 246, 0.3);
         }
         .competition-bar {
             display: flex;
@@ -62,20 +61,20 @@
         }
         .competition-label {
             min-width: 120px;
-            color: var(--paper-beige);
+            color: var(--wm-text-secondary);
             font-weight: 600;
         }
         .competition-bar-visual {
             flex: 1;
             height: 30px;
-            background: rgba(212, 175, 55, 0.2);
+            background: rgba(59, 130, 246, 0.2);
             border-radius: 15px;
             overflow: hidden;
             position: relative;
         }
         .competition-bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary-gold) 0%, var(--primary-gold-light) 100%);
+            background: linear-gradient(90deg, var(--wm-info) 0%, var(--primary-gold-light) 100%);
             border-radius: 15px;
             transition: width 1s ease;
             display: flex;
@@ -86,30 +85,31 @@
         .competition-value {
             min-width: 60px;
             text-align: right;
-            color: var(--primary-gold);
+            color: var(--wm-info);
             font-weight: bold;
             font-size: 18px;
         }
     </style>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html">← 返回导航中心</a>
-            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+<body class="no-transition">
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
-        <div class="hero-banner fade-in">
+    <main class="wm-main">
+        <div class="wm-panel">
             <h1 style="font-size: 48px; margin-bottom: 20px;">市场分析</h1>
-            <p style="font-size: 20px; color: var(--paper-beige); max-width: 900px; margin: 0 auto;">Market Analysis</p>
+            <p style="font-size: 20px; color: var(--wm-text-secondary); max-width: 900px; margin: 0 auto;">Market Analysis</p>
         </div>
 
         <!-- 市场规模 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>市场规模与增长</h2>
-            <div class="grid grid-4">
+            <div class="wm-grid wm-grid-auto">
                 <div class="market-metric">
                     <div class="market-metric-value">2100万</div>
                     <div class="market-metric-label">当前保有量</div>
@@ -134,70 +134,70 @@
         </section>
 
         <!-- 市场规模增长图 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>市场规模增长预测</h2>
-            <div class="card">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">新能源汽车保有量与充电桩需求</h3>
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">新能源汽车保有量与充电桩需求</h3>
                 <div id="marketGrowthChart" class="chart-container"></div>
             </div>
         </section>
 
         <!-- 新能源汽车增长趋势 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>新能源汽车爆发式增长</h2>
             <div class="trend-chart">
-                <h3 style="color: var(--primary-gold); margin-bottom: 30px; text-align: center;">新能源汽车销量与渗透率趋势</h3>
-                <div class="grid grid-2">
+                <h3 style="color: var(--wm-info); margin-bottom: 30px; text-align: center;">新能源汽车销量与渗透率趋势</h3>
+                <div class="wm-grid wm-grid-2">
                     <div>
-                        <h4 style="color: var(--primary-gold); margin-bottom: 20px;">销量增长（万辆）</h4>
+                        <h4 style="color: var(--wm-info); margin-bottom: 20px;">销量增长（万辆）</h4>
                         <div style="background: rgba(26, 26, 26, 0.6); padding: 20px; border-radius: 10px;">
                             <div style="display: flex; align-items: flex-end; height: 200px; gap: 20px;">
                                 <div style="flex: 1; text-align: center;">
-                                    <div style="height: 40px; background: var(--primary-gold); border-radius: 5px; margin: 0 auto 10px;"></div>
-                                    <div style="color: var(--paper-beige); font-size: 14px;">2020</div>
-                                    <div style="color: var(--primary-gold); font-weight: bold;">137</div>
+                                    <div style="height: 40px; background: var(--wm-info); border-radius: 5px; margin: 0 auto 10px;"></div>
+                                    <div style="color: var(--wm-text-secondary); font-size: 14px;">2020</div>
+                                    <div style="color: var(--wm-info); font-weight: bold;">137</div>
                                 </div>
                                 <div style="flex: 1; text-align: center;">
-                                    <div style="height: 80px; background: var(--primary-gold); border-radius: 5px; margin: 0 auto 10px;"></div>
-                                    <div style="color: var(--paper-beige); font-size: 14px;">2021</div>
-                                    <div style="color: var(--primary-gold); font-weight: bold;">352</div>
+                                    <div style="height: 80px; background: var(--wm-info); border-radius: 5px; margin: 0 auto 10px;"></div>
+                                    <div style="color: var(--wm-text-secondary); font-size: 14px;">2021</div>
+                                    <div style="color: var(--wm-info); font-weight: bold;">352</div>
                                 </div>
                                 <div style="flex: 1; text-align: center;">
-                                    <div style="height: 140px; background: var(--primary-gold); border-radius: 5px; margin: 0 auto 10px;"></div>
-                                    <div style="color: var(--paper-beige); font-size: 14px;">2022</div>
-                                    <div style="color: var(--primary-gold); font-weight: bold;">649</div>
+                                    <div style="height: 140px; background: var(--wm-info); border-radius: 5px; margin: 0 auto 10px;"></div>
+                                    <div style="color: var(--wm-text-secondary); font-size: 14px;">2022</div>
+                                    <div style="color: var(--wm-info); font-weight: bold;">649</div>
                                 </div>
                                 <div style="flex: 1; text-align: center;">
-                                    <div style="height: 190px; background: var(--primary-gold); border-radius: 5px; margin: 0 auto 10px;"></div>
-                                    <div style="color: var(--paper-beige); font-size: 14px;">2023</div>
-                                    <div style="color: var(--primary-gold); font-weight: bold;">950</div>
+                                    <div style="height: 190px; background: var(--wm-info); border-radius: 5px; margin: 0 auto 10px;"></div>
+                                    <div style="color: var(--wm-text-secondary); font-size: 14px;">2023</div>
+                                    <div style="color: var(--wm-info); font-weight: bold;">950</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <h4 style="color: var(--primary-gold); margin-bottom: 20px;">渗透率提升</h4>
+                        <h4 style="color: var(--wm-info); margin-bottom: 20px;">渗透率提升</h4>
                         <div style="background: rgba(26, 26, 26, 0.6); padding: 20px; border-radius: 10px;">
                             <div style="display: flex; align-items: flex-end; height: 200px; gap: 20px;">
                                 <div style="flex: 1; text-align: center;">
-                                    <div style="height: 12px; background: var(--primary-gold); border-radius: 5px; margin: 0 auto 10px;"></div>
-                                    <div style="color: var(--paper-beige); font-size: 14px;">2020</div>
-                                    <div style="color: var(--primary-gold); font-weight: bold;">5%</div>
+                                    <div style="height: 12px; background: var(--wm-info); border-radius: 5px; margin: 0 auto 10px;"></div>
+                                    <div style="color: var(--wm-text-secondary); font-size: 14px;">2020</div>
+                                    <div style="color: var(--wm-info); font-weight: bold;">5%</div>
                                 </div>
                                 <div style="flex: 1; text-align: center;">
-                                    <div style="height: 40px; background: var(--primary-gold); border-radius: 5px; margin: 0 auto 10px;"></div>
-                                    <div style="color: var(--paper-beige); font-size: 14px;">2021</div>
-                                    <div style="color: var(--primary-gold); font-weight: bold;">15%</div>
+                                    <div style="height: 40px; background: var(--wm-info); border-radius: 5px; margin: 0 auto 10px;"></div>
+                                    <div style="color: var(--wm-text-secondary); font-size: 14px;">2021</div>
+                                    <div style="color: var(--wm-info); font-weight: bold;">15%</div>
                                 </div>
                                 <div style="flex: 1; text-align: center;">
-                                    <div style="height: 80px; background: var(--primary-gold); border-radius: 5px; margin: 0 auto 10px;"></div>
-                                    <div style="color: var(--paper-beige); font-size: 14px;">2022</div>
-                                    <div style="color: var(--primary-gold); font-weight: bold;">25%</div>
+                                    <div style="height: 80px; background: var(--wm-info); border-radius: 5px; margin: 0 auto 10px;"></div>
+                                    <div style="color: var(--wm-text-secondary); font-size: 14px;">2022</div>
+                                    <div style="color: var(--wm-info); font-weight: bold;">25%</div>
                                 </div>
                                 <div style="flex: 1; text-align: center;">
-                                    <div style="height: 140px; background: var(--primary-gold); border-radius: 5px; margin: 0 auto 10px;"></div>
-                                    <div style="color: var(--paper-beige); font-size: 14px;">2023</div>
-                                    <div style="color: var(--primary-gold); font-weight: bold;">35%</div>
+                                    <div style="height: 140px; background: var(--wm-info); border-radius: 5px; margin: 0 auto 10px;"></div>
+                                    <div style="color: var(--wm-text-secondary); font-size: 14px;">2023</div>
+                                    <div style="color: var(--wm-info); font-weight: bold;">35%</div>
                                 </div>
                             </div>
                         </div>
@@ -206,65 +206,65 @@
             </div>
 
             <!-- 新能源汽车销量增长图 -->
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">新能源汽车销量增长趋势</h3>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">新能源汽车销量增长趋势</h3>
                 <div id="evSalesChart" class="chart-container"></div>
             </div>
 
             <!-- 新能源汽车渗透率图 -->
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">新能源汽车市场渗透率提升</h3>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">新能源汽车市场渗透率提升</h3>
                 <div id="evPenetrationChart" class="chart-container"></div>
             </div>
         </section>
 
         <!-- 充电基础设施需求 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>充电基础设施需求</h2>
 
             <!-- 充电桩需求图 -->
-            <div class="card">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">充电桩需求预测（万根）</h3>
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">充电桩需求预测（万根）</h3>
                 <div id="chargingDemandChart" class="chart-container"></div>
             </div>
 
-            <div class="grid grid-3">
-                <div class="card">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 15px;">当前状况</h3>
+            <div class="wm-grid wm-grid-3">
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 15px;">当前状况</h3>
                     <div style="text-align: center; padding: 20px;">
-                        <div style="font-size: 56px; color: var(--primary-gold); font-weight: bold; margin-bottom: 10px;">580万</div>
-                        <p style="color: var(--paper-beige);">充电桩总数（2023）</p>
+                        <div style="font-size: 56px; color: var(--wm-info); font-weight: bold; margin-bottom: 10px;">580万</div>
+                        <p style="color: var(--wm-text-secondary);">充电桩总数（2023）</p>
                     </div>
                 </div>
-                <div class="card">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 15px;">未来需求</h3>
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 15px;">未来需求</h3>
                     <div style="text-align: center; padding: 20px;">
-                        <div style="font-size: 56px; color: var(--primary-gold); font-weight: bold; margin-bottom: 10px;">3800万</div>
-                        <p style="color: var(--paper-beige);">充电桩需求（2028）</p>
+                        <div style="font-size: 56px; color: var(--wm-info); font-weight: bold; margin-bottom: 10px;">3800万</div>
+                        <p style="color: var(--wm-text-secondary);">充电桩需求（2028）</p>
                     </div>
                 </div>
-                <div class="card">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 15px;">市场缺口</h3>
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 15px;">市场缺口</h3>
                     <div style="text-align: center; padding: 20px;">
-                        <div style="font-size: 56px; color: var(--primary-gold); font-weight: bold; margin-bottom: 10px;">3220万</div>
-                        <p style="color: var(--paper-beige);">需要新增充电桩</p>
+                        <div style="font-size: 56px; color: var(--wm-info); font-weight: bold; margin-bottom: 10px;">3220万</div>
+                        <p style="color: var(--wm-text-secondary);">需要新增充电桩</p>
                     </div>
                 </div>
             </div>
 
             <!-- 市场竞争格局图 -->
-            <div class="card" style="margin-top: 30px;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">充电桩市场份额分布（2023）</h3>
+            <div class="wm-card" style="margin-top: 30px;">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">充电桩市场份额分布（2023）</h3>
                 <div id="competitionChart" class="chart-container"></div>
             </div>
 
-            <div style="margin-top: 30px; padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
+            <div style="margin-top: 30px; padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
                 
                 <div class="competition-bar">
                     <div class="competition-label">特来电</div>
                     <div class="competition-bar-visual">
                         <div class="competition-bar-fill" style="width: 28%;">
-                            <span style="color: var(--ink-black); font-weight: bold;">28%</span>
+                            <span style="color: var(--wm-bg); font-weight: bold;">28%</span>
                         </div>
                     </div>
                     <div class="competition-value">28%</div>
@@ -274,7 +274,7 @@
                     <div class="competition-label">星星充电</div>
                     <div class="competition-bar-visual">
                         <div class="competition-bar-fill" style="width: 22%;">
-                            <span style="color: var(--ink-black); font-weight: bold;">22%</span>
+                            <span style="color: var(--wm-bg); font-weight: bold;">22%</span>
                         </div>
                     </div>
                     <div class="competition-value">22%</div>
@@ -284,7 +284,7 @@
                     <div class="competition-label">国家电网</div>
                     <div class="competition-bar-visual">
                         <div class="competition-bar-fill" style="width: 18%;">
-                            <span style="color: var(--ink-black); font-weight: bold;">18%</span>
+                            <span style="color: var(--wm-bg); font-weight: bold;">18%</span>
                         </div>
                     </div>
                     <div class="competition-value">18%</div>
@@ -293,21 +293,21 @@
                 <div class="competition-bar">
                     <div class="competition-label">其他品牌</div>
                     <div class="competition-bar-visual">
-                        <div class="competition-bar-fill" style="width: 32%; background: linear-gradient(90deg, rgba(212, 175, 55, 0.5) 0%, rgba(212, 175, 55, 0.3) 100%);">
-                            <span style="color: var(--ink-black); font-weight: bold;">32%</span>
+                        <div class="competition-bar-fill" style="width: 32%; background: linear-gradient(90deg, rgba(59, 130, 246, 0.5) 0%, rgba(59, 130, 246, 0.3) 100%);">
+                            <span style="color: var(--wm-bg); font-weight: bold;">32%</span>
                         </div>
                     </div>
                     <div class="competition-value">32%</div>
                 </div>
 
-                <div style="margin-top: 30px; padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
-                    <h4 style="color: var(--primary-gold); margin-bottom: 15px;">我们的竞争优势</h4>
-                    <div class="grid grid-2">
-                        <ul style="color: var(--paper-beige); line-height: 2;">
+                <div style="margin-top: 30px; padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 10px;">
+                    <h4 style="color: var(--wm-info); margin-bottom: 15px;">我们的竞争优势</h4>
+                    <div class="wm-grid wm-grid-2">
+                        <ul style="color: var(--wm-text-secondary); line-height: 2;">
                             <li>✓ <strong>技术领先：</strong>600kW液冷超充，行业最高功率</li>
                             <li>✓ <strong>充电速度：</strong>"一秒一公里"，比传统快60倍</li>
                         </ul>
-                        <ul style="color: var(--paper-beige); line-height: 2;">
+                        <ul style="color: var(--wm-text-secondary); line-height: 2;">
                             <li>✓ <strong>布局策略：</strong>高速公路+城市核心区域</li>
                             <li>✓ <strong>服务质量：</strong>AI智能运维，24小时客服</li>
                         </ul>
@@ -317,22 +317,22 @@
         </section>
 
         <!-- 增长驱动因素 -->
-        <section class="advantages-section fade-in">
+        <section class="wm-panel">
             <h2>市场增长驱动因素</h2>
-            <div class="advantages-grid">
-                <div class="advantage-item">
+            <div class="wm-grid wm-grid-auto">
+                <div class="wm-card">
                     <h3>政策推动</h3>
                     <p>双碳目标下强力政策支持，建设补贴最高30%</p>
                 </div>
-                <div class="advantage-item">
+                <div class="wm-card">
                     <h3>技术进步</h3>
                     <p>电池技术持续突破，续航里程不断提升</p>
                 </div>
-                <div class="advantage-item">
+                <div class="wm-card">
                     <h3>基础设施</h3>
                     <p>充电网络日益完善，充电便利性提升</p>
                 </div>
-                <div class="advantage-item">
+                <div class="wm-card">
                     <h3>消费升级</h3>
                     <p>环保意识增强，消费偏好向新能源转变</p>
                 </div>
@@ -340,21 +340,21 @@
         </section>
 
         <!-- 目标市场 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>目标市场细分</h2>
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">核心目标客户</h3>
-                    <ul style="color: var(--paper-beige); line-height: 2.5;">
+            <div class="wm-grid wm-grid-2">
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">核心目标客户</h3>
+                    <ul style="color: var(--wm-text-secondary); line-height: 2.5;">
                         <li><strong>长途运输：</strong>高速公路服务区快速补能</li>
                         <li><strong>城市运营：</strong>出租车、网约车高频充电</li>
                         <li><strong>物流园区：</strong>电动物流车集中充电</li>
                         <li><strong>商业中心：</strong>购物商场、写字楼配套</li>
                     </ul>
                 </div>
-                <div class="card">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">重点布局区域</h3>
-                    <ul style="color: var(--paper-beige); line-height: 2.5;">
+                <div class="wm-card">
+                    <h3 style="color: var(--wm-info); margin-bottom: 20px;">重点布局区域</h3>
+                    <ul style="color: var(--wm-text-secondary); line-height: 2.5;">
                         <li><strong>一线城市：</strong>北上广深核心商圈</li>
                         <li><strong>高速公路：</strong>京沪、京港澳主干线</li>
                         <li><strong>产业园区：</strong>长三角、珠三角集群</li>
@@ -365,51 +365,51 @@
         </section>
 
         <!-- 政策环境 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>政策环境分析</h2>
-            <div class="card">
-                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">政策支持体系</h3>
-                <div class="grid grid-4">
+            <div class="wm-card">
+                <h3 style="color: var(--wm-info); margin-bottom: 20px;">政策支持体系</h3>
+                <div class="wm-grid wm-grid-auto">
                     <div style="text-align: center; padding: 20px;">
                         <div style="font-size: 48px; margin-bottom: 10px;">DOC</div>
-                        <h4 style="color: var(--primary-gold); margin-bottom: 10px;">国家层面</h4>
-                        <p style="color: var(--paper-beige); font-size: 14px;">新能源汽车产业发展规划</p>
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">国家层面</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">新能源汽车产业发展规划</p>
                     </div>
                     <div style="text-align: center; padding: 20px;">
                         <div style="font-size: 48px; margin-bottom: 10px;">CITY</div>
-                        <h4 style="color: var(--primary-gold); margin-bottom: 10px;">地方政策</h4>
-                        <p style="color: var(--paper-beige); font-size: 14px;">各地充电设施建设补贴</p>
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">地方政策</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">各地充电设施建设补贴</p>
                     </div>
                     <div style="text-align: center; padding: 20px;">
                         <div style="font-size: 48px; margin-bottom: 10px;">REM</div>
-                        <h4 style="color: var(--primary-gold); margin-bottom: 10px;">电价优惠</h4>
-                        <p style="color: var(--paper-beige); font-size: 14px;">峰谷电价政策支持</p>
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">电价优惠</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">峰谷电价政策支持</p>
                     </div>
                     <div style="text-align: center; padding: 20px;">
                         <div style="font-size: 48px; margin-bottom: 10px;">LAND</div>
-                        <h4 style="color: var(--primary-gold); margin-bottom: 10px;">土地政策</h4>
-                        <p style="color: var(--paper-beige); font-size: 14px;">充电设施建设用地保障</p>
+                        <h4 style="color: var(--wm-info); margin-bottom: 10px;">土地政策</h4>
+                        <p style="color: var(--wm-text-secondary); font-size: 14px;">充电设施建设用地保障</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 风险与机遇 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2>风险与机遇</h2>
-            <div class="grid grid-2">
-                <div class="card" style="border-left: 4px solid #ff6b6b;">
+            <div class="wm-grid wm-grid-2">
+                <div class="wm-card" style="border-left: 4px solid #ff6b6b;">
                     <h3 style="color: #ff6b6b; margin-bottom: 20px;">市场风险</h3>
-                    <ul style="color: var(--paper-beige); line-height: 2;">
+                    <ul style="color: var(--wm-text-secondary); line-height: 2;">
                         <li>竞争加剧：传统巨头和新兴企业竞争</li>
                         <li>技术迭代：快充技术快速发展</li>
                         <li>政策变化：补贴政策逐步退坡</li>
                         <li>用户习惯：消费者充电习惯培养</li>
                     </ul>
                 </div>
-                <div class="card" style="border-left: 4px solid #51cf66;">
+                <div class="wm-card" style="border-left: 4px solid #51cf66;">
                     <h3 style="color: #51cf66; margin-bottom: 20px;">发展机遇</h3>
-                    <ul style="color: var(--paper-beige); line-height: 2;">
+                    <ul style="color: var(--wm-text-secondary); line-height: 2;">
                         <li>市场缺口：高质量充电设施供不应求</li>
                         <li>技术壁垒：液冷超充技术形成护城河</li>
                         <li>网络效应：规模化运营优势明显</li>
@@ -420,27 +420,26 @@
         </section>
 
         <!-- CTA -->
-        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+        <section class="wm-panel" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; border: 2px solid rgba(59, 130, 246, 0.3);">
             <h2>把握市场机遇，共创未来</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
                 新能源汽车充电基础设施正处于黄金发展期，欢迎加入我们
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="../联系合作.html" class="btn btn-primary">联系合作</a>
-                <a href="商业计划书投资者版.html" class="btn btn-secondary">查看商业计划书</a>
-                <a href="财务图表.html" class="btn btn-secondary">查看财务分析</a>
+                <a href="../联系合作.html" class="wm-btn wm-btn-primary">联系合作</a>
+                <a href="商业计划书投资者版.html" class="wm-btn">查看商业计划书</a>
+                <a href="财务图表.html" class="wm-btn">查看财务分析</a>
             </div>
         </section>
 
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 千站液冷超充项目 - 市场分析
             </p>
         </footer>
     </div>
-
-    <a href="../index.html" class="back-to-home">← 返回首页</a>
 
     <!-- 加载ECharts配置 -->
     <script src="js/echarts-config.js"></script>
@@ -457,7 +456,7 @@
             legend: { data: ['新能源汽车保有量（万辆）', '充电桩总数（万根）'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
             xAxis: { type: 'category', data: ['2023', '2024预测', '2025预测', '2026预测', '2027预测', '2028预测'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
             yAxis: [
-                { type: 'value', name: '保有量（万辆）', position: 'left', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+                { type: 'value', name: '保有量（万辆）', position: 'left', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } } },
                 { type: 'value', name: '充电桩（万根）', position: 'right', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { show: false } }
             ],
             series: [
@@ -471,7 +470,7 @@
             title: { text: '新能源汽车销量增长（2020-2023）', left: 'center' },
             tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: '{b}<br/>销量: {c}万辆' },
             xAxis: { type: 'category', data: ['2020', '2021', '2022', '2023'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
-            yAxis: { type: 'value', name: '销量（万辆）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            yAxis: { type: 'value', name: '销量（万辆）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } } },
             series: [{
                 name: '销量',
                 type: 'bar',
@@ -495,7 +494,7 @@
             title: { text: '新能源汽车市场渗透率提升', left: 'center' },
             tooltip: { trigger: 'axis', formatter: '{b}<br/>渗透率: {c}%' },
             xAxis: { type: 'category', data: ['2020', '2021', '2022', '2023'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
-            yAxis: { type: 'value', name: '渗透率（%）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } }, max: 40 },
+            yAxis: { type: 'value', name: '渗透率（%）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } }, max: 40 },
             series: [{
                 name: '渗透率',
                 type: 'line',
@@ -503,7 +502,7 @@
                 itemStyle: { color: '#D4AF37' },
                 lineStyle: { width: 4 },
                 areaStyle: {
-                    color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{offset: 0, color: 'rgba(212, 175, 55, 0.3)'}, {offset: 1, color: 'rgba(212, 175, 55, 0.05)'}] }
+                    color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{offset: 0, color: 'rgba(59, 130, 246, 0.3)'}, {offset: 1, color: 'rgba(59, 130, 246, 0.05)'}] }
                 },
                 markPoint: {
                     data: [
@@ -520,7 +519,7 @@
             tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
             legend: { data: ['当前总数', '累计新增'], textStyle: { color: '#D4AF37' }, top: 'bottom' },
             xAxis: { type: 'category', data: ['2023', '2024预测', '2025预测', '2026预测', '2027预测', '2028预测'], axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } } },
-            yAxis: { type: 'value', name: '数量（万根）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.1)', type: 'dashed' } } },
+            yAxis: { type: 'value', name: '数量（万根）', axisLabel: { color: '#F5F5DC' }, axisLine: { lineStyle: { color: '#D4AF37' } }, splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.1)', type: 'dashed' } } },
             series: [
                 { name: '当前总数', type: 'bar', data: [580, 1100, 1700, 2400, 3100, 3800], itemStyle: { color: '#D4AF37' } },
                 { name: '累计新增', type: 'line', data: [0, 520, 1120, 1820, 2520, 3220], itemStyle: { color: '#F5F5DC' }, lineStyle: { width: 3 } }
@@ -547,7 +546,7 @@
                     itemStyle: {
                         shadowBlur: 10,
                         shadowOffsetX: 0,
-                        shadowColor: 'rgba(212, 175, 55, 0.5)'
+                        shadowColor: 'rgba(59, 130, 246, 0.5)'
                     }
                 },
                 label: { formatter: '{b}\n{d}%' }

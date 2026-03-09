@@ -4,95 +4,216 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>融资方案与退出机制 - 服务器组装厂商业计划书</title>
-    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
-</head>
-<body>
-    <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">服务器组装厂</span>
-            </div>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">项目首页</a>
-                <a href="执行摘要与战略定位.html" class="nav-link">执行摘要</a>
-                <a href="商业模式与运营策略.html" class="nav-link">商业模式</a>
-                <a href="财务模型与投资分析.html" class="nav-link">财务模型</a>
-                <a href="市场分析与竞争格局.html" class="nav-link">市场分析</a>
-                <a href="风险管控与合规体系.html" class="nav-link">风险管控</a>
-                <a href="融资方案与退出机制.html" class="nav-link active">融资方案</a>
-            </div>
-        </div>
-    </nav>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
+    <style>
+        /* 保留的自定义类样式 */
+        .method-params, .rights-list, .adjustment-list, .transfer-targets, .transfer-timing, .transfer-pricing, .buyer-list, .conclusion-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--wm-space-sm) 0;
+        }
+        .method-params li, .rights-list li, .adjustment-list li, .buyer-list li, .conclusion-list li {
+            font-size: 12px;
+            color: var(--wm-text-secondary);
+            padding: var(--wm-space-xs) 0;
+            padding-left: var(--wm-space-md);
+            position: relative;
+        }
+        .method-params li:before, .rights-list li:before, .adjustment-list li:before, .buyer-list li:before, .conclusion-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--wm-accent);
+        }
 
-    <!-- 页面标题区 -->
-    <header class="page-header">
-        <div class="header-container">
-            <h1 class="page-title">融资方案与退出机制</h1>
-            <p class="page-subtitle">Financing Plan & Exit Strategy</p>
-            <div class="header-divider"></div>
+        .method-result, .issuance-plan, .potential-buyers, .valuation-range, .exit-content, .milestones, .conclusion-content, .recommendations, .investor-rights, .risk-alerts {
+            margin-top: var(--wm-space-md);
+        }
+
+        .scenario-header, .exit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--wm-space-md);
+        }
+
+        .scenario-header h4, .exit-header h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--wm-accent);
+            margin: 0;
+        }
+
+        .scenario-probability, .exit-badge {
+            background: var(--wm-accent);
+            color: var(--wm-bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .scenario-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: var(--wm-space-sm);
+        }
+
+        .buyer-category, .listing-requirements, .monitoring-table {
+            margin-top: var(--wm-space-md);
+        }
+
+        .buyer-category h5 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--wm-accent);
+            margin: var(--wm-space-sm) 0;
+        }
+
+        .milestone-item {
+            display: flex;
+            align-items: center;
+            gap: var(--wm-space-sm);
+            padding: var(--wm-space-xs) 0;
+        }
+
+        .milestone-icon {
+            color: var(--wm-success);
+            font-weight: bold;
+        }
+
+        .milestone-text {
+            font-size: 12px;
+            color: var(--wm-text-secondary);
+        }
+
+        .conclusion-content p {
+            font-size: 13px;
+            color: var(--wm-text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--wm-space-md);
+        }
+
+        .conclusion-content h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--wm-accent);
+            margin: var(--wm-space-lg) 0 var(--wm-space-md);
+        }
+
+        .recommendations {
+            display: flex;
+            gap: var(--wm-space-md);
+            margin-top: var(--wm-space-lg);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        table th {
+            background: var(--wm-surface);
+            color: var(--wm-accent);
+            padding: var(--wm-space-sm);
+            text-align: left;
+            border-bottom: 2px solid var(--wm-border);
+            font-weight: 600;
+        }
+
+        table td {
+            padding: var(--wm-space-sm);
+            border-bottom: 1px solid var(--wm-border);
+            color: var(--wm-text-secondary);
+        }
+
+        table tr.total-row td {
+            background: var(--wm-surface);
+            font-weight: 600;
+            color: var(--wm-accent);
+        }
+
+        .status-success {
+            color: var(--wm-success);
+            font-weight: 600;
+        }
+
+        .status-warning {
+            color: var(--wm-warning);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="no-transition">
+    <!-- 顶部导航 -->
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
     </header>
 
-    <main class="main-content">
+    <main class="wm-main">
+        <!-- 页面标题区 -->
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h1 class="wm-panel-title">融资方案与退出机制</h1>
+                <img src="../images/banners/server-factory-hero.png" alt="服务器组装厂 - AI算力设备制造中心" class="hero-banner-image" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: var(--wm-radius-md); margin-top: var(--wm-space-md);" loading="eager">
+            </div>
+        </section>
         <!-- 投资画像 -->
-        <section class="content-section">
-            <h2 class="section-title">投资画像</h2>
-            <div class="investment-profile">
-                <div class="profile-grid">
-                    <div class="profile-card">
-                        <div class="profile-label">投资规模</div>
-                        <div class="profile-value">¥2.00亿</div>
-                        <div class="profile-sub">拟投交易</div>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">投资画像</h2>
+            </div>
+            <div class="wm-card">
+                <div class="wm-grid wm-grid-auto">
+                    <div class="wm-metric">
+                        <div class="wm-metric-label">投资规模</div>
+                        <div class="wm-metric-value">¥2.00亿</div>
                     </div>
-                    <div class="profile-card">
-                        <div class="profile-label">投资行业</div>
-                        <div class="profile-value">AI算力</div>
-                        <div class="profile-sub">新一代信息技术</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-label">投资行业</div>
+                        <div class="wm-metric-value">AI算力</div>
                     </div>
-                    <div class="profile-card">
-                        <div class="profile-label">股权目标</div>
-                        <div class="profile-value">控制性</div>
-                        <div class="profile-sub">控股地位</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-label">股权目标</div>
+                        <div class="wm-metric-value">控制性</div>
                     </div>
-                    <div class="profile-card">
-                        <div class="profile-label">持有年限</div>
-                        <div class="profile-value">5年</div>
-                        <div class="profile-sub">中期投资</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-label">持有年限</div>
+                        <div class="wm-metric-value">5年</div>
                     </div>
-                    <div class="profile-card highlight">
-                        <div class="profile-label">目标IRR</div>
-                        <div class="profile-value">25%</div>
-                        <div class="profile-sub">实际49.8%</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-label">目标IRR</div>
+                        <div class="wm-metric-value high">25%</div>
                     </div>
-                    <div class="profile-card highlight">
-                        <div class="profile-label">目标MOIC</div>
-                        <div class="profile-value">3.0×</div>
-                        <div class="profile-sub">预期10×</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-label">目标MOIC</div>
+                        <div class="wm-metric-value">3.0×</div>
                     </div>
-                    <div class="profile-card">
-                        <div class="profile-label">退出偏好</div>
-                        <div class="profile-value">IPO优先</div>
-                        <div class="profile-sub">科创板</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-label">退出偏好</div>
+                        <div class="wm-metric-value">IPO优先</div>
                     </div>
-                    <div class="profile-card">
-                        <div class="profile-label">基础货币</div>
-                        <div class="profile-value">CNY</div>
-                        <div class="profile-sub">人民币计价</div>
+                    <div class="wm-metric">
+                        <div class="wm-metric-label">基础货币</div>
+                        <div class="wm-metric-value">CNY</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 融资结构设计 -->
-        <section class="content-section">
-            <h2 class="section-title">融资结构设计</h2>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">融资结构设计</h2>
+            </div>
 
             <!-- 初始融资结构 -->
-            <div class="financing-structure">
-                <h3 class="subsection-title">初始融资结构（第0年，已实施）</h3>
-                <div class="structure-table">
+            <div class="wm-card">
+                <h3 class="wm-card-title">初始融资结构（第0年，已实施）</h3>
                     <table>
                         <thead>
                             <tr>
@@ -135,40 +256,39 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
             </div>
 
             <!-- 后续融资规划 -->
-            <div class="financing-rounds">
-                <h3 class="subsection-title">后续融资规划</h3>
-                <div class="rounds-grid">
-                    <div class="round-card">
-                        <div class="round-badge">A轮</div>
-                        <div class="round-time">第2年末（2027年）</div>
-                        <div class="round-amount">1.5-2.0亿元</div>
-                        <ul class="round-details">
+            <div class="wm-card">
+                <h3 class="wm-card-title">后续融资规划</h3>
+                <div class="wm-grid wm-grid-auto">
+                    <div class="wm-card">
+                        <div class="wm-metric-label" style="margin-bottom: var(--wm-space-sm);">A轮</div>
+                        <div class="wm-metric-label">第2年末（2027年）</div>
+                        <div class="wm-metric-value">1.5-2.0亿元</div>
+                        <ul style="margin-top: var(--wm-space-md); padding-left: var(--wm-space-lg); font-size: 12px; color: var(--wm-text-secondary);">
                             <li>投前估值：6.0-8.0亿元</li>
                             <li>投后估值：7.5-10.0亿元</li>
                             <li>出让股权：15-20%</li>
                             <li>资金用途：产能扩充、光模块制造设备</li>
                         </ul>
                     </div>
-                    <div class="round-card">
-                        <div class="round-badge">B轮</div>
-                        <div class="round-time">第3年末（2028年）</div>
-                        <div class="round-amount">2.0-3.0亿元</div>
-                        <ul class="round-details">
+                    <div class="wm-card">
+                        <div class="wm-metric-label" style="margin-bottom: var(--wm-space-sm);">B轮</div>
+                        <div class="wm-metric-label">第3年末（2028年）</div>
+                        <div class="wm-metric-value">2.0-3.0亿元</div>
+                        <ul style="margin-top: var(--wm-space-md); padding-left: var(--wm-space-lg); font-size: 12px; color: var(--wm-text-secondary);">
                             <li>投前估值：18.0-22.0亿元</li>
                             <li>投后估值：20.0-25.0亿元</li>
                             <li>出让股权：10-15%</li>
                             <li>资金用途：规模化扩产、海外市场拓展</li>
                         </ul>
                     </div>
-                    <div class="round-card">
-                        <div class="round-badge">Pre-IPO</div>
-                        <div class="round-time">第5年末（2030年）</div>
-                        <div class="round-amount">3.0-5.0亿元</div>
-                        <ul class="round-details">
+                    <div class="wm-card">
+                        <div class="wm-metric-label" style="margin-bottom: var(--wm-space-sm);">Pre-IPO</div>
+                        <div class="wm-metric-label">第5年末（2030年）</div>
+                        <div class="wm-metric-value">3.0-5.0亿元</div>
+                        <ul style="margin-top: var(--wm-space-md); padding-left: var(--wm-space-lg); font-size: 12px; color: var(--wm-text-secondary);">
                             <li>投前估值：50.0-70.0亿元</li>
                             <li>投后估值：53.0-75.0亿元</li>
                             <li>出让股权：5-7%</li>
@@ -179,73 +299,92 @@
             </div>
 
             <!-- 融资时间轴图表 -->
-            <div class="chart-container">
-                <h3 class="chart-title">融资时间轴与估值增长</h3>
+            <div class="wm-card">
+                <h3 class="wm-card-title">融资时间轴与估值增长</h3>
                 <div id="financingTimelineChart" style="width: 100%; height: 400px;"></div>
             </div>
         </section>
 
         <!-- 分阶段融资计划 -->
-        <section class="content-section">
-            <h2 class="section-title">分阶段融资计划</h2>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">分阶段融资计划</h2>
+            </div>
 
             <!-- 种子轮 -->
-            <div class="phase-card">
-                <div class="phase-header">
-                    <h3 class="phase-title">种子轮（已完成，第0年）</h3>
-                    <span class="phase-status completed">✓ 已完成</span>
+            <div class="wm-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--wm-space-md);">
+                    <h3 style="font-size: 16px; font-weight: 700; color: var(--wm-accent); margin: 0;">种子轮（已完成，第0年）</h3>
+                    <span style="background: var(--wm-success); color: var(--wm-bg); padding: 2px 8px; border-radius: 4px; font-size: 12px;">✓ 已完成</span>
                 </div>
-                <div class="phase-content">
-                    <div class="phase-grid">
-                        <div class="phase-metric">
-                            <div class="metric-label">融资规模</div>
-                            <div class="metric-value">2.00亿元</div>
+                <div class="wm-grid wm-grid-auto">
+                        <div class="wm-metric">
+                            <div class="wm-metric-label">融资规模</div>
+                            <div class="wm-metric-value">2.00亿元</div>
                         </div>
-                        <div class="phase-metric">
-                            <div class="metric-label">投后估值</div>
-                            <div class="metric-value">2.00亿元</div>
+                        <div class="wm-metric">
+                            <div class="wm-metric-label">投后估值</div>
+                            <div class="wm-metric-value">2.00亿元</div>
                         </div>
-                        <div class="phase-metric">
-                            <div class="metric-label">资金到位</div>
-                            <div class="metric-value">100%</div>
+                        <div class="wm-metric">
+                            <div class="wm-metric-label">资金到位</div>
+                            <div class="wm-metric-value">100%</div>
                         </div>
                     </div>
-                    <h4 class="phase-subtitle">资金使用明细</h4>
-                    <div class="fund-usage">
-                        <div class="usage-item">
-                            <div class="usage-bar" style="width: 35%">
-                                <span class="usage-label">生产设备</span>
-                                <span class="usage-percent">35%</span>
+                    <h4 style="font-size: 14px; font-weight: 600; color: var(--wm-accent); margin: var(--wm-space-lg) 0 var(--wm-space-md);">资金使用明细</h4>
+                    <div style="margin-top: var(--wm-space-md);">
+                        <div style="margin-bottom: var(--wm-space-sm);">
+                            <div style="background: var(--wm-surface); border: 1px solid var(--wm-border); border-radius: var(--wm-radius-sm); padding: var(--wm-space-sm); position: relative; overflow: hidden;">
+                                <div style="background: var(--wm-accent); width: 35%; height: 100%; position: absolute; left: 0; top: 0; opacity: 0.3;"></div>
+                                <div style="position: relative; display: flex; justify-content: space-between;">
+                                    <span style="font-size: 12px; color: var(--wm-text-primary);">生产设备</span>
+                                    <span style="font-size: 12px; color: var(--wm-accent); font-weight: 600;">35%</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="usage-item">
-                            <div class="usage-bar" style="width: 25%">
-                                <span class="usage-label">原材料</span>
-                                <span class="usage-percent">25%</span>
+                        <div style="margin-bottom: var(--wm-space-sm);">
+                            <div style="background: var(--wm-surface); border: 1px solid var(--wm-border); border-radius: var(--wm-radius-sm); padding: var(--wm-space-sm); position: relative; overflow: hidden;">
+                                <div style="background: var(--wm-accent); width: 25%; height: 100%; position: absolute; left: 0; top: 0; opacity: 0.3;"></div>
+                                <div style="position: relative; display: flex; justify-content: space-between;">
+                                    <span style="font-size: 12px; color: var(--wm-text-primary);">原材料</span>
+                                    <span style="font-size: 12px; color: var(--wm-accent); font-weight: 600;">25%</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="usage-item">
-                            <div class="usage-bar" style="width: 15%">
-                                <span class="usage-label">研发投入</span>
-                                <span class="usage-percent">15%</span>
+                        <div style="margin-bottom: var(--wm-space-sm);">
+                            <div style="background: var(--wm-surface); border: 1px solid var(--wm-border); border-radius: var(--wm-radius-sm); padding: var(--wm-space-sm); position: relative; overflow: hidden;">
+                                <div style="background: var(--wm-accent); width: 15%; height: 100%; position: absolute; left: 0; top: 0; opacity: 0.3;"></div>
+                                <div style="position: relative; display: flex; justify-content: space-between;">
+                                    <span style="font-size: 12px; color: var(--wm-text-primary);">研发投入</span>
+                                    <span style="font-size: 12px; color: var(--wm-accent); font-weight: 600;">15%</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="usage-item">
-                            <div class="usage-bar" style="width: 10%">
-                                <span class="usage-label">人力储备</span>
-                                <span class="usage-percent">10%</span>
+                        <div style="margin-bottom: var(--wm-space-sm);">
+                            <div style="background: var(--wm-surface); border: 1px solid var(--wm-border); border-radius: var(--wm-radius-sm); padding: var(--wm-space-sm); position: relative; overflow: hidden;">
+                                <div style="background: var(--wm-accent); width: 10%; height: 100%; position: absolute; left: 0; top: 0; opacity: 0.3;"></div>
+                                <div style="position: relative; display: flex; justify-content: space-between;">
+                                    <span style="font-size: 12px; color: var(--wm-text-primary);">人力储备</span>
+                                    <span style="font-size: 12px; color: var(--wm-accent); font-weight: 600;">10%</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="usage-item">
-                            <div class="usage-bar" style="width: 10%">
-                                <span class="usage-label">测试设备</span>
-                                <span class="usage-percent">10%</span>
+                        <div style="margin-bottom: var(--wm-space-sm);">
+                            <div style="background: var(--wm-surface); border: 1px solid var(--wm-border); border-radius: var(--wm-radius-sm); padding: var(--wm-space-sm); position: relative; overflow: hidden;">
+                                <div style="background: var(--wm-accent); width: 10%; height: 100%; position: absolute; left: 0; top: 0; opacity: 0.3;"></div>
+                                <div style="position: relative; display: flex; justify-content: space-between;">
+                                    <span style="font-size: 12px; color: var(--wm-text-primary);">测试设备</span>
+                                    <span style="font-size: 12px; color: var(--wm-accent); font-weight: 600;">10%</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="usage-item">
-                            <div class="usage-bar" style="width: 5%">
-                                <span class="usage-label">流动资金</span>
-                                <span class="usage-percent">5%</span>
+                        <div style="margin-bottom: var(--wm-space-sm);">
+                            <div style="background: var(--wm-surface); border: 1px solid var(--wm-border); border-radius: var(--wm-radius-sm); padding: var(--wm-space-sm); position: relative; overflow: hidden;">
+                                <div style="background: var(--wm-accent); width: 5%; height: 100%; position: absolute; left: 0; top: 0; opacity: 0.3;"></div>
+                                <div style="position: relative; display: flex; justify-content: space-between;">
+                                    <span style="font-size: 12px; color: var(--wm-text-primary);">流动资金</span>
+                                    <span style="font-size: 12px; color: var(--wm-accent); font-weight: 600;">5%</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -261,16 +400,16 @@
                 <div class="phase-content">
                     <div class="phase-grid">
                         <div class="phase-metric">
-                            <div class="metric-label">融资规模</div>
-                            <div class="metric-value">1.70亿元</div>
+                            <div class="wm-metric-label">融资规模</div>
+                            <div class="wm-metric-value">1.70亿元</div>
                         </div>
                         <div class="phase-metric">
-                            <div class="metric-label">投前估值</div>
-                            <div class="metric-value">6.0-8.0亿元</div>
+                            <div class="wm-metric-label">投前估值</div>
+                            <div class="wm-metric-value">6.0-8.0亿元</div>
                         </div>
                         <div class="phase-metric">
-                            <div class="metric-label">出让股权</div>
-                            <div class="metric-value">15-20%</div>
+                            <div class="wm-metric-label">出让股权</div>
+                            <div class="wm-metric-value">15-20%</div>
                         </div>
                     </div>
                     <h4 class="phase-subtitle">融资前里程碑</h4>
@@ -304,16 +443,16 @@
                 <div class="phase-content">
                     <div class="phase-grid">
                         <div class="phase-metric">
-                            <div class="metric-label">融资规模</div>
-                            <div class="metric-value">4.60亿元</div>
+                            <div class="wm-metric-label">融资规模</div>
+                            <div class="wm-metric-value">4.60亿元</div>
                         </div>
                         <div class="phase-metric">
-                            <div class="metric-label">投前估值</div>
-                            <div class="metric-value">18.0-22.0亿元</div>
+                            <div class="wm-metric-label">投前估值</div>
+                            <div class="wm-metric-value">18.0-22.0亿元</div>
                         </div>
                         <div class="phase-metric">
-                            <div class="metric-label">出让股权</div>
-                            <div class="metric-value">10-15%</div>
+                            <div class="wm-metric-label">出让股权</div>
+                            <div class="wm-metric-value">10-15%</div>
                         </div>
                     </div>
                     <h4 class="phase-subtitle">融资前里程碑</h4>
@@ -340,14 +479,16 @@
         </section>
 
         <!-- 估值模型与投资回报分析 -->
-        <section class="content-section">
-            <h2 class="section-title">估值模型与投资回报分析</h2>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">估值模型与投资回报分析</h2>
+            </div>
 
             <!-- 估值方法 -->
-            <div class="valuation-methods">
-                <h3 class="subsection-title">估值方法</h3>
-                <div class="methods-grid">
-                    <div class="method-card">
+            <div class="wm-card">
+                <h3 class="wm-card-title">估值方法</h3>
+                <div class="wm-grid wm-grid-auto">
+                    <div class="wm-card">
                         <h4>方法1：DCF法（折现现金流法）</h4>
                         <ul class="method-params">
                             <li>WACC：12.0%</li>
@@ -355,11 +496,11 @@
                             <li>预测期：2026-2030年</li>
                         </ul>
                         <div class="method-result">
-                            <div class="result-label">DCF估值</div>
-                            <div class="result-value">50.0亿元</div>
+                            <div class="wm-metric-label">DCF估值</div>
+                            <div class="wm-metric-value">50.0亿元</div>
                         </div>
                     </div>
-                    <div class="method-card">
+                    <div class="wm-card">
                         <h4>方法2：可比公司法（P/E倍数法）</h4>
                         <ul class="method-params">
                             <li>可比公司：浪潮信息、中科曙光</li>
@@ -367,11 +508,11 @@
                             <li>第5年净利润：8.93亿元</li>
                         </ul>
                         <div class="method-result">
-                            <div class="result-label">P/E估值</div>
-                            <div class="result-value">62.5亿元</div>
+                            <div class="wm-metric-label">P/E估值</div>
+                            <div class="wm-metric-value">62.5亿元</div>
                         </div>
                     </div>
-                    <div class="method-card">
+                    <div class="wm-card">
                         <h4>方法3：先例交易法</h4>
                         <ul class="method-params">
                             <li>服务器行业并购市盈率：30-40倍</li>
@@ -379,8 +520,8 @@
                             <li>流动性折让：30%</li>
                         </ul>
                         <div class="method-result">
-                            <div class="result-label">交易估值</div>
-                            <div class="result-value">55.0亿元</div>
+                            <div class="wm-metric-label">交易估值</div>
+                            <div class="wm-metric-value">55.0亿元</div>
                         </div>
                     </div>
                 </div>
@@ -388,39 +529,39 @@
 
             <!-- 加权平均估值 -->
             <div class="weighted-valuation">
-                <h3 class="subsection-title">加权平均估值</h3>
+                <h3 class="wm-card-title">加权平均估值</h3>
                 <div id="valuationChart" style="width: 100%; height: 350px;"></div>
             </div>
 
             <!-- 投资回报分析 -->
-            <div class="return-analysis">
-                <h3 class="subsection-title">投资回报分析（基于实际IRR 49.8%）</h3>
-                <div class="scenarios-grid">
+            <div class="wm-card">
+                <h3 class="wm-card-title">投资回报分析（基于实际IRR 49.8%）</h3>
+                <div class="wm-grid wm-grid-auto">
                     <div class="scenario-card best">
                         <div class="scenario-header">
                             <h4>情景1：IPO退出（最优）</h4>
                             <span class="scenario-probability">概率 40%</span>
                         </div>
                         <div class="scenario-metrics">
-                            <div class="scenario-metric">
-                                <div class="metric-label">退出时间</div>
-                                <div class="metric-value">2030年（5年）</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">退出时间</div>
+                                <div class="wm-metric-value">2030年（5年）</div>
                             </div>
-                            <div class="scenario-metric">
-                                <div class="metric-label">退出估值</div>
-                                <div class="metric-value">100亿元</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">退出估值</div>
+                                <div class="wm-metric-value">100亿元</div>
                             </div>
-                            <div class="scenario-metric">
-                                <div class="metric-label">退出价值</div>
-                                <div class="metric-value">45亿元</div>
-                            </div>
-                            <div class="scenario-metric highlight">
-                                <div class="metric-label">MOIC</div>
-                                <div class="metric-value">22.5×</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">退出价值</div>
+                                <div class="wm-metric-value">45亿元</div>
                             </div>
                             <div class="scenario-metric highlight">
-                                <div class="metric-label">IRR</div>
-                                <div class="metric-value">98%</div>
+                                <div class="wm-metric-label">MOIC</div>
+                                <div class="wm-metric-value">22.5×</div>
+                            </div>
+                            <div class="scenario-metric highlight">
+                                <div class="wm-metric-label">IRR</div>
+                                <div class="wm-metric-value">98%</div>
                             </div>
                         </div>
                     </div>
@@ -431,25 +572,25 @@
                             <span class="scenario-probability">概率 30%</span>
                         </div>
                         <div class="scenario-metrics">
-                            <div class="scenario-metric">
-                                <div class="metric-label">退出时间</div>
-                                <div class="metric-value">2030年（5年）</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">退出时间</div>
+                                <div class="wm-metric-value">2030年（5年）</div>
                             </div>
-                            <div class="scenario-metric">
-                                <div class="metric-label">退出估值</div>
-                                <div class="metric-value">60亿元</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">退出估值</div>
+                                <div class="wm-metric-value">60亿元</div>
                             </div>
-                            <div class="scenario-metric">
-                                <div class="metric-label">退出价值</div>
-                                <div class="metric-value">30亿元</div>
-                            </div>
-                            <div class="scenario-metric highlight">
-                                <div class="metric-label">MOIC</div>
-                                <div class="metric-value">15.0×</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">退出价值</div>
+                                <div class="wm-metric-value">30亿元</div>
                             </div>
                             <div class="scenario-metric highlight">
-                                <div class="metric-label">IRR</div>
-                                <div class="metric-value">72%</div>
+                                <div class="wm-metric-label">MOIC</div>
+                                <div class="wm-metric-value">15.0×</div>
+                            </div>
+                            <div class="scenario-metric highlight">
+                                <div class="wm-metric-label">IRR</div>
+                                <div class="wm-metric-value">72%</div>
                             </div>
                         </div>
                     </div>
@@ -460,25 +601,25 @@
                             <span class="scenario-probability">概率 20%</span>
                         </div>
                         <div class="scenario-metrics">
-                            <div class="scenario-metric">
-                                <div class="metric-label">退出时间</div>
-                                <div class="metric-value">2030年（5年）</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">退出时间</div>
+                                <div class="wm-metric-value">2030年（5年）</div>
                             </div>
-                            <div class="scenario-metric">
-                                <div class="metric-label">退出估值</div>
-                                <div class="metric-value">40亿元</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">退出估值</div>
+                                <div class="wm-metric-value">40亿元</div>
                             </div>
-                            <div class="scenario-metric">
-                                <div class="metric-label">退出价值</div>
-                                <div class="metric-value">20亿元</div>
-                            </div>
-                            <div class="scenario-metric highlight">
-                                <div class="metric-label">MOIC</div>
-                                <div class="metric-value">10.0×</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">退出价值</div>
+                                <div class="wm-metric-value">20亿元</div>
                             </div>
                             <div class="scenario-metric highlight">
-                                <div class="metric-label">IRR</div>
-                                <div class="metric-value">58%</div>
+                                <div class="wm-metric-label">MOIC</div>
+                                <div class="wm-metric-value">10.0×</div>
+                            </div>
+                            <div class="scenario-metric highlight">
+                                <div class="wm-metric-label">IRR</div>
+                                <div class="wm-metric-value">58%</div>
                             </div>
                         </div>
                     </div>
@@ -489,25 +630,25 @@
                             <span class="scenario-probability">概率 10%</span>
                         </div>
                         <div class="scenario-metrics">
-                            <div class="scenario-metric">
-                                <div class="metric-label">退出时间</div>
-                                <div class="metric-value">2030年（5年）</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">退出时间</div>
+                                <div class="wm-metric-value">2030年（5年）</div>
                             </div>
-                            <div class="scenario-metric">
-                                <div class="metric-label">回购价格</div>
-                                <div class="metric-value">本金+15%年化</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">回购价格</div>
+                                <div class="wm-metric-value">本金+15%年化</div>
                             </div>
-                            <div class="scenario-metric">
-                                <div class="metric-label">回报价值</div>
-                                <div class="metric-value">4亿元</div>
-                            </div>
-                            <div class="scenario-metric highlight">
-                                <div class="metric-label">MOIC</div>
-                                <div class="metric-value">2.0×</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">回报价值</div>
+                                <div class="wm-metric-value">4亿元</div>
                             </div>
                             <div class="scenario-metric highlight">
-                                <div class="metric-label">IRR</div>
-                                <div class="metric-value">15%</div>
+                                <div class="wm-metric-label">MOIC</div>
+                                <div class="wm-metric-value">2.0×</div>
+                            </div>
+                            <div class="scenario-metric highlight">
+                                <div class="wm-metric-label">IRR</div>
+                                <div class="wm-metric-value">15%</div>
                             </div>
                         </div>
                     </div>
@@ -515,15 +656,17 @@
 
                 <!-- 加权平均回报 -->
                 <div class="weighted-return">
-                    <h4 class="subsection-title">加权平均回报</h4>
+                    <h4 class="wm-card-title">加权平均回报</h4>
                     <div id="returnChart" style="width: 100%; height: 400px;"></div>
                 </div>
             </div>
         </section>
 
         <!-- 退出路径规划 -->
-        <section class="content-section">
-            <h2 class="section-title">退出路径规划</h2>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">退出路径规划</h2>
+            </div>
 
             <div class="exit-paths">
                 <!-- IPO -->
@@ -574,32 +717,32 @@
                         </div>
                         <h4>预计发行方案</h4>
                         <div class="issuance-plan">
-                            <div class="plan-item">
-                                <div class="plan-label">发行前总股本</div>
-                                <div class="plan-value">1亿股</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">发行前总股本</div>
+                                <div class="wm-metric-value">1亿股</div>
                             </div>
-                            <div class="plan-item">
-                                <div class="plan-label">发行股数</div>
-                                <div class="plan-value">2000万股（20%）</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">发行股数</div>
+                                <div class="wm-metric-value">2000万股（20%）</div>
                             </div>
-                            <div class="plan-item">
-                                <div class="plan-label">发行价</div>
-                                <div class="plan-value">60-80元/股</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">发行价</div>
+                                <div class="wm-metric-value">60-80元/股</div>
                             </div>
-                            <div class="plan-item">
-                                <div class="plan-label">募集资金</div>
-                                <div class="plan-value">12-16亿元</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">募集资金</div>
+                                <div class="wm-metric-value">12-16亿元</div>
                             </div>
                             <div class="plan-item highlight">
-                                <div class="plan-label">发行后总市值</div>
-                                <div class="plan-value">80-120亿元</div>
+                                <div class="wm-metric-label">发行后总市值</div>
+                                <div class="wm-metric-value">80-120亿元</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- 并购 -->
-                <div class="exit-path-card">
+                <div class="wm-card">
                     <div class="exit-header">
                         <h3>并购退出（次优路径）</h3>
                         <span class="exit-badge">备选</span>
@@ -631,24 +774,24 @@
                         </div>
                         <h4>预计估值区间</h4>
                         <div class="valuation-range">
-                            <div class="range-metric">
-                                <div class="metric-label">市盈率法</div>
-                                <div class="metric-value">8.93亿×25倍 = 223亿元</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">市盈率法</div>
+                                <div class="wm-metric-value">8.93亿×25倍 = 223亿元</div>
                             </div>
-                            <div class="range-metric">
-                                <div class="metric-label">市销率法</div>
-                                <div class="metric-value">40亿×5倍 = 200亿元</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">市销率法</div>
+                                <div class="wm-metric-value">40亿×5倍 = 200亿元</div>
                             </div>
-                            <div class="range-metric">
-                                <div class="metric-label">考虑折让</div>
-                                <div class="metric-value">60-80亿元</div>
+                            <div class="wm-metric">
+                                <div class="wm-metric-label">考虑折让</div>
+                                <div class="wm-metric-value">60-80亿元</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- 股权转让 -->
-                <div class="exit-path-card">
+                <div class="wm-card">
                     <div class="exit-header">
                         <h3>股权转让（保底路径）</h3>
                         <span class="exit-badge">备选</span>
@@ -677,12 +820,14 @@
         </section>
 
         <!-- 投资者权利与保护条款 -->
-        <section class="content-section">
-            <h2 class="section-title">投资者权利与保护条款</h2>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">投资者权利与保护条款</h2>
+            </div>
 
             <div class="investor-rights">
-                <div class="rights-grid">
-                    <div class="right-card">
+                <div class="wm-grid wm-grid-auto">
+                    <div class="wm-card">
                         <h3>股东权利</h3>
                         <ul class="rights-list">
                             <li><strong>表决权</strong>：按持股比例行使表决权</li>
@@ -691,7 +836,7 @@
                             <li><strong>质询权</strong>：可对公司经营提出质询</li>
                         </ul>
                     </div>
-                    <div class="right-card">
+                    <div class="wm-card">
                         <h3>保护条款</h3>
                         <ul class="rights-list">
                             <li><strong>反稀释条款</strong>：加权平均反稀释</li>
@@ -700,7 +845,7 @@
                             <li><strong>随售权</strong>：第三方收购时可要求一起出售</li>
                         </ul>
                     </div>
-                    <div class="right-card">
+                    <div class="wm-card">
                         <h3>公司治理</h3>
                         <ul class="rights-list">
                             <li><strong>董事会席位</strong>：种子轮1席，A轮1席，B轮1席</li>
@@ -714,11 +859,13 @@
         </section>
 
         <!-- 关键监控与调整机制 -->
-        <section class="content-section">
-            <h2 class="section-title">关键监控与调整机制</h2>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">关键监控与调整机制</h2>
+            </div>
 
-            <div class="monitoring-mechanism">
-                <h3 class="subsection-title">投资监控指标</h3>
+            <div class="wm-card">
+                <h3 class="wm-card-title">投资监控指标</h3>
                 <div class="monitoring-table">
                     <table>
                         <thead>
@@ -764,10 +911,10 @@
                 </div>
             </div>
 
-            <div class="adjustment-mechanism">
-                <h3 class="subsection-title">动态调整机制</h3>
-                <div class="adjustment-grid">
-                    <div class="adjustment-card">
+            <div class="wm-card">
+                <h3 class="wm-card-title">动态调整机制</h3>
+                <div class="wm-grid wm-grid-auto">
+                    <div class="wm-card">
                         <h4>加速融资触发条件</h4>
                         <ul class="adjustment-list">
                             <li>市场需求超预期（连续2季度收入超预测30%+）</li>
@@ -775,7 +922,7 @@
                             <li>政策窗口期缩短（补贴政策提前退坡）</li>
                         </ul>
                     </div>
-                    <div class="adjustment-card">
+                    <div class="wm-card">
                         <h4>延缓融资触发条件</h4>
                         <ul class="adjustment-list">
                             <li>市场需求不及预期（收入低于预测20%+）</li>
@@ -783,7 +930,7 @@
                             <li>估值水平下降（市场估值回调>30%）</li>
                         </ul>
                     </div>
-                    <div class="adjustment-card">
+                    <div class="wm-card">
                         <h4>退出路径调整</h4>
                         <ul class="adjustment-list">
                             <li>每年评估退出路径</li>
@@ -796,11 +943,13 @@
         </section>
 
         <!-- 风险提示 -->
-        <section class="content-section">
-            <h2 class="section-title">风险提示</h2>
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">风险提示</h2>
+            </div>
 
             <div class="risk-alerts">
-                <div class="risk-alert-card">
+                <div class="wm-card">
                     <h3>融资风险</h3>
                     <table>
                         <thead>
@@ -829,7 +978,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="risk-alert-card">
+                <div class="wm-card">
                     <h3>退出风险</h3>
                     <table>
                         <thead>
@@ -862,9 +1011,11 @@
         </section>
 
         <!-- 结语 -->
-        <section class="content-section">
-            <h2 class="section-title">结语</h2>
-            <div class="conclusion">
+        <section class="wm-panel">
+            <div class="wm-panel-header">
+                <h2 class="wm-panel-title">结语</h2>
+            </div>
+            <div class="wm-card">
                 <div class="conclusion-content">
                     <p>本融资方案与退出机制规划基于保守假设，为投资者提供多重退出路径和丰厚的投资回报预期。</p>
 
@@ -878,11 +1029,11 @@
 
                     <h3>建议</h3>
                     <div class="recommendations">
-                        <div class="recommendation-card">
+                        <div class="wm-card">
                             <h4>投资人</h4>
                             <p>积极参与早期投资，分享行业成长红利</p>
                         </div>
-                        <div class="recommendation-card">
+                        <div class="wm-card">
                             <h4>公司</h4>
                             <p>加快业绩增长，为IPO和并购创造条件</p>
                         </div>
@@ -891,11 +1042,12 @@
             </div>
         </section>
     </main>
+    </div>
 
     <!-- 底部 -->
-    <footer class="page-footer">
-        <div class="footer-container">
-            <div class="footer-content">
+    <footer class="wm-footer">
+        <div class="wm-container">
+            <div style="text-align: center; color: var(--wm-text-dim);">
                 <p>&copy; 2026 服务器组装厂项目 | 商业计划书</p>
                 <p class="footer-note">本文档包含前瞻性陈述，实际结果可能与预测存在差异</p>
             </div>

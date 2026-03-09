@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="../玄金水墨主题.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新业务即将上线 - KeyTrader</title>
+    <link rel="stylesheet" href="../world-monitor-theme.css">
 </head>
-<body>
+<body class="no-transition">
     <!-- 顶部导航 -->
-    <nav class="top-nav">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="../index.html">← 返回首页</a>
-            <a href="../联系合作.html" style="color: var(--primary-gold);">联系合作 →</a>
+    <div class="wm-container">
+    <header class="wm-header">
+        <div class="wm-header-content">
+            <a href="../index.html" class="wm-btn">← 返回首页</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="main-container">
+    <main class="wm-main">
         <!-- Coming Soon 主区域 -->
-        <div class="coming-soon fade-in">
+        <div class="coming-soon">
             <div class="launch-icon">NEW</div>
             <h1>新业务即将上线</h1>
             <p class="subtitle">我们正在积极拓展更多业务领域，敬请期待</p>
@@ -28,7 +28,7 @@
         </div>
 
         <!-- 新增业务预告 -->
-        <section class="fade-in">
+        <section class="wm-panel">
             <h2 style="text-align: center; margin-bottom: 50px;">即将推出的新业务</h2>
             <div class="upcoming-grid">
                 <div class="upcoming-card">
@@ -37,11 +37,11 @@
                     <p>为超充站建设项目提供专业的融资解决方案和金融服务支持</p>
                 </div>
 
-                <a href="../超充设备厂/index.html" class="upcoming-card" style="text-decoration: none; border: 2px solid var(--primary-gold); transition: all 0.3s;">
+                <a href="../超充设备厂/index.html" class="upcoming-card" style="text-decoration: none; border: 2px solid var(--wm-info); transition: all 0.3s;">
                     <div class="upcoming-icon">FACTORY</div>
-                    <h3 style="color: var(--primary-gold);">超充设备厂（已上线）</h3>
+                    <h3 style="color: var(--wm-info);">超充设备厂（已上线）</h3>
                     <p>自主研发和生产液冷超充设备，打造完整的超充设备产业链</p>
-                    <div style="margin-top: 15px; color: var(--primary-gold); font-weight: bold;">查看详情 →</div>
+                    <div style="margin-top: 15px; color: var(--wm-info); font-weight: bold;">查看详情 →</div>
                 </a>
 
                 <div class="upcoming-card">
@@ -65,9 +65,9 @@
         </section>
 
         <!-- 订阅通知 -->
-        <section class="notify-section fade-in">
+        <section class="notify-section">
             <h2 style="text-align: center; margin-bottom: 20px;">订阅上线通知</h2>
-            <p style="text-align: center; color: var(--paper-beige); margin-bottom: 30px;">
+            <p style="text-align: center; color: var(--wm-text-secondary); margin-bottom: 30px;">
                 留下您的联系方式，新业务上线时我们会第一时间通知您
             </p>
             <form class="notify-form" onsubmit="event.preventDefault(); alert('感谢您的订阅！我们会第一时间通知您。');">
@@ -77,7 +77,7 @@
         </section>
 
         <!-- 现有业务引导 -->
-        <section class="fade-in" style="margin: 80px 0;">
+        <section style="margin: 80px 0;">
             <h2 style="text-align: center; margin-bottom: 40px;">现有核心业务</h2>
             <div class="business-segments" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
                 <a href="../超充项目网站/index.html" class="segment-card" style="opacity: 0.9;">
@@ -104,9 +104,9 @@
         </section>
 
         <!-- CTA 区域 -->
-        <section class="cta-section fade-in" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); padding: 60px 40px; border-radius: 20px; text-align: center; margin: 60px 0; border: 2px solid rgba(212, 175, 55, 0.3);">
+        <section class="cta-section" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%); padding: 60px 40px; border-radius: 20px; text-align: center; margin: 60px 0; border: 2px solid rgba(59, 130, 246, 0.3);">
             <h2>期待与您合作</h2>
-            <p style="font-size: 18px; margin: 30px 0; color: var(--paper-beige);">
+            <p style="font-size: 18px; margin: 30px 0; color: var(--wm-text-secondary);">
                 无论您是对新业务感兴趣，还是想了解现有业务合作机会，我们都欢迎您的联系
             </p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
@@ -116,7 +116,8 @@
         </section>
 
         <!-- 页脚信息 -->
-        <footer style="text-align: center; padding: 40px 0; color: var(--paper-beige); opacity: 0.7;">
+        </main>
+<footer style="text-align: center; padding: 40px 0; color: var(--wm-text-secondary); opacity: 0.7;">
             <p>© 2025 KeyTrader. All rights reserved.</p>
             <p style="font-size: 14px; margin-top: 10px;">
                 持续创新，拓展更多业务领域
@@ -125,8 +126,6 @@
     </div>
 
     <!-- 返回首页按钮 -->
-    <a href="../index.html" class="back-to-home">← 返回首页</a>
-
     <script>
         // 添加滚动动画
         const observerOptions = {
